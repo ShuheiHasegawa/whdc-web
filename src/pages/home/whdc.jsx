@@ -15,7 +15,7 @@ import DarkTheme from "../../layouts/Dark";
 import ParticlesBackground from "../../components/ParticlesBackground";
 import RippleEffect from "../../components/rippleEffect";
 import OpeningText from "../../components/OpeningText";
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 const Homepage1 = () => {
   const fixedSlider = React.useRef(null);
@@ -50,7 +50,6 @@ const Homepage1 = () => {
 
   return (
     <DarkTheme>
-      <SpeedInsights />
       <div style={{
         width: '100%',
         maxWidth: '100%',
@@ -185,6 +184,7 @@ const Homepage1 = () => {
         <CallToAction subBG />
         <Footer />
       </div>
+      <SpeedInsights />
     </DarkTheme>
   );
 };
