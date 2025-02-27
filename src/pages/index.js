@@ -1,6 +1,6 @@
 import DarkTheme from "../layouts/Dark";
 // import Demos from "./demos";
-import WHDC from "./home/whdc";
+import WHDC from "./whdc/index";
 
 export default function Home() {
   return (

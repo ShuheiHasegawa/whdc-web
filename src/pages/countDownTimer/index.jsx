@@ -110,7 +110,7 @@ const CountdownPage = () => {
 
       <div className="video-container">
         <video muted loop autoPlay>
-          <source src="/public/movies/earth.mp4" type="video/mp4" />
+          <source src="/public/movies/earth_dr.mp4" type="video/mp4" />
         </video>
       </div>
 
