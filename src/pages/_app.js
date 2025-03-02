@@ -4,8 +4,17 @@ import Script from "next/script";
 import Cursor from "../components/Cursor";
 import ScrollToTop from "../components/Scroll-to-top";
 import LoadingScreen from "../components/Loading-Screen";
-import "../styles/globals.css";
 import { GoogleAnalytics } from "nextjs-google-analytics";
+
+import "../styles/globals.css";
+import "../components/reactbits/ui/InfiniteMenu/InfiniteMenu.css";
+// import "../components/reactbits/backgrounds/Ballpit/Ballpit.css";
+import "../components/reactbits/text-animations/TrueFocus/TrueFocus.css";
+import "../components/reactbits/text-animations/ScrollVelocity/ScrollVelocity.css";
+import "../components/reactbits/ui/InfiniteScroll/InfiniteScroll.css";
+import "../components/reactbits/ui/SpotlightCard/SpotlightCard.css";
+import "../components/reactbits/backgrounds/Hyperspeed/Hyperspeed.css";
+import "../components/reactbits/backgrounds/Particles/Particles.css";
 
 function MyApp({ Component, pageProps }) {
   return (

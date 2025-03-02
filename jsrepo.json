@@ -1,0 +1,16 @@
+{
+	"$schema": "https://unpkg.com/jsrepo@1.41.2/schemas/project-config.json",
+	"repos": [
+		"https://reactbits.dev/default"
+	],
+	"includeTests": false,
+	"watermark": true,
+	"configFiles": {},
+	"paths": {
+		"*": "./src/blocks",
+		"Animations": "./src/components/reactbits/animations",
+		"Backgrounds": "./src/components/reactbits/backgrounds",
+		"Components": "./src/components/reactbits/ui",
+		"TextAnimations": "./src/components/reactbits/text-animations"
+	}
+}
