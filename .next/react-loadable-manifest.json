@@ -1,1 +1,14 @@
-{}
+{
+  "../components/reactbits/ui/InfiniteScroll/InfiniteScroll.jsx -> ./InfiniteScrollClient": {
+    "id": 8493,
+    "files": [
+      "static/chunks/8493.cda5fdb53bc53dc8.js"
+    ]
+  },
+  "whdc-kato/index.jsx -> splitting": {
+    "id": 8041,
+    "files": [
+      "static/chunks/8041.2fc90c6c57479d10.js"
+    ]
+  }
+}
