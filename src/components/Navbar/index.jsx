@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React from "react";
+import React, { useRef } from "react";
 import { Formik, Form, Field } from "formik";
 import Link from "next/link";
 import appData from "../../data/app.json";
@@ -10,6 +10,22 @@ import {
 } from "../../common/navbar";
 
 const Navbar = ({ lr, nr, theme }) => {
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      // オフセット位置を計算（ナビゲーションバーの高さを考慮）
+      const navHeight = nr.current ? nr.current.offsetHeight : 80;
+      const offsetPosition = section.offsetTop - navHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    } else {
+      console.error(`Element with id ${sectionId} not found`);
+    }
+  };
+
   React.useEffect(() => {
     handleSearch();
   }, []);
@@ -25,12 +41,27 @@ const Navbar = ({ lr, nr, theme }) => {
           <a className="logo">
             {theme ? (
               theme === "themeL" ? (
-                <img ref={lr} src={`${appData.darkLogo}`} alt="logo" style={{ width: '200px' }} />
+                <img
+                  ref={lr}
+                  src={`${appData.darkLogo}`}
+                  alt="logo"
+                  style={{ width: "200px" }}
+                />
               ) : (
-                <img ref={lr} src={`${appData.lightLogo}`} alt="logo" style={{ width: '200px' }} />
+                <img
+                  ref={lr}
+                  src={`${appData.lightLogo}`}
+                  alt="logo"
+                  style={{ width: "200px" }}
+                />
               )
             ) : (
-              <img ref={lr} src={`${appData.lightLogo}`} alt="logo" style={{ width: '200px' }} />
+              <img
+                ref={lr}
+                src={`${appData.lightLogo}`}
+                alt="logo"
+                style={{ width: "200px" }}
+              />
             )}
           </a>
         </Link>
@@ -52,7 +83,63 @@ const Navbar = ({ lr, nr, theme }) => {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ml-auto">
+            <li className="nav-item">
+              <a
+                className="nav-link"
+                onClick={() => scrollToSection("top-section")}
+                style={{ cursor: "pointer" }}
+              >
+                TOP
+              </a>
+            </li>
+            <li className="nav-item">
+              <a
+                className="nav-link"
+                onClick={() => scrollToSection("services-section")}
+                style={{ cursor: "pointer" }}
+              >
+                SERVICES
+              </a>
+            </li>
+            <li className="nav-item">
+              <a
+                className="nav-link"
+                onClick={() => scrollToSection("group-companies-section")}
+                style={{ cursor: "pointer" }}
+              >
+                GROUP
+              </a>
+            </li>
             <li className="nav-item dropdown" onClick={handleDropdown}>
+              <span
+                className="nav-link dropdown-toggle"
+                data-toggle="dropdown"
+                role="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                TEAMS
+              </span>
+              <div className="dropdown-menu">
+                <Link href="/whdc-kato/management_team">
+                  <a className="dropdown-item">Management Team</a>
+                </Link>
+                <Link href="/whdc-kato/governance_team">
+                  <a className="dropdown-item">Governance Team</a>
+                </Link>
+              </div>
+            </li>
+            <li className="nav-item">
+              <Link href="/about/about-dark">
+                <a className="nav-link">IR</a>
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link href="/about/about-dark">
+                <a className="nav-link">CONTACT</a>
+              </Link>
+            </li>
+            {/* <li className="nav-item dropdown" onClick={handleDropdown}>
               <span
                 className="nav-link dropdown-toggle"
                 data-toggle="dropdown"
@@ -143,7 +230,7 @@ const Navbar = ({ lr, nr, theme }) => {
               <Link href="/contact/contact-dark">
                 <a className="nav-link">Contact</a>
               </Link>
-            </li>
+            </li> */}
           </ul>
           <div className="search">
             <span className="icon pe-7s-search cursor-pointer"></span>

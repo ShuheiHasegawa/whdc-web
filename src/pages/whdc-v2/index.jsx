@@ -173,60 +173,60 @@ const WhdcV2 = () => {
       <div ref={MainContent} className="main-content">
         <div className="section-padding p-0">
           <div className="full-width-container height-50vh">
-                <InfiniteMenu
-                  items={[
-                    {
-                      image: "https://picsum.photos/900/900?grayscale",
-                      link: "https://google.com/",
-                      title: "WHDC1",
-                      description: "WHDC1",
-                    },
-                    {
-                      image: "https://picsum.photos/900/900?grayscale",
-                      link: "https://google.com/",
-                      title: "WHDC2",
-                      description: "WHDC2",
-                    },
-                    {
-                      image: "https://picsum.photos/900/900?grayscale",
-                      link: "https://google.com/",
-                      title: "WHDC3",
-                      description: "WHDC3",
-                    },
-                    {
-                      image: "https://picsum.photos/900/900?grayscale",
-                      link: "https://google.com/",
-                      title: "WHDC4",
-                      description: "WHDC4",
-                    },
-                    {
-                      image: "https://picsum.photos/900/900?grayscale",
-                      link: "https://google.com/",
-                      title: "WHDC5",
-                      description: "WHDC5",
-                    },
-                  ]}
-                  width="100%"
-                  height="600px"
-                  minHeight="400px"
-                />
+            <InfiniteMenu
+              items={[
+                {
+                  image: "https://picsum.photos/900/900?grayscale",
+                  link: "https://google.com/",
+                  title: "WHDC1",
+                  description: "WHDC1",
+                },
+                {
+                  image: "https://picsum.photos/900/900?grayscale",
+                  link: "https://google.com/",
+                  title: "WHDC2",
+                  description: "WHDC2",
+                },
+                {
+                  image: "https://picsum.photos/900/900?grayscale",
+                  link: "https://google.com/",
+                  title: "WHDC3",
+                  description: "WHDC3",
+                },
+                {
+                  image: "https://picsum.photos/900/900?grayscale",
+                  link: "https://google.com/",
+                  title: "WHDC4",
+                  description: "WHDC4",
+                },
+                {
+                  image: "https://picsum.photos/900/900?grayscale",
+                  link: "https://google.com/",
+                  title: "WHDC5",
+                  description: "WHDC5",
+                },
+              ]}
+              width="100%"
+              height="600px"
+              minHeight="400px"
+            />
           </div>
         </div>
 
         <div className="section-padding p-0">
           <div className="full-width-container height-50vh">
-            <Hyperspeed 
+            <Hyperspeed
               speed={2}
               density={1.5}
               starColor="#00ffff"
               backgroundColor="#000033"
-              style={{ 
+              style={{
                 position: "absolute",
                 top: 0,
                 left: 0,
                 width: "100%",
                 height: "100%",
-                zIndex: 0 
+                zIndex: 0,
               }}
             />
           </div>
@@ -262,29 +262,29 @@ const WhdcV2 = () => {
 
         <div className="section-padding p-0">
           <div className="full-width-container height-50vh">
-                  <InfiniteScroll
-                    items={infiniteScrollItems}
-                    isTilted={true}
-                    tiltDirection="left"
-                    autoplay={true}
-                    autoplaySpeed={0.1}
-                    autoplayDirection="down"
-                    pauseOnHover={true}
-                  />
+            <InfiniteScroll
+              items={infiniteScrollItems}
+              isTilted={true}
+              tiltDirection="left"
+              autoplay={true}
+              autoplaySpeed={0.1}
+              autoplayDirection="down"
+              pauseOnHover={true}
+            />
           </div>
         </div>
 
         <div className="section-padding p-0">
           <div className="full-width-container height-50vh">
-                <RbLetterGlitch
-                  text="THE WHY HOW DO COMPANY"
-                  glitchColors={["#2b4539", "#61dca3", "#61b3dc"]}
-                  glitchSpeed={50}
-                  centerVignette={false}
-                  outerVignette={true}
-                  smooth={true}
-                  height="500px" // 任意の高さを指定
-                />
+            <RbLetterGlitch
+              text="THE WHY HOW DO COMPANY"
+              glitchColors={["#2b4539", "#61dca3", "#61b3dc"]}
+              glitchSpeed={50}
+              centerVignette={false}
+              outerVignette={true}
+              smooth={true}
+              height="500px" // 任意の高さを指定
+            />
           </div>
         </div>
 
@@ -372,17 +372,19 @@ const WhdcV2 = () => {
                   >
                     <h5 className="custom-font">WHDCアクロディア</h5>
                     <img
-                      src="/img/wdhc/group/acrodea_banner.png"
+                      src="/img/whdc/group/acrodea_banner.png"
                       alt="WHDCアクロディア"
                       className="pt-2 pb-2"
                     />
                     <p>IoT、GAME、その他</p>
                     <div className="text-right">
-                    <Link
-                      href="/group/acrodea"
-                      className="btn-curve btn-bord btn-lit mt-40"
-                    >
-                        <button className="view-details-button">詳細を見る</button>
+                      <Link
+                        href="/group/acrodea"
+                        className="btn-curve btn-bord btn-lit mt-40"
+                      >
+                        <button className="view-details-button">
+                          詳細を見る
+                        </button>
                       </Link>
                     </div>
                   </SpotlightCard>
@@ -399,18 +401,20 @@ const WhdcV2 = () => {
                   >
                     <h5 className="custom-font">インタープラン</h5>
                     <img
-                      src="/img/wdhc/group/school_banner.png"
+                      src="/img/whdc/group/school_banner.png"
                       alt="インタープラン"
                       className="pt-2 pb-2"
                     />
                     <p>求職者支援訓練、企業研修、セミナー事業</p>
                     <div className="text-right">
-                    <Link
-                      href="/group/interplan"
-                      className="btn-curve btn-bord btn-lit mt-40"
-                    >
-                      <button className="view-details-button">詳細を見る</button>
-                    </Link>
+                      <Link
+                        href="/group/interplan"
+                        className="btn-curve btn-bord btn-lit mt-40"
+                      >
+                        <button className="view-details-button">
+                          詳細を見る
+                        </button>
+                      </Link>
                     </div>
                   </SpotlightCard>
                 </div>
@@ -428,18 +432,20 @@ const WhdcV2 = () => {
                       宇部整環リサイクルセンター
                     </h5>
                     <img
-                      src="/img/wdhc/group/usr_banner.png"
+                      src="/img/whdc/group/usr_banner.png"
                       alt="宇部整環リサイクルセンター"
                       className="pt-2 pb-2"
                     />
                     <p>最先端の産業廃棄物処理</p>
                     <div className="text-right">
-                    <Link
-                      href="/group/ube"
-                      className="btn-curve btn-bord btn-lit mt-40"
-                    >
-                      <button className="view-details-button">詳細を見る</button>
-                    </Link>
+                      <Link
+                        href="/group/ube"
+                        className="btn-curve btn-bord btn-lit mt-40"
+                      >
+                        <button className="view-details-button">
+                          詳細を見る
+                        </button>
+                      </Link>
                     </div>
                   </SpotlightCard>
                 </div>
@@ -455,18 +461,20 @@ const WhdcV2 = () => {
                   >
                     <h5 className="custom-font">WHDCエンタテインメント</h5>
                     <img
-                      src="/img/wdhc/group/bingo_banner.png"
+                      src="/img/whdc/group/bingo_banner.png"
                       alt="WHDCエンタテインメント"
                       className="pt-2 pb-2"
                     />
                     <p>ビンゴ向けシステムの提供</p>
                     <div className="text-right">
-                    <Link
-                      href="/group/entertainment"
-                      className="btn-curve btn-bord btn-lit mt-40"
-                    >
-                      <button className="view-details-button">詳細を見る</button>
-                    </Link>
+                      <Link
+                        href="/group/entertainment"
+                        className="btn-curve btn-bord btn-lit mt-40"
+                      >
+                        <button className="view-details-button">
+                          詳細を見る
+                        </button>
+                      </Link>
                     </div>
                   </SpotlightCard>
                 </div>
@@ -482,18 +490,20 @@ const WhdcV2 = () => {
                   >
                     <h5 className="custom-font">渋谷肉横丁</h5>
                     <img
-                      src="/img/wdhc/group/nikuyoko_banner.png"
+                      src="/img/whdc/group/nikuyoko_banner.png"
                       alt="渋谷肉横丁"
                       className="pt-2 pb-2"
                     />
                     <p>商標権管理、不動産サブリース、飲食事業</p>
                     <div className="text-right">
-                    <Link
-                      href="/group/shibuya"
-                      className="btn-curve btn-bord btn-lit mt-40"
-                    >
-                      <button className="view-details-button">詳細を見る</button>
-                    </Link>
+                      <Link
+                        href="/group/shibuya"
+                        className="btn-curve btn-bord btn-lit mt-40"
+                      >
+                        <button className="view-details-button">
+                          詳細を見る
+                        </button>
+                      </Link>
                     </div>
                   </SpotlightCard>
                 </div>
@@ -577,12 +587,14 @@ const WhdcV2 = () => {
                   </h5>
                   <p>THE WHY HOW DO COMPANYの概要、沿革などについてご紹介</p>
                   <div className="text-right">
-                  <Link
-                    href="/company/about"
-                    className="btn-curve btn-bord btn-lit mt-40"
-                  >
-                    <button className="view-details-button">詳細を見る</button>
-                  </Link>
+                    <Link
+                      href="/company/about"
+                      className="btn-curve btn-bord btn-lit mt-40"
+                    >
+                      <button className="view-details-button">
+                        詳細を見る
+                      </button>
+                    </Link>
                   </div>
                 </SpotlightCard>
               </div>
@@ -596,11 +608,13 @@ const WhdcV2 = () => {
                   </h5>
                   <p>コンプライアンスについて(顧問弁護士 田邊勝己弁護士)</p>
                   <div className="text-right">
-                  <Link
-                    href="/company/compliance"
-                    className="btn-curve btn-bord btn-lit mt-40"
-                  >
-                      <button className="view-details-button">詳細を見る</button>
+                    <Link
+                      href="/company/compliance"
+                      className="btn-curve btn-bord btn-lit mt-40"
+                    >
+                      <button className="view-details-button">
+                        詳細を見る
+                      </button>
                     </Link>
                   </div>
                 </SpotlightCard>
@@ -615,8 +629,13 @@ const WhdcV2 = () => {
                   </h5>
                   <p>経営方針、IR情報、株式情報などについてご紹介</p>
                   <div className="text-right">
-                  <Link href="/ir" className="btn-curve btn-bord btn-lit mt-40">
-                      <button className="view-details-button">詳細を見る</button>
+                    <Link
+                      href="/ir"
+                      className="btn-curve btn-bord btn-lit mt-40"
+                    >
+                      <button className="view-details-button">
+                        詳細を見る
+                      </button>
                     </Link>
                   </div>
                 </SpotlightCard>

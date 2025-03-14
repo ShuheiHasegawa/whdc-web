@@ -33,12 +33,15 @@ const Works1Slider = () => {
                 }}
                 onSwiper={(swiper) => {
                   setTimeout(() => {
-                    swiper.params.navigation.prevEl = navigationPrevRef.current;
-                    swiper.params.navigation.nextEl = navigationNextRef.current;
-
-                    swiper.navigation.destroy();
-                    swiper.navigation.init();
-                    swiper.navigation.update();
+                    if (swiper && swiper.params && swiper.params.navigation) {
+                      swiper.params.navigation.prevEl = navigationPrevRef.current;
+                      swiper.params.navigation.nextEl = navigationNextRef.current;
+                    }
+                    if (swiper && swiper.navigation) {
+                      swiper.navigation.destroy();
+                      swiper.navigation.init();
+                      swiper.navigation.update();
+                    }
                   });
                 }}
                 autoplay={{

@@ -5,9 +5,9 @@ import teamSkillsProgress from "../../common/teamSkillsProgress";
 
 const TeamWithSkills = () => {
   React.useEffect(() => {
-    tooltipEffect()
-    teamSkillsProgress()
-  }, [])
+    tooltipEffect();
+    teamSkillsProgress();
+  }, []);
   return (
     <div className="team-crv section-padding">
       <div className="container">
@@ -53,14 +53,22 @@ const TeamWithSkills = () => {
                       data-tooltip-tit="Stephanie Lawrence"
                       data-tooltip-sub="CEO, Colabrio Media"
                     >
-                      <img src="/img/team/1.jpg" alt="" className="imago wow" />
+                      <img
+                        src="/img/whdc/team/1.jpg"
+                        alt=""
+                        className="imago wow"
+                      />
                     </div>
                     <div
                       className="img sizmd"
                       data-tooltip-tit="Alex Regelman"
                       data-tooltip-sub="Co-Founder, Colabrio Media"
                     >
-                      <img src="/img/team/2.jpg" alt="" className="imago wow" />
+                      <img
+                        src="/img/whdc/team/2.jpg"
+                        alt=""
+                        className="imago wow"
+                      />
                     </div>
                   </div>
                 </div>
@@ -71,14 +79,22 @@ const TeamWithSkills = () => {
                       data-tooltip-tit="Stacey Stamper"
                       data-tooltip-sub="Network Partner, Colabrio Media"
                     >
-                      <img src="/img/team/3.jpg" alt="" className="imago wow" />
+                      <img
+                        src="/img/whdc/team/3.jpg"
+                        alt=""
+                        className="imago wow"
+                      />
                     </div>
                     <div
                       className="img sizsm"
                       data-tooltip-tit="Stephanie Lawrence"
                       data-tooltip-sub="CEO, Colabrio Media"
                     >
-                      <img src="/img/team/4.jpg" alt="" className="imago wow" />
+                      <img
+                        src="/img/whdc/team/4.jpg"
+                        alt=""
+                        className="imago wow"
+                      />
                     </div>
                   </div>
                 </div>
@@ -91,4 +107,4 @@ const TeamWithSkills = () => {
   );
 };
 
-export default TeamWithSkills
+export default TeamWithSkills;

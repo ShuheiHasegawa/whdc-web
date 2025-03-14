@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Services1 = () => {
   return (
-    <section className="services">
+    <section id="services-section" className="services">
       <div className="container">
         <div className="sec-head custom-font text-center">
           <h6 className="wow fadeIn" data-wow-delay=".5s">
