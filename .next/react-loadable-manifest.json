@@ -1,14 +1,14 @@
 {
-  "../components/reactbits/ui/InfiniteScroll/InfiniteScroll.jsx -> ./InfiniteScrollClient": {
-    "id": 8493,
+  "../layouts/Dark.jsx -> bootstrap/dist/js/bootstrap.bundle.min.js": {
+    "id": "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
     "files": [
-      "static/chunks/8493.cda5fdb53bc53dc8.js"
+      "static/chunks/node_modules_bootstrap_dist_js_bootstrap_bundle_min_js.js"
     ]
   },
-  "whdc-kato/index.jsx -> splitting": {
-    "id": 8041,
+  "../layouts/Dark.jsx -> jquery": {
+    "id": "./node_modules/jquery/dist/jquery.js",
     "files": [
-      "static/chunks/8041.2fc90c6c57479d10.js"
+      "static/chunks/node_modules_jquery_dist_jquery_js.js"
     ]
   }
 }
