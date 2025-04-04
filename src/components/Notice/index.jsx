@@ -5,13 +5,15 @@ import Link from "next/link";
 const Notice = () => {
   return (
     <section className="intro-section section-padding pb-0">
-      <Image
-        src="/img/firstview_top_2022_768.png"
-        alt="firstview top"
-        width={768}
-        height={400}
-        layout="responsive"
-      />
+      <div className="image-header-wrapper" style={{ position: 'relative', width: '100%', height: '300px' }}>
+        <Image
+          src="/img/firstview_top_2022_768.png"
+          alt="firstview top"
+          layout="fill"
+          objectFit="cover"
+          priority
+        />
+      </div>
 
       <p className="topics">
         <span className="text-2xl text-white font-bold">ご利用にあたって</span>
@@ -27,7 +29,7 @@ const Notice = () => {
           </p>
 
           <div className="owBox">
-            <h2 className="borderHighBlue text-2xl text-blue left">免責事項</h2>
+            <h2 className="border-primary text-2xl pt-16">免責事項</h2>
             <ul>
               <li className="text-base left normal">
                 当ウェブサイトのご利用は、お客様ご自身の責任において行われるものとします。当ウェブサイト上に掲載されている各種情報については、慎重に作成、管理いたしますが、これらの情報の正確性、有用性、完全性をTHE
@@ -53,7 +55,7 @@ const Notice = () => {
           </div>
 
           <div className="owBox">
-            <h2 className="borderHighBlue text-2xl text-blue left">
+            <h2 className="border-primary text-2xl pt-16">
               著作権・商標権
             </h2>
             <ul>
@@ -78,7 +80,7 @@ const Notice = () => {
           </div>
 
           <div className="owBox">
-            <h2 className="borderHighBlue text-2xl text-blue left">
+            <h2 className="border-primary text-2xl pt-16">
               当ウェブサイトへのリンクについて
             </h2>
             <p className="text-base black center">
@@ -119,7 +121,7 @@ const Notice = () => {
           </div>
 
           <div className="owBox">
-            <h2 className="borderHighBlue text-2xl text-blue left">
+            <h2 className="border-primary text-2xl pt-16">
               JavaScriptについて
             </h2>
             <p className="text-base black">
@@ -128,7 +130,7 @@ const Notice = () => {
           </div>
 
           <div className="owBox">
-            <h2 className="borderHighBlue text-2xl text-blue left">
+            <h2 className="border-primary text-2xl pt-16">
               プラグインについて
             </h2>
             <p className="text-base black">
@@ -146,12 +148,6 @@ const Notice = () => {
           background: rgba(0, 0, 0, 0.8);
         }
 
-        .borderHighBlue {
-          border-bottom: 2px solid #0066cc;
-          padding-bottom: 0.5rem;
-          margin-bottom: 1rem;
-        }
-
         ul {
           list-style: none;
           padding: 0;
@@ -162,7 +158,6 @@ const Notice = () => {
         }
 
         a {
-          color: #0066cc;
           text-decoration: none;
         }
 

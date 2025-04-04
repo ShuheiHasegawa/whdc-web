@@ -4,8 +4,10 @@ import { Formik, Form, Field } from "formik";
 import Link from "next/link";
 import appData from "../../data/app.json";
 import { handleDropdown, handleMobileDropdown } from "../../common/navbar";
+import { useRouter } from "next/router";
 
 const Navbar = ({ lr, nr, theme }) => {
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
 
   const scrollToSection = (sectionId) => {
@@ -20,18 +22,15 @@ const Navbar = ({ lr, nr, theme }) => {
         behavior: "smooth",
       });
     } else {
-      console.error(`Element with id ${sectionId} not found`);
+      router.push("/");
     }
   };
 
   const handleMobileDropdown = () => {
-    console.log("ハンバーガーメニューがクリックされました");
-
     // 状態はボタンのonClickで切り替えているため、ここでは切り替えない
     // setIsOpen(!isOpen);
 
     const navbarElement = document.querySelector(".navbar-collapse");
-    console.log("ナビゲーション要素:", navbarElement);
 
     if (navbarElement) {
       navbarElement.classList.toggle("show-with-trans");
@@ -41,12 +40,6 @@ const Navbar = ({ lr, nr, theme }) => {
 
   useEffect(() => {
     // コンポーネントがマウントされたときに実行
-    console.log("Navbarコンポーネントがマウントされました");
-    console.log(
-      "ナビゲーション要素の存在を確認:",
-      !!document.querySelector(".navbar-collapse")
-    );
-
     const handleClickOutside = (event) => {
       const navbar = document.getElementById("navbarSupportedContent");
       if (
@@ -117,7 +110,6 @@ const Navbar = ({ lr, nr, theme }) => {
           type="button"
           onClick={(e) => {
             e.preventDefault();
-            console.log("ボタンがクリックされました");
             setIsOpen(!isOpen); // 状態を切り替え
             handleMobileDropdown();
           }}
@@ -181,21 +173,21 @@ const Navbar = ({ lr, nr, theme }) => {
                 TEAMS
               </span>
               <div className="dropdown-menu">
-                <Link href="/whdc-kato/management_team">
+                <Link href="/company/management_team">
                   <a className="dropdown-item">Management Team</a>
                 </Link>
-                <Link href="/whdc-kato/governance_team">
+                <Link href="/company/governance_team">
                   <a className="dropdown-item">Governance Team</a>
                 </Link>
               </div>
             </li>
             <li className="nav-item">
-              <Link href="/about/about-dark">
+              <Link href="/ir">
                 <a className="nav-link">IR</a>
               </Link>
             </li>
             <li className="nav-item">
-              <Link href="/about/about-dark">
+              <Link href="/contact">
                 <a className="nav-link">CONTACT</a>
               </Link>
             </li>

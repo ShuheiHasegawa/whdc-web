@@ -11,6 +11,8 @@ const ManagementTeam = () => {
   // const changeLanguage = (lng) => {
   //   i18n.changeLanguage(lng);
   // };
+  // changeLanguage("ja");
+
 
   const MainContent = React.useRef(null);
   const navbarRef = useRef(null);
@@ -69,20 +71,6 @@ const ManagementTeam = () => {
       </Head>
       <Navbar nr={navbarRef} lr={logoRef} />
       <div className="video-header-wrapper">
-        <style jsx global>{`
-          .video-header-wrapper {
-            position: relative;
-            width: 100%;
-            height: clamp(100px, 24vh, 240px);
-            overflow: hidden;
-          }
-
-          @media screen and (max-width: 767px) {
-            .video-header-wrapper {
-              height: clamp(100px, 16vh, 180px) !important;
-            }
-          }
-        `}</style>
         <div
           className="video-background"
           style={{ position: "relative", height: "100%" }}
@@ -138,7 +126,7 @@ const ManagementTeam = () => {
       <div ref={MainContent} className="main-content">
         <div className="container">
           <div className="pt-24 pb-12">
-            <h2
+            {/* <h2
               style={{
                 color: "#fff",
                 fontSize: "clamp(1.25rem, 4vw, 2rem)",
@@ -152,6 +140,9 @@ const ManagementTeam = () => {
                 letterSpacing: "0.02em",
               }}
             >
+              Top Management Team
+            </h2> */}
+            <h2 className="border-primary text-2xl">
               Top Management Team
             </h2>
           </div>

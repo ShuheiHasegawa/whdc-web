@@ -74,7 +74,7 @@ const AccessMap = () => {
         <aside id="buttonSet">
           <button
             id="printStart"
-            className="bgHighBlue white fontSize26"
+            className="bg-primary white fontSize26"
             onClick={handlePrint}
           >
             印刷する
@@ -102,10 +102,6 @@ const AccessMap = () => {
 
         .fontSize20 li {
           margin-bottom: 1rem;
-        }
-
-        .bgHighBlue {
-          background-color: #0066cc;
         }
 
         .white {

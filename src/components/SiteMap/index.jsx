@@ -7,6 +7,7 @@ const SiteMap = () => {
       <style jsx>{`
         .sitemap-section {
           padding: 40px 0;
+          padding-bottom: 0;
         }
 
         .siteMapFlex {
@@ -49,7 +50,7 @@ const SiteMap = () => {
             <a className="custom-link">お問い合わせ</a>
           </Link>
         </li>
-        <li>
+        {/* <li>
           <a
             href="https://www.twhdc.co.jp/media/"
             className="custom-link"
@@ -58,12 +59,12 @@ const SiteMap = () => {
           >
             Choice For Life
           </a>
-        </li>
-        <li>
+        </li> */}
+        {/* <li>
           <Link href="/english">
             <a className="custom-link">English</a>
           </Link>
-        </li>
+        </li> */}
       </ul>
     </div>
   );

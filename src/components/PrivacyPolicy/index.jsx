@@ -23,7 +23,7 @@ const PrivacyPolicy = () => {
         <div className="otherWise">
           <div className="owBox">
             <section id="item1">
-              <h2 className="borderHighBlue text-2xl text-blue left">
+              <h2 className="border-primary text-2xl text-blue left">
                 個人情報保護方針
               </h2>
               <ul>
@@ -51,7 +51,7 @@ const PrivacyPolicy = () => {
             </section>
 
             <section id="item2">
-              <h2 className="borderHighBlue text-2xl text-blue left pt-32">
+              <h2 className="border-primary text-2xl text-blue left pt-32">
                 当個人情報保護方針に関するお問い合わせ
               </h2>
               <ul>
@@ -92,7 +92,7 @@ const PrivacyPolicy = () => {
             </section>
 
             <section id="item3">
-              <h2 className="borderHighBlue text-2xl text-blue left pt-32">
+              <h2 className="border-primary text-2xl text-blue left pt-32">
                 当社が取扱う個人情報について
               </h2>
               <ul>
@@ -124,12 +124,6 @@ const PrivacyPolicy = () => {
           .owBox {
             padding: 2rem;
             margin-bottom: 2rem;
-          }
-
-          .borderHighBlue {
-            border-bottom: 2px solid #0066cc;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1rem;
           }
 
           ul {

@@ -18,7 +18,9 @@ const About = () => {
   return (
     <section className="intro-section section-padding pb-0">
       <div className="about-container">
-        <h1 className="main-title">30秒で分かるワイハウ</h1>
+            <h2 className="border-primary text-2xl text-blue left">
+              30秒で分かるワイハウ
+            </h2>
 
         <div className="image-container">
           <Image
@@ -32,11 +34,11 @@ const About = () => {
         </div>
 
         <div className="content-container">
-          <h2 className="features-title">ワイハウの１０の特徴</h2>
+          <h3 className="features-title text-2xl">ワイハウの１０の特徴</h3>
           <div className="features-grid">
             {features.map((feature, index) => (
               <div key={index} className="feature-item">
-                <span className="feature-number">{index + 1}</span>
+                <span className="feature-number bg-primary">{index + 1}</span>
                 <p className="feature-text">{feature}</p>
               </div>
             ))}
@@ -50,12 +52,6 @@ const About = () => {
             padding: 2rem 1rem;
           }
 
-          .main-title {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 2rem;
-          }
-
           .image-container {
             margin: 2rem 0;
             border-radius: 8px;
@@ -67,9 +63,7 @@ const About = () => {
           }
 
           .features-title {
-            font-size: 2rem;
             text-align: center;
-            margin-bottom: 2rem;
           }
 
           .features-grid {
@@ -94,7 +88,6 @@ const About = () => {
           }
 
           .feature-number {
-            background: #0066cc;
             color: white;
             width: 30px;
             height: 30px;

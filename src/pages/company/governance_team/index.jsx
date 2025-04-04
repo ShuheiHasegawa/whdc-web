@@ -314,20 +314,6 @@ const GovernanceTeam = () => {
       <Navbar nr={navbarRef} lr={logoRef} />
 
       <div className="video-header-wrapper">
-        <style jsx global>{`
-          .video-header-wrapper {
-            position: relative;
-            width: 100%;
-            height: clamp(100px, 24vh, 240px);
-            overflow: hidden;
-          }
-
-          @media screen and (max-width: 767px) {
-            .video-header-wrapper {
-              height: clamp(100px, 16vh, 180px) !important;
-            }
-          }
-        `}</style>
         <div
           className="video-header-background"
           style={{ position: "relative", height: "100%" }}
@@ -380,7 +366,7 @@ const GovernanceTeam = () => {
       <div className="main-content pt-16 m-0">
         <div className="container">
           <div className="pt-8 pb-8">
-            <h2
+            {/* <h2
               style={{
                 color: "#fff",
                 fontSize: "clamp(1.25rem, 4vw, 2rem)",
@@ -394,6 +380,9 @@ const GovernanceTeam = () => {
                 letterSpacing: "0.02em",
               }}
             >
+              Governance Committee
+            </h2> */}
+            <h2 className="border-primary text-2xl">
               Governance Committee
             </h2>
           </div>
@@ -410,7 +399,7 @@ const GovernanceTeam = () => {
                       className="card-header"
                       onClick={() => toggleOfficerAccordion(index)}
                       style={{
-                        background: "rgba(27, 170, 128, 0.1)",
+                        background: "rgba(40, 45, 91, 0.3)",
                         border: "none",
                         borderRadius: "5px",
                         padding: "12px 20px",
@@ -522,7 +511,7 @@ const GovernanceTeam = () => {
                     >
                       <div
                         className="card-body"
-                        style={{ background: "rgba(27, 170, 128, 0.05)" }}
+                        style={{ background: "rgba(40, 45, 91, 0.3)" }}
                       >
                         <div className="col-md-12">
                           {officer.history.map((item, hIndex) => (
@@ -536,7 +525,6 @@ const GovernanceTeam = () => {
                               <div className="offset-md-3 col-md-2">
                                 <span
                                   style={{
-                                    color: "#1baa80",
                                     fontWeight: "500",
                                     display: "block",
                                   }}
@@ -561,7 +549,7 @@ const GovernanceTeam = () => {
           </div>
 
           <div className="pt-16 pb-8">
-            <h2
+            {/* <h2
               style={{
                 color: "#fff",
                 fontSize: "clamp(1.25rem, 4vw, 2rem)",
@@ -573,6 +561,9 @@ const GovernanceTeam = () => {
                 width: "100%",
               }}
             >
+              Compliance Committee
+            </h2> */}
+            <h2 className="border-primary text-2xl">
               Compliance Committee
             </h2>
           </div>
@@ -589,7 +580,7 @@ const GovernanceTeam = () => {
                       className="card-header"
                       onClick={() => toggleComplianceAccordion(index)}
                       style={{
-                        background: "rgba(27, 170, 128, 0.1)",
+                        background: "rgba(40, 45, 91, 0.3)",
                         border: "none",
                         borderRadius: "5px",
                         padding: "12px 20px",
@@ -602,12 +593,12 @@ const GovernanceTeam = () => {
                       }}
                       onMouseEnter={(e) => {
                         e.currentTarget.style.background =
-                          "rgba(27, 170, 128, 0.15)";
+                          "rgba(40, 45, 91, 0.3)";
                         e.currentTarget.style.transform = "translateX(8px)";
                       }}
                       onMouseLeave={(e) => {
                         e.currentTarget.style.background =
-                          "rgba(27, 170, 128, 0.1)";
+                          "rgba(40, 45, 91, 0.3)";
                         e.currentTarget.style.transform = "translateX(0)";
                       }}
                     >
@@ -707,7 +698,7 @@ const GovernanceTeam = () => {
                       <div
                         className="card-body"
                         style={{
-                          background: "rgba(27, 170, 128, 0.05)",
+                          background: "rgba(40, 45, 91, 0.3)",
                         }}
                       >
                         <div className="col-md-12">
@@ -724,7 +715,6 @@ const GovernanceTeam = () => {
                                 <span
                                   style={{
                                     minWidth: "100px",
-                                    color: "#1baa80",
                                     fontWeight: "500",
                                   }}
                                 >

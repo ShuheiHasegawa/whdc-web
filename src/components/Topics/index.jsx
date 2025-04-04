@@ -95,6 +95,26 @@ const Topics = () => {
             </a>
           </div>
         </div>
+        <div className="row justify-content-center pt-4">
+          <div className="col-lg-4">
+
+        {/* #TODO: 新着情報 */}
+       	<p className="topics topNews">
+       		<span className="fontSize26 white normal">新着情報</span>
+       	</p>
+       	{/* <!-- ================================= E-IRによる情報の自動出力に必要な部分 ========================== --> */}
+       	<div id="news">
+       		<div id="divDataArea"></div>
+       		<script type="text/javascript" src="/js/topics/announcement_top.js" charset="utf-8"></script>
+       		<script type="text/javascript" src="/js/topics/error.js" charset="utf-8"></script>
+       	</div>
+       	{/* <!-- ================================= E-IRによる情報の自動出力に必要な部分 ========================== --> */}
+       	<a href="ir/news/index.html" class="center bgWhite smallButtonCenter buttonW240 shadow deepBlue fontSize24" id="irNewsLink">
+       		<p>ニュース一覧</p>
+       	</a>
+
+          </div>
+        </div>
       </div>
     </section>
   );

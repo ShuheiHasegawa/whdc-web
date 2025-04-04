@@ -63,7 +63,7 @@ const IntroVideo = ({ sliderRef }) => {
           <IntroText />
         </div>
 
-        <div
+        {/* <div
           className="social-icon"
           style={{
             position: "relative",
@@ -82,7 +82,7 @@ const IntroVideo = ({ sliderRef }) => {
           <a href="#0">
             <i className="fab fa-pinterest-p"></i>
           </a>
-        </div>
+        </div> */}
       </div>
     </header>
   );

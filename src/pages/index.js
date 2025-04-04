@@ -1,11 +1,10 @@
 import DarkTheme from "../layouts/Dark";
-// import Demos from "./demos";
-import WHDC from "./whdc/index";
+import Top from "./top/index";
 
 export default function Home() {
   return (
     <DarkTheme>
-      <WHDC />
+      <Top />
     </DarkTheme>
   );
 }
