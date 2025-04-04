@@ -1,0 +1,16 @@
+{
+  "management_team": {
+    "iwao": {
+      "name": "岩尾 俊兵",
+      "position": "CEO/COO"
+    },
+    "itou": {
+      "name": "伊藤 剛志",
+      "position": "CTO/CSO"
+    },
+    "hashimoto": {
+      "name": "橋本 直樹",
+      "position": "CFO/CHRO"
+    }
+  }
+}

@@ -6,6 +6,9 @@ import ScrollToTop from "../components/Scroll-to-top";
 import LoadingScreen from "../components/Loading-Screen";
 import { GoogleAnalytics } from "nextjs-google-analytics";
 
+// i18nの初期化を読み込む
+import "../i18n";
+
 import "../styles/globals.css";
 import "../styles/font.css";
 import "../styles/spacing.css";

@@ -1,0 +1,16 @@
+{
+  "management_team": {
+    "iwao": {
+      "name": "Shunpei Iwao",
+      "position": "CEO/COO"
+    },
+    "itou": {
+      "name": "Tsuyoshi Ito",
+      "position": "CTO/CSO"
+    },
+    "hashimoto": {
+      "name": "Naoki Hashimoto",
+      "position": "CFO/CHRO"
+    }
+  }
+}
