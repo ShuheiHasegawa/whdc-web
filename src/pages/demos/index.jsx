@@ -82,15 +82,15 @@ const Demos = () => {
             padding: 0 40px;
           }
 
-          .masonery .item-img .tag{
-              position: absolute;
-              top: 15px;
-              right: 15px;
-              padding: 8px 20px;
-              border-radius: 5px;
-              background: #ff0036;
-              color: #fff;
-              font-size: 13px;
+          .masonery .item-img .tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 8px 20px;
+            border-radius: 5px;
+            background: #ff0036;
+            color: #fff;
+            font-size: 13px;
           }
 
           .masonery .item-img .tlinks a {
@@ -580,8 +580,7 @@ const Demos = () => {
           <div className="container">
             <div className="copyrights text-center mt-0">
               <p>
-                © 2022, Avo Template. Made with passion by
-                <a href="#0">ThemesCamp</a>.
+                Copyright (C) THE WHY HOW DO COMPANY, Inc. All Rights Reserved.
               </p>
             </div>
           </div>

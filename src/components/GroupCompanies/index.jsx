@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useEffect, useRef } from "react";
 import Split from "../Split";
 import { Network } from "vis-network";
@@ -82,6 +83,24 @@ const GroupCompanies = () => {
         heightConstraint: { minimum: 70, maximum: 70 },
         url: "https://www.dreamplanet.co.jp/capsule/",
       },
+      {
+        id: 9,
+        label: "Pavilions",
+        image: "/img/logo/whdc_group_logo/pavilions.png",
+        shape: "image",
+        widthConstraint: { minimum: 120, maximum: 120 },
+        heightConstraint: { minimum: 70, maximum: 70 },
+        url: "https://x.com/tetsuyakomurotk",
+      },
+      {
+        id: 10,
+        label: "SOUND PORT",
+        image: "/img/logo/whdc_group_logo/soundport.png",
+        shape: "image",
+        widthConstraint: { minimum: 120, maximum: 120 },
+        heightConstraint: { minimum: 70, maximum: 70 },
+        url: "https://x.com/tetsuyakomurotk",
+      },
     ]);
 
     // エッジの定義
@@ -93,6 +112,8 @@ const GroupCompanies = () => {
       { from: 1, to: 6, length: 200, physics: true },
       { from: 1, to: 7, length: 200, physics: true },
       { from: 1, to: 8, length: 200, physics: true },
+      { from: 1, to: 9, length: 200, physics: true },
+      { from: 1, to: 10, length: 200, physics: true },
     ]);
 
     // ネットワークの設定
@@ -116,7 +137,7 @@ const GroupCompanies = () => {
         font: {
           color: "#ffffff",
           size: 16,
-          face: "Arial",
+          face: "Noto Sans JP",
           strokeWidth: 2,
           strokeColor: "#000000",
         },
@@ -248,7 +269,7 @@ const GroupCompanies = () => {
       <div className="container">
         <div className="sec-head custom-font text-center">
           <Split>
-            <h3 className="wow words chars splitting" data-splitting>
+            <h3 className="wow words chars splitting text-white" data-splitting>
               GROUP COMPANIES
             </h3>
           </Split>
@@ -268,7 +289,6 @@ const GroupCompanies = () => {
                 background: "#0C0C0C",
                 border: "1px solid rgba(255, 255, 255, 0.1)",
                 borderRadius: "10px",
-                padding: "20px 20px 60px 20px",
               }}
             />
           </div>

@@ -48,7 +48,7 @@
 ---------------------------------------------------------------- */
 /* ====================== [ Start Typography  ] ====================== */
 
-@import "/css/bootstrap.min.css";
+/* @import "/css/bootstrap.min.css"; */
 @import "/css/animate.css";
 @import "/css/font-awesome.min.css";
 @import "/css/ionicons.min.css";
@@ -63,7 +63,7 @@
   list-style: none; }
 
 body {
-  color: #fff;
+  color: #fff !important;
   background: #0c0f16;
   line-height: 1.5;
   font-weight: 400;
@@ -248,10 +248,10 @@ a, span {
 					 text color
 -------------------------------------------------------*/
 .text-white {
-  color: #FFF; }
+  color: #FFF !important; }
 
 .text-black {
-  color: #000; }
+  color: #000 !important; }
 
 .text-extra-light-gray {
   color: #b7b7b7; }

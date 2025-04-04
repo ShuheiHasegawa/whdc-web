@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from "react";
 import Head from "next/head";
 import DarkTheme from "../../../layouts/Dark";
 import Navbar from "../../../components/Navbar";
-import RectRippleEffect from "../../../components/rippleEffect/RectRippleEffect";
 import ProfileCard from "../../../components/ProfileCard";
 
 const ManagementTeam = () => {
@@ -41,40 +40,65 @@ const ManagementTeam = () => {
   return (
     <DarkTheme>
       <Head>
-        <title>Management Team - THE WHY HOW DO COMPANY</title>
+        <title>
+          ワイハウ - Top Management Team - THE WHY HOW DO COMPANY株式会社
+        </title>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       <Navbar nr={navbarRef} lr={logoRef} />
-      {/* TODO: 要調整 */}
-      <div
-        className="video-wrapper"
-        style={{
-          top: "36px",
-          position: "relative",
-        }}
-      >
-        <div className="video-background">
+      <div className="video-header-wrapper">
+        <style jsx global>{`
+          .video-header-wrapper {
+            position: relative;
+            width: 100%;
+            height: clamp(100px, 24vh, 240px);
+            overflow: hidden;
+          }
+
+          @media screen and (max-width: 767px) {
+            .video-header-wrapper {
+              height: clamp(100px, 16vh, 180px) !important;
+            }
+          }
+        `}</style>
+        <div
+          className="video-background"
+          style={{ position: "relative", height: "100%" }}
+        >
           <video
             autoPlay
             muted
             loop
             playsInline
             style={{
-              position: "absolute",
-              width: "200%",
-              height: "200px",
-              top: "60%",
-              left: "50%",
+              width: "100%",
+              height: "100%",
               objectFit: "cover",
-              transform: "translate(-50%, -50%)",
-              zIndex: -1,
-              maxWidth: "1150px",
-              margin: "0 auto",
+              position: "absolute",
+              top: 0,
+              left: 0,
+              zIndex: 0,
             }}
           >
             <source src="/movies/management_movie_1.mp4" type="video/mp4" />
           </video>
           <div
-            className="cont mt-0 mb-0"
+            className="title-container"
             style={{
               position: "absolute",
               bottom: "30px",
@@ -83,36 +107,48 @@ const ManagementTeam = () => {
             }}
           >
             <h1
-              className="color-font fw-700"
+              className="color-font"
               style={{
-                backgroundColor: "#002B66",
-                borderRadius: "5px",
-                fontFamily: "'Century', serif",
-                padding: "10px 30px",
-                fontSize: "2rem",
+                padding: "8px 12px",
+                fontSize: "clamp(1rem, 5vw, 1.4rem)",
                 margin: 0,
+                color: "#fff",
+                boxShadow: "4px rgba(0, 0, 0, 0.3)",
+                backgroundColor: "rgba(0, 0, 0, 0.3)",
+                // fontFamily: "'Dancing Script', cursive",
+                // fontFamily: "'Playfair Display', serif", // または 'Cormorant', serif または 'Libre Baskerville', serif
+                // fontFamily: "'Cormorant', serif", // または 'Cormorant', serif または 'Libre Baskerville', serif
+                fontFamily: "'Libre Baskerville', serif", // または 'Cormorant', serif または 'Libre Baskerville', serif
+                letterSpacing: "0.02em",
               }}
             >
-              Management Team
+              Top Management Team
             </h1>
           </div>
         </div>
       </div>
 
       <div ref={MainContent} className="main-content">
-        <h2
-          style={{
-            color: "#fff",
-            fontSize: "2rem",
-            padding: "10px 30px",
-            border: "2px solid #fff",
-            textAlign: "center",
-            margin: "0 auto 40px auto",
-            width: "50%",
-          }}
-        >
-          マネジメントチーム役員一覧
-        </h2>
+        <div className="container">
+          <div className="pt-24 pb-12">
+            <h2
+              style={{
+                color: "#fff",
+                fontSize: "clamp(1.25rem, 4vw, 2rem)",
+                fontWeight: "normal",
+                padding: "0 0 8px 0",
+                borderBottom: "1px solid rgba(255, 255, 255, 0.3)",
+                textAlign: "left",
+                margin: "0",
+                width: "100%",
+                fontFamily: "'Libre Baskerville', serif", // または 'Cormorant', serif または 'Libre Baskerville', serif
+                letterSpacing: "0.02em",
+              }}
+            >
+              Top Management Team
+            </h2>
+          </div>
+        </div>
 
         <ProfileCard
           imageUrl="/img/whdc/team/iwao.jpg"

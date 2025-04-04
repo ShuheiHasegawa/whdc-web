@@ -15,7 +15,9 @@ const Footer = ({ noSubBG }) => {
   }
   const sendEmail = (ms) => new Promise((r) => setTimeout(r, ms));
   return (
-    <footer className={`footer-half ${noSubBG ? '':'sub-bg'} section-padding pb-0`}>
+    <footer
+      className={`footer-half ${noSubBG ? "" : "sub-bg"} section-padding pb-0`}
+    >
       <div className="container">
         <div className="row">
           <div className="col-lg-5">
@@ -31,7 +33,8 @@ const Footer = ({ noSubBG }) => {
                     <span>Email : </span> Avo_support@website.com
                   </li>
                   <li>
-                    <span>Address : </span> 〒160-0005 東京都新宿区愛住町22 第3山田ビル
+                    <span>Address : </span> 〒160-0005 東京都新宿区愛住町22
+                    第3山田ビル
                   </li>
                   <li>
                     <span>Phone : </span> (+1) 2345 678 44 88
@@ -57,7 +60,7 @@ const Footer = ({ noSubBG }) => {
               </div>
             </div>
           </div>
-          <div className="col-lg-5 offset-lg-2">
+          {/* <div className="col-lg-5 offset-lg-2">
             <div className="subscribe mb-50">
               <h6 className="custom-font stit simple-btn">Newslatter</h6>
               <p>Sign up for subscribe out newsletter!</p>
@@ -104,12 +107,10 @@ const Footer = ({ noSubBG }) => {
                 </a>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
         <div className="copyrights text-center">
-          <p>
-            © 2022, Avo Template. Made with passion by <a href="#0">ThemesCamp</a>.
-          </p>
+          <p>Copyright (C) THE WHY HOW DO COMPANY, Inc. All Rights Reserved.</p>
         </div>
       </div>
     </footer>

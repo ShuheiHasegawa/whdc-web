@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-css-tags */
 import React from "react";
 import Head from "next/head";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const LightTheme = ({ children, bdOn }) => {
   if (bdOn) {
@@ -16,7 +17,9 @@ const LightTheme = ({ children, bdOn }) => {
       <Head>
         <link rel="stylesheet" href="/css/light.css" />
       </Head>
-      {children}
+      <div className="light-theme-wrapper" style={{ backgroundColor: "#fff" }}>
+        {children}
+      </div>
     </>
   );
 };

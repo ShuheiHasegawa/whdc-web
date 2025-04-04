@@ -1,29 +1,60 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import Head from "next/head";
 import DarkTheme from "../../../layouts/Dark";
 import Navbar from "../../../components/Navbar";
 import SmallFooter from "../../../components/Small-footer";
 
 const GovernanceTeam = () => {
-  const [openHistory, setOpenHistory] = useState(null);
-  const MainContent = React.useRef(null);
+  const navbarRef = useRef(null);
+  const logoRef = useRef(null);
+  const [openOfficerIndex, setOpenOfficerIndex] = useState(null);
+  const [openComplianceIndex, setOpenComplianceIndex] = useState(null);
 
-  const toggleHistory = (index) => {
-    if (openHistory === index) {
-      setOpenHistory(null);
-    } else {
-      setOpenHistory(index);
-    }
-  };
+  useEffect(() => {
+    const initializeAccordion = () => {
+      if (typeof window !== "undefined" && window.jQuery) {
+        window.jQuery(".collapse").off("show.bs.collapse hide.bs.collapse");
 
-  React.useEffect(() => {
-    window.addEventListener("load", () => {
-      setTimeout(() => {
-        if (MainContent.current) {
-          MainContent.current.style.marginTop = "100px";
-        }
-      }, 0);
-    });
-  }, [MainContent]);
+        window.jQuery(".collapse").collapse();
+
+        window.jQuery(".collapse").on("show.bs.collapse", function () {
+          const header = window.jQuery(this).prev(".card-header");
+          header.find(".fa-plus").hide();
+          header.find(".fa-minus").show();
+        });
+
+        window.jQuery(".collapse").on("hide.bs.collapse", function () {
+          const header = window.jQuery(this).prev(".card-header");
+          header.find(".fa-plus").show();
+          header.find(".fa-minus").hide();
+        });
+
+        window
+          .jQuery(".card-header")
+          .off("click")
+          .on("click", function (e) {
+            e.preventDefault();
+            const target = window.jQuery(this).data("target");
+            window.jQuery(target).collapse("toggle");
+          });
+      }
+    };
+
+    const checkJQuery = setInterval(() => {
+      if (window.jQuery && window.jQuery.fn.collapse) {
+        clearInterval(checkJQuery);
+        initializeAccordion();
+      }
+    }, 100);
+
+    return () => {
+      clearInterval(checkJQuery);
+      if (window.jQuery) {
+        window.jQuery(".collapse").off("show.bs.collapse hide.bs.collapse");
+        window.jQuery(".card-header").off("click");
+      }
+    };
+  }, []);
 
   const officers = [
     {
@@ -33,16 +64,22 @@ const GovernanceTeam = () => {
         { date: "1986年10月", description: "司法試験合格" },
         { date: "1989年4月", description: "弁護士登録" },
         { date: "1993年4月", description: "田邊勝己法律事務所 設立 所長" },
-        { date: "2013年7月", description: "弁護士法人カイロス総合法律事務所 設立 代表社員（現任）" },
+        {
+          date: "2013年7月",
+          description: "弁護士法人カイロス総合法律事務所 設立 代表社員（現任）",
+        },
         { date: "2019年11月", description: "当社 執行役員" },
         { date: "2020年11月", description: "当社 取締役" },
         { date: "2020年12月", description: "当社 代表取締役会長" },
         { date: "2021年12月", description: "当社 管理部管掌" },
         { date: "2023年8月", description: "当社 代表取締役会長兼社長" },
         { date: "2023年9月", description: "当社 経営企画部管掌" },
-        { date: "2023年11月", description: "当社 ㈱宇部整環リサイクルセンター 特別管掌（現任）" },
-        { date: "2024年11月", description: "当社 代表取締役会長（現任）" }
-      ]
+        {
+          date: "2023年11月",
+          description: "当社 ㈱宇部整環リサイクルセンター 特別管掌（現任）",
+        },
+        { date: "2024年11月", description: "当社 代表取締役会長（現任）" },
+      ],
     },
 
     {
@@ -56,13 +93,20 @@ const GovernanceTeam = () => {
         { date: "2006年7月", description: "当社 取締役副社長" },
         { date: "2009年7月", description: "当社 管理部管掌" },
         { date: "2017年1月", description: "株式会社渋谷肉横丁代表取締役" },
-        { date: "2017年8月", description: "株式会社エンターテイメントシステムズ代表取締役（現 株式会社クリプト・フィナンシャル・システム）" },
+        {
+          date: "2017年8月",
+          description:
+            "株式会社エンターテイメントシステムズ代表取締役（現 株式会社クリプト・フィナンシャル・システム）",
+        },
         { date: "2017年12月", description: "当社 ソリューション事業部管掌" },
         { date: "2018年9月", description: "当社 管理部管掌 管理部副部長委嘱" },
         { date: "2020年3月", description: "当社 管理部管掌 管理部長委嘱" },
         { date: "2020年3月", description: "株式会社インタープラン 代表取締役" },
-        { date: "2021年12月", description: "当社 取締役 内部監査室管掌 内部監査室長（現任）" }
-      ]
+        {
+          date: "2021年12月",
+          description: "当社 取締役 内部監査室管掌 内部監査室長（現任）",
+        },
+      ],
     },
     {
       title: "社外取締役",
@@ -80,8 +124,8 @@ const GovernanceTeam = () => {
         { date: "1999年8月", description: "弁護士登録" },
         { date: "1999年8月", description: "逢坂貞夫法律事務所弁護士（現任）" },
         { date: "2017年7月", description: "当社 コンプライアンス担当顧問" },
-        { date: "2017年9月", description: "当社 社外取締役（現任）" }
-      ]
+        { date: "2017年9月", description: "当社 社外取締役（現任）" },
+      ],
     },
     {
       title: "社外取締役",
@@ -94,10 +138,13 @@ const GovernanceTeam = () => {
         { date: "2005年1月", description: "岐阜地方検察庁検事正" },
         { date: "2006年2月", description: "東京法務局所属公証人" },
         { date: "2016年2月", description: "弁護士登録" },
-        { date: "2017年3月", description: "カイロス総合法律事務所弁護士（現任）" },
+        {
+          date: "2017年3月",
+          description: "カイロス総合法律事務所弁護士（現任）",
+        },
         { date: "2017年7月", description: "当社 コンプライアンス担当顧問" },
-        { date: "2017年9月", description: "当社 社外取締役（現任）" }
-      ]
+        { date: "2017年9月", description: "当社 社外取締役（現任）" },
+      ],
     },
     {
       title: "社外取締役",
@@ -107,25 +154,51 @@ const GovernanceTeam = () => {
         { date: "1997年6月", description: "同社代表取締役社長" },
         { date: "2001年6月", description: "同社代表取締役執行役員会長" },
         { date: "2003年6月", description: "同社相談役" },
-        { date: "2004年6月", description: "コナミホールディングス株式会社取締役" },
+        {
+          date: "2004年6月",
+          description: "コナミホールディングス株式会社取締役",
+        },
         { date: "2013年4月", description: "株式会社資生堂特別顧問（現任）" },
-        { date: "2015年6月", description: "株式会社テレビ朝日取締役（監査等委員）（現任）" },
-        { date: "2021年6月", description: "コナミホールディングス株式会社取締役（監査等委員）（現任）" },
-        { date: "2021年11月", description: "当社 社外取締役就任（現任）" }
-      ]
+        {
+          date: "2015年6月",
+          description: "株式会社テレビ朝日取締役（監査等委員）（現任）",
+        },
+        {
+          date: "2021年6月",
+          description:
+            "コナミホールディングス株式会社取締役（監査等委員）（現任）",
+        },
+        { date: "2021年11月", description: "当社 社外取締役就任（現任）" },
+      ],
     },
     {
       title: "常勤社外監査役",
       name: "手塚 宏",
       history: [
-        { date: "1987年4月", description: "株式会社東芝オフィスオートメーション入社" },
-        { date: "1997年10月", description: "株式会社APTI入社（現株式会社JBアドバンスト・テクノロジー株式会社）" },
-        { date: "2004年10月", description: "JBSテクノロジー株式会社入社 取締役" },
-        { date: "2007年9月", description: "株式会社クラフト・ビュー設立 代表取締役" },
+        {
+          date: "1987年4月",
+          description: "株式会社東芝オフィスオートメーション入社",
+        },
+        {
+          date: "1997年10月",
+          description:
+            "株式会社APTI入社（現株式会社JBアドバンスト・テクノロジー株式会社）",
+        },
+        {
+          date: "2004年10月",
+          description: "JBSテクノロジー株式会社入社 取締役",
+        },
+        {
+          date: "2007年9月",
+          description: "株式会社クラフト・ビュー設立 代表取締役",
+        },
         { date: "2011年10月", description: "株式会社MAP経営 執行役員" },
-        { date: "2017年11月", description: "経営支援コンサルMASSELL設立 代表（現任）" },
-        { date: "2023年11月", description: "当社 常勤社外監査役 就任（現任）" }
-      ]
+        {
+          date: "2017年11月",
+          description: "経営支援コンサルMASSELL設立 代表（現任）",
+        },
+        { date: "2023年11月", description: "当社 常勤社外監査役 就任（現任）" },
+      ],
     },
     {
       title: "監査役",
@@ -137,8 +210,8 @@ const GovernanceTeam = () => {
         { date: "2004年6月", description: "同社常任監査役" },
         { date: "2009年8月", description: "西松建設株式会社 社外監査役" },
         { date: "2017年9月", description: "当社 社外取締役" },
-        { date: "2021年11月", description: "当社 監査役就任（現任）" }
-      ]
+        { date: "2021年11月", description: "当社 監査役就任（現任）" },
+      ],
     },
     {
       title: "社外監査役",
@@ -147,15 +220,25 @@ const GovernanceTeam = () => {
         { date: "2005年11月", description: "Bonanza Casino入社" },
         { date: "2009年10月", description: "尾台会計事務所入所" },
         { date: "2012年2月", description: "米国ワシントン州公認会計士登録" },
-        { date: "2012年9月", description: "デロイトトーマツファイナンシャルアドバイザリー株式会社入社" },
+        {
+          date: "2012年9月",
+          description:
+            "デロイトトーマツファイナンシャルアドバイザリー株式会社入社",
+        },
         { date: "2013年8月", description: "公認会計士登録" },
         { date: "2014年1月", description: "税理士登録" },
-        { date: "2014年1月", description: "森井会計事務所開設 代表公認会計士・税理士（現任）" },
-        { date: "2014年1月", description: "株式会社城南紙商代表取締役（現任）" },
+        {
+          date: "2014年1月",
+          description: "森井会計事務所開設 代表公認会計士・税理士（現任）",
+        },
+        {
+          date: "2014年1月",
+          description: "株式会社城南紙商代表取締役（現任）",
+        },
         { date: "2016年4月", description: "東京都品川区監査委員（現任）" },
-        { date: "2021年11月", description: "当社 社外監査役就任（現任）" }
-      ]
-    }
+        { date: "2021年11月", description: "当社 社外監査役就任（現任）" },
+      ],
+    },
   ];
 
   const complianceOfficers = [
@@ -174,8 +257,8 @@ const GovernanceTeam = () => {
         { date: "1999年8月", description: "弁護士登録" },
         { date: "1999年8月", description: "逢坂貞夫法律事務所弁護士（現任）" },
         { date: "2017年7月", description: "当社 コンプライアンス担当顧問" },
-        { date: "2017年9月", description: "当社 社外取締役（現任）" }
-      ]
+        { date: "2017年9月", description: "当社 社外取締役（現任）" },
+      ],
     },
     {
       name: "足立 敏彦",
@@ -187,208 +270,475 @@ const GovernanceTeam = () => {
         { date: "2005年1月", description: "岐阜地方検察庁検事正" },
         { date: "2006年2月", description: "東京法務局所属公証人" },
         { date: "2016年2月", description: "弁護士登録" },
-        { date: "2017年3月", description: "カイロス総合法律事務所弁護士（現任）" },
+        {
+          date: "2017年3月",
+          description: "カイロス総合法律事務所弁護士（現任）",
+        },
         { date: "2017年7月", description: "当社 コンプライアンス担当顧問" },
-        { date: "2017年9月", description: "当社 社外取締役（現任）" }
-      ]
-    }
+        { date: "2017年9月", description: "当社 社外取締役（現任）" },
+      ],
+    },
   ];
+
+  const toggleOfficerAccordion = (index) => {
+    setOpenOfficerIndex(openOfficerIndex === index ? null : index);
+  };
+
+  const toggleComplianceAccordion = (index) => {
+    setOpenComplianceIndex(openComplianceIndex === index ? null : index);
+  };
 
   return (
     <DarkTheme>
-      <Navbar theme="themeL" />
-      <header className="pages-header circle-bg valign">
-        <div className="video-background">
+      <Head>
+        <title>
+          ワイハウ - Governance Committee - THE WHY HOW DO COMPANY株式会社
+        </title>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
+      </Head>
+      <Navbar nr={navbarRef} lr={logoRef} />
+
+      <div className="video-header-wrapper">
+        <style jsx global>{`
+          .video-header-wrapper {
+            position: relative;
+            width: 100%;
+            height: clamp(100px, 24vh, 240px);
+            overflow: hidden;
+          }
+
+          @media screen and (max-width: 767px) {
+            .video-header-wrapper {
+              height: clamp(100px, 16vh, 180px) !important;
+            }
+          }
+        `}</style>
+        <div
+          className="video-header-background"
+          style={{ position: "relative", height: "100%" }}
+        >
           <video
             autoPlay
             muted
             loop
             playsInline
             style={{
-              position: 'absolute',
-              width: '200%',
-              height: '100%',
-              top: '60%',
-              left: '50%',
-              objectFit: 'fill',
-              transform: 'translate(-50%, -50%)',
-              zIndex: -1,
-              maxWidth: '1150px',
-              margin: '0 auto',
-              clipPath: 'inset(0 0 70% 0)'
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              position: "absolute",
+              top: 0,
+              left: 0,
+              zIndex: 0,
             }}
           >
             <source src="/movies/governance_movie.mp4" type="video/mp4" />
           </video>
-        </div>
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-lg-10">
-              <div className="cont mt-0 mb-0 text-center">
-                <h1 className="color-font fw-700" style={{
-                  display: 'inline-block',
-                  backgroundColor: '#280137',
-                  padding: '10px 30px',
-                  borderRadius: '5px',
-                  fontFamily: "'Century', serif",
-                  position: 'relative',
-                  zIndex: 1,
-                  fontSize: '3.5rem',
-                  transform: 'translate(60%, -16%)'
-                }}>Governance Team</h1>
-              </div>
-            </div>
+          <div
+            className="video-header-title"
+            style={{
+              position: "absolute",
+              bottom: "15px",
+              right: "15px",
+              zIndex: 1,
+            }}
+          >
+            <h1
+              className="color-font"
+              style={{
+                padding: "8px 12px",
+                fontSize: "clamp(1rem, 5vw, 1.4rem)",
+                margin: 0,
+                color: "#fff",
+                boxShadow: "4px rgba(0, 0, 0, 0.3)",
+                backgroundColor: "rgba(0, 0, 0, 0.3)",
+                fontFamily: "'Libre Baskerville', serif",
+                letterSpacing: "0.02em",
+              }}
+            >
+              Governance Committee
+            </h1>
           </div>
         </div>
-      </header>
-      <div ref={MainContent} className="main-content">
+      </div>
+
+      <div className="main-content pt-16 m-0">
         <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-lg-9 col-md-11">
-              <h2 style={{ 
-                color: '#fff', 
-                fontSize: '2.5rem',
-                marginBottom: '40px',
-                marginTop: '-1000px',
-                border: '2px solid #fff',
-                display: 'inline-block',
-                padding: '10px 30px',
-                marginLeft: '-50px'
-              }}>ガバナンスチーム役員一覧</h2>
-              <div className="officers-list" style={{ marginTop: '50px' }}>
+          <div className="pt-8 pb-8">
+            <h2
+              style={{
+                color: "#fff",
+                fontSize: "clamp(1.25rem, 4vw, 2rem)",
+                fontWeight: "normal",
+                padding: "0 0 8px 0",
+                borderBottom: "1px solid rgba(255, 255, 255, 0.3)",
+                textAlign: "left",
+                margin: "0",
+                width: "100%",
+                fontFamily: "'Libre Baskerville', serif",
+                letterSpacing: "0.02em",
+              }}
+            >
+              Governance Committee
+            </h2>
+          </div>
+
+          <div className="row justify-content-center pt-16">
+            <div className="col-lg-11 col-md-11">
+              <div className="accordion" id="officersAccordion">
                 {officers.map((officer, index) => (
-                  <div key={index} className="officer-item" style={{ 
-                    marginBottom: '0',
-                    borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
-                    padding: '20px 0'
-                  }}>
-                    <div style={{ 
-                      display: 'flex', 
-                      alignItems: 'baseline',
-                      gap: '40px'
-                    }}>
-                      <h3 style={{ 
-                        fontSize: '1.6rem',
-                        color: '#fff',
-                        margin: 0,
-                        minWidth: '200px'
-                      }}>{officer.title}</h3>
-                      <div style={{
-                        display: 'flex',
-                        alignItems: 'baseline',
-                        gap: '20px'
-                      }}>
-                        <span style={{
-                          fontSize: '1.6rem',
-                          color: '#fff'
-                        }}>{officer.name}</span>
-                        <button
-                          onClick={() => toggleHistory(index)}
-                          style={{
-                            background: 'none',
-                            border: 'none',
-                            color: '#1baa80',
-                            cursor: 'pointer',
-                            fontSize: '1.2rem',
-                            textDecoration: 'underline'
-                          }}
-                        >
-                          略歴 ▼
-                        </button>
+                  <div
+                    key={index}
+                    className="card bg-transparent border-0 pt-2 pb-2"
+                  >
+                    <div
+                      className="card-header"
+                      onClick={() => toggleOfficerAccordion(index)}
+                      style={{
+                        background: "rgba(27, 170, 128, 0.1)",
+                        border: "none",
+                        borderRadius: "5px",
+                        padding: "12px 20px",
+                        cursor: "pointer",
+                        WebkitTapHighlightColor: "transparent",
+                        userSelect: "none",
+                        transition: "all 0.3s ease",
+                        position: "relative",
+                        overflow: "hidden",
+                      }}
+                    >
+                      <div className="row align-items-center">
+                        <style jsx>{`
+                          @media (max-width: 767px) {
+                            .officer-info {
+                              display: flex;
+                              flex-direction: row;
+                              justify-content: space-between;
+                              align-items: center;
+                              width: 100%;
+                              gap: 10px;
+                            }
+                            .officer-title {
+                              flex: 1;
+                            }
+                            .officer-name {
+                              text-align: right;
+                              padding-right: 40px;
+                            }
+                            .icon-container {
+                              position: absolute;
+                              right: 20px;
+                              top: 50%;
+                              transform: translateY(-50%);
+                            }
+                          }
+                          @media (min-width: 768px) {
+                            .officer-info {
+                              display: grid;
+                              grid-template-columns: 1fr 1fr 80px;
+                              align-items: center;
+                              gap: 20px;
+                            }
+                            .officer-title {
+                              text-align: left;
+                            }
+                            .officer-name {
+                              text-align: left;
+                            }
+                            .icon-container {
+                              text-align: right;
+                            }
+                          }
+                        `}</style>
+                        <div className="col-md-12">
+                          <div
+                            className="officer-info"
+                            style={{ width: "100%" }}
+                          >
+                            <div
+                              className="col-md-4 officer-title"
+                              style={{ width: "100%" }}
+                            >
+                              <h3
+                                style={{
+                                  fontSize: "clamp(1.1rem, 3vw, 1.4rem)",
+                                  color: "#fff",
+                                  margin: 0,
+                                }}
+                              >
+                                {officer.title}
+                              </h3>
+                            </div>
+                            <div className="col-md-4 officer-name">
+                              <span
+                                style={{
+                                  fontSize: "clamp(1.1rem, 3vw, 1.4rem)",
+                                  color: "#fff",
+                                }}
+                              >
+                                {officer.name}
+                              </span>
+                            </div>
+                            <div className="icon-container">
+                              <i
+                                className={`fas ${
+                                  openOfficerIndex === index
+                                    ? "fa-minus"
+                                    : "fa-plus"
+                                }`}
+                                style={{
+                                  color: "white",
+                                  fontSize: "clamp(0.9rem, 2.5vw, 1.1rem)",
+                                  transition: "opacity 0.3s ease",
+                                }}
+                              ></i>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                    {openHistory === index && (
-                      <div className="history-content" style={{
-                        marginTop: '20px',
-                        paddingLeft: '220px'
-                      }}>
-                        {officer.history.map((item, hIndex) => (
-                          <div key={hIndex} style={{
-                            display: 'flex',
-                            gap: '20px',
-                            marginBottom: '10px',
-                            color: '#fff'
-                          }}>
-                            <span style={{ minWidth: '100px', color: '#1baa80' }}>{item.date}</span>
-                            <span>{item.description}</span>
-                          </div>
-                        ))}
+
+                    <div
+                      style={{
+                        maxHeight: openOfficerIndex === index ? "1000px" : "0",
+                        overflow: "hidden",
+                        transition: "max-height 0.3s ease-in-out",
+                      }}
+                    >
+                      <div
+                        className="card-body"
+                        style={{ background: "rgba(27, 170, 128, 0.05)" }}
+                      >
+                        <div className="col-md-12">
+                          {officer.history.map((item, hIndex) => (
+                            <div
+                              key={hIndex}
+                              className="row align-items-center pb-3"
+                              style={{
+                                color: "#fff",
+                              }}
+                            >
+                              <div className="offset-md-3 col-md-2">
+                                <span
+                                  style={{
+                                    color: "#1baa80",
+                                    fontWeight: "500",
+                                    display: "block",
+                                  }}
+                                >
+                                  {item.date}
+                                </span>
+                              </div>
+                              <div className="col-md-7">
+                                <span style={{ display: "block" }}>
+                                  {item.description}
+                                </span>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
                       </div>
-                    )}
+                    </div>
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
 
-              <h2 style={{ 
-                color: '#fff', 
-                fontSize: '2.5rem',
-                marginBottom: '40px',
-                marginTop: '80px',
-                border: '2px solid #fff',
-                display: 'inline-block',
-                padding: '10px 30px',
-                marginLeft: '-50px'
-              }}>コンプライアンス委員</h2>
-              <div className="compliance-officers-list">
+          <div className="pt-16 pb-8">
+            <h2
+              style={{
+                color: "#fff",
+                fontSize: "clamp(1.25rem, 4vw, 2rem)",
+                fontWeight: "normal",
+                padding: "0 0 8px 0",
+                borderBottom: "1px solid rgba(255, 255, 255, 0.3)",
+                textAlign: "left",
+                margin: "0",
+                width: "100%",
+              }}
+            >
+              Compliance Committee
+            </h2>
+          </div>
+
+          <div className="row justify-content-center pt-16 pb-16">
+            <div className="col-lg-11 col-md-11">
+              <div className="accordion" id="complianceAccordion">
                 {complianceOfficers.map((officer, index) => (
-                  <div key={index} className="officer-item" style={{ 
-                    marginBottom: '0',
-                    borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
-                    padding: '20px 0'
-                  }}>
-                    <div style={{ 
-                      display: 'flex', 
-                      alignItems: 'baseline',
-                      gap: '20px'
-                    }}>
-                      <h3 style={{ 
-                        fontSize: '1.6rem',
-                        color: '#fff',
-                        margin: 0,
-                        minWidth: '200px'
-                      }}>コンプライアンス委員</h3>
-                      <div style={{
-                        display: 'flex',
-                        alignItems: 'baseline',
-                        gap: '20px'
-                      }}>
-                        <span style={{
-                          fontSize: '1.6rem',
-                          color: '#fff'
-                        }}>{officer.name}</span>
-                        <button
-                          onClick={() => toggleHistory(index + officers.length)}
-                          style={{
-                            background: 'none',
-                            border: 'none',
-                            color: '#1baa80',
-                            cursor: 'pointer',
-                            fontSize: '1.2rem',
-                            textDecoration: 'underline'
-                          }}
-                        >
-                          略歴 ▼
-                        </button>
+                  <div
+                    key={index}
+                    className="card bg-transparent border-0 pt-2 pb-2"
+                  >
+                    <div
+                      className="card-header"
+                      onClick={() => toggleComplianceAccordion(index)}
+                      style={{
+                        background: "rgba(27, 170, 128, 0.1)",
+                        border: "none",
+                        borderRadius: "5px",
+                        padding: "12px 20px",
+                        cursor: "pointer",
+                        WebkitTapHighlightColor: "transparent",
+                        userSelect: "none",
+                        transition: "all 0.3s ease",
+                        position: "relative",
+                        overflow: "hidden",
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.background =
+                          "rgba(27, 170, 128, 0.15)";
+                        e.currentTarget.style.transform = "translateX(8px)";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.background =
+                          "rgba(27, 170, 128, 0.1)";
+                        e.currentTarget.style.transform = "translateX(0)";
+                      }}
+                    >
+                      <div className="row align-items-center">
+                        <style jsx>{`
+                          @media (max-width: 767px) {
+                            .officer-info {
+                              display: flex;
+                              flex-direction: row;
+                              justify-content: space-between;
+                              align-items: center;
+                              width: 100%;
+                              gap: 10px;
+                            }
+                            .officer-title {
+                              flex: 1;
+                            }
+                            .officer-name {
+                              text-align: right;
+                              padding-right: 40px;
+                            }
+                            .icon-container {
+                              position: absolute;
+                              right: 20px;
+                              top: 50%;
+                              transform: translateY(-50%);
+                            }
+                          }
+                          @media (min-width: 768px) {
+                            .officer-info {
+                              display: grid;
+                              grid-template-columns: 1fr 1fr 80px;
+                              align-items: center;
+                              gap: 20px;
+                            }
+                            .officer-title {
+                              text-align: left;
+                            }
+                            .officer-name {
+                              text-align: left;
+                            }
+                            .icon-container {
+                              text-align: right;
+                            }
+                          }
+                        `}</style>
+                        <div className="col-md-12">
+                          <div className="officer-info">
+                            <div className="officer-title">
+                              <h3
+                                style={{
+                                  fontSize: "clamp(1.1rem, 3vw, 1.4rem)",
+                                  color: "#fff",
+                                  margin: 0,
+                                }}
+                              >
+                                コンプライアンス委員
+                              </h3>
+                            </div>
+                            <div className="officer-name">
+                              <span
+                                style={{
+                                  fontSize: "clamp(1.1rem, 3vw, 1.4rem)",
+                                  color: "#fff",
+                                }}
+                              >
+                                {officer.name}
+                              </span>
+                            </div>
+                            <div className="icon-container">
+                              <i
+                                className={`fas ${
+                                  openComplianceIndex === index
+                                    ? "fa-minus"
+                                    : "fa-plus"
+                                }`}
+                                style={{
+                                  color: "white",
+                                  fontSize: "clamp(0.9rem, 2.5vw, 1.1rem)",
+                                  transition: "opacity 0.3s ease",
+                                }}
+                              ></i>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                    {openHistory === index + officers.length && (
-                      <div className="history-content" style={{
-                        marginTop: '20px',
-                        paddingLeft: '220px'
-                      }}>
-                        {officer.history.map((item, hIndex) => (
-                          <div key={hIndex} style={{
-                            display: 'flex',
-                            gap: '20px',
-                            marginBottom: '10px',
-                            color: '#fff'
-                          }}>
-                            <span style={{ minWidth: '100px', color: '#1baa80' }}>{item.date}</span>
-                            <span>{item.description}</span>
-                          </div>
-                        ))}
+
+                    <div
+                      style={{
+                        maxHeight:
+                          openComplianceIndex === index ? "1000px" : "0",
+                        overflow: "hidden",
+                        transition: "max-height 0.3s ease-in-out",
+                      }}
+                    >
+                      <div
+                        className="card-body"
+                        style={{
+                          background: "rgba(27, 170, 128, 0.05)",
+                        }}
+                      >
+                        <div className="col-md-12">
+                          {officer.history.map((item, hIndex) => (
+                            <div
+                              key={hIndex}
+                              className="d-flex pb-3"
+                              style={{
+                                gap: "20px",
+                                color: "#fff",
+                              }}
+                            >
+                              <div className="offset-md-3 col-md-2">
+                                <span
+                                  style={{
+                                    minWidth: "100px",
+                                    color: "#1baa80",
+                                    fontWeight: "500",
+                                  }}
+                                >
+                                  {item.date}
+                                </span>
+                              </div>
+                              <div className="col-md-7">
+                                <span>{item.description}</span>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
                       </div>
-                    )}
+                    </div>
                   </div>
                 ))}
               </div>

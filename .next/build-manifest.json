@@ -25,10 +25,15 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/whdc-kato/governance_team": [
+    "/notice": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/whdc-kato/governance_team.js"
+      "static/chunks/pages/notice.js"
+    ],
+    "/privacy_policy": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/privacy_policy.js"
     ]
   },
   "ampFirstPages": []

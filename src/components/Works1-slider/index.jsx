@@ -34,8 +34,10 @@ const Works1Slider = () => {
                 onSwiper={(swiper) => {
                   setTimeout(() => {
                     if (swiper && swiper.params && swiper.params.navigation) {
-                      swiper.params.navigation.prevEl = navigationPrevRef.current;
-                      swiper.params.navigation.nextEl = navigationNextRef.current;
+                      swiper.params.navigation.prevEl =
+                        navigationPrevRef.current;
+                      swiper.params.navigation.nextEl =
+                        navigationNextRef.current;
                     }
                     if (swiper && swiper.navigation) {
                       swiper.navigation.destroy();
@@ -71,22 +73,52 @@ const Works1Slider = () => {
                 {works1SliderData.map((slide) => (
                   <SwiperSlide key={slide.id} className="swiper-slide">
                     <div
-                      className="content wow noraidus fadeInUp"
+                      className="content wow noraidus fadeInUp p-32"
                       data-wow-delay=".3s"
                     >
                       <div
                         className="item-img bg-img wow imago"
                         style={{
                           backgroundImage: `url(${slide.image})`,
+                          borderRadius: "8px",
+                          boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
+                          overflow: "hidden",
+                          transition: "all 0.3s ease",
+                          filter: "brightness(0.95) contrast(1.05)",
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.transform = "scale(1.03)";
+                          e.currentTarget.style.boxShadow =
+                            "0 15px 35px rgba(0,0,0,0.2)";
+                          e.currentTarget.style.filter =
+                            "brightness(1.05) contrast(1.05)";
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.transform = "scale(1)";
+                          e.currentTarget.style.boxShadow =
+                            "0 10px 30px rgba(0,0,0,0.15)";
+                          e.currentTarget.style.filter =
+                            "brightness(0.95) contrast(1.05)";
                         }}
                       ></div>
-                      <div className="cont">
+                      <div
+                        className="cont"
+                        style={{
+                          padding: "20px 15px",
+                          background: "rgba(255,255,255,0.03)",
+                          backdropFilter: "blur(5px)",
+                          borderRadius: "0 0 8px 8px",
+                          marginTop: "-5px",
+                        }}
+                      >
                         <h6 className="color-font">
-                          <Link href="/works/works-dark">{slide.title}</Link>
+                          <Link href="/works/works-dark">
+                            <a className="custom-link">{slide.title}</a>
+                          </Link>
                         </h6>
                         <h4>
                           <Link href="/project-details2/project-details2-dark">
-                            {slide.secTex}
+                            <a className="custom-link-main">{slide.secTex}</a>
                           </Link>
                         </h4>
                       </div>

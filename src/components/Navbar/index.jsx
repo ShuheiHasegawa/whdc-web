@@ -1,15 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { Formik, Form, Field } from "formik";
 import Link from "next/link";
 import appData from "../../data/app.json";
-import {
-  handleDropdown,
-  handleMobileDropdown,
-  handleSearch,
-} from "../../common/navbar";
+import { handleDropdown, handleMobileDropdown } from "../../common/navbar";
 
 const Navbar = ({ lr, nr, theme }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
   const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
     if (section) {
@@ -26,42 +24,90 @@ const Navbar = ({ lr, nr, theme }) => {
     }
   };
 
-  React.useEffect(() => {
-    handleSearch();
-  }, []);
+  const handleMobileDropdown = () => {
+    console.log("ハンバーガーメニューがクリックされました");
+
+    // 状態はボタンのonClickで切り替えているため、ここでは切り替えない
+    // setIsOpen(!isOpen);
+
+    const navbarElement = document.querySelector(".navbar-collapse");
+    console.log("ナビゲーション要素:", navbarElement);
+
+    if (navbarElement) {
+      navbarElement.classList.toggle("show-with-trans");
+      navbarElement.classList.toggle("show");
+    }
+  };
+
+  useEffect(() => {
+    // コンポーネントがマウントされたときに実行
+    console.log("Navbarコンポーネントがマウントされました");
+    console.log(
+      "ナビゲーション要素の存在を確認:",
+      !!document.querySelector(".navbar-collapse")
+    );
+
+    const handleClickOutside = (event) => {
+      const navbar = document.getElementById("navbarSupportedContent");
+      if (
+        isOpen &&
+        navbar &&
+        !navbar.contains(event.target) &&
+        !event.target.closest(".navbar-toggler")
+      ) {
+        setIsOpen(false);
+        navbar.classList.remove("show-with-trans");
+      }
+    };
+
+    if (typeof window !== "undefined") {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      if (typeof window !== "undefined") {
+        document.removeEventListener("mousedown", handleClickOutside);
+      }
+    };
+  }, [isOpen]);
+
   return (
     <nav
       ref={nr}
-      className={`navbar navbar-expand-lg change ${
-        theme === "themeL" ? "light" : ""
-      }`}
+      className={`navbar navbar-expand-lg ${theme === "themeL" ? "light" : ""}`}
+      style={{
+        position: "absolute !important",
+      }}
     >
-      <div className="container">
+      <div className="container p-0">
         <Link href="/">
           <a className="logo">
+            <style jsx>{`
+              .logo img {
+                width: 200px;
+                transition: width 0.3s ease;
+              }
+
+              @media screen and (max-width: 767px) {
+                .logo img {
+                  width: 140px; /* スマホ向けに小さくする */
+                }
+              }
+
+              @media screen and (max-width: 480px) {
+                .logo img {
+                  width: 120px; /* さらに小さい画面向け */
+                }
+              }
+            `}</style>
             {theme ? (
               theme === "themeL" ? (
-                <img
-                  ref={lr}
-                  src={`${appData.darkLogo}`}
-                  alt="logo"
-                  style={{ width: "200px" }}
-                />
+                <img ref={lr} src={`${appData.darkLogo}`} alt="logo" />
               ) : (
-                <img
-                  ref={lr}
-                  src={`${appData.lightLogo}`}
-                  alt="logo"
-                  style={{ width: "200px" }}
-                />
+                <img ref={lr} src={`${appData.lightLogo}`} alt="logo" />
               )
             ) : (
-              <img
-                ref={lr}
-                src={`${appData.lightLogo}`}
-                alt="logo"
-                style={{ width: "200px" }}
-              />
+              <img ref={lr} src={`${appData.lightLogo}`} alt="logo" />
             )}
           </a>
         </Link>
@@ -69,19 +115,33 @@ const Navbar = ({ lr, nr, theme }) => {
         <button
           className="navbar-toggler"
           type="button"
-          onClick={handleMobileDropdown}
+          onClick={(e) => {
+            e.preventDefault();
+            console.log("ボタンがクリックされました");
+            setIsOpen(!isOpen); // 状態を切り替え
+            handleMobileDropdown();
+          }}
           data-toggle="collapse"
           data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent"
-          aria-expanded="false"
+          aria-expanded={isOpen}
           aria-label="Toggle navigation"
         >
-          <span className="icon-bar">
-            <i className="fas fa-bars"></i>
-          </span>
+          <div className="hamburger-icon">
+            <span className={isOpen ? "first-line open" : "first-line"}></span>
+            <span
+              className={isOpen ? "middle-line open" : "middle-line"}
+            ></span>
+            <span className={isOpen ? "last-line open" : "last-line"}></span>
+          </div>
         </button>
 
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <div
+          className={`collapse navbar-collapse ${
+            isOpen ? "show-with-trans" : ""
+          }`}
+          id="navbarSupportedContent"
+        >
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
               <a
@@ -232,7 +292,7 @@ const Navbar = ({ lr, nr, theme }) => {
               </Link>
             </li> */}
           </ul>
-          <div className="search">
+          {/* <div className="search">
             <span className="icon pe-7s-search cursor-pointer"></span>
             <div className="search-form text-center custom-font">
               <Formik
@@ -253,7 +313,7 @@ const Navbar = ({ lr, nr, theme }) => {
               </Formik>
               <span className="close pe-7s-close cursor-pointer"></span>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </nav>

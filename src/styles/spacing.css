@@ -1,0 +1,158 @@
+/**
+ * マージンとパディングのユーティリティクラス
+ * 
+ * これらのクラスは、要素の上下左右の余白を管理するためのものです。
+ * 4pxごとに64pxまでの間隔を定義
+ * 方向別のクラス:
+ * pt-*: padding-top
+ * pb-*: padding-bottom
+ * pl-*: padding-left
+ * pr-*: padding-right
+ * px-*: padding左右
+ * py-*: padding上下
+ * p-*: padding全方向
+**/
+
+/* Margin (外側の余白) */
+.mt-4 { margin-top: 4px; }
+.mt-8 { margin-top: 8px; }
+.mt-12 { margin-top: 12px; }
+.mt-16 { margin-top: 16px; }
+.mt-20 { margin-top: 20px; }
+.mt-24 { margin-top: 24px; }
+/* ... 必要に応じて追加 */
+
+/* Padding (内側の余白) - レイアウトが崩れにくい */
+.pt-4 { padding-top: 4px; }
+.pt-8 { padding-top: 8px; }
+.pt-12 { padding-top: 12px; }
+.pt-16 { padding-top: 16px; }
+.pt-20 { padding-top: 20px; }
+.pt-24 { padding-top: 24px; }
+.pt-28 { padding-top: 28px; }
+.pt-32 { padding-top: 32px; }
+.pt-36 { padding-top: 36px; }
+.pt-40 { padding-top: 40px; }
+.pt-44 { padding-top: 44px; }
+.pt-48 { padding-top: 48px; }
+.pt-52 { padding-top: 52px; }
+.pt-56 { padding-top: 56px; }
+.pt-60 { padding-top: 60px; }
+.pt-64 { padding-top: 64px; }
+
+.pb-4 { padding-bottom: 4px; }
+.pb-8 { padding-bottom: 8px; }
+.pb-12 { padding-bottom: 12px; }
+.pb-16 { padding-bottom: 16px; }
+.pb-20 { padding-bottom: 20px; }
+.pb-24 { padding-bottom: 24px; }
+.pb-28 { padding-bottom: 28px; }
+.pb-32 { padding-bottom: 32px; }
+.pb-36 { padding-bottom: 36px; }
+.pb-40 { padding-bottom: 40px; }
+.pb-44 { padding-bottom: 44px; }
+.pb-48 { padding-bottom: 48px; }
+.pb-52 { padding-bottom: 52px; }
+.pb-56 { padding-bottom: 56px; }
+.pb-60 { padding-bottom: 60px; }
+.pb-64 { padding-bottom: 64px; }
+
+.pl-4 { padding-left: 4px; }
+.pl-8 { padding-left: 8px; }
+.pl-12 { padding-left: 12px; }
+.pl-16 { padding-left: 16px; }
+.pl-20 { padding-left: 20px; }
+.pl-24 { padding-left: 24px; }
+.pl-28 { padding-left: 28px; }
+.pl-32 { padding-left: 32px; }
+.pl-36 { padding-left: 36px; }
+.pl-40 { padding-left: 40px; }
+.pl-44 { padding-left: 44px; }
+.pl-48 { padding-left: 48px; }
+.pl-52 { padding-left: 52px; }
+.pl-56 { padding-left: 56px; }
+.pl-60 { padding-left: 60px; }
+.pl-64 { padding-left: 64px; }
+
+.pr-4 { padding-right: 4px; }
+.pr-8 { padding-right: 8px; }
+.pr-12 { padding-right: 12px; }
+.pr-16 { padding-right: 16px; }
+.pr-20 { padding-right: 20px; }
+.pr-24 { padding-right: 24px; }
+.pr-28 { padding-right: 28px; }
+.pr-32 { padding-right: 32px; }
+.pr-36 { padding-right: 36px; }
+.pr-40 { padding-right: 40px; }
+.pr-44 { padding-right: 44px; }
+.pr-48 { padding-right: 48px; }
+.pr-52 { padding-right: 52px; }
+.pr-56 { padding-right: 56px; }
+.pr-60 { padding-right: 60px; }
+.pr-64 { padding-right: 64px; }
+
+/* Padding X (左右) */
+.px-4 { padding-left: 4px; padding-right: 4px; }
+.px-8 { padding-left: 8px; padding-right: 8px; }
+.px-12 { padding-left: 12px; padding-right: 12px; }
+.px-16 { padding-left: 16px; padding-right: 16px; }
+.px-20 { padding-left: 20px; padding-right: 20px; }
+.px-24 { padding-left: 24px; padding-right: 24px; }
+.px-28 { padding-left: 28px; padding-right: 28px; }
+.px-32 { padding-left: 32px; padding-right: 32px; }
+.px-36 { padding-left: 36px; padding-right: 36px; }
+.px-40 { padding-left: 40px; padding-right: 40px; }
+.px-44 { padding-left: 44px; padding-right: 44px; }
+.px-48 { padding-left: 48px; padding-right: 48px; }
+.px-52 { padding-left: 52px; padding-right: 52px; }
+.px-56 { padding-left: 56px; padding-right: 56px; }
+.px-60 { padding-left: 60px; padding-right: 60px; }
+.px-64 { padding-left: 64px; padding-right: 64px; }
+
+/* Padding Y (上下) */
+.py-4 { padding-top: 4px; padding-bottom: 4px; }
+.py-8 { padding-top: 8px; padding-bottom: 8px; }
+.py-12 { padding-top: 12px; padding-bottom: 12px; }
+.py-16 { padding-top: 16px; padding-bottom: 16px; }
+.py-20 { padding-top: 20px; padding-bottom: 20px; }
+.py-24 { padding-top: 24px; padding-bottom: 24px; }
+.py-28 { padding-top: 28px; padding-bottom: 28px; }
+.py-32 { padding-top: 32px; padding-bottom: 32px; }
+.py-36 { padding-top: 36px; padding-bottom: 36px; }
+.py-40 { padding-top: 40px; padding-bottom: 40px; }
+.py-44 { padding-top: 44px; padding-bottom: 44px; }
+.py-48 { padding-top: 48px; padding-bottom: 48px; }
+.py-52 { padding-top: 52px; padding-bottom: 52px; }
+.py-56 { padding-top: 56px; padding-bottom: 56px; }
+.py-60 { padding-top: 60px; padding-bottom: 60px; }
+.py-64 { padding-top: 64px; padding-bottom: 64px; }
+
+/* Padding All */
+.p-4 { padding: 4px; }
+.p-8 { padding: 8px; }
+.p-12 { padding: 12px; }
+.p-16 { padding: 16px; }
+.p-20 { padding: 20px; }
+.p-24 { padding: 24px; }
+.p-28 { padding: 28px; }
+.p-32 { padding: 32px; }
+.p-36 { padding: 36px; }
+.p-40 { padding: 40px; }
+.p-44 { padding: 44px; }
+.p-48 { padding: 48px; }
+.p-52 { padding: 52px; }
+.p-56 { padding: 56px; }
+.p-60 { padding: 60px; }
+.p-64 { padding: 64px; }
+
+/* レスポンシブ対応 */
+@media (min-width: 768px) {
+  .md\:pt-4 { padding-top: 4px; }
+  .md\:pt-8 { padding-top: 8px; }
+  /* ... */
+}
+
+/* 方向別のユーティリティ */
+.px-4 { padding-left: 4px; padding-right: 4px; }
+.py-4 { padding-top: 4px; padding-bottom: 4px; }
+/* ... */
