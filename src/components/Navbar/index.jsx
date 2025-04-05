@@ -147,19 +147,19 @@ const Navbar = ({ lr, nr, theme }) => {
             <li className="nav-item">
               <a
                 className="nav-link"
-                onClick={() => scrollToSection("services-section")}
+                onClick={() => scrollToSection("group-companies-section")}
                 style={{ cursor: "pointer" }}
               >
-                SERVICES
+                GROUP
               </a>
             </li>
             <li className="nav-item">
               <a
                 className="nav-link"
-                onClick={() => scrollToSection("group-companies-section")}
+                onClick={() => scrollToSection("services-section")}
                 style={{ cursor: "pointer" }}
               >
-                GROUP
+                SERVICES
               </a>
             </li>
             <li className="nav-item dropdown" onClick={handleDropdown}>
