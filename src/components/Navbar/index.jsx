@@ -18,14 +18,14 @@ const Navbar = ({ lr, nr, theme }) => {
       if (section) {
         // オフセット位置を計算（より正確に）
         const navHeight = nr.current ? nr.current.offsetHeight - 100 : 80;
-        console.log(navHeight);
+        // console.log(navHeight);
 
         // 要素の絶対位置を取得
         const rect = section.getBoundingClientRect();
         const scrollTop =
           window.pageYOffset || document.documentElement.scrollTop;
         const offsetPosition = rect.top + scrollTop - navHeight - 20; // 余白を追加
-        console.log(offsetPosition);
+        // console.log(offsetPosition);
 
         // スムーズスクロール
         window.scrollTo({
@@ -44,8 +44,7 @@ const Navbar = ({ lr, nr, theme }) => {
           }
         }, 1000);
       } else {
-        console.error(`Section with ID ${sectionId} not found`);
-        router.push("/");
+        router.push("/#" + sectionId);
       }
     }, 100);
   };
@@ -173,6 +172,11 @@ const Navbar = ({ lr, nr, theme }) => {
               >
                 GROUP
               </a>
+              {/* <Link href="/#group-companies-section">
+                <a className="nav-link" style={{ cursor: "pointer" }}>
+                  GROUP
+                </a>
+              </Link> */}
             </li>
             <li className="nav-item">
               <a
@@ -182,6 +186,18 @@ const Navbar = ({ lr, nr, theme }) => {
               >
                 SERVICES
               </a>
+              {/* <Link href="/#services-section">
+                <a className="nav-link" style={{ cursor: "pointer" }}>
+                  SERVICES
+                </a>
+              </Link> */}
+            </li>
+            <li className="nav-item">
+              <Link href="/company">
+                <a className="nav-link" style={{ cursor: "pointer" }}>
+                  ABOUT
+                </a>
+              </Link>
             </li>
             <li className="nav-item dropdown" onClick={handleDropdown}>
               <span
@@ -203,8 +219,10 @@ const Navbar = ({ lr, nr, theme }) => {
               </div>
             </li>
             <li className="nav-item">
-              <Link href="/ir">
-                <a className="nav-link">IR</a>
+              <Link href="https://www.twhdc.co.jp/ir/">
+                <a className="nav-link" target="_blank" rel="noopener noreferrer">
+                  IR
+                </a>
               </Link>
             </li>
             <li className="nav-item">

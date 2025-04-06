@@ -292,7 +292,7 @@ const GroupCompanies = () => {
         <div className="sec-head custom-font text-center">
           <Split>
             <h3 className="wow words chars splitting text-white" data-splitting>
-              GROUP COMPANIES
+              GROUP&nbsp;COMPANIES
             </h3>
           </Split>
           <Split>

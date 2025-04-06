@@ -46,7 +46,7 @@ const SiteMap = () => {
           </Link>
         </li>
         <li>
-          <Link href="/inquiry">
+          <Link href="/contact">
             <a className="custom-link">お問い合わせ</a>
           </Link>
         </li>

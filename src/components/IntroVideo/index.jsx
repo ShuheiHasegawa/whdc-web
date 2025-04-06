@@ -52,7 +52,7 @@ const IntroVideo = ({ sliderRef }) => {
           className="caption"
           style={{
             position: "absolute",
-            top: "35vh",
+            top: "30vh",
             left: "0",
             right: "0",
             margin: "0 auto",

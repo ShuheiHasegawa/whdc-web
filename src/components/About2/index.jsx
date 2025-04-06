@@ -26,9 +26,9 @@ const About2 = () => {
   }));
 
   return (
-    <section className="intro-section pt-32">
-      <div className="about-container pt-16">
-        <div className="pt-16">
+    <section className="intro-section">
+      <div className="about-container">
+        <div>
           <HeroImage
             src="/img/whdc/about.png"
             alt="ワイハウの企業理念"
@@ -38,7 +38,7 @@ const About2 = () => {
           />
         </div>
 
-        <div className="content-container pt-32">
+        <div className="content-container pt-16 pb-16">
           <div className="pt-16 pl-16">
             <TitleLeftLine title="ワイハウの１０の特徴" />
           </div>
@@ -51,7 +51,7 @@ const About2 = () => {
               isTilted={false}
               tiltDirection="left"
               autoplay={true}
-              autoplaySpeed={0.5}
+              autoplaySpeed={0.3}
               autoplayDirection="up"
               pauseOnHover={true}
             />

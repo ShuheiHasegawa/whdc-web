@@ -1,26 +1,27 @@
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
+import HeroImage from "../HeroImage";
+import TitleLeftLine from "../TitleLeftLine";
 
 const Notice = () => {
   return (
-    <section className="intro-section section-padding pb-0">
-      <div className="image-header-wrapper" style={{ position: 'relative', width: '100%', height: '300px' }}>
-        <Image
-          src="/img/firstview_top_2022_768.png"
-          alt="firstview top"
-          layout="fill"
-          objectFit="cover"
-          priority
-        />
-      </div>
+    <section className="intro-section pb-0">
+      <HeroImage
+        src="/img/firstview_top_2022_768.png"
+        alt="firstview top"
+        width={768}
+        height={400}
+        layout="responsive"
+      />
 
-      <p className="topics">
-        <span className="text-2xl text-white font-bold">ご利用にあたって</span>
-      </p>
+      <div className="pt-32" style={{ maxWidth: "640px", margin: "0 auto" }}>
+        <p className="topics">
+          <span className="text-2xl text-white font-bold">
+            ご利用にあたって
+          </span>
+        </p>
 
-      <div>
-        <div className="p-4">
+        <div>
           <p className="text-base center normal">
             当ウェブサイトは、THE WHY HOW DO
             COMPANY株式会社の活動をご理解いただくための情報提供を目的としたものです。
@@ -28,8 +29,9 @@ const Notice = () => {
             当ウェブサイトをご利用の際には、下記の利用規定を必ずお読みください。当ウェブサイトに含まれるコンテンツや情報を閲覧、使用、ダウンロードされた場合には、以下の記載事項、条件に同意されたこととさせていただきます。
           </p>
 
-          <div className="owBox">
-            <h2 className="border-primary text-2xl pt-16">免責事項</h2>
+          <div className="pt-32">
+            <TitleLeftLine title="免責事項" />
+                <div className="pt-16">
             <ul>
               <li className="text-base left normal">
                 当ウェブサイトのご利用は、お客様ご自身の責任において行われるものとします。当ウェブサイト上に掲載されている各種情報については、慎重に作成、管理いたしますが、これらの情報の正確性、有用性、完全性をTHE
@@ -51,13 +53,13 @@ const Notice = () => {
               <li className="text-base left normal">
                 当社は、個人情報の取扱いに関する法令､国が定める指針その他の規範を遵守します。
               </li>
-            </ul>
+              </ul>
+            </div>
           </div>
 
-          <div className="owBox">
-            <h2 className="border-primary text-2xl pt-16">
-              著作権・商標権
-            </h2>
+          <div className="pt-32">
+            <TitleLeftLine title="著作権・商標権" />
+            <div className="pt-16">
             <ul>
               <li className="text-base left normal">
                 当ウェブサイト上に掲載されている著作物（文章、写真、イラスト、動画、音声、ソフトウェア等）の著作権は、THE
@@ -71,18 +73,24 @@ const Notice = () => {
                 COMPANY株式会社の商標または登録商標です。
                 <br />
                 THE WHY HOW DO COMPANY株式会社への使用許諾のお申し込みは
-                <Link href="/inquiry">
-                  <a>「お問い合わせ」</a>
-                </Link>
+                <div className="external-link text-white" style={{ textAlign: "left", display: "inline-block" }}>
+                  <a
+                    href="/inquiry"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    「お問い合わせ」
+                  </a>
+                </div>
                 よりご連絡ください。
               </li>
             </ul>
+            </div>
           </div>
 
-          <div className="owBox">
-            <h2 className="border-primary text-2xl pt-16">
-              当ウェブサイトへのリンクについて
-            </h2>
+          <div className="pt-32">
+            <TitleLeftLine title="当ウェブサイトへのリンクについて" />
+            <div className="pt-16">
             <p className="text-base black center">
               当ウェブサイトへのリンクは、営利、非営利を問わず原則自由とし、THE
               WHY HOW DO
@@ -118,25 +126,26 @@ const Notice = () => {
               <br />
               なお、当ウェブサイトのコンテンツや情報、URLは、予告なしに変更、廃止される場合がありますので、あらかじめご了承ください。
             </p>
+            </div>
           </div>
 
-          <div className="owBox">
-            <h2 className="border-primary text-2xl pt-16">
-              JavaScriptについて
-            </h2>
+          <div className="pt-32">
+            <TitleLeftLine title="JavaScriptについて" />
+            <div className="pt-16">
             <p className="text-base black">
               当サイトではJavaScriptを使用しています。JavaScriptが無効の環境では、一部不具合が発生する場合がございます。当サイトご利用の際にはJavaScriptを有効にしてください。
             </p>
+            </div>
           </div>
 
-          <div className="owBox">
-            <h2 className="border-primary text-2xl pt-16">
-              プラグインについて
-            </h2>
+          <div className="pt-32">
+            <TitleLeftLine title="プラグインについて" />
+            <div className="pt-16">
             <p className="text-base black">
               当サイトでは Adobe
               Readerを使用しています。各プラグインをお持ちでない場合は、各社ダウンロードサイトよりプラグインをダウンロードし、インストールを行って下さい。
             </p>
+            </div>
           </div>
         </div>
       </div>
