@@ -3,6 +3,7 @@ import Head from "next/head";
 import DarkTheme from "../../../layouts/Dark";
 import Navbar from "../../../components/Navbar";
 import ProfileCard from "../../../components/ProfileCard";
+import TitleLeftLine from "../../../components/TitleLeftLine";
 import { useTranslation } from "react-i18next";
 
 const ManagementTeam = () => {
@@ -104,8 +105,9 @@ const ManagementTeam = () => {
 
       <div className="main-content pt-32 m-0">
         <div className="container">
-          <div className="pt-8 pb-8">
-            <h2 className="border-primary text-2xl">Top Management Team</h2>
+          <div className="pt-8 pb-16">
+            {/* <h2 className="border-primary text-2xl">Top Management Team</h2> */}
+            <TitleLeftLine title="Top Management Team" />
           </div>
         </div>
 

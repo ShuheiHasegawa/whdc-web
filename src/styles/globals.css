@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -99,11 +100,11 @@ body .slick-dots li button {
     opacity: 1 !important;
     visibility: visible !important;
   }
-  
+
   .hamburger-icon {
     display: block !important;
   }
-  
+
   .hamburger-icon span {
     display: block !important;
     background-color: #fff !important;
@@ -117,11 +118,11 @@ body .slick-dots li button {
     padding: 15px !important;
     z-index: 999 !important;
   }
-  
+
   .navbar-collapse.show-with-trans {
     display: block !important;
   }
-  
+
   /* ナビゲーションリンクのスタイル */
   .navbar-nav .nav-item {
     padding: 8px 0;
@@ -136,7 +137,7 @@ body .slick-dots li button {
   .navbar-nav.ml-auto {
     margin-left: auto !important;
   }
-  
+
   .navbar-collapse {
     display: flex !important;
     justify-content: flex-end !important;
@@ -146,7 +147,7 @@ body .slick-dots li button {
     align-items: center;
     justify-content: flex-end;
   }
-  
+
   .navbar-nav {
     display: flex !important;
     flex-direction: row !important;
@@ -260,7 +261,7 @@ section.team.section-padding {
 }
 
 .custom-link-main:after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
@@ -342,33 +343,39 @@ section.team.section-padding {
   background: #333;
 }
 
+/* ダークテーマで使われている色 */
+/* color: #75dab4 !important; */
+
 .color-primary {
-  color: #00A0E8;
+  color: #00a0e8;
 }
 .color-secondary {
-  color: #3A3D93;
+  color: #3a3d93;
 }
 .color-tertiary {
-  color: #56C1D5;
+  color: #56c1d5;
 }
 .color-quaternary {
   color: #40455b;
 }
 .color-quinary {
   color: #2c2b29;
-} 
+}
 .color-senary {
   color: #e92170;
 }
 
+/* ロゴ中間色 */
 .bg-primary {
-  background-color: #00A0E8;
+  background-color: #00a0e8;
 }
+/* ロゴ暗色 */
 .bg-secondary {
-  background-color: #3A3D93;
+  background-color: #3a3d93;
 }
+/* ロゴ明色 */
 .bg-tertiary {
-  background-color: #56C1D5;
+  background-color: #56c1d5;
 }
 .bg-quaternary {
   background-color: #40455b;
@@ -381,12 +388,13 @@ section.team.section-padding {
 }
 
 .border-primary {
-  border-bottom: 2px solid #00A0E8;
+  border-bottom: 2px solid #00a0e8;
   padding-bottom: 0.5rem;
   margin-bottom: 1rem;
 }
 
-.video-header-wrapper, .image-header-wrapper {
+.video-header-wrapper,
+.image-header-wrapper {
   position: relative;
   width: 100%;
   height: clamp(100px, 24vh, 240px);
@@ -394,7 +402,48 @@ section.team.section-padding {
 }
 
 @media screen and (max-width: 767px) {
-  .video-header-wrapper, .image-header-wrapper {
+  .video-header-wrapper,
+  .image-header-wrapper {
     height: clamp(100px, 16vh, 180px) !important;
   }
+}
+
+.external-link {
+  text-align: center;
+  margin-top: 8px;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+.external-link a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: all 0.3s ease;
+  padding-right: 16px;
+  position: relative;
+}
+.external-link a:hover {
+  color: #fff;
+}
+.external-link a:after {
+  content: "↗";
+  position: absolute;
+  right: 0;
+  top: -2px;
+  font-size: 1rem;
+  opacity: 0.8;
+}
+.external-link a:hover:after {
+  opacity: 1;
+  transform: translateX(2px) translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+.btn-curve.btn-lit:hover span {
+  /* color: #75dab4; */
+  color: #00a0e8;
+}
+.btn-curve.btn-lit:hover span {
+  /* color: #75dab4; */
+  color: #00a0e8;
 }

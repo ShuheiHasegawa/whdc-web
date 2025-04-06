@@ -1,8 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
 import Head from "next/head";
+import TitleLeftLine from "../../../components/TitleLeftLine";
 import DarkTheme from "../../../layouts/Dark";
 import Navbar from "../../../components/Navbar";
 import SmallFooter from "../../../components/Small-footer";
+import Split from "../../../components/Split";
 
 const GovernanceTeam = () => {
   const navbarRef = useRef(null);
@@ -343,9 +345,12 @@ const GovernanceTeam = () => {
       <div className="main-content pt-32 m-0">
         <div className="container">
           <div className="pt-8 pb-8">
-            <h2 className="border-primary text-2xl">Governance Committee</h2>
+            <Split>
+              <TitleLeftLine title="Governance Committee" />
+            </Split>
           </div>
 
+          {/* Governance Committee */}
           <div className="row justify-content-center pt-16">
             <div className="col-lg-11 col-md-11">
               <div className="accordion" id="officersAccordion">
@@ -421,17 +426,14 @@ const GovernanceTeam = () => {
                           }
                         `}</style>
                         <div className="col-md-12">
-                          <div
-                            className="officer-info"
-                            style={{ width: "100%" }}
-                          >
+                          <div className="officer-info">
                             <div
                               className="col-md-4 officer-title"
                               style={{ width: "100%" }}
                             >
                               <h3
+                                className="text-lg"
                                 style={{
-                                  fontSize: "clamp(1.1rem, 3vw, 1.4rem)",
                                   color: "#fff",
                                   margin: 0,
                                 }}
@@ -441,9 +443,15 @@ const GovernanceTeam = () => {
                             </div>
                             <div className="col-md-4 officer-name">
                               <span
+                                className="text-lg"
                                 style={{
-                                  fontSize: "clamp(1.1rem, 3vw, 1.4rem)",
                                   color: "#fff",
+                                  whiteSpace: "nowrap",
+                                  overflow: "hidden",
+                                  textOverflow: "ellipsis",
+                                  display: "block",
+                                  minWidth: "150px",
+                                  width: "100%",
                                 }}
                               >
                                 {officer.name}
@@ -458,7 +466,6 @@ const GovernanceTeam = () => {
                                 }`}
                                 style={{
                                   color: "white",
-                                  // fontSize: "clamp(0.9rem, 2.5vw, 1.1rem)",
                                   transition: "opacity 0.3s ease",
                                 }}
                               ></i>
@@ -477,29 +484,33 @@ const GovernanceTeam = () => {
                     >
                       <div
                         className="card-body"
-                        style={{ background: "rgba(40, 45, 91, 0.3)" }}
+                        style={{
+                          background: "rgba(40, 45, 91, 0.3)",
+                        }}
                       >
                         <div className="col-md-12">
                           {officer.history.map((item, hIndex) => (
                             <div
                               key={hIndex}
-                              className="row align-items-center pb-3"
+                              className="d-flex pb-3"
                               style={{
+                                gap: "20px",
                                 color: "#fff",
                               }}
                             >
                               <div className="offset-md-3 col-md-2">
                                 <span
+                                  className="text-base"
                                   style={{
+                                    minWidth: "100px",
                                     fontWeight: "500",
-                                    display: "block",
                                   }}
                                 >
                                   {item.date}
                                 </span>
                               </div>
                               <div className="col-md-7">
-                                <span style={{ display: "block" }}>
+                                <span className="text-base">
                                   {item.description}
                                 </span>
                               </div>
@@ -514,11 +525,14 @@ const GovernanceTeam = () => {
             </div>
           </div>
 
-          <div className="row justify-content-center pt-32 pb-32">
+          {/* Compliance Committee */}
+          <div className="row justify-content-center pt-64 pb-32">
             <div className="pt-8 pb-8">
-              <h2 className="border-primary text-2xl">Compliance Committee</h2>
+              <Split>
+                <TitleLeftLine title="Compliance Committee" />
+              </Split>
             </div>
-            <div className="col-lg-11 col-md-11">
+            <div className="col-lg-11 col-md-11 pt-16">
               <div className="accordion" id="complianceAccordion">
                 {complianceOfficers.map((officer, index) => (
                   <div
@@ -565,6 +579,7 @@ const GovernanceTeam = () => {
                             .officer-name {
                               text-align: right;
                               padding-right: 40px;
+                              width: 100%;
                             }
                             .icon-container {
                               position: absolute;
@@ -593,12 +608,16 @@ const GovernanceTeam = () => {
                         `}</style>
                         <div className="col-md-12">
                           <div className="officer-info">
-                            <div className="officer-title">
+                            <div
+                              className="officer-title"
+                              style={{ width: "100%" }}
+                            >
                               <h3
+                                className="text-lg"
                                 style={{
-                                  fontSize: "clamp(1.1rem, 3vw, 1.4rem)",
                                   color: "#fff",
                                   margin: 0,
+                                  minWidth: "120px",
                                 }}
                               >
                                 コンプライアンス委員
@@ -606,9 +625,15 @@ const GovernanceTeam = () => {
                             </div>
                             <div className="officer-name">
                               <span
+                                className="text-lg"
                                 style={{
-                                  fontSize: "clamp(1.1rem, 3vw, 1.4rem)",
                                   color: "#fff",
+                                  whiteSpace: "nowrap",
+                                  overflow: "hidden",
+                                  textOverflow: "ellipsis",
+                                  display: "block",
+                                  minWidth: "150px",
+                                  width: "100%",
                                 }}
                               >
                                 {officer.name}
@@ -623,7 +648,6 @@ const GovernanceTeam = () => {
                                 }`}
                                 style={{
                                   color: "white",
-                                  fontSize: "clamp(0.9rem, 2.5vw, 1.1rem)",
                                   transition: "opacity 0.3s ease",
                                 }}
                               ></i>
@@ -659,6 +683,7 @@ const GovernanceTeam = () => {
                             >
                               <div className="offset-md-3 col-md-2">
                                 <span
+                                  className="text-base"
                                   style={{
                                     minWidth: "100px",
                                     fontWeight: "500",
@@ -668,7 +693,9 @@ const GovernanceTeam = () => {
                                 </span>
                               </div>
                               <div className="col-md-7">
-                                <span>{item.description}</span>
+                                <span className="text-base">
+                                  {item.description}
+                                </span>
                               </div>
                             </div>
                           ))}

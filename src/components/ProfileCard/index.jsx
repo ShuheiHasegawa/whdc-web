@@ -32,11 +32,11 @@ const ProfileCard = ({
   }, []);
 
   return (
-    <section className="min-area sub-bg pt-12 pb-64">
+    <section className="sub-bg pt-12 pb-64">
       <div className="container">
         <div className="row">
           <div
-            className="col-lg-6"
+            className="col-lg-6 mb-lg-0 mb-5"
             style={{
               display: "flex",
               justifyContent: "center",
@@ -55,36 +55,6 @@ const ProfileCard = ({
                 .img:after {
                   display: none;
                 }
-                .photo-credit {
-                  text-align: center;
-                  margin-top: 8px;
-                  font-size: 0.875rem;
-                  color: rgba(255, 255, 255, 0.7);
-                }
-                .photo-credit a {
-                  color: rgba(255, 255, 255, 0.7);
-                  text-decoration: underline;
-                  text-underline-offset: 2px;
-                  transition: all 0.3s ease;
-                  padding-right: 16px;
-                  position: relative;
-                }
-                .photo-credit a:hover {
-                  color: #fff;
-                }
-                .photo-credit a:after {
-                  content: "↗";
-                  position: absolute;
-                  right: 0;
-                  top: -2px;
-                  font-size: 1rem;
-                  opacity: 0.8;
-                }
-                .photo-credit a:hover:after {
-                  opacity: 1;
-                  transform: translateX(2px) translateY(-2px);
-                  transition: all 0.3s ease;
-                }
               `}</style>
               <RectRippleEffect
                 imageUrl={imageUrl}
@@ -94,7 +64,7 @@ const ProfileCard = ({
                 width="300px"
                 height="400px"
               />
-              <div className="photo-credit">
+              <div className="external-link">
                 photograph by{" "}
                 <a
                   href="https://www.shunichi-oda.com/"
@@ -149,13 +119,12 @@ const ProfileCard = ({
                 {career.map((item, index) => (
                   <li
                     key={index}
-                    className="wow fadeInUp"
+                    className="wow fadeInUp pb-16"
                     data-wow-delay=".2s"
                     style={{
                       color: "#fff",
                       // fontSize: "clamp(1.25rem, 4vw, 2rem)",
                       // fontWeight: "normal",
-                      padding: "0",
                       borderBottom: "0",
                     }}
                   >
