@@ -34,7 +34,38 @@ const WhyHow = ({ img, theme, subBG }) => {
                 } wow fadeInUp mx-auto d-inline-block`}
                 data-wow-delay=".5s"
               >
-                <span>詳しく見る</span>
+                <span>詳しく見る/デモ1</span>
+              </a>
+            </Link>
+          </div>
+        </div>
+
+        <div className="row pt-64">
+          <div className="col-md-8 col-lg-9">
+            <div className="content pb-16 pl-32">
+              <Split>
+                <h6 className="wow words chars splitting" data-splitting>
+                  Let&apos;s Know
+                </h6>
+                <h2
+                  className="wow words custom-font chars splitting"
+                  data-splitting
+                >
+                  30秒で分かる<b>ワイハウ</b>
+                </h2>
+              </Split>
+            </div>
+          </div>
+
+          <div className="col-md-4 col-lg-3 valign">
+            <Link href="/about2">
+              <a
+                className={`btn-curve ${
+                  theme == "light" ? "btn-blc" : "btn-lit"
+                } wow fadeInUp mx-auto d-inline-block`}
+                data-wow-delay=".5s"
+              >
+                <span>詳しく見るデモ2</span>
               </a>
             </Link>
           </div>
