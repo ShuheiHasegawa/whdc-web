@@ -1,9 +1,9 @@
 import React from "react";
 import TitleLeftLine from "../TitleLeftLine";
 import HeroImage from "../HeroImage";
-import SpotlightCard from "../../components/reactbits/ui/SpotlightCard/SpotlightCard";
+import InfiniteScroll from "../../components/reactbits/ui/InfiniteScroll/InfiniteScroll";
 
-const About = () => {
+const About2 = () => {
   const features = [
     "ワイハウが提供するのは価値創造の場＝企業再成プラットフォームです。これは「みんなで豊かになる」ために組織と個人が繋がり合い学び合う場を指します。",
     "日本には中堅企業・成長企業が約１０万社存在しています。こうした企業群が潜在的なワイハウの顧客であり仲間となります。",
@@ -16,6 +16,14 @@ const About = () => {
     "ワイハウの意思決定にはグループ企業社長も投資委員会等を通じて参加します。",
     "多様な資本で繋がり合い、学び合う、経営者組合。これがワイハウの企業再成プラットフォームです。",
   ];
+
+  const infiniteScrollItems = features.map((feature, index) => ({
+    id: index + 1,
+    title: `特徴 ${index + 1}`,
+    content: index +'. ' + feature,
+    image: `/img/whdc/features/feature-${index + 1}.jpg`, // 必要に応じて実際の画像パスに変更
+    bg: index % 2 === 0 ? "light" : "dark" // 交互に背景色を変更
+  }));
 
   return (
     <section className="intro-section pt-32">
@@ -31,24 +39,22 @@ const About = () => {
         </div>
 
         <div className="content-container pt-32">
-        <div className="pt-16 pl-16">
-          <TitleLeftLine title="ワイハウの１０の特徴" />
+          <div className="pt-16 pl-16">
+            <TitleLeftLine title="ワイハウの１０の特徴" />
+          </div>
         </div>
-          <div className="row p-16">
-            {features.map((feature, index) => (
-              <div key={index} className="col-md-6 mb-4">
-                <div className="feature-item">
-                  <SpotlightCard
-                    spotlightColor="rgba(0, 229, 255, 0.2)"
-                  >
-                    <div className="feature-content-wrapper">
-                      <span className="feature-number bg-senary">{index + 1}</span>
-                      <p className="feature-text text-white m-0 pl-16">{feature}</p>
-                    </div>
-                  </SpotlightCard>
-                </div>
-              </div>
-            ))}
+
+        <div className="section-padding p-0">
+          <div className="full-width-container height-100vh">
+            <InfiniteScroll
+              items={infiniteScrollItems}
+              isTilted={false}
+              tiltDirection="left"
+              autoplay={true}
+              autoplaySpeed={0.5}
+              autoplayDirection="up"
+              pauseOnHover={true}
+            />
           </div>
         </div>
 
@@ -61,55 +67,9 @@ const About = () => {
             overflow: hidden;
           }
 
-          .feature-item {
-            padding: 0.2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            display: flex;
-            align-items: flex-start;
-            transition: transform 0.3s ease;
-            height: 100%;
-          }
-
-          .feature-item:hover {
-            transform: translateY(-5px);
-          }
-
-          .feature-content-wrapper {
-            display: flex;
-            align-items: center;
-          }
-
-          .feature-number {
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-          }
-
-          .feature-text {
-            text-align: left;
-          }
-
           @media (max-width: 768px) {
             .main-title {
               font-size: 2rem;
-            }
-
-            .features-title {
-              font-size: 1.5rem;
-            }
-
-            .feature-item {
-              padding: 1rem;
-            }
-
-            .feature-text {
-              font-size: 0.9rem;
             }
           }
         `}</style>
@@ -118,4 +78,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default About2;

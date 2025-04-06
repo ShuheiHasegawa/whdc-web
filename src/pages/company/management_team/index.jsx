@@ -13,8 +13,6 @@ const ManagementTeam = () => {
   // };
   // changeLanguage("ja");
 
-
-  const MainContent = React.useRef(null);
   const navbarRef = useRef(null);
   const logoRef = useRef(null);
 
@@ -52,7 +50,7 @@ const ManagementTeam = () => {
         <title>
           ワイハウ - Top Management Team - THE WHY HOW DO COMPANY株式会社
         </title>
-        <link
+        {/* <link
           href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap"
           rel="stylesheet"
         />
@@ -67,7 +65,7 @@ const ManagementTeam = () => {
         <link
           href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap"
           rel="stylesheet"
-        />
+        /> */}
       </Head>
       <Navbar nr={navbarRef} lr={logoRef} />
       <div className="video-header-wrapper">
@@ -100,51 +98,14 @@ const ManagementTeam = () => {
               right: "30px",
               zIndex: 1,
             }}
-          >
-            <h1
-              className="color-font"
-              style={{
-                padding: "8px 12px",
-                fontSize: "clamp(1rem, 5vw, 1.4rem)",
-                margin: 0,
-                color: "#fff",
-                boxShadow: "4px rgba(0, 0, 0, 0.3)",
-                backgroundColor: "rgba(0, 0, 0, 0.3)",
-                // fontFamily: "'Dancing Script', cursive",
-                // fontFamily: "'Playfair Display', serif", // または 'Cormorant', serif または 'Libre Baskerville', serif
-                // fontFamily: "'Cormorant', serif", // または 'Cormorant', serif または 'Libre Baskerville', serif
-                fontFamily: "'Libre Baskerville', serif", // または 'Cormorant', serif または 'Libre Baskerville', serif
-                letterSpacing: "0.02em",
-              }}
-            >
-              Top Management Team
-            </h1>
-          </div>
+          ></div>
         </div>
       </div>
 
-      <div ref={MainContent} className="main-content">
+      <div className="main-content pt-32 m-0">
         <div className="container">
-          <div className="pt-24 pb-12">
-            {/* <h2
-              style={{
-                color: "#fff",
-                fontSize: "clamp(1.25rem, 4vw, 2rem)",
-                fontWeight: "normal",
-                padding: "0 0 8px 0",
-                borderBottom: "1px solid rgba(255, 255, 255, 0.3)",
-                textAlign: "left",
-                margin: "0",
-                width: "100%",
-                fontFamily: "'Libre Baskerville', serif", // または 'Cormorant', serif または 'Libre Baskerville', serif
-                letterSpacing: "0.02em",
-              }}
-            >
-              Top Management Team
-            </h2> */}
-            <h2 className="border-primary text-2xl">
-              Top Management Team
-            </h2>
+          <div className="pt-8 pb-8">
+            <h2 className="border-primary text-2xl">Top Management Team</h2>
           </div>
         </div>
 

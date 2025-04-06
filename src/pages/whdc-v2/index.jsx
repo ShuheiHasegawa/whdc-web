@@ -20,9 +20,7 @@ import RbLetterGlitch from "../../components/RbLetterGlitch/index.tsx";
 import InfiniteMenu from "../../components/reactbits/ui/InfiniteMenu/InfiniteMenu";
 import InfiniteScroll from "../../components/reactbits/ui/InfiniteScroll/InfiniteScroll";
 import SpotlightCard from "../../components/reactbits/ui/SpotlightCard/SpotlightCard";
-// import Ballpit from "../../components/reactbits/backgrounds/Ballpit/Ballpit";
 import TrueFocus from "../../components/reactbits/text-animations/TrueFocus/TrueFocus";
-// import ScrollVelocity from "../../components/reactbits/text-animations/ScrollVelocity/ScrollVelocity";
 import Hyperspeed from "../../components/reactbits/backgrounds/Hyperspeed/Hyperspeed";
 import Particles from "../../components/reactbits/backgrounds/Particles/Particles";
 
@@ -243,18 +241,6 @@ const WhdcV2 = () => {
             <div className="row justify-content-center">
               <div className="col-lg-8 col-md-10">
                 <TrueFocus />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="section-padding">
-          <div className="container">
-            <div className="row justify-content-center">
-              <div className="col-lg-8 col-md-10">
-                {/* <ScrollVelocity 
-                  texts={['React Bits', 'Scroll Down', 'Scroll Up', 'Scroll Left', 'Scroll Right', 'Scroll Up Left', 'Scroll Up Right', 'Scroll Down Left', 'Scroll Down Right']} 
-                /> */}
               </div>
             </div>
           </div>

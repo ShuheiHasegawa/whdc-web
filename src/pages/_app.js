@@ -13,11 +13,9 @@ import "../styles/globals.css";
 import "../styles/font.css";
 import "../styles/spacing.css";
 // import "../components/reactbits/ui/InfiniteMenu/InfiniteMenu.css";
-// import "../components/reactbits/backgrounds/Ballpit/Ballpit.css";
 // import "../components/reactbits/text-animations/TrueFocus/TrueFocus.css";
-// import "../components/reactbits/text-animations/ScrollVelocity/ScrollVelocity.css";
-// import "../components/reactbits/ui/InfiniteScroll/InfiniteScroll.css";
-// import "../components/reactbits/ui/SpotlightCard/SpotlightCard.css";
+import "../components/reactbits/ui/InfiniteScroll/InfiniteScroll.css";
+import "../components/reactbits/ui/SpotlightCard/SpotlightCard.css";
 // import "../components/reactbits/backgrounds/Hyperspeed/Hyperspeed.css";
 // import "../components/reactbits/backgrounds/Particles/Particles.css";
 
@@ -74,12 +72,6 @@ function MyApp({ Component, pageProps }) {
         id="ripples"
         src="/js/jquery.ripples-master/dist/jquery.ripples-min.js"
         strategy="afterInteractive"
-        onLoad={() => {
-          console.log("Ripples plugin loaded successfully");
-        }}
-        onError={(e) => {
-          console.error("Error loading ripples plugin:", e);
-        }}
       />
     </>
   );

@@ -139,10 +139,10 @@ const ProfileCard = ({
 
               <Split>
                 <p
-                  className="wow txt words chars splitting pt-16 pl-16"
+                  className="wow txt words chars splitting pt-8 pl-8"
                   data-splitting
                 >
-                  <span>経歴</span>
+                  <span className="text-white">経歴</span>
                 </p>
               </Split>
               <ul className="feat pl-16">
@@ -155,7 +155,7 @@ const ProfileCard = ({
                       color: "#fff",
                       // fontSize: "clamp(1.25rem, 4vw, 2rem)",
                       // fontWeight: "normal",
-                      padding: "0 0 8px 0",
+                      padding: "0",
                       borderBottom: "0",
                     }}
                   >

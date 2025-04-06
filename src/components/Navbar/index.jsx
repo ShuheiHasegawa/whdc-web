@@ -11,19 +11,43 @@ const Navbar = ({ lr, nr, theme }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const scrollToSection = (sectionId) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      // オフセット位置を計算（ナビゲーションバーの高さを考慮）
-      const navHeight = nr.current ? nr.current.offsetHeight : 80;
-      const offsetPosition = section.offsetTop - navHeight;
+    // 少し遅延させてDOMが確実に描画されたあとに実行
+    setTimeout(() => {
+      const section = document.getElementById(sectionId);
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    } else {
-      router.push("/");
-    }
+      if (section) {
+        // オフセット位置を計算（より正確に）
+        const navHeight = nr.current ? nr.current.offsetHeight - 100 : 80;
+        console.log(navHeight);
+
+        // 要素の絶対位置を取得
+        const rect = section.getBoundingClientRect();
+        const scrollTop =
+          window.pageYOffset || document.documentElement.scrollTop;
+        const offsetPosition = rect.top + scrollTop - navHeight - 20; // 余白を追加
+        console.log(offsetPosition);
+
+        // スムーズスクロール
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+
+        // スクロール完了後に位置調整（必要に応じて）
+        setTimeout(() => {
+          const newRect = section.getBoundingClientRect();
+          if (newRect.top < navHeight + 10) {
+            window.scrollBy({
+              top: newRect.top - navHeight - 20,
+              behavior: "smooth",
+            });
+          }
+        }, 1000);
+      } else {
+        console.error(`Section with ID ${sectionId} not found`);
+        router.push("/");
+      }
+    }, 100);
   };
 
   const handleMobileDropdown = () => {
@@ -68,9 +92,6 @@ const Navbar = ({ lr, nr, theme }) => {
     <nav
       ref={nr}
       className={`navbar navbar-expand-lg ${theme === "themeL" ? "light" : ""}`}
-      style={{
-        position: "absolute !important",
-      }}
     >
       <div className="container p-0">
         <Link href="/">

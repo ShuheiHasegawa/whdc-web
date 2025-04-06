@@ -25,6 +25,7 @@ const SpotlightCard = ({ children, className = "", spotlightColor = "rgba(255, 2
       ref={divRef}
       onMouseMove={handleMouseMove}
       className={`card-spotlight ${className}`}
+      style={{ minHeight: '160px', alignContent: 'center', width: '100%' }}
     >
       {children}
     </div>

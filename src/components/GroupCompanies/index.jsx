@@ -1,12 +1,34 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Split from "../Split";
 import { Network } from "vis-network";
 import { DataSet } from "vis-data";
 
 const GroupCompanies = () => {
   const networkRef = useRef(null);
+  const [containerHeight, setContainerHeight] = useState('720px');
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 480) {
+        setContainerHeight('480px'); // スマホサイズ
+      } else if (window.innerWidth <= 768) {
+        setContainerHeight('540px'); // タブレットサイズ
+      } else {
+        setContainerHeight('720px'); // デスクトップサイズ
+      }
+    };
+    
+    // 初期化
+    handleResize();
+    
+    // リサイズイベントにリスナーを追加
+    window.addEventListener('resize', handleResize);
+    
+    // クリーンアップ
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     // ノードの定義
@@ -284,8 +306,11 @@ const GroupCompanies = () => {
               className="network-container wow fadeIn"
               data-wow-delay=".3s"
               style={{
-                height: "800px",
-                width: "100%",
+                position: 'relative',
+                width: '100%',
+                height: containerHeight,
+                maxWidth: '100%',
+                overflow: 'hidden',
                 background: "#0C0C0C",
                 border: "1px solid rgba(255, 255, 255, 0.1)",
                 borderRadius: "10px",

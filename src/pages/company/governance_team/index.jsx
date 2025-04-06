@@ -9,6 +9,8 @@ const GovernanceTeam = () => {
   const logoRef = useRef(null);
   const [openOfficerIndex, setOpenOfficerIndex] = useState(null);
   const [openComplianceIndex, setOpenComplianceIndex] = useState(null);
+  const [hoveredOfficerIndex, setHoveredOfficerIndex] = useState(null);
+  const [hoveredComplianceIndex, setHoveredComplianceIndex] = useState(null);
 
   useEffect(() => {
     const initializeAccordion = () => {
@@ -335,56 +337,13 @@ const GovernanceTeam = () => {
           >
             <source src="/movies/governance_movie.mp4" type="video/mp4" />
           </video>
-          <div
-            className="video-header-title"
-            style={{
-              position: "absolute",
-              bottom: "15px",
-              right: "15px",
-              zIndex: 1,
-            }}
-          >
-            <h1
-              className="color-font"
-              style={{
-                padding: "8px 12px",
-                fontSize: "clamp(1rem, 5vw, 1.4rem)",
-                margin: 0,
-                color: "#fff",
-                boxShadow: "4px rgba(0, 0, 0, 0.3)",
-                backgroundColor: "rgba(0, 0, 0, 0.3)",
-                fontFamily: "'Libre Baskerville', serif",
-                letterSpacing: "0.02em",
-              }}
-            >
-              Governance Committee
-            </h1>
-          </div>
         </div>
       </div>
 
-      <div className="main-content pt-16 m-0">
+      <div className="main-content pt-32 m-0">
         <div className="container">
           <div className="pt-8 pb-8">
-            {/* <h2
-              style={{
-                color: "#fff",
-                fontSize: "clamp(1.25rem, 4vw, 2rem)",
-                fontWeight: "normal",
-                padding: "0 0 8px 0",
-                borderBottom: "1px solid rgba(255, 255, 255, 0.3)",
-                textAlign: "left",
-                margin: "0",
-                width: "100%",
-                fontFamily: "'Libre Baskerville', serif",
-                letterSpacing: "0.02em",
-              }}
-            >
-              Governance Committee
-            </h2> */}
-            <h2 className="border-primary text-2xl">
-              Governance Committee
-            </h2>
+            <h2 className="border-primary text-2xl">Governance Committee</h2>
           </div>
 
           <div className="row justify-content-center pt-16">
@@ -396,10 +355,17 @@ const GovernanceTeam = () => {
                     className="card bg-transparent border-0 pt-2 pb-2"
                   >
                     <div
-                      className="card-header"
+                      className={`card-header ${
+                        hoveredOfficerIndex === index ? "bg-secondary" : ""
+                      } ${openOfficerIndex === index ? "active" : ""}`}
                       onClick={() => toggleOfficerAccordion(index)}
+                      onMouseEnter={() => setHoveredOfficerIndex(index)}
+                      onMouseLeave={() => setHoveredOfficerIndex(null)}
                       style={{
-                        background: "rgba(40, 45, 91, 0.3)",
+                        background:
+                          hoveredOfficerIndex === index
+                            ? "rgba(40, 45, 91, 0.5)"
+                            : "rgba(40, 45, 91, 0.3)",
                         border: "none",
                         borderRadius: "5px",
                         padding: "12px 20px",
@@ -485,14 +451,14 @@ const GovernanceTeam = () => {
                             </div>
                             <div className="icon-container">
                               <i
-                                className={`fas ${
+                                className={`fas fa-sm ${
                                   openOfficerIndex === index
                                     ? "fa-minus"
                                     : "fa-plus"
                                 }`}
                                 style={{
                                   color: "white",
-                                  fontSize: "clamp(0.9rem, 2.5vw, 1.1rem)",
+                                  // fontSize: "clamp(0.9rem, 2.5vw, 1.1rem)",
                                   transition: "opacity 0.3s ease",
                                 }}
                               ></i>
@@ -548,27 +514,10 @@ const GovernanceTeam = () => {
             </div>
           </div>
 
-          <div className="pt-16 pb-8">
-            {/* <h2
-              style={{
-                color: "#fff",
-                fontSize: "clamp(1.25rem, 4vw, 2rem)",
-                fontWeight: "normal",
-                padding: "0 0 8px 0",
-                borderBottom: "1px solid rgba(255, 255, 255, 0.3)",
-                textAlign: "left",
-                margin: "0",
-                width: "100%",
-              }}
-            >
-              Compliance Committee
-            </h2> */}
-            <h2 className="border-primary text-2xl">
-              Compliance Committee
-            </h2>
-          </div>
-
-          <div className="row justify-content-center pt-16 pb-16">
+          <div className="row justify-content-center pt-32 pb-32">
+            <div className="pt-8 pb-8">
+              <h2 className="border-primary text-2xl">Compliance Committee</h2>
+            </div>
             <div className="col-lg-11 col-md-11">
               <div className="accordion" id="complianceAccordion">
                 {complianceOfficers.map((officer, index) => (
@@ -577,10 +526,17 @@ const GovernanceTeam = () => {
                     className="card bg-transparent border-0 pt-2 pb-2"
                   >
                     <div
-                      className="card-header"
+                      className={`card-header ${
+                        hoveredComplianceIndex === index ? "bg-secondary" : ""
+                      } ${openComplianceIndex === index ? "active" : ""}`}
                       onClick={() => toggleComplianceAccordion(index)}
+                      onMouseEnter={() => setHoveredComplianceIndex(index)}
+                      onMouseLeave={() => setHoveredComplianceIndex(null)}
                       style={{
-                        background: "rgba(40, 45, 91, 0.3)",
+                        background:
+                          hoveredComplianceIndex === index
+                            ? "rgba(40, 45, 91, 0.5)"
+                            : "rgba(40, 45, 91, 0.3)",
                         border: "none",
                         borderRadius: "5px",
                         padding: "12px 20px",
@@ -590,16 +546,6 @@ const GovernanceTeam = () => {
                         transition: "all 0.3s ease",
                         position: "relative",
                         overflow: "hidden",
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.background =
-                          "rgba(40, 45, 91, 0.3)";
-                        e.currentTarget.style.transform = "translateX(8px)";
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.background =
-                          "rgba(40, 45, 91, 0.3)";
-                        e.currentTarget.style.transform = "translateX(0)";
                       }}
                     >
                       <div className="row align-items-center">
