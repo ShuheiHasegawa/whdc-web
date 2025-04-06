@@ -1,5 +1,8 @@
 import React from "react";
 import Link from "next/link";
+import HeroImage from "../HeroImage";
+import TitleLeftLine from "../TitleLeftLine";
+import Split from "../Split";
 import { historyData } from "./historyData";
 
 const CompanyPage = () => {
@@ -10,11 +13,11 @@ const CompanyPage = () => {
         <div className="row no-gutters">
           <div className="col-12">
             <div className="position-relative">
-              <img
+              <HeroImage
                 src="/img/whdc/company/firstview_02_2022.png"
                 alt="firstview_about"
-                className="img-fluid w-100"
-                style={{ maxHeight: "50vh", objectFit: "cover" }}
+                objectFit="cover"
+                priority
               />
             </div>
           </div>
@@ -22,17 +25,14 @@ const CompanyPage = () => {
       </section>
 
       {/* 会社情報 */}
-      <section className="container py-5" id="profile">
+      <section className="container pt-32" id="profile">
         <div className="row justify-content-center">
           <div className="col-12">
-            <h2
-              className="h2 whdc-primary-bb pb-2 mb-4"
-              style={{ color: "white" }}
-            >
-              会社情報
-            </h2>
-            <div className="table-responsive">
-              <table className="table table-dark table-bordered table-striped">
+            <Split>
+              <TitleLeftLine title="会社情報" />
+            </Split>
+            <div className="table-responsive pt-16">
+              <table className="table table-dark table-bordered table-striped text-base">
                 <tbody>
                   <tr>
                     <th style={{ width: "20%" }}>会社名</th>
@@ -109,30 +109,18 @@ const CompanyPage = () => {
                 </tbody>
               </table>
             </div>
-            <div className="mt-4">
-              <Link href="/officer">
-                <a className="btn whdc-primary-bg text-white btn-sm d-block mb-3">
-                  役員/コンプライアンス委員
-                </a>
-              </Link>
-              <Link href="/interview">
-                <a className="btn whdc-primary-bg text-white btn-sm d-block">
-                  コンプライアンスについて
-                  <br />
-                  (顧問弁護士 田邊勝己弁護士)
-                </a>
-              </Link>
-            </div>
           </div>
         </div>
       </section>
 
       {/* 沿革 */}
-      <section className="container py-5" id="history">
+      <section className="container pt-32" id="history">
         <div className="row justify-content-center">
           <div className="col-12">
-            <h2 className="h2 text-white whdc-primary-bb pb-2 mb-4">沿革</h2>
-            <div className="table-responsive">
+            <Split>
+              <TitleLeftLine title="沿革" />
+            </Split>
+            <div className="table-responsive pt-16">
               <table className="table table-dark table-bordered table-striped">
                 <tbody>
                   {historyData.map((item, index) => (
@@ -171,16 +159,24 @@ const CompanyPage = () => {
       </section>
 
       {/* 社長メッセージ */}
-      <section className="container py-5" id="message">
+      <section className="container pt-32" id="message">
         <div className="row justify-content-center">
           <div className="col-12">
             <div
-              className="d-flex justify-content-between align-items-end whdc-primary-bb pb-2 mb-4"
-              style={{ width: "100%" }}
+              className="d-flex justify-content-between align-items-end pb-2 mb-4"
+              style={{
+                width: "100%",
+                borderBottomWidth: "1px",
+                borderBottomStyle: "solid",
+                /* border-bottom-color: #0369b4; */
+                borderBottomColor: "gray",
+               }}
             >
               <div className="row" style={{ width: "100%" }}>
                 <div className="col-md-6">
-                  <h2 className="h2 text-white mb-0">社長メッセージ</h2>
+                  <Split>
+                    <TitleLeftLine title="社長メッセージ" />
+                  </Split>
                 </div>
                 <div className="col-md-6">
                   <div
@@ -230,50 +226,17 @@ const CompanyPage = () => {
       </section>
 
       {/* 社名の由来 */}
-      <section className="container py-5">
+      <section className="container pt-32 pb-32 text-center">
         <div className="row justify-content-center">
           <div className="col-12">
-            <Link href="/companyname">
-              <a className="btn text-white whdc-primary-bg btn-sm d-block">
-                社名の由来
-              </a>
+            <Link href="/company/name" passHref>
+              <button className="btn-curve btn-lit">
+                <span>社名の由来</span>
+              </button>
             </Link>
           </div>
         </div>
       </section>
-      <style jsx global>{`
-        .table th {
-          font-size: clamp(0.9rem, 2vw, 1.2rem);
-        }
-        .table td {
-          font-size: clamp(0.9rem, 2vw, 1.2rem);
-        }
-        .whdc-primary-color {
-          color: #0369b4;
-        }
-        .whdc-secondary-color {
-          color: #393c93;
-        }
-        .whdc-tertiary-color {
-          color: #55bfd7;
-        }
-        .whdc-primary-bg {
-          background-color: #0369b4;
-        }
-        .whdc-primary-bg:hover {
-        }
-        .whdc-secondary-bg {
-          background-color: #393c93;
-        }
-        .whdc-tertiary-bg {
-          background-color: #55bfd7;
-        }
-        .whdc-primary-bb {
-          border-bottom-width: 1px;
-          border-bottom-style: solid;
-          border-bottom-color: #0369b4;
-        }
-      `}</style>
     </main>
   );
 };
