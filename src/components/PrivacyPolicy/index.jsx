@@ -16,7 +16,7 @@ const PrivacyPolicy = () => {
           layout="responsive"
         />
 
-        <div className="pt-32" style={{ maxWidth: "640px", margin: "0 auto" }}>
+        <div className="p-16" style={{ maxWidth: "640px", margin: "0 auto" }}>
           <p className="topics">
             <span className="text-2xl text-white font-bold">
               プライバシーポリシー

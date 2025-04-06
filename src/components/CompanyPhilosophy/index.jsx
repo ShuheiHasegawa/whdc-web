@@ -2,8 +2,10 @@
 import React from "react";
 // import Link from "next/link";
 // import { Formik, Form, Field } from "formik";
+import HeroImage from "../HeroImage";
+import TitleLeftLine from "../TitleLeftLine";
 
-const ManagementPhilosophy = () => {
+const CompanyPhilosophy = () => {
   // function validateEmail(value) {
   //   let error;
   //   if (!value) {
@@ -15,13 +17,13 @@ const ManagementPhilosophy = () => {
   // }
   // const sendComment = (ms) => new Promise((r) => setTimeout(r, ms));
   return (
-    <section className="section-padding pt-0">
-      <img
+    <section className="pt-0">
+      <HeroImage
         src="/img/whdc/ir/ir_rinen_firstview.png"
         alt="image"
-        style={{
-          width: "100%",
-        }}
+        width={768}
+        height={400}
+        layout="responsive"
       />
       <div className="container">
         <div className="row justify-content-center">
@@ -32,31 +34,14 @@ const ManagementPhilosophy = () => {
                   <div className="col-lg-10">
                     <div className="cont">
                       <div className="mb-5">
-                        <h2
-                          className="mb-2"
-                          style={{
-                            color: "#fff",
-                            fontSize: "clamp(1.25rem, 4vw, 2rem)",
-                            fontWeight: "normal",
-                            padding: "0 0 8px 0",
-                            borderBottom: "1px solid rgba(255, 255, 255, 0.3)",
-                            textAlign: "left",
-                            margin: "0",
-                          }}
-                        >
-                          企業理念（全社レベル）
-                        </h2>
-
+                        <div className="pt-8 pb-8">
+                          <TitleLeftLine title="企業理念（全社レベル）" />
+                        </div>
                         <div
                           className="p-16"
                           style={{ color: "#fff", backgroundColor: "#151921" }}
                         >
-                          <div
-                            className="lead mb-4"
-                            style={{
-                              fontSize: "clamp(1.1rem, 4vw, 2rem)",
-                            }}
-                          >
+                          <div className="text-xl pb-4">
                             THE WHY HOW DO
                             COMPANY（以後、ワイハウ）の使命（ミッション＝パーパス）を「価値創造の力で、もう一度豊かになる」とします。
                           </div>
@@ -84,24 +69,16 @@ const ManagementPhilosophy = () => {
                               Doの実践共同体（Company）が自然と拡大する公明正大な組織
                             </li>
                           </ul>
+                          <p className="mb-4">
+                            ワイハウは、こうした理念のもとに多様な組織と個人が集まってくる価値創造の場を創り出し、不断のビジネスモデル革新と学び合いによって、経営プロフェッショナルを生み出します。それによって、近未来の具体的なビジョンとして「ビジネスモデル革新に悩むすべての経営者が &quot;ワイハウならきっと答えを出すに違いない&quot; と思って下さるような、言い換えればビジネスモデルの総合商社／Ｍ＆Ａ業界における総合不動産ディベロッパーのような、唯一無二の存在になる」ことを掲げます。
+                          </p>
                         </div>
                       </div>
 
                       <div className="mb-5">
-                        <h2
-                          className="mb-2"
-                          style={{
-                            color: "#fff",
-                            fontSize: "clamp(1.25rem, 4vw, 2rem)",
-                            fontWeight: "normal",
-                            padding: "0 0 8px 0",
-                            borderBottom: "1px solid rgba(255, 255, 255, 0.3)",
-                            textAlign: "left",
-                            margin: "0",
-                          }}
-                        >
-                          経営方針（事業レベル）
-                        </h2>
+                        <div className="pt-8 pb-8">
+                          <TitleLeftLine title="経営方針（事業レベル）" />
+                        </div>
                         <div
                           className="p-16"
                           style={{ color: "#fff", backgroundColor: "#151921" }}
@@ -122,20 +99,9 @@ const ManagementPhilosophy = () => {
                       </div>
 
                       <div className="mb-5">
-                        <h2
-                          className="mb-2"
-                          style={{
-                            color: "#fff",
-                            fontSize: "clamp(1.25rem, 4vw, 2rem)",
-                            fontWeight: "normal",
-                            padding: "0 0 8px 0",
-                            borderBottom: "1px solid rgba(255, 255, 255, 0.3)",
-                            textAlign: "left",
-                            margin: "0",
-                          }}
-                        >
-                          行動規範（個人レベル）
-                        </h2>
+                        <div className="pt-8 pb-8">
+                          <TitleLeftLine title="行動規範（個人レベル）" />
+                        </div>
                         <div
                           className="p-16"
                           style={{ color: "#fff", backgroundColor: "#151921" }}
@@ -184,4 +150,4 @@ const ManagementPhilosophy = () => {
   );
 };
 
-export default ManagementPhilosophy;
+export default CompanyPhilosophy;

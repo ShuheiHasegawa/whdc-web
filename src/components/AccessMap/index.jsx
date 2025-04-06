@@ -58,10 +58,12 @@ const AccessMap = () => {
             <aside id="buttonSet" className="pt-16 text-center">
               <button
                 id="printStart"
-                className="bg-primary text-white"
+                className="btn-curve btn-lit"
                 onClick={handlePrint}
               >
+                <span>
                 印刷する
+                </span>
               </button>
             </aside>
           </div>
@@ -76,11 +78,7 @@ const AccessMap = () => {
         }
 
         #printStart {
-          padding: 1rem 2rem;
-          border: none;
-          border-radius: 5px;
           cursor: pointer;
-          transition: opacity 0.3s;
         }
 
         #printStart:hover {

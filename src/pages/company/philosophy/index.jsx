@@ -4,7 +4,7 @@ import Footer from "../../../components/Footer";
 import Navbar from "../../../components/Navbar";
 import DarkTheme from "../../../layouts/Dark";
 
-const ManagementPhilosophyPage = () => {
+const CompanyPhilosophyPage = () => {
   const navbarRef = React.useRef(null);
   const logoRef = React.useRef(null);
   React.useEffect(() => {
@@ -32,4 +32,4 @@ const ManagementPhilosophyPage = () => {
   );
 };
 
-export default ManagementPhilosophyPage;
+export default CompanyPhilosophyPage;
