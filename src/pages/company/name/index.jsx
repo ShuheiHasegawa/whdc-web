@@ -2,14 +2,14 @@ import React, { useState, useRef, useEffect } from "react";
 import CompanyNamePage from "../../../components/CompanyName";
 import DarkTheme from "../../../layouts/Dark";
 import Navbar from "../../../components/Navbar";
-import SmallFooter from "../../../components/Small-footer";
+import Footer from "../../../components/Footer";
 
 const CompanyName = () => {
   return (
     <DarkTheme>
       <Navbar />
       <CompanyNamePage />
-      <SmallFooter />
+      <Footer />
     </DarkTheme>
   );
 };

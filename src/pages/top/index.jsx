@@ -14,7 +14,6 @@ import Services from "../../components/Services";
 // import VideoWithTestimonials from "../../components/Video-with-testimonials";
 import ImageSlider from "../../components/Image-slider";
 import DarkTheme from "../../layouts/Dark";
-import SiteMap from "../../components/SiteMap";
 
 const TopPage = () => {
   const fixedSlider = React.useRef(null);
@@ -63,7 +62,6 @@ const TopPage = () => {
         {/* <Clients1 theme="dark" /> */}
           {/* <BlogsTwoColumnSlider /> */}
           <WhyHow subBG />
-          <SiteMap />
           <Footer />
         </div>
       </div>

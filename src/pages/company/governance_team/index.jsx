@@ -3,7 +3,7 @@ import Head from "next/head";
 import TitleLeftLine from "../../../components/TitleLeftLine";
 import DarkTheme from "../../../layouts/Dark";
 import Navbar from "../../../components/Navbar";
-import SmallFooter from "../../../components/Small-footer";
+import Footer from "../../../components/Footer";
 import Split from "../../../components/Split";
 
 const GovernanceTeam = () => {
@@ -708,7 +708,7 @@ const GovernanceTeam = () => {
             </div>
           </div>
         </div>
-        <SmallFooter />
+        <Footer />
       </div>
     </DarkTheme>
   );

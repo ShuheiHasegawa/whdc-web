@@ -23,7 +23,7 @@ const IntroText = () => {
       </h2> */}
       <h2 className={styles.subtitle}>
         <div className={styles.line}>
-          <span className={styles.word}>我々が提供するのは価値提供の場、</span>
+          <span className={styles.word}>我々が提供するのは価値創造の場、</span>
         </div>
         <div className={styles.line}>
           <span className={styles.word}>企業再成プラットフォーム。</span>

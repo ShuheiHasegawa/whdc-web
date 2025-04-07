@@ -31,6 +31,11 @@ const SiteMap = () => {
 
       <ul className="siteMapFlex">
         <li>
+          <Link href="/company">
+            <a className="custom-link">社長メッセージ</a>
+          </Link>
+        </li>
+        <li>
           <Link href="/company/philosophy">
             <a className="custom-link">企業憲章</a>
           </Link>
