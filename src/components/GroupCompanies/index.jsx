@@ -60,17 +60,8 @@ const GroupCompanies = () => {
         heightConstraint: { minimum: 70, maximum: 70 },
         url: "https://interplan-school.com/",
       },
-      // {
-      //   id: 4,
-      //   label: "Media Incuvate",
-      //   image: "/img/logo/whdc_group_logo/mediaincuvate.png",
-      //   shape: "image",
-      //   widthConstraint: { minimum: 120, maximum: 120 },
-      //   heightConstraint: { minimum: 70, maximum: 70 },
-      //   url: "https://media-incubate.com/",
-      // },
       {
-        id: 5,
+        id: 4,
         label: "Nikuyoko",
         image: "/img/logo/whdc_group_logo/nikuyoko.png",
         shape: "image",
@@ -79,7 +70,7 @@ const GroupCompanies = () => {
         url: "https://nikuyokocho.jp/",
       },
       {
-        id: 6,
+        id: 5,
         label: "Sunrise Japan",
         image: "/img/logo/whdc_group_logo/sunrisejapan.png",
         shape: "image",
@@ -87,17 +78,8 @@ const GroupCompanies = () => {
         heightConstraint: { minimum: 70, maximum: 70 },
         url: "https://sunrisejapan.com/",
       },
-      // {
-      //   id: 7,
-      //   label: "UBE",
-      //   image: "/img/logo/whdc_group_logo/ube.png",
-      //   shape: "image",
-      //   widthConstraint: { minimum: 120, maximum: 120 },
-      //   heightConstraint: { minimum: 70, maximum: 70 },
-      //   url: "https://ube-recycle.co.jp/",
-      // },
       {
-        id: 8,
+        id: 6,
         label: "Dream Planet",
         image: "/img/logo/whdc_group_logo/dreamplanet.png",
         shape: "image",
@@ -106,7 +88,7 @@ const GroupCompanies = () => {
         url: "https://www.dreamplanet.co.jp/capsule/",
       },
       {
-        id: 9,
+        id: 7,
         label: "Pavilions",
         image: "/img/logo/whdc_group_logo/pavilions.png",
         shape: "image",
@@ -115,7 +97,7 @@ const GroupCompanies = () => {
         url: "https://x.com/tetsuyakomurotk",
       },
       {
-        id: 10,
+        id: 8,
         label: "SOUND PORT",
         image: "/img/logo/whdc_group_logo/soundport.png",
         shape: "image",
@@ -134,8 +116,6 @@ const GroupCompanies = () => {
       { from: 1, to: 6, length: 200, physics: true },
       { from: 1, to: 7, length: 200, physics: true },
       { from: 1, to: 8, length: 200, physics: true },
-      { from: 1, to: 9, length: 200, physics: true },
-      { from: 1, to: 10, length: 200, physics: true },
     ]);
 
     // ネットワークの設定

@@ -40,7 +40,7 @@
 
 .subtitle .line:nth-child(1) .word { transition-delay: 0.8s; }
 .subtitle .line:nth-child(2) .word { transition-delay: 0.9s; }
-.subtitle .line:nth-child(3) .word { transition-delay: 1s; }
+.subtitle .line:nth-child(3) .word { transition-delay: 1.5s; }
 .subtitle .line:nth-child(4) .word { transition-delay: 1.9s; }
 
 .title,
