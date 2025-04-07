@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="keywords" content="アクロディア, Acrodea">
+	<meta name="description" content="当社IR関連(「アクロディアについて」「企業憲章」「株式情報」「財務ハイライト」「IR資料」「その他IR情報」)などの情報を掲載しています。">
+	<meta name="companyprofile" content="株式会社アクロディア(Acrodea, Inc.)、本社：東京都新宿区愛住町22 第3山田ビル、TEL：03-4405-5460、設立：2004年7月12日、代表者：代表取締役社長   篠原 洋、証券取引所：東京証券取引所市場第二部、証券コード：3823、発行済株式数：25,794,693株(2019年8月31日現在)、主要株主：田邊 勝己(15.95％)、堤 純也(1.70％)(2019年8月31日現在) 、グループ会社：株式会社渋谷肉横丁、株式会社インタープラン、株式会社クリプト・フィナンシャル・システム、GUAM ENTERTAINMENT SYSTEMS,LLC 、株式会社セントラル・ベアー・アセット・マネジメント、有限会社武藤製作所">
+	<title>Acrodea | IRお問い合わせ</title>
+	<link rel="icon" href="../../image/favicon.ico">
+	<link rel="stylesheet" href="../../css/common.css">
+	<link rel="stylesheet" href="../../css/style.css">
+	<link rel="stylesheet" href="../css/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+	<div id="headerOutPut" class="bgDeepBlue white">
+		<script>
+			var date_obj = new Date();
+			var tparm = Math.floor(date_obj.getTime() / 1000);
+			var url = "/parts/header.html?" + tparm;
+			$("#headerOutPut").load(url);
+		</script>
+	</div>
+<main id="top">
+<!-- ファーストビュー -->
+	<div id="firstView">
+		<div id="slideBox">
+			<div id="slideFirst">
+				<img id="image01" src="../../image/ir_info_firstview.png" alt="Acrodea firstView">
+			</div>
+		</div>
+	</div>
+	<!-- IRお問い合わせ -->
+	<div id="irInfo" class="irPage">
+		<article class="irBox">
+			<h2 class=" borderDeepBlue fontSize26 deepBlue left irHeading">当社のＩＲに関するお問い合せは、下記までお願いいたします。</h2>
+			<div class="bgWhite width100">
+			<p class="center irInfoButton borderDeepBlue">
+				<a href="https://reg34.smp.ne.jp/regist/is?SMPFORM=rcq-ritb-7e0368d355c41cf57fdb48244848cfad" class="bgDeepBlue blockButton irButton buttonW440 shadow white fontSize20 ">お問い合わせフォームを開く</a>
+			</p>
+				<p class=" fontSize20 normal irPara">お問い合せの内容によっては、お答えできない場合がございます。
+					<br>また、開示していない情報、当社の株価、及び株式市場に関するコメントはいたしませんのでご了承ください。
+					<br>当社からのご返信メールは、お問い合せいただいたご質問に関する回答でございます。
+					<br>当社の許可無くメールの内容のいかなる部分も複製または転送等を行わないようお願いいたします。
+				</p>
+			</div>
+		</article>
+	</div>
+
+	<footer>
+		<div id="footerOutPut" class="bgDeepBlue white">
+			<script>
+				var date_obj = new Date();
+				var tparm = Math.floor(date_obj.getTime() / 1000);
+				var url = "/parts/footer.html?" + tparm;
+				$("#footerOutPut").load(url);
+			</script>
+		</div>
+	</footer>
+</main>
+	<script src="../../js/script.js"></script>
+	<script src="../js/script.js"></script>
+	<!-- GAタグ -->
+	<script src="../../js/gaEventTracking.js"></script>
+	<!-- Google Tag Manager -->
+	<!-- ここに入る -->
+	<!-- Google Tag Manager -->
+</body>
+</html>

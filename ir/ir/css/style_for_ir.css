@@ -1,0 +1,676 @@
+@charset "utf-8";
+
+nav ul li a {
+	box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
+}
+
+div#hideNav {
+	transform: translateY(0);
+	animation: fadeIn .8s ease backwards;
+}
+
+aside#sideSpace {
+    background-color: #333;
+}
+
+aside#sideSpace ul li a {
+    font-size: 1.1rem;
+    width: 90%;
+}
+
+.yourHere {
+	background-color: steelblue;
+}
+
+article#irHeader {
+	display: flex;
+	flex-wrap: wrap;
+	font-size: .9rem;
+	width: 100%;
+	height: auto;
+}
+
+ul#ir_bottom {
+	list-style-type: none;
+	border-top: 1px solid white;
+	margin: 0 auto;
+	padding: 0;
+	width: 90%;
+}
+
+ul#ir_bottom li {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+ul#ir_bottom li a {
+	display: block;
+	border-bottom: 1px dotted #444;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+ul#ir_bottom li a img {
+	display: block;
+	margin: 0 auto;
+	width: 50%;
+	height: auto;
+}
+
+ul#ir_bottom li a:hover {
+	border-bottom: none;
+	background-color: steelblue;
+}
+
+
+div#divIRArea {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	color: gray;
+	background-color: #eee;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: auto;
+}
+
+div#divIRArea h2.irp_h2 {
+	font-size: .95rem;
+	letter-spacing: .2rem;
+	text-align: center;
+	color: steelblue;
+	background: #eee;
+	margin: 0;
+	padding: 0;
+	width: 50%;
+	height: auto;
+}
+
+div.release {
+	text-align: center;
+	background-color: #eee;
+	margin: 0;
+	padding: 0;
+	width: 50%;
+}
+
+div.release a {
+	display: block;
+	font-size: .9rem;
+	text-align: center;
+	color: black;
+	margin: 0;
+	padding: 4%;
+	width: 100%;
+}
+
+article#irHeader a.irHeaderNav {
+	font-size: 1.1rem;
+	display: block;
+	text-decoration: none;
+	color: white;
+	background-color: steelblue;
+	margin: 0;
+	padding: 0;
+	width: 50%;
+	height: auto;
+}
+
+aside#selectTab {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: auto;
+}
+
+div#yearList {
+	width: 20%;
+}
+
+div#divSelect {
+	width: 20%;
+}
+
+select#yearSelect {
+	font-size: 1.1rem;
+	border: none;
+	color: white;
+	background-color: steelblue;
+	padding: 4%;
+}
+
+div#nav_001 {
+	width: 80%;
+	height: auto;
+}
+
+ul#tab {
+	list-style-type: none;
+	display: flex;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+ul#tab li {
+	width: 25%;
+}
+
+ul#tab li a {
+	display: block;
+	text-decoration: none;
+	color: silver;
+	background-color: black;
+	padding: 8%;
+	width: 100%;
+	transition: all .6s ease;
+}
+
+ul#tab li a:hover {
+	color: black;
+	background-color: #eee;
+	transition: all .6s ease;
+}
+
+ul#tab li a.selected {
+	color: black;
+	background-color: #eee;
+}
+
+article.news:first-of-type {
+	margin-top: 0;
+}
+
+article.news:hover {
+	color: #444;
+	background-color: #eee;
+}
+
+article.news ul li a {
+	color: black;
+	background-color: #eee;
+	border: 1px solid;
+}
+
+article.news ul li:nth-of-type(3) {
+	border-top: 1px dotted #444;
+}
+
+article.news ul li a img {
+	display: inline-block;
+	width: 20%;
+	height: auto;
+}
+
+div#irBox {
+	font-size: 1.1rem;
+	text-align: left;
+	color: #444;
+    background-color: white;
+    margin: 0 auto;
+    padding: 6%;
+    width: 80%;
+}
+
+div#irBox h3 {
+	border-bottom: 2px solid steelblue;
+	margin: 8% auto;
+}
+
+div#irBox p {
+	margin: .8% 0;
+    padding: 1%;
+}
+
+div#irBox p#logo_ir {
+	text-align: center;
+	margin: .8% auto;
+    padding: 1%;
+    width: 100%;
+}
+
+div#irBox p.title {
+	margin: 4% 0;
+	border-left: 12px double silver;
+	border-bottom: 1px dotted gray;
+}
+
+div#irBox table {
+	border: 1px solid steelblue;
+	margin-top: 2%;
+	width: 100%;
+	height: auto;
+}
+
+div#irBox table tr {
+	border-bottom: 1px solid steelblue;
+}
+
+div#irBox table tr td:first-of-type {
+	text-align: center;
+	color: white;
+	width: 4%;
+	background-color: steelblue;
+}
+
+div#irBox table tr td i {
+	font-size: 1.2rem;
+	margin: 0 auto;
+	padding: 1%;
+}
+
+div#irBox table a {
+	display: block;
+	color: white;
+	background-color: steelblue;
+	padding: 1%;
+	width: 100%;
+}
+
+div#irBox table tr td a#privacy {
+	display: inline;
+	color: blue;
+	background-color: transparent;
+	padding: 1%;
+	width: 100%;
+}
+
+div#irBox table a img {
+	display: inline-block;
+	vertical-align: center;
+	color: silver;
+	padding-right: 1%;
+}
+
+/*株式情報*/
+
+div#irBox table#stock {
+	border: 1px solid steelblue;
+	margin-top: 2%;
+	width: 100%;
+	height: auto;
+}
+
+div#irBox table#stock tr {
+	border-bottom: 1px solid steelblue;
+	width: 100%;
+}
+
+/*div#irBox table#stock tr td:first-of-type {
+	text-align: center;
+	color: white;
+	width: 4%;
+	background-color: steelblue;
+}*/
+
+div#irBox table#stock tr th {
+	font-size: .9rem;
+	text-align: center;
+	color: white;
+	background-color: steelblue;
+	border-bottom: 1px solid white; 
+	margin: 0 auto;
+	padding: 1%;
+	width: 20%;
+}
+
+div#irBox table#stock tr td {
+	font-size: 1.2rem;
+	color: #333;
+	background-color: transparent;
+	margin: 0 auto;
+	padding: 1%;
+	width: 80%;
+}
+
+div#irBox table#stock a {
+	display: block;
+	text-decoration: none;
+	color: white;
+	background-color: steelblue;
+	padding: 1%;
+	width: 100%;
+}
+
+
+div#irBox table#stock a img {
+	display: inline-block;
+	vertical-align: center;
+	color: silver;
+	padding-right: 1%;
+}
+
+div#publicnotice p a {
+	display: block;
+	font-size: 1.3rem;
+	text-align: center;
+	text-decoration: none;
+	color: white;
+	background-color: steelblue;
+	margin: 0 auto;
+	padding: 4%;
+	width: 50%;
+	transition: all .8s ease;
+}
+
+div#publicnotice p a:hover {
+	color: steelblue;
+	background-color: white;
+	transition: all .8s ease;
+}
+
+div#irBox div#iframeBox {
+	position: relative;
+	margin: 0 auto;
+	padding-bottom: 150%;
+	width: 510px;
+	height: auto;
+}
+
+div#irBox iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+p.Q {
+	color: white;
+	background-color: #777;
+}
+
+p.A {
+	border-left: 1px dotted #999; 
+	border-bottom: 1px dotted #999;
+}
+
+p.A a {
+	color: #333;
+	padding: 0 2%;
+}
+
+p.A a:hover {
+	text-decoration: none;
+	color: white;
+	background-color: black;
+}
+
+a#ir_contact {
+	display: block;
+	font-size: 1.1rem;
+	text-align: center;
+	text-decoration: none;
+	color: white;
+	background-color: steelblue;
+	padding: 4%;
+	width: 40%;
+}
+
+div#library {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: auto;
+}
+
+div#library article.news {
+	margin: 2% auto;
+	padding: 0;
+	width: 100%;
+	height: auto;
+}
+
+div#library article.news h3 {
+	text-align: left;
+	background-color: steelblue;
+	margin: 0;
+	padding: 0;
+}
+
+div#library article.news h3 i {
+	color: white;
+	margin: 2%;
+}
+
+div#library article.news h3 a {
+	font-size: 1.2rem;
+	text-decoration: none; 
+	letter-spacing: .2rem;
+	color: white;
+	transition: all .5s ease;
+}
+
+div#library article.news h3 a:hover {
+	text-decoration: underline; 
+	letter-spacing: .4rem;
+	color: white;
+	background-color: transparent;
+	border: none;
+}
+
+div#library article.news p img {
+	width: 100%;
+}
+
+div#library article.news p {
+	width: 10%;
+}
+
+div#library article.news ul {
+	width: 90%;
+}
+
+div#library article.news ul li:first-of-type {
+	border-bottom: 1px dotted silver;
+}
+
+div#library article.news ul li a {
+	text-decoration: underline;
+	display: inline;
+	border: none;
+}
+
+div#library article.news ul li img {
+	display: inline-block;
+	width: 6%;
+}
+
+
+
+aside#libraryNav {
+	display: flex;
+	align-items: center;
+	border-bottom: 1px dotted silver;
+	margin-bottom: 1%;
+	padding-bottom: 2%;
+	width: 100%;
+}
+
+aside#libraryNav p {
+	font-size: 1.1rem;
+	color: gray;
+	border-left: 8px solid steelblue;
+	width: 20%;
+}
+
+ul#irp-library-navi {
+	display: flex;
+	flex-wrap: wrap;
+	text-align: right;
+	list-style-type: none;
+	font-size: 1.1rem;
+	margin: 0;
+	padding: 0;
+	width: 80%;
+}
+
+ul#irp-library-navi li {
+	margin: 0;
+	padding: 0;
+	width: 50%;
+}
+
+ul#irp-library-navi li a {
+	display: block;
+	font-size: 1.1rem;
+	text-decoration: none;
+	color: steelblue;
+	padding: 4% 2%;
+	width: 100%;
+}
+
+ul#irp-library-navi li a i {
+	padding: 0 4% 0 0;
+}
+
+div#ir_library h3 {
+	margin: 0;
+	padding: 2%;
+	width: 100%;
+}
+
+div#ir_library dl {
+	margin: 1% auto 8% auto;
+	width: 100%;
+}
+
+
+div#ir_library dl dd{
+	margin: 4% auto;
+	width: 100%;
+}
+
+div#footer2 {
+	font-size: .89rem;
+	border-top: 1px solid silver;
+	margin: 3% 0;
+	padding-top: 2%;
+}
+
+div#irBox div#yuhoTable table tr td {
+	text-align: center;
+	border-bottom: 1px solid white;
+	width: 50%;
+}
+
+div#irBox div#yuhoTable table tr td:nth-of-type(even) {
+	border-bottom: 1px solid steelblue;
+}
+
+div#irBox div#yuhoTable table tr td a {
+	text-align: right;
+	color: #333;
+	background-color: transparent;
+	width: 50%;
+}
+
+@media screen and (max-width: 800px) {
+div#divIRArea {
+	flex-wrap: wrap;
+}
+
+div#divIRArea h2.irp_h2 {
+	width: 100%;
+}
+
+div.release {
+	width: 100%;
+}
+
+
+
+	div#newsBox {
+		width: 100%;
+	}
+
+	div#ir_library {
+		width: 100%;
+	}
+aside#selectTab {
+
+	flex-wrap: wrap;
+
+	}
+
+div#yearList {
+	width: 100%;
+	}
+
+div#divSelect {
+	width: 100%;
+	}
+
+select#yearSelect {
+	font-size: .8rem;
+	margin-bottom: 4%;
+	margin-top: 2%;
+	padding: 0;
+}
+
+div#nav_001 {
+	width: 100%;
+	height: auto;
+}
+
+ul#tab {
+	flex-wrap: wrap;
+}
+
+ul#tab li {
+	width: 50%;
+}
+
+div#irBox {
+	padding: 1%;
+	width: 100%;
+}
+
+div#irBox p {
+	font-size: .98rem;
+}
+div#irBox table#stock tr th{
+	font-size: .6rem;
+	width: 20%;
+}
+div#irBox table#stock tr td {
+	font-size: .6rem;
+	margin: 0 auto;
+	width: 60%;
+}
+
+div#publicnotice {
+	width: 100%;
+}
+
+div#publicnotice p a {
+	font-size: .9rem;
+}
+
+div#iframeBox {
+	width: 80%;
+}
+
+div#iframeBox iframe {
+	width: 80%;
+}
+
+
+aside#libraryNav {
+	flex-wrap: wrap;
+}
+
+aside#libraryNav p {
+	width: 100%;
+}
+
+ul#irp-library-navi {
+	text-align: center;
+	width: 100%;
+}
+
+
+}
