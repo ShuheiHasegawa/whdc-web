@@ -57,7 +57,7 @@ const TopPage = () => {
         {/* <AboutUs1 /> */}
         <Services />
         {/* <Numbers1 /> */}
-        <ImageSlider />
+        {/* <ImageSlider /> */}
         {/* <VideoWithTestimonials /> */}
         {/* <SkillsCircle theme="dark" subBG /> */}
         {/* <Clients1 theme="dark" /> */}
