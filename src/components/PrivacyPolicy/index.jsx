@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
-import Link from "next/link";
 import HeroImage from "../HeroImage";
 import TitleLeftLine from "../TitleLeftLine";
+import CenteredLayoutContainer from "../CenteredLayoutContainer";
 
 const PrivacyPolicy = () => {
   return (
-    <section className="intro-section pb-0">
+    <section className="intro-section">
       <div>
         <HeroImage
           src="/img/firstview_top_2022_768.png"
@@ -16,7 +15,7 @@ const PrivacyPolicy = () => {
           layout="responsive"
         />
 
-        <div className="p-16" style={{ maxWidth: "640px", margin: "0 auto" }}>
+        <CenteredLayoutContainer>
           <p className="topics">
             <span className="text-2xl text-white font-bold">
               プライバシーポリシー
@@ -24,75 +23,75 @@ const PrivacyPolicy = () => {
           </p>
 
           <div>
-              <section id="item1">
-                <TitleLeftLine title="個人情報保護方針" />
-                <div className="pt-16">
-                  <ul>
-                    <li className="text-base left normal">
-                      THE WHY HOW DO
-                      COMPANY株式会社（以下、当社という）は、スマートフォン向けのサービスとしてプラットフォームサービスや、ソーシャルゲーム等のコンテンツサービスを事業の柱とする事業者として、すべての事業で取扱う個人情報および従業員等の個人情報を大切に取扱い、個人の権利利益を保護することが重要な社会的責務と考えています。
-                      <br />
-                      当社は、当社の事業の用に供するすべての個人情報を適切に取扱うため、当社全従業者が遵守すべき行動基準として本個人情報保護方針を定め、その遵守の徹底を図ることといたします。
+            <section id="item1">
+              <TitleLeftLine title="個人情報保護方針" />
+              <div className="pt-16">
+                <ul>
+                  <li className="text-base left normal">
+                    THE WHY HOW DO
+                    COMPANY株式会社（以下、当社という）は、スマートフォン向けのサービスとしてプラットフォームサービスや、ソーシャルゲーム等のコンテンツサービスを事業の柱とする事業者として、すべての事業で取扱う個人情報および従業員等の個人情報を大切に取扱い、個人の権利利益を保護することが重要な社会的責務と考えています。
+                    <br />
+                    当社は、当社の事業の用に供するすべての個人情報を適切に取扱うため、当社全従業者が遵守すべき行動基準として本個人情報保護方針を定め、その遵守の徹底を図ることといたします。
+                  </li>
+                  {[1, 2, 3, 4, 5, 6, 7].map((num) => (
+                    <li key={num} className="text-base left normal">
+                      {num}. {getPrivacyPolicyText(num)}
                     </li>
-                    {[1, 2, 3, 4, 5, 6, 7].map((num) => (
-                      <li key={num} className="text-base left normal">
-                        {num}. {getPrivacyPolicyText(num)}
-                      </li>
-                    ))}
-                    <li
-                      className="text-base infoTitle"
-                      style={{ textAlign: "right" }}
+                  ))}
+                  <li
+                    className="text-base infoTitle"
+                    style={{ textAlign: "right" }}
+                  >
+                    制定：2008年6月10日
+                    <br />
+                    改訂：2020年5月1日
+                    <br />
+                    THE WHY HOW DO COMPANY株式会社
+                    <br />
+                    代表取締役社長&emsp;岩尾&nbsp;俊兵
+                  </li>
+                </ul>
+              </div>
+            </section>
+
+            <section id="item2" className="pt-64">
+              <TitleLeftLine title="当個人情報保護方針に関するお問い合わせ" />
+              <div className="pt-16">
+                <ul>
+                  <li className="text-base left normal">
+                    THE WHY HOW DO COMPANY株式会社 個人情報苦情及び相談窓口
+                  </li>
+                  <li className="text-base left normal m-0">
+                    <strong>TEL:03-4405-5460</strong>
+                    <br />
+                    <strong>FAX:03-4405-6048</strong>
+                    <br />
+                    <br />
+                  </li>
+
+                  <div className="text-center">
+                    <a
+                      href="mailto:privacy@acrodea.co.jp?subject=[Acrodea Privacy Policy]"
+                      className="mail-link bg-primary text-white"
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        padding: "8px 16px",
+                        color: "white",
+                        borderRadius: "4px",
+                        textDecoration: "none",
+                        transition: "all 0.3s ease",
+                      }}
                     >
-                      制定：2008年6月10日
-                      <br />
-                      改訂：2020年5月1日
-                      <br />
-                      THE WHY HOW DO COMPANY株式会社
-                      <br />
-                      代表取締役社長&emsp;岩尾&nbsp;俊兵
-                    </li>
-                  </ul>
-                </div>
-              </section>
+                      <i
+                        className="fas fa-envelope"
+                        style={{ marginRight: "8px" }}
+                      ></i>
+                      <span>お問い合わせメールを送信</span>
+                    </a>
+                  </div>
 
-              <section id="item2" className="pt-64">
-                <TitleLeftLine title="当個人情報保護方針に関するお問い合わせ" />
-                <div className="pt-16">
-                  <ul>
-                    <li className="text-base left normal">
-                      THE WHY HOW DO COMPANY株式会社 個人情報苦情及び相談窓口
-                    </li>
-                    <li className="text-base left normal m-0">
-                      <strong>TEL:03-4405-5460</strong>
-                      <br />
-                      <strong>FAX:03-4405-6048</strong>
-                      <br />
-                      <br />
-                    </li>
-
-                    <div className="text-center">
-                      <a
-                        href="mailto:privacy@acrodea.co.jp?subject=[Acrodea Privacy Policy]"
-                        className="mail-link bg-primary text-white"
-                        style={{
-                          display: "inline-flex",
-                          alignItems: "center",
-                          padding: "8px 16px",
-                          color: "white",
-                          borderRadius: "4px",
-                          textDecoration: "none",
-                          transition: "all 0.3s ease",
-                        }}
-                      >
-                        <i
-                          className="fas fa-envelope"
-                          style={{ marginRight: "8px" }}
-                        ></i>
-                        <span>お問い合わせメールを送信</span>
-                      </a>
-                    </div>
-
-                    {/* <a href="mailto:privacy@acrodea.co.jp?subject=[Acrodea Privacy Policy]">
+                  {/* <a href="mailto:privacy@acrodea.co.jp?subject=[Acrodea Privacy Policy]">
                         <Image
                           src="/image/goMail.gif"
                           alt="メールを送信"
@@ -100,64 +99,70 @@ const PrivacyPolicy = () => {
                           height={29}
                         />
                       </a> */}
-                    <li className="text-base left normal pt-32">
-                      この受付窓口は、「個人情報の取扱いに関する苦情、相談」に関する窓口です。IR、製品及びサービスに関するお問い合わせにつきましては、別途窓口を設けておりますのでそちらからお願いいたします。
+                  <li className="text-base left normal pt-32">
+                    この受付窓口は、「個人情報の取扱いに関する苦情、相談」に関する窓口です。IR、製品及びサービスに関するお問い合わせにつきましては、別途窓口を設けておりますのでそちらからお願いいたします。
+                  </li>
+                  <li className="text-base left normal infoTitle">
+                    IR情報に関するお問い合せ
+                    <br />
+                    <div
+                      className="external-link text-white"
+                      style={{ textAlign: "left" }}
+                    >
+                      <a
+                        href="/ir/inquiry"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        お問い合わせページ
+                      </a>
+                    </div>
+                    <br />
+                    法人のお客様・製品・サービスに関するお問い合せ
+                    <br />
+                    <div
+                      className="external-link text-white"
+                      style={{ textAlign: "left" }}
+                    >
+                      <a
+                        href="https://form.os7.biz/f/52e037cb/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        送信フォームを開く
+                      </a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </section>
+
+            <section id="item3" className="pt-32">
+              <div className="pt-16">
+                <TitleLeftLine title="当社が取扱う個人情報について" />
+                <div className="pt-16">
+                  <ul>
+                    <li className="normal text-base left">
+                      当社では「個人情報保護方針」に基づき個人情報の適切な保護に取り組んでいます。当社が事業の用に供するために取得し、または保有する個人情報について、以下の通りお知らせいたします。
                     </li>
-                    <li className="text-base left normal infoTitle">
-                      IR情報に関するお問い合せ
-                      <br />
-                      <div className="external-link text-white" style={{ textAlign: "left" }}>
-                        <a
-                          href="/ir/inquiry"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          お問い合わせページ
-                        </a>
-                      </div>
-                      <br />
-                      法人のお客様・製品・サービスに関するお問い合せ
-                      <br />
-                      <div className="external-link text-white" style={{ textAlign: "left" }}>
-                        <a
-                          href="https://form.os7.biz/f/52e037cb/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          送信フォームを開く
-                        </a>
-                      </div>
-                    </li>
+                    {getPersonalInfoItems().map((item, index) => (
+                      <React.Fragment key={index}>
+                        <li className="normal text-base left pt-16">
+                          {item.title}
+                        </li>
+                        {item.content.map((text, i) => (
+                          <li key={i} className="normal text-base left">
+                            {text}
+                          </li>
+                        ))}
+                      </React.Fragment>
+                    ))}
                   </ul>
                 </div>
-              </section>
-
-              <section id="item3" className="pt-32">
-                <div className="pt-16">
-                  <TitleLeftLine title="当社が取扱う個人情報について" />
-                  <div className="pt-16">
-                    <ul>
-                      <li className="normal text-base left">
-                        当社では「個人情報保護方針」に基づき個人情報の適切な保護に取り組んでいます。当社が事業の用に供するために取得し、または保有する個人情報について、以下の通りお知らせいたします。
-                      </li>
-                      {getPersonalInfoItems().map((item, index) => (
-                        <React.Fragment key={index}>
-                          <li className="normal text-base left pt-16">
-                            {item.title}
-                          </li>
-                          {item.content.map((text, i) => (
-                            <li key={i} className="normal text-base left">
-                              {text}
-                            </li>
-                          ))}
-                        </React.Fragment>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </section>
-            </div>
-        </div>
+              </div>
+            </section>
+          </div>
+        </CenteredLayoutContainer>
 
         <style jsx>{`
           .topics {

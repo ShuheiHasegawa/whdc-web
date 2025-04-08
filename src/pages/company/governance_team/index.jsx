@@ -298,22 +298,6 @@ const GovernanceTeam = () => {
         <title>
           ワイハウ - Governance Committee - THE WHY HOW DO COMPANY株式会社
         </title>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;700&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap"
-          rel="stylesheet"
-        />
       </Head>
       <Navbar nr={navbarRef} lr={logoRef} />
 

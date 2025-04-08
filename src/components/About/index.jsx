@@ -2,6 +2,7 @@ import React from "react";
 import TitleLeftLine from "../TitleLeftLine";
 import HeroImage from "../HeroImage";
 import SpotlightCard from "../../components/reactbits/ui/SpotlightCard/SpotlightCard";
+import CenteredLayoutContainer from "../CenteredLayoutContainer";
 
 const About = () => {
   const features = [
@@ -18,8 +19,8 @@ const About = () => {
   ];
 
   return (
-    <section className="intro-section pt-32">
-      <div className="about-container pt-16">
+    <section className="intro-section pt-16">
+      <div>
         <div className="pt-16">
           <HeroImage
             src="/img/whdc/about.png"
@@ -30,33 +31,37 @@ const About = () => {
           />
         </div>
 
-        <div className="content-container pt-32">
-        <div className="pt-16 pl-16">
-          <TitleLeftLine title="ワイハウの１０の特徴" />
-        </div>
-          <div className="row p-16">
+        <CenteredLayoutContainer>
+          <p className="text-center">
+            <span className="text-2xl text-white font-bold">
+              30秒で分かるワイハウ
+            </span>
+          </p>
+
+          <div className="pt-16 pl-16">
+            <TitleLeftLine title="ワイハウの１０の特徴" />
+          </div>
+          <div className="row pt-16">
             {features.map((feature, index) => (
               <div key={index} className="col-md-6 mb-4">
                 <div className="feature-item">
-                  <SpotlightCard
-                    spotlightColor="rgba(0, 229, 255, 0.2)"
-                  >
+                  <SpotlightCard spotlightColor="rgba(0, 229, 255, 0.2)">
                     <div className="feature-content-wrapper">
-                      <span className="feature-number bg-senary">{index + 1}</span>
-                      <p className="feature-text text-white m-0 pl-16">{feature}</p>
+                      <span className="feature-number bg-senary">
+                        {index + 1}
+                      </span>
+                      <p className="feature-text text-white m-0 pl-16">
+                        {feature}
+                      </p>
                     </div>
                   </SpotlightCard>
                 </div>
               </div>
             ))}
           </div>
-        </div>
+        </CenteredLayoutContainer>
 
         <style jsx>{`
-          .about-container {
-            margin: 0 auto;
-          }
-
           .image-container {
             overflow: hidden;
           }

@@ -1,11 +1,11 @@
 import React from "react";
-import Link from "next/link";
 import HeroImage from "../HeroImage";
 import TitleLeftLine from "../TitleLeftLine";
+import CenteredLayoutContainer from "../CenteredLayoutContainer";
 
 const Contact = () => {
   return (
-    <section className="intro-section pb-0">
+    <section className="intro-section">
       <HeroImage
         src="/img/firstview_top_2022_768.png"
         alt="firstview top"
@@ -13,7 +13,7 @@ const Contact = () => {
         height={400}
         layout="responsive"
       />
-      <div className="container pt-32">
+      <CenteredLayoutContainer>
         <h2 className="text-2xl text-center">お問い合わせ</h2>
         <div className="contact-content">
           <article className="contact-box">
@@ -132,7 +132,7 @@ const Contact = () => {
             </div>
           </article>
         </div>
-      </div>
+      </CenteredLayoutContainer>
 
       {/* スタイル追加 */}
       <style jsx>{`
