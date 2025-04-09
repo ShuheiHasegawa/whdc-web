@@ -1,0 +1,411 @@
+@charset "utf-8";
+
+*:before,*:after {
+	box-sizing: border-box;
+}
+
+:root {
+	--bg-dark: #0F0F11; /* ダークモード用 背景色 */
+	--bg-light: #f5f5f5; /* ライトモード用 背景色 */
+	--bg-gray: #4D5771; /* グレー背景色 */
+  --text-dark: #0F0F11;  /* ライトモード用 文字色 */
+  --text-light: #f5f5f5; /* ダークモード用 文字色 */
+	--text-gray: #f5f5f5; /* グレー文字色 */
+}
+
+html, body, main, header, section, article, nav, table, tr, th, td, footer, div, p, a, span, ul, ol,
+li, h1, h2, h3, h4, h5, select,figure,figcaption {
+	font-weight: 700;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
+	font-family: Meiryo,'Hiragino kaku Gothic ProN', sans-serif;
+	margin: 0 auto;
+	width: 100%;
+	/* background-color: #f5f5f5; */
+	background-color: #21252A;
+	-webkit-touch-callout: none;
+	-webkit-tap-highlight-color: rgba(0,0,0);
+	-webkit-overflow-scrolling: touch;
+}
+
+#footerOutPut {
+	padding-bottom: 24px;
+}
+
+img {
+	border: none;
+}
+
+ul {
+	list-style-type: none;
+}
+
+/*/////////////fontSize/////////////////////*/
+.fontSize72 {
+	font-size: 7.2rem;
+}
+
+.fontSize54 {
+	font-size: 5.4rem;
+	font-size: 4rem;
+}
+
+.fontSize42 {
+	font-size: 4.2rem;
+	font-size: 3.8rem;
+}
+
+.fontSize32 {
+	font-size: 3.2rem;
+	font-size: 2rem;
+}
+
+.fontSize26 {
+	font-size: 2.6rem;
+	font-size: 1.4rem;
+}
+
+.fontSize24 {
+	font-size: 2.4rem;
+	font-size: 1.5rem;
+}
+
+.fontSize20 {
+	font-size: 2.0rem;
+	font-size: 1.4rem;
+}
+
+.fontSize18 {
+	font-size: 1.8rem;
+	font-size: 1.4rem;
+}
+
+.fontSize16 {
+	font-size: 1.6rem;
+	font-size: 1.2rem;
+}
+/*////////////////colors/////////////////////*/
+
+.light-bg {
+	background-color: var(--bg-light);
+}
+.dark-bg {
+	background-color: var(--bg-dark);
+}
+.gray-bg {
+	background-color: var(--bg-gray);
+}
+
+.light-text {
+  color: var(--text-dark);
+}
+.dark-text {
+  color: var(--text-light);
+}
+.gray-text {
+  color: var(--text-gray);
+}
+
+.highBlue {
+	color: #0090c9;
+}
+
+.blue {
+	color: #1088bb;
+}
+
+/* IR資料の文字色を変更 */
+#divDataArea dl dd a, .eIr a {
+	color: var(--text-gray) !important;
+}
+
+/* 財務ハイライトのテーブルの背景色を変更 */
+div.qirTable > table > tbody > tr > th {
+	/* background-color: var(--bg-dark); */
+	color: var(--text-dark);
+}
+div.qirTable > table > tbody > tr > td {
+	/* background-color: var(--bg-dark); */
+	background-color: var(--bg-light);
+	color: var(--text-dark);
+}
+#qirNote > div > ul > li {
+	color: var(--text-light);
+}
+#qirForecast > div > h2, #qirForecast > div {
+	border-bottom: 4px solid var(--text-light);
+	color: var(--text-light);
+}
+.table03 {
+	background-color: var(--bg-light);
+	color: var(--text-dark);
+}
+.qirNote_section {
+	color: var(--text-light);
+}
+
+/* 株主総会関連資料の背景色を変更 */
+h3#elmh3 {
+	color: var(--text-light);
+}
+#divDataArea > dl > dd {
+	color: var(--text-light);
+}
+
+/* IR資料の背景色を変更 */
+td.yuhopdf > a {
+	color: var(--text-light) !important;
+}
+
+.deepBlue {
+	/* color: #00074A; */
+	color: #f5f5f5;
+}
+
+.black {
+	/* color: #3c3f3f; */
+	color: #f5f5f5;
+}
+
+.white {
+	/* color: #fff; */
+	color: #f5f5f5;
+}
+/*//////////backgroundColors/////////////////*/
+.bgHighBlue {
+	background-color: #0090c9;
+}
+
+.bgBlue {
+	background-color: #1088bb;
+}
+
+.bgDeepBlue {
+	/* background-color: #00074A; */
+	/* background-color: #40455b; */
+	background-color: #0F0F11;
+}
+
+.bgBlack {
+	background-color: #3c3f3f;
+}
+
+.bgWhite {
+	/* background-color: #fff; */
+	/* background-color: #40455b; */
+	background-color: #0F0F11;
+}
+/*///////////////font-weight/////////////////*/
+.normal {
+	font-weight: 400;
+}
+/*//////////////border///////////////////////*/
+.borderHighBlue {
+	border-bottom: 4px solid #0090c9;
+}
+
+.borderGreen {
+	border-bottom: 4px solid #00b6be;
+}
+
+.borderDeepBlue {
+	/* border-bottom: 4px solid #00074A; */
+	border-bottom: 4px solid #f5f5f5;
+}
+
+.borderDeepBlueSmall {
+	/* border-bottom: 2px solid #00074A; */
+	border-bottom: 2px solid #f5f5f5;
+}
+
+.borderDeepBlueIr {
+	/* border-bottom: 2px solid #00074A; */
+	border-bottom: 2px solid #f5f5f5;
+}
+
+.borderDeepBlueIrDotted {
+	/* border-bottom: 1px dotted #00074A; */
+	border-bottom: 1px dotted #f5f5f5;
+}
+
+.borderWhite {
+	border-bottom: 1px solid #ffffff;
+}
+
+.borderWhiteHalf {
+	border-bottom: 1px solid rgba(255,255,255,.5);
+}
+/*///////////////ボーダー付きの見出し//////////////*/
+.blueHeading {
+	text-indent: 1.4rem;
+	color: #1088bb;
+	border-bottom: 2px solid #1088bb;
+	margin: 4% auto;
+	width: 92%;
+}
+/*///////////小さめのボタンの土台/////////////////*/
+.smallButton {
+	display: block;
+	text-decoration: none;
+	text-align: center;
+	padding: .4% 0;
+	margin: 0 auto;
+	width: 40%;
+}
+/*///////////小さめのボタンの土台(センター)/////////////////*/
+.smallButtonCenter {
+	display: block;
+	text-decoration: none;
+	text-align: center;
+	padding: 2% 0;
+	margin: 2% auto;
+	width: 40%;
+}
+/*///////////text-align/////////////////////*/
+.left {
+	text-align: left;
+}
+
+.center {
+	text-align: center;
+}
+
+.right {
+	text-align: right;
+}
+/*///////////float/////////////////////*/
+.f-left {
+	float: left;
+}
+
+.f-right {
+	float: right;
+}
+/*/////////各お知らせページの見出し//////////////*/
+.newsTitle {
+	font-size: 1.2rem;
+	padding: .4% 0 .1% 1.1%;
+	width: 220px;
+}
+
+.newsTime {
+	font-size: 1.12rem;
+	padding: .6% .7% .6% 0;
+}
+/*/////////そのほか細かいレイアウト系/////////////*/
+.width100 {
+	width: 100%;
+}
+
+.width96 {
+	width: 96%;
+}
+
+.width48 {
+	width: 48px;
+}
+
+.m-left12 {
+    margin-left: 12px;
+}
+
+.m-left18 {
+    margin-left: 18px;
+}
+
+.m-left24 {
+    margin-left: 24px;
+}
+
+.m-left32 {
+    margin-left: 32px;
+}
+
+.m-left48 {
+    margin-left: 48px;
+}
+
+/*///////////////width///////////////////////*/
+@media screen and (min-width: 374px){
+	.fontSize26 {
+		font-size: 1.8rem;
+	}
+	.fontSize24 {
+		font-size: 1.8rem;
+	}
+}
+
+@media screen and (min-width: 1021px) {
+	.fontSize72 {
+		font-size: 7.2rem;
+	}
+
+	.fontSize54 {
+		font-size: 5.4rem;
+		font-size: 5rem;
+	}
+
+	.fontSize42 {
+		font-size: 4.2rem;
+		font-size: 3.8rem;
+	}
+
+	.fontSize32 {
+		font-size: 3.2rem;
+		font-size: 2.8rem;
+	}
+
+	.fontSize26 {
+		font-size: 2.6rem;
+		font-size: 2.2rem;
+	}
+
+	.fontSize24 {
+		font-size: 2.4rem;
+		font-size: 2rem;
+	}
+
+	.fontSize20 {
+		font-size: 2.0rem;
+		font-size: 1.6rem;
+	}
+
+	.fontSize18 {
+		font-size: 1.8rem;
+		font-size: 1.4rem;
+	}
+
+	.fontSize16 {
+		font-size: 1.6rem;
+		font-size: 1.2rem;
+	}
+/*///////////小さめのボタンの土台(右寄せ)/////////////////*/
+	.smallButton {
+		margin-left: 80%;
+		width: 20%;
+	}
+/*///////////小さめのボタンの土台(センター)/////////////////*/
+	.smallButtonCenter {
+		display: block;
+		text-decoration: none;
+		text-align: center;
+		padding: .4% 0;
+		margin: 2% auto;
+		width: 20%;
+	}
+/*///////////////ボーダー付きの見出し//////////////*/
+	.blueHeading {
+		border-bottom: 4px solid #1088bb;
+		margin: 2% auto;
+		width: 92%;
+	}
+}
