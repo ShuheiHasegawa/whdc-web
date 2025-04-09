@@ -886,7 +886,7 @@ a, span {
 
 /* ====================== [ End Text Animation & Images ] ====================== */
 /* ====================== [ Start Cursor Style ] ====================== */
-body {
+/* body {
   cursor: none; }
 
 .mouse-cursor {
@@ -941,7 +941,7 @@ body {
   -o-transition: all .08s ease-out;
   transition: all .08s ease-out; }
   .cursor-outer.cursor-hover {
-    opacity: 0; }
+    opacity: 0; } */
 
 /* ====================== [ End Cursor Style ] ====================== */
 /* ====================== [ Start progress-wrap ] ====================== */
