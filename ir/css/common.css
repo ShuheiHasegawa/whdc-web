@@ -4,6 +4,15 @@
 	box-sizing: border-box;
 }
 
+:root {
+	--bg-dark: #0F0F11; /* ダークモード用 背景色 */
+	--bg-light: #f5f5f5; /* ライトモード用 背景色 */
+	--bg-gray: #4D5771; /* グレー背景色 */
+  --text-dark: #0F0F11;  /* ライトモード用 文字色 */
+  --text-light: #f5f5f5; /* ダークモード用 文字色 */
+	--text-gray: #f5f5f5; /* グレー文字色 */
+}
+
 html, body, main, header, section, article, nav, table, tr, th, td, footer, div, p, a, span, ul, ol,
 li, h1, h2, h3, h4, h5, select,figure,figcaption {
 	font-weight: 700;
@@ -18,13 +27,18 @@ html {
 }
 
 body {
-	font-family: Merio,'Hiragino kaku Gothic ProN', sans-serif;
+	font-family: Meiryo,'Hiragino kaku Gothic ProN', sans-serif;
 	margin: 0 auto;
 	width: 100%;
-	background-color: #f5f5f5;
+	/* background-color: #f5f5f5; */
+	background-color: #21252A;
 	-webkit-touch-callout: none;
 	-webkit-tap-highlight-color: rgba(0,0,0);
 	-webkit-overflow-scrolling: touch;
+}
+
+#footerOutPut {
+	padding-bottom: 24px;
 }
 
 img {
@@ -80,6 +94,27 @@ ul {
 	font-size: 1.2rem;
 }
 /*////////////////colors/////////////////////*/
+
+.light-bg {
+	background-color: var(--bg-light);
+}
+.dark-bg {
+	background-color: var(--bg-dark);
+}
+.gray-bg {
+	background-color: var(--bg-gray);
+}
+
+.light-text {
+  color: var(--text-dark);
+}
+.dark-text {
+  color: var(--text-light);
+}
+.gray-text {
+  color: var(--text-gray);
+}
+
 .highBlue {
 	color: #0090c9;
 }
@@ -88,16 +123,62 @@ ul {
 	color: #1088bb;
 }
 
+/* IR資料の文字色を変更 */
+#divDataArea dl dd a, .eIr a {
+	color: var(--text-gray) !important;
+}
+
+/* 財務ハイライトのテーブルの背景色を変更 */
+div.qirTable > table > tbody > tr > th {
+	/* background-color: var(--bg-dark); */
+	color: var(--text-dark);
+}
+div.qirTable > table > tbody > tr > td {
+	/* background-color: var(--bg-dark); */
+	background-color: var(--bg-light);
+	color: var(--text-dark);
+}
+#qirNote > div > ul > li {
+	color: var(--text-light);
+}
+#qirForecast > div > h2, #qirForecast > div {
+	border-bottom: 4px solid var(--text-light);
+	color: var(--text-light);
+}
+.table03 {
+	background-color: var(--bg-light);
+	color: var(--text-dark);
+}
+.qirNote_section {
+	color: var(--text-light);
+}
+
+/* 株主総会関連資料の背景色を変更 */
+h3#elmh3 {
+	color: var(--text-light);
+}
+#divDataArea > dl > dd {
+	color: var(--text-light);
+}
+
+/* IR資料の背景色を変更 */
+td.yuhopdf > a {
+	color: var(--text-light) !important;
+}
+
 .deepBlue {
-	color: #00074A;
+	/* color: #00074A; */
+	color: #f5f5f5;
 }
 
 .black {
-	color: #3c3f3f;
+	/* color: #3c3f3f; */
+	color: #f5f5f5;
 }
 
 .white {
-	color: #fff;
+	/* color: #fff; */
+	color: #f5f5f5;
 }
 /*//////////backgroundColors/////////////////*/
 .bgHighBlue {
@@ -109,7 +190,9 @@ ul {
 }
 
 .bgDeepBlue {
-	background-color: #00074A;
+	/* background-color: #00074A; */
+	/* background-color: #40455b; */
+	background-color: #0F0F11;
 }
 
 .bgBlack {
@@ -117,7 +200,9 @@ ul {
 }
 
 .bgWhite {
-	background-color: #fff;
+	/* background-color: #fff; */
+	/* background-color: #40455b; */
+	background-color: #0F0F11;
 }
 /*///////////////font-weight/////////////////*/
 .normal {
@@ -133,19 +218,23 @@ ul {
 }
 
 .borderDeepBlue {
-	border-bottom: 4px solid #00074A;
+	/* border-bottom: 4px solid #00074A; */
+	border-bottom: 4px solid #f5f5f5;
 }
 
 .borderDeepBlueSmall {
-	border-bottom: 2px solid #00074A;
+	/* border-bottom: 2px solid #00074A; */
+	border-bottom: 2px solid #f5f5f5;
 }
 
 .borderDeepBlueIr {
-	border-bottom: 2px solid #00074A;
+	/* border-bottom: 2px solid #00074A; */
+	border-bottom: 2px solid #f5f5f5;
 }
 
 .borderDeepBlueIrDotted {
-	border-bottom: 1px dotted #00074A;
+	/* border-bottom: 1px dotted #00074A; */
+	border-bottom: 1px dotted #f5f5f5;
 }
 
 .borderWhite {

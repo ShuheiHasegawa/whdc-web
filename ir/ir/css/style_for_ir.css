@@ -137,7 +137,8 @@ div#divSelect {
 select#yearSelect {
 	font-size: 1.1rem;
 	border: none;
-	color: white;
+	/* color: white; */
+	color: #0F0F11;
 	background-color: steelblue;
 	padding: 4%;
 }
