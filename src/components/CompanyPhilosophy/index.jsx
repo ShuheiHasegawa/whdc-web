@@ -122,7 +122,7 @@ const CompanyPhilosophy = () => {
             <p className="mb-1">改定：平成22年9月29日</p>
             <p className="mb-1">改定：平成25年1月15日</p>
             <p className="mb-1">改定：令和4年7月16日</p>
-            <p className="mb-1">改訂：令和7年4月○○日</p>
+            <p className="mb-1">改訂：令和7年4月14日</p>
           </div>
         </div>
       </CenteredLayoutContainer>

@@ -95,21 +95,39 @@ const Navbar = ({ lr, nr, theme }) => {
       <div className="container p-0">
         <Link href="/">
           <a className="logo">
-            <style jsx>{`
+            <style>{`
+              .logo {
+                display: block;
+                width: fit-content;
+                height: auto;
+                position: relative;  /* z-indexを効かせるために必要 */
+                z-index: 1030;      /* navbar-collapseより上に表示 */
+              }
+
+              .logo:hover {
+                opacity: 0.8;  /* ホバー時の視覚的フィードバック */
+              }
+
               .logo img {
                 width: 200px;
                 transition: width 0.3s ease;
+                display: block;
+              }
+
+              /* navbar-collapseの重なりを防ぐ */
+              .navbar .navbar-collapse {
+                z-index: 1020;  /* logoより下に表示 */
               }
 
               @media screen and (max-width: 767px) {
                 .logo img {
-                  width: 140px; /* スマホ向けに小さくする */
+                  width: 140px;
                 }
               }
 
               @media screen and (max-width: 480px) {
                 .logo img {
-                  width: 120px; /* さらに小さい画面向け */
+                  width: 120px;
                 }
               }
             `}</style>
@@ -167,20 +185,6 @@ const Navbar = ({ lr, nr, theme }) => {
             <li className="nav-item">
               <a
                 className="nav-link"
-                onClick={() => scrollToSection("group-companies-section")}
-                style={{ cursor: "pointer" }}
-              >
-                GROUP
-              </a>
-              {/* <Link href="/#group-companies-section">
-                <a className="nav-link" style={{ cursor: "pointer" }}>
-                  GROUP
-                </a>
-              </Link> */}
-            </li>
-            <li className="nav-item">
-              <a
-                className="nav-link"
                 onClick={() => scrollToSection("services-section")}
                 style={{ cursor: "pointer" }}
               >
@@ -189,6 +193,20 @@ const Navbar = ({ lr, nr, theme }) => {
               {/* <Link href="/#services-section">
                 <a className="nav-link" style={{ cursor: "pointer" }}>
                   SERVICES
+                </a>
+              </Link> */}
+            </li>
+            <li className="nav-item">
+              <a
+                className="nav-link"
+                onClick={() => scrollToSection("group-companies-section")}
+                style={{ cursor: "pointer" }}
+              >
+                GROUP
+              </a>
+              {/* <Link href="/#group-companies-section">
+                <a className="nav-link" style={{ cursor: "pointer" }}>
+                  GROUP
                 </a>
               </Link> */}
             </li>

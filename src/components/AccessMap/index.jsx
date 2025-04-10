@@ -4,22 +4,6 @@ import TitleLeftLine from "../TitleLeftLine";
 import CenteredLayoutContainer from "../CenteredLayoutContainer";
 
 const AccessMap = () => {
-  // 印刷機能
-  const handlePrint = () => {
-    const footerElement = document.getElementById("footerOutPut");
-    const printButton = document.getElementById("printStart");
-
-    if (footerElement) footerElement.style.display = "none";
-    if (printButton) printButton.style.display = "none";
-
-    window.print();
-
-    setTimeout(() => {
-      if (footerElement) footerElement.style.display = "block";
-      if (printButton) printButton.style.display = "block";
-    }, 200);
-  };
-
   return (
     <section id="access-map">
       <CenteredLayoutContainer>
@@ -142,19 +126,9 @@ const AccessMap = () => {
           </div>
         </div>
 
-        {/* 印刷ボタン */}
-        <div className="text-center pt-4">
-          <button
-            id="printStart"
-            className="btn-curve btn-lit inline-block"
-            onClick={handlePrint}
-          >
-            <span>印刷する</span>
-          </button>
-        </div>
       </CenteredLayoutContainer>
 
-      <style jsx>{`
+      <style>{`
         .company-info {
           /* color: #333; */
         }

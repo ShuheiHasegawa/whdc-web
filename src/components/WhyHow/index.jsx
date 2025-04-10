@@ -20,8 +20,11 @@ const WhyHow = ({ img, theme, subBG }) => {
                   className="wow words custom-font chars splitting text-white"
                   data-splitting
                 >
-                  <b>30秒で分かるワイハウ</b>
+                  <b>ワイハウの10の特徴</b>
                 </h2>
+                <span>
+                説明文なしより、ワイハウとはどういう企業なのか？という1、2行の文をいれてみてはいかがでしょうか？ボタンだけよりかはデザインてきになるのではないでしょうか？
+                </span>
               </Split>
             </div>
           </div>

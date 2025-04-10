@@ -272,6 +272,9 @@ const GroupCompanies = () => {
     >
       <div className="container">
         <div className="sec-head custom-font text-center">
+              <h6 className="wow fadeIn" data-wow-delay=".1s">
+              Our Companies
+              </h6>
           <Split>
             <h3 className="wow words chars splitting text-white" data-splitting>
               GROUP&nbsp;COMPANIES

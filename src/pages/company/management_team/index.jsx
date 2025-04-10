@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import Head from "next/head";
 import DarkTheme from "../../../layouts/Dark";
 import Navbar from "../../../components/Navbar";
+import Footer from "../../../components/Footer";
 import ProfileCard from "../../../components/ProfileCard";
 import TitleLeftLine from "../../../components/TitleLeftLine";
 import { useTranslation } from "react-i18next";
@@ -166,6 +167,7 @@ const ManagementTeam = () => {
           ]}
         />
       </div>
+      <Footer />
     </DarkTheme>
   );
 };

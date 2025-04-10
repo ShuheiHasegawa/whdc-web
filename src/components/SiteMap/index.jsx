@@ -41,6 +41,16 @@ const SiteMap = () => {
           </Link>
         </li>
         <li>
+          <Link href="/about">
+            <a className="custom-link">ワイハウの10の特徴</a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/company">
+            <a className="custom-link">会社情報</a>
+          </Link>
+        </li>
+        <li>
           <Link href="/accessmap">
             <a className="custom-link">アクセスマップ</a>
           </Link>

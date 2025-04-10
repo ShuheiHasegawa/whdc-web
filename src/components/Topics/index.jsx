@@ -14,6 +14,9 @@ const Topics = () => {
         <div className="row justify-content-center">
           <div className="col-lg-8 col-md-10">
             <div className={styles.secHead}>
+              <h6 className="wow fadeIn" data-wow-delay=".1s">
+                LATEST NEWS
+              </h6>
               <Split>
                 <h3 className="wow words chars splitting" data-splitting>
                   TOPICS
@@ -22,6 +25,9 @@ const Topics = () => {
             </div>
           </div>
         </div>
+
+        <Information />
+
         <div className="row justify-content-center">
           <div className="col-lg-6 pt-2 pb-2">
             <Split>
@@ -87,7 +93,6 @@ const Topics = () => {
           </div>
         </div>
 
-        <Information />
 
       </div>
     </section>

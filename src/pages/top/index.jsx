@@ -52,7 +52,6 @@ const TopPage = () => {
       <IntroVideo sliderRef={fixedSlider} />
       <div ref={MainContent} className="main-content">
         <Topics />
-        <GroupCompanies />
         {/* <AboutUs1 /> */}
         <Services />
         {/* <Numbers1 /> */}
@@ -62,6 +61,7 @@ const TopPage = () => {
         {/* <Clients1 theme="dark" /> */}
           {/* <BlogsTwoColumnSlider /> */}
           <WhyHow subBG />
+          <GroupCompanies />
           <Footer />
         </div>
       </div>
