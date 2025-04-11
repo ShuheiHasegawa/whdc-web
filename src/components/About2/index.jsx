@@ -20,23 +20,21 @@ const About2 = () => {
   const infiniteScrollItems = features.map((feature, index) => ({
     id: index + 1,
     title: `特徴 ${index + 1}`,
-    content: index +'. ' + feature,
+    content: index + ". " + feature,
     image: `/img/whdc/features/feature-${index + 1}.jpg`, // 必要に応じて実際の画像パスに変更
-    bg: index % 2 === 0 ? "light" : "dark" // 交互に背景色を変更
+    bg: index % 2 === 0 ? "light" : "dark", // 交互に背景色を変更
   }));
 
   return (
     <section className="intro-section">
       <div className="about-container">
-        <div>
-          <HeroImage
-            src="/img/whdc/about.png"
-            alt="ワイハウの企業理念"
-            height={240}
-            objectFit="cover"
-            priority
-          />
-        </div>
+        {/* <HeroImage
+          src="/img/whdc/about.png"
+          alt="ワイハウの企業理念"
+          height={240}
+          objectFit="cover"
+          priority
+        /> */}
 
         <div className="content-container pt-16 pb-16">
           <div className="pt-16 pl-16">

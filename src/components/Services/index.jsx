@@ -23,15 +23,13 @@ const Services = () => {
           <div className="col-lg-10">
             <div className="wow fadeInUp p-8" data-wow-delay="0.2s">
               <p
-                className="text-description text-white text-lg"
+                className="text-2xl"
               >
                 価値創造の力で、もう一度豊かになる。<br />
                 当社はこれから全社的ビジネスモデルとして「企業再&quot;成&quot;プラットフォーム」を掲げます。
                 まずは通常の事業再生を、次に「売らない事業承継」を、最後に「ビジネスモデル総合商社」を手掛けていきます。
               </p>
-              <p
-                className="text-description text-white text-lg"
-              >
+              <p className="text-2xl">
                 こうしてM&A業界における総合ディベロッパーのような唯一無二の存在を目指していきます。
               </p>
             </div>

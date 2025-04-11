@@ -34,9 +34,7 @@
 }
 
 .newsItem {
-  background: #1a1a1a;
   padding: 30px;
-  border-radius: 5px;
   margin-bottom: 30px;
   transition: all 0.3s ease;
   height: 100%;
@@ -44,7 +42,6 @@
 
 .newsItem:hover {
   transform: translateY(-5px);
-  background: #222;
 }
 
 .newsHeading {
@@ -68,7 +65,6 @@
   padding: 4px 8px;
   background: rgba(117, 218, 180, 0.1);
   display: inline-block;
-  border-radius: 3px;
 }
 
 .newsDate {
@@ -103,7 +99,6 @@
   font-size: 16px;
   font-weight: 500;
   text-decoration: none;
-  border-radius: 30px;
   transition: all 0.3s ease;
   text-align: center;
   margin: 20px auto 0;

@@ -3,6 +3,7 @@ import TitleLeftLine from "../TitleLeftLine";
 import HeroImage from "../HeroImage";
 import SpotlightCard from "../../components/reactbits/ui/SpotlightCard/SpotlightCard";
 import CenteredLayoutContainer from "../CenteredLayoutContainer";
+import SectionTitle from "../SectionTitle";
 
 const About = () => {
   const features = [
@@ -21,22 +22,16 @@ const About = () => {
   return (
     <section className="intro-section pt-16">
       <div>
-        <div className="pt-16">
-          <HeroImage
-            src="/img/whdc/about.png"
-            alt="ワイハウの企業理念"
-            height={240}
-            objectFit="cover"
-            priority
-          />
-        </div>
+        {/* <HeroImage
+          src="/img/whdc/about.png"
+          alt="ワイハウの企業理念"
+          height={240}
+          objectFit="cover"
+          priority
+        /> */}
 
         <CenteredLayoutContainer>
-          <p className="text-center">
-            <span className="text-2xl text-white font-bold">
-              30秒で分かるワイハウ
-            </span>
-          </p>
+          <SectionTitle title="30秒で分かるワイハウ" />
 
           <div className="pt-16 pl-16">
             <TitleLeftLine title="ワイハウの１０の特徴" />
@@ -47,7 +42,7 @@ const About = () => {
                 <div className="feature-item">
                   <SpotlightCard spotlightColor="rgba(0, 229, 255, 0.2)">
                     <div className="feature-content-wrapper">
-                      <span className="feature-number bg-senary">
+                      <span className="feature-number bg-blue">
                         {index + 1}
                       </span>
                       <p className="feature-text text-white m-0 pl-16">

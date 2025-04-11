@@ -38,11 +38,11 @@ const Topics = () => {
                 <Link href="/company">
                   <a>
                     <HeroImage
-                      src="/img/firstview_about_768.png"
+                      src="/img/top/kigyougaiyou_01.png"
                       alt="会社概要"
-                      mobileHeight="120px"
-                      tabletHeight="140px"
-                      desktopHeight="180px"
+                      mobileHeight="100px"
+                      tabletHeight="120px"
+                      desktopHeight="140px"
                     />
                     <div
                       className={styles.newsContent}
@@ -65,17 +65,17 @@ const Topics = () => {
                 data-wow-delay="0.3s"
               >
                 <Link
-                  href="https://www.twhdc.co.jp/ir/"
+                  href="/ir/ir/index.html"
                   passHref
                   legacyBehavior
                 >
                   <a target="_blank" rel="noopener noreferrer">
                     <HeroImage
-                      src="/img/firstview_ir_768.png"
+                      src="/img/top/firstview_ir_768.png"
                       alt="株主・投資家情報"
-                      mobileHeight="120px"
-                      tabletHeight="140px"
-                      desktopHeight="180px"
+                      mobileHeight="100px"
+                      tabletHeight="120px"
+                      desktopHeight="140px"
                     />
                     <div
                       className={styles.newsContent}

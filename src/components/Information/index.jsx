@@ -4,50 +4,41 @@ import TitleLeftLine from "../TitleLeftLine";
 import Split from "../Split";
 import SpotlightCard from "../reactbits/ui/SpotlightCard/SpotlightCard";
 import NewsAnnouncement from "../NewsAnnouncement";
+import Button from "../Button";
 
 const Information = () => {
   return (
     <section className="info-section pt-32 pb-32">
-      <div className="container">
-        <div className="row justify-content-between mb-24">
-          <div className="col-md-6">
-            <Split>
-              <TitleLeftLine title="新着情報" />
-            </Split>
-          </div>
-          <div className="col-md-6 text-md-end">
-            <Split>
-              <span
-                className="info-subtitle wow words chars splitting"
-                data-splitting
-              >
-                WHAT&apos;S NEW
-              </span>
-            </Split>
-          </div>
+      <div className="row justify-content-between mb-24">
+        <div className="col-md-6">
+          <Split>
+            <TitleLeftLine title="新着情報" />
+          </Split>
         </div>
-
-        <div className="pt-16">
-          <SpotlightCard className="wow fadeInUp">
-
-            <NewsAnnouncement limit={3} />
-
-            <div className="text-center pt-32">
-              <Link href="https://www.twhdc.co.jp/ir/news/index.html">
-                <a
-                  className="btn-curve btn-lit"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span>更新情報一覧&nbsp;&nbsp;</span>
-                  <span className="badge badge-danger badge-pill">
-                    <i className="fas fa-chevron-right fa-xs"></i>
-                  </span>
-                </a>
-              </Link>
-            </div>
-          </SpotlightCard>
+        <div className="col-md-6 text-md-end">
+          <Split>
+            <span
+              className="info-subtitle wow words chars splitting"
+              data-splitting
+            >
+              WHAT&apos;S NEW
+            </span>
+          </Split>
         </div>
+      </div>
+
+      <div className="pt-16">
+        <SpotlightCard className="wow fadeInUp">
+          <NewsAnnouncement limit={3} />
+
+          <div className="text-center pt-32">
+            <Button
+              href="https://www.twhdc.co.jp/ir/news/index.html"
+              text="更新情報一覧"
+              newTab={true}
+            />
+          </div>
+        </SpotlightCard>
       </div>
 
       <style>{`

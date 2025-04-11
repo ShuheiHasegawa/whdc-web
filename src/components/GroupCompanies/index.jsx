@@ -7,27 +7,27 @@ import { DataSet } from "vis-data";
 
 const GroupCompanies = () => {
   const networkRef = useRef(null);
-  const [containerHeight, setContainerHeight] = useState('720px');
+  const [containerHeight, setContainerHeight] = useState("720px");
 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth <= 480) {
-        setContainerHeight('480px'); // スマホサイズ
+        setContainerHeight("480px"); // スマホサイズ
       } else if (window.innerWidth <= 768) {
-        setContainerHeight('540px'); // タブレットサイズ
+        setContainerHeight("540px"); // タブレットサイズ
       } else {
-        setContainerHeight('720px'); // デスクトップサイズ
+        setContainerHeight("720px"); // デスクトップサイズ
       }
     };
-    
+
     // 初期化
     handleResize();
-    
+
     // リサイズイベントにリスナーを追加
-    window.addEventListener('resize', handleResize);
-    
+    window.addEventListener("resize", handleResize);
+
     // クリーンアップ
-    return () => window.removeEventListener('resize', handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   useEffect(() => {
@@ -272,9 +272,9 @@ const GroupCompanies = () => {
     >
       <div className="container">
         <div className="sec-head custom-font text-center">
-              <h6 className="wow fadeIn" data-wow-delay=".1s">
-              Our Companies
-              </h6>
+          <h6 className="wow fadeIn" data-wow-delay=".1s">
+            Our Businesses
+          </h6>
           <Split>
             <h3 className="wow words chars splitting text-white" data-splitting>
               GROUP&nbsp;COMPANIES
@@ -291,14 +291,14 @@ const GroupCompanies = () => {
               className="network-container wow fadeIn"
               data-wow-delay=".3s"
               style={{
-                position: 'relative',
-                width: '100%',
+                position: "relative",
+                width: "100%",
                 height: containerHeight,
-                maxWidth: '100%',
-                overflow: 'hidden',
-                background: "#0C0C0C",
-                border: "1px solid rgba(255, 255, 255, 0.1)",
-                borderRadius: "10px",
+                maxWidth: "100%",
+                overflow: "hidden",
+                // background: "#0C0C0C",
+                // border: "1px solid rgba(255, 255, 255, 0.1)",
+                // borderRadius: "12px",
               }}
             />
           </div>
