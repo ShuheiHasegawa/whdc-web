@@ -4,6 +4,7 @@ import HeroImage from "../HeroImage";
 import TitleLeftLine from "../TitleLeftLine";
 import Split from "../Split";
 import CenteredLayoutContainer from "../CenteredLayoutContainer";
+import SectionTitle from "../SectionTitle";
 
 const CompanyNamePage = () => {
   return (
@@ -16,6 +17,8 @@ const CompanyNamePage = () => {
       /> */}
 
       <CenteredLayoutContainer>
+        <SectionTitle title="社名の由来" />
+
         {/* 社名の由来 */}
         <section id="message" className="container">
           <div className="row justify-content-center">

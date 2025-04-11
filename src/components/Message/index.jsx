@@ -5,6 +5,7 @@ import TitleLeftLine from "../TitleLeftLine";
 import Split from "../Split";
 import CenteredLayoutContainer from "../CenteredLayoutContainer";
 import SectionTitle from "../SectionTitle";
+import Button from "../Button";
 
 const MessagePage = () => {
   return (
@@ -84,11 +85,11 @@ const MessagePage = () => {
 
         {/* 社名の由来 */}
         <section id="name" className="container pt-32 pb-32 text-center">
-          <Link href="/company/name" passHref>
-            <button className="btn-curve btn-lit">
-              <span>社名の由来</span>
-            </button>
-          </Link>
+          <Button
+            href="/company/name"
+            text="社名の由来"
+            className="btn-curve btn-lit"
+          />
         </section>
       </CenteredLayoutContainer>
     </section>

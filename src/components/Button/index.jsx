@@ -1,7 +1,7 @@
 import React from "react";
 
 const Button = ({
-  type = "button", // "button", "mail", "link"
+  type = "link", // "button", "mail", "link"
   href = "#",
   email = "",
   subject = "",

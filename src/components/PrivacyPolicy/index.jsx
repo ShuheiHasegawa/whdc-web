@@ -7,8 +7,7 @@ import Button from "../Button";
 
 const PrivacyPolicy = () => {
   return (
-    <section className="intro-section">
-      <div>
+    <section id="privacy-policy">
         {/* <HeroImage
           src="/img/firstview_top_2022_768.png"
           alt="firstview top"
@@ -19,8 +18,7 @@ const PrivacyPolicy = () => {
 
         <CenteredLayoutContainer>
           <SectionTitle title="プライバシーポリシー" />
-
-          <div>
+          <div className="container text-base">
             <section id="item1">
               <TitleLeftLine title="個人情報保護方針" />
               <div className="pt-16">
@@ -181,7 +179,6 @@ const PrivacyPolicy = () => {
             margin-top: 2rem;
           }
         `}</style>
-      </div>
     </section>
   );
 };
