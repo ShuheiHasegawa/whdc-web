@@ -46,7 +46,7 @@ const IntroVideo = ({ sliderRef }) => {
             opacity: 0.8,
           }}
         >
-          <source src="/movies/earth.mp4" type="video/mp4" />
+          <source src="/movies/top-720p.mp4" type="video/mp4" />
         </video>
         <div
           className="caption"
