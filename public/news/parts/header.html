@@ -1,0 +1,68 @@
+<script>
+  $(document).ready(function () {
+    $(".view_timer").each(function (index, target) {
+      var startDate = $(this).attr("data-start-date");
+      var endDate = $(this).attr("data-end-date");
+      var nowDate = new Date();
+
+      if (startDate) {
+        startDate = new Date(startDate);
+      } else {
+        startDate = nowDate;
+      }
+      if (endDate) {
+        endDate = new Date(endDate);
+      }
+
+      if (startDate <= nowDate && (!endDate || nowDate <= endDate)) {
+        $(this).show();
+      } else {
+        $(this).hide();
+      }
+    });
+  });
+</script>
+
+<script src="/js/common-links.js"></script>
+
+<header class="bg-header">
+  <nav>
+    <h1>
+      <a href="/">
+        <!--2022/1/1 00:00:00 update-->
+        <img
+          class="view_timer"
+          data-end-date="2021/12/31 23:59:59"
+          src="/image/theme_new.png"
+          alt="アクロディアロゴ"
+        />
+        <img
+          class="view_timer"
+          data-start-date="2022/1/1 00:00:00"
+          src="/image/logo/logo_transparent.png"
+          alt="ワイハウロゴ"
+        />
+      </a>
+    </h1>
+
+    <!--<span><img id="menuButton" src="/image/menu.png"></span>-->
+    <ul>
+      <li>
+        <a data-site-link="/#top-section" class="black fontSize18">TOP</a>
+      </li>
+      <li>
+        <a data-site-link="/#services-section" class="black fontSize18"
+          >SERVICES</a
+        >
+      </li>
+      <li>
+        <a data-site-link="/#group-companies-section" class="black fontSize18"
+          >GROUP</a
+        >
+      </li>
+      <li><a data-site-link="/company" class="black fontSize18">ABOUT</a></li>
+      <li><a data-site-link="/teams" class="black fontSize18">TEAMS</a></li>
+      <li><a data-site-link="/contact" class="black fontSize18">CONTACT</a></li>
+    </ul>
+  </nav>
+</header>
