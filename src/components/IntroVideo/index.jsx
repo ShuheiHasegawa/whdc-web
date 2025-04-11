@@ -1,7 +1,49 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import Split from "../Split";
 import fadeWhenScroll from "../../common/fadeWhenScroll";
 import IntroText from "../IntroText";
+
+const SingleVideoWithSmootherLoop = () => {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      const handleTimeUpdate = () => {
+        const timeLeft = videoRef.current.duration - videoRef.current.currentTime;
+        if (timeLeft < 0.1) {
+          requestAnimationFrame(() => {
+            videoRef.current.currentTime = 0;
+          });
+        }
+      };
+
+      videoRef.current.addEventListener('timeupdate', handleTimeUpdate);
+      return () => videoRef.current?.removeEventListener('timeupdate', handleTimeUpdate);
+    }
+  }, []);
+
+  return (
+    <video
+      ref={videoRef}
+      autoPlay
+      muted
+      playsInline
+      style={{
+        position: "absolute",
+        width: "100%",
+        height: "100vh",
+        top: 0,
+        left: 0,
+        objectFit: "cover",
+        zIndex: 0,
+        opacity: 0.8,
+        transition: 'opacity 0.1s ease-out',
+      }}
+    >
+      <source src="/movies/top-720p.mp4" type="video/mp4" />
+    </video>
+  );
+};
 
 const IntroVideo = ({ sliderRef }) => {
   const [load, setLoad] = React.useState(true);
@@ -29,25 +71,7 @@ const IntroVideo = ({ sliderRef }) => {
           position: "relative",
         }}
       >
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="main-visual-video"
-          style={{
-            position: "absolute",
-            width: "100%",
-            height: "100vh",
-            top: 0,
-            left: 0,
-            objectFit: "cover",
-            zIndex: 0,
-            opacity: 0.8,
-          }}
-        >
-          <source src="/movies/top-720p.mp4" type="video/mp4" />
-        </video>
+        <SingleVideoWithSmootherLoop />
         <div
           className="caption"
           style={{
