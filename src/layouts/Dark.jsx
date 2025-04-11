@@ -25,7 +25,7 @@ const DarkTheme = ({ children, useSkin }) => {
       <Head>
         <link rel="stylesheet" href="/css/dark.css" />
       </Head>
-      <div className="dark-theme-wrapper" style={{ backgroundColor: "#000" }}>
+      <div className="dark-theme-wrapper" style={{ backgroundColor: "var(--bg-black)" }}>
         {children}
       </div>
     </>

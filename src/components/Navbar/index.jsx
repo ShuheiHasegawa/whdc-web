@@ -96,6 +96,9 @@ const Navbar = ({ lr, nr, theme }) => {
         <Link href="/">
           <a className="logo">
             <style>{`
+              .navbar {
+                background-color: #000;
+              }
               .logo {
                 display: block;
                 width: fit-content;
@@ -238,7 +241,11 @@ const Navbar = ({ lr, nr, theme }) => {
             </li>
             <li className="nav-item">
               <Link href="https://www.twhdc.co.jp/ir/">
-                <a className="nav-link" target="_blank" rel="noopener noreferrer">
+                <a
+                  className="nav-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   IR
                 </a>
               </Link>

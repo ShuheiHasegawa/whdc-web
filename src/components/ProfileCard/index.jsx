@@ -94,7 +94,7 @@ const ProfileCard = ({
                   {name}
                 </h4>
                 <h2
-                  className="color-primary"
+                  className="color-blue"
                   style={{
                     fontSize: "1.4rem",
                     fontWeight: "300",

@@ -3,7 +3,7 @@ import React from 'react';
 const TitleLeftLine = ({ title, boldText, subtitle }) => {
   return (
     <div style={{ display: 'flex', alignItems: 'center' }}>
-      <div className="title-line bg-senary" style={{ 
+      <div className="title-line bg-blue" style={{ 
         width: '4px', 
         height: '30px', 
         marginRight: '15px',

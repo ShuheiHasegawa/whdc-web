@@ -4,7 +4,7 @@ import React from "react";
 // import appData from "../../data/app.json";
 import SiteMap from "../../components/SiteMap";
 
-const Footer = ({ noSubBG }) => {
+const Footer = () => {
   // function validateEmail(value) {
   //   let error;
   //   if (!value) {
@@ -16,7 +16,14 @@ const Footer = ({ noSubBG }) => {
   // }
   // const sendEmail = (ms) => new Promise((r) => setTimeout(r, ms));
   return (
-    <footer className={`footer-half ${noSubBG ? "" : "sub-bg"} p-0`}>
+    <footer className="footer p-0">
+      <style>
+        {`
+          .footer {
+            background-color: #000;
+          }
+        `}
+      </style>
       <div className="container">
         {/* <div className="row"> */}
         {/* <div className="col-lg-5"> */}
@@ -109,8 +116,8 @@ const Footer = ({ noSubBG }) => {
           </div> */}
         {/* </div> */}
         <SiteMap />
-        <div className="copyrights text-center">
-          <p>Copyright (C) THE WHY HOW DO COMPANY, Inc. All Rights Reserved.</p>
+        <div className="copyrights text-center p-4">
+          <p className="p-0 m-0">Copyright (C) THE WHY HOW DO COMPANY, Inc. All Rights Reserved.</p>
         </div>
       </div>
     </footer>

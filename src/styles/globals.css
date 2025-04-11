@@ -1,9 +1,46 @@
+/* 
+ * カラーコード
+ *
+ * header/footer（黒）：000000
+ * 背景（黒）：0C0C0C
+ * 文字（白）：FFFFFF
+ * 文字（青）：009DE7
+ * 枠（灰色）：2B2B2B
+ */
+:root {
+  --bg-black: #0c0c0c;
+  --bg-black-card: #2b2b2b;
+  --bg-blue: #00a0e8;
+  --color-black: #0c0c0c;
+  --color-blue: #00a0e8;
+}
+
+.bg-black {
+  background-color: var(--bg-black);
+}
+.bg-black-card {
+  background-color: var(--bg-black-card);
+}
+.bg-blue {
+  background-color: var(--bg-blue);
+}
+.color-blue {
+  color: var(--color-blue);
+}
+
+.border-primary {
+  border-bottom: 2px solid var(--color-blue);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
 html,
 body {
   margin: 0;
   padding: 0;
   width: 100%;
   overflow-x: hidden;
+  background-color: var(--bg-black);
 }
 
 #__next {
@@ -343,56 +380,7 @@ section.team.section-padding {
   background: #333;
 }
 
-/* ダークテーマで使われている色 */
-/* color: #75dab4 !important; */
-
-.color-primary {
-  color: #00a0e8;
-}
-.color-secondary {
-  color: #3a3d93;
-}
-.color-tertiary {
-  color: #56c1d5;
-}
-.color-quaternary {
-  color: #40455b;
-}
-.color-quinary {
-  color: #2c2b29;
-}
-.color-senary {
-  color: #e92170;
-}
-
-/* ロゴ中間色 */
-.bg-primary {
-  background-color: #00a0e8;
-}
-/* ロゴ暗色 */
-.bg-secondary {
-  background-color: #3a3d93;
-}
-/* ロゴ明色 */
-.bg-tertiary {
-  background-color: #56c1d5;
-}
-.bg-quaternary {
-  background-color: #40455b;
-}
-.bg-quinary {
-  background-color: #2c2b29;
-}
-.bg-senary {
-  background-color: #e92170;
-}
-
-.border-primary {
-  border-bottom: 2px solid #00a0e8;
-  padding-bottom: 0.5rem;
-  margin-bottom: 1rem;
-}
-
+/* ====================== [ Start Video / Image Wrapper ] ====================== */
 .video-header-wrapper,
 .image-header-wrapper {
   position: relative;
@@ -407,7 +395,9 @@ section.team.section-padding {
     height: clamp(100px, 16vh, 180px) !important;
   }
 }
+/* ====================== [ End Video / Image Wrapper ] ====================== */
 
+/* ====================== [ Start Link ] ====================== */
 .external-link {
   text-align: center;
   margin-top: 8px;
@@ -438,12 +428,80 @@ section.team.section-padding {
   transform: translateX(2px) translateY(-2px);
   transition: all 0.3s ease;
 }
+/* ====================== [ End Link ] ====================== */
 
-.btn-curve.btn-lit:hover span {
-  /* color: #75dab4; */
-  color: #00a0e8;
+/* ====================== [ Start Button ] ====================== */
+.btn-outline {
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid #fff !important;
+  transition: all 0.3s ease !important;
 }
-.btn-curve.btn-lit:hover span {
-  /* color: #75dab4; */
-  color: #00a0e8;
+
+.btn-outline:hover {
+  color: #fff !important;
+  border-color: var(--color-blue) !important;
 }
+/* ====================== [ End Button ] ====================== */
+
+/* ====================== [ Start Accordion ] ====================== */
+.accordion-container {
+  width: 100%;
+  overflow: hidden;
+  /* background-color: var(--bg-black-card); */
+}
+
+.accordion-item {
+  background-color: var(--bg-black-card);
+  border-bottom: 1px solid var(--bg-black-card);
+}
+
+.accordion-item:first-child .accordion-header {
+  border-top: none;
+}
+
+.accordion-item:last-child {
+  border-bottom: none;
+}
+
+.accordion-header {
+  padding: 1rem;
+  cursor: pointer;
+  /* transition: all 0.3s ease; */
+  border-top: 1px dashed #fff;
+}
+
+.accordion-header:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.accordion-header.active {
+  /* padding-bottom: 0; */
+  /* background-color: rgba(255, 255, 255, 0.1); */
+  /* border-bottom: 1px solid rgba(255, 255, 255, 0.1); */
+}
+
+.accordion-icon {
+  transition: transform 0.3s ease;
+}
+
+.accordion-icon .rotate {
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  /* transition: max-height 0.3s ease; */
+}
+
+.accordion-content.show {
+  max-height: 1000px; /* 適切な最大値に調整 */
+}
+
+.accordion-body {
+  margin: 1rem;
+  margin-top: 0.4rem;
+  /* border-bottom: 1px solid rgba(255, 255, 255, 0.1); */
+}
+/* ====================== [ End Accordion ] ====================== */
