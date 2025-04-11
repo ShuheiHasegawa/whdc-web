@@ -4,34 +4,126 @@ import HeroImage from "../HeroImage";
 import TitleLeftLine from "../TitleLeftLine";
 import Split from "../Split";
 import CenteredLayoutContainer from "../CenteredLayoutContainer";
+import SectionTitle from "../SectionTitle";
+import Button from "../Button";
 import { historyData } from "./historyData";
+import Dashed2Column from "../Dashed2Column";
 
 const CompanyPage = () => {
+  const companyInfoItems = [
+    {
+      title: "会社名",
+      content:
+        "THE WHY HOW DO COMPANY株式会社（英文名 THE WHY HOW DO COMPANY, Inc.）",
+    },
+    {
+      title: "本社",
+      content: (
+        <>
+          〒160-0005 東京都新宿区愛住町22 第3山田ビル <br />
+          <div className="mt-2">
+            TEL：03-4405-5460（代表）
+            <br />
+            FAX：03-4405-6048
+          </div>
+        </>
+      ),
+    },
+    {
+      title: "設立",
+      content: "2004年7月12日",
+    },
+    {
+      title: "代表者",
+      content: "代表取締役社長 岩尾 俊兵",
+    },
+    {
+      title: "資本金",
+      content: "1,617百万円（2024年8月31日現在）",
+    },
+    {
+      title: "売上高",
+      content: "747百万円［連結］（2024年8月期）",
+    },
+    {
+      title: "従業員数",
+      content: "31名 [連結]（2024年8月期）",
+    },
+    {
+      title: "事業内容",
+      content: (
+        <>
+          次の事業を営むこと及び次の事業を営む会社等事業体の株式または持分を所有することによる事業活動の管理
+          <ul className="mt-2">
+            <li>・スマートフォン向けサービス及びソリューションの提供</li>
+            <li>・コンピュータに関する個人及び企業への教育</li>
+            <li>・不動産賃貸（サブリースを含む）</li>
+            <li>
+              ・コンサート、演劇、演芸、講演、スポーツ等各種イベントの企画、制作、興行
+            </li>
+            <li>・知的財産権の管理、販売及び使用許諾等</li>
+            <li>・産業廃棄物及び一般廃棄物の再資源化処理物の販売</li>
+            <li>・その他</li>
+          </ul>
+        </>
+      ),
+    },
+    {
+      title: "主要取引銀行",
+      content:
+        "城南信用金庫、みずほ銀行 中目黒支店、三井住友銀行 渋谷支店、三菱UFJ銀行 新橋支店",
+    },
+    {
+      title: "グループ会社",
+      content:
+        "WHDCアクロディア株式会社、株式会社渋谷肉横丁、株式会社インタープラン、WHDCエンタテインメント株式会社、GUAM ENTERTAINMENT SYSTEMS, LLC 、株式会社SOUND PORT、Pavilions株式会社、株式会社宇部整環リサイクルセンター",
+    },
+  ];
+
+  // 沿革データを整形する関数
+  const historyItems = (historyData) => {
+    return historyData.map((item) => ({
+      title: (
+        <span>
+          <span style={{ display: "inline-block", width: "3.6em" }}>
+            {item.year}年
+          </span>
+          <span
+            style={{
+              display: "inline-block",
+              width: "2em",
+              textAlign: "right",
+            }}
+          >
+            {item.month}
+          </span>
+          月
+        </span>
+      ),
+      content: item.content,
+    }));
+  };
+
   return (
     <section id="company">
-      {/* ファーストビュー */}
-      <section className="container-fluid p-0">
-        <div className="row no-gutters">
-          <div className="col-12">
-            <div className="position-relative">
-              <HeroImage
-                src="/img/whdc/company/firstview_02_2022.png"
-                alt="firstview_about"
-                objectFit="cover"
-                priority
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroImage
+        src="/img/whdc/company/firstview_02_2022.png"
+        alt="firstview_about"
+        objectFit="cover"
+        priority
+      />
 
       <CenteredLayoutContainer>
+        <SectionTitle title="ABOUT" />
+
         {/* 会社情報 */}
         <section id="info" className="container">
           <Split>
             <TitleLeftLine title="会社情報" />
           </Split>
-          <div className="table-responsive pt-16">
+          <Dashed2Column items={companyInfoItems} className="my-4" />
+
+          {/* <div className="table-responsive pt-16">
             <table className="table table-dark table-bordered table-striped text-base">
               <tbody>
                 <tr>
@@ -108,7 +200,7 @@ const CompanyPage = () => {
                 </tr>
               </tbody>
             </table>
-          </div>
+          </div> */}
         </section>
 
         {/* 沿革 */}
@@ -116,7 +208,10 @@ const CompanyPage = () => {
           <Split>
             <TitleLeftLine title="沿革" />
           </Split>
-          <div className="table-responsive pt-16">
+
+          <Dashed2Column items={historyItems(historyData)} className="my-4" />
+
+          {/* <div className="table-responsive pt-16">
             <table className="table table-dark table-bordered table-striped">
               <tbody>
                 {historyData.map((item, index) => (
@@ -147,79 +242,16 @@ const CompanyPage = () => {
                 ))}
               </tbody>
             </table>
-          </div>
-        </section>
-
-        {/* 社長メッセージ */}
-        <section id="message" className="container pt-32">
-          <div
-            className="d-flex justify-content-between align-items-end pb-2 mb-4"
-            style={{
-              width: "100%",
-              borderBottomWidth: "1px",
-              borderBottomStyle: "solid",
-              /* border-bottom-color: #0369b4; */
-              borderBottomColor: "gray",
-            }}
-          >
-            <div className="row" style={{ width: "100%" }}>
-              <div className="col-md-6">
-                <Split>
-                  <TitleLeftLine title="社長メッセージ" />
-                </Split>
-              </div>
-              <div className="col-md-6">
-                <div
-                  className="text-end d-flex flex-column align-items-end"
-                  style={{
-                    textAlign: "right",
-                  }}
-                >
-                  <p className="mb-0">THE WHY HOW DO COMPANY株式会社</p>
-                  <p className="mb-0">代表取締役社長 岩尾 俊兵</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="p-4">
-            <p className="lead mb-4">価値創造の力で、もう一度豊かになる。</p>
-            <p className="mb-4">
-              これは、私が社長就任にあたって株主の皆様と従業員の皆様とに示したビジョンです。当社は技術の力で急成長した輝かしい歴史を持ちます。しかし、やがて衰退局面に入ってしまい、そこから抜け出せずにいます。
-            </p>
-            <p className="mb-4">
-              しかも、現場で働く人はどの会社より真面目で、実直で、誠実な人ばかりなのに、です。善人が努力を続けてもどんどんと貧しくなってしまう「構造」があったのです。その根本原因は全社的ビジネスモデルの不在にあったと考えます。全社的ビジネスモデルがないために、当社が色んなことに手を出していて何をやっている組織なのかが利害関係者に伝わらず、不信感が広がっていたと思うのです。
-            </p>
-            <p className="mb-4">
-              当社はこれから全社的ビジネスモデルとして「企業再"成"プラットフォーム」を掲げます。まずは通常の事業再生を、次に「売らない事業承継」を、最後に「ビジネスモデル総合商社」を手掛けていきます。こうしてM&A業界における総合ディベロッパーのような唯一無二の存在を目指していきます。
-            </p>
-            <p className="mb-4">
-              会社は色んなものを「預かる」存在です。株主から資金を預かり、お客様から信頼を預かり、従業員から人生を預かっています。人間というもの、預かったものは必ず返さなければいけません。もっと資金を預けたい、もっと信頼を預けたい、もっと人生を預けてみたい。そう思っていただける、信用のおける会社に生まれ変わるのが我々の使命です。
-            </p>
-            <p className="mb-4">
-              このWebサイトを訪問して、私の思いを読んでくださったすべての方に、あらためて感謝申し上げます。引き続きのご指導ご鞭撻のほど何卒よろしくお願い申し上げます。
-            </p>
-            <div
-              className="text-end mt-5"
-              style={{
-                textAlign: "right",
-                width: "100%",
-              }}
-            >
-              <p className="mb-2">敬具</p>
-              <p className="mb-2">2024年11月28日</p>
-              <p className="mb-2">THE WHY HOW DO COMPANY株式会社</p>
-              <p className="mb-0">代表取締役社長 岩尾 俊兵</p>
-            </div>
-          </div>
+          </div> */}
         </section>
 
         {/* 社名の由来 */}
         <section id="name" className="container pt-32 pb-32 text-center">
-          <Link href="/company/name" passHref>
-            <button className="btn-curve btn-lit">
-              <span>社名の由来</span>
-            </button>
-          </Link>
+          <Button
+            href="/company/name"
+            text="社名の由来"
+            className="btn-curve btn-lit"
+          />
         </section>
       </CenteredLayoutContainer>
     </section>

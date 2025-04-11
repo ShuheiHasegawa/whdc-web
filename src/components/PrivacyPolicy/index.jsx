@@ -2,25 +2,23 @@ import React, { useState, useEffect } from "react";
 import HeroImage from "../HeroImage";
 import TitleLeftLine from "../TitleLeftLine";
 import CenteredLayoutContainer from "../CenteredLayoutContainer";
+import SectionTitle from "../SectionTitle";
+import Button from "../Button";
 
 const PrivacyPolicy = () => {
   return (
     <section className="intro-section">
       <div>
-        <HeroImage
+        {/* <HeroImage
           src="/img/firstview_top_2022_768.png"
           alt="firstview top"
           width={768}
           height={400}
           layout="responsive"
-        />
+        /> */}
 
         <CenteredLayoutContainer>
-          <p className="topics">
-            <span className="text-2xl text-white font-bold">
-              プライバシーポリシー
-            </span>
-          </p>
+          <SectionTitle title="プライバシーポリシー" />
 
           <div>
             <section id="item1">
@@ -62,17 +60,23 @@ const PrivacyPolicy = () => {
                     THE WHY HOW DO COMPANY株式会社 個人情報苦情及び相談窓口
                   </li>
                   <li className="text-base left normal m-0">
-                    <strong>TEL:03-4405-5460</strong>
+                    TEL:03-4405-5460
                     <br />
-                    <strong>FAX:03-4405-6048</strong>
+                    FAX:03-4405-6048
                     <br />
                     <br />
                   </li>
 
-                  <div className="text-center">
-                    <a
+                  <div>
+                    <Button
+                      type="mail"
+                      email="privacy@acrodea.co.jp"
+                      subject="[Acrodea Privacy Policy]"
+                      text="お問い合わせメール"
+                    />
+                    {/* <a
                       href="mailto:privacy@acrodea.co.jp?subject=[Acrodea Privacy Policy]"
-                      className="mail-link bg-primary text-white"
+                      className="mail-link text-white"
                       style={{
                         display: "inline-flex",
                         alignItems: "center",
@@ -88,7 +92,7 @@ const PrivacyPolicy = () => {
                         style={{ marginRight: "8px" }}
                       ></i>
                       <span>お問い合わせメールを送信</span>
-                    </a>
+                    </a> */}
                   </div>
 
                   {/* <a href="mailto:privacy@acrodea.co.jp?subject=[Acrodea Privacy Policy]">
@@ -104,33 +108,23 @@ const PrivacyPolicy = () => {
                   </li>
                   <li className="text-base left normal infoTitle">
                     IR情報に関するお問い合せ
-                    <br />
-                    <div
-                      className="external-link text-white"
-                      style={{ textAlign: "left" }}
-                    >
-                      <a
-                        href="/ir/inquiry"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        お問い合わせページ
-                      </a>
+                    <div className="pt-16">
+                      <Button
+                        type="link"
+                        href="/contact"
+                        text="お問い合わせページ"
+                      />
                     </div>
-                    <br />
-                    法人のお客様・製品・サービスに関するお問い合せ
-                    <br />
-                    <div
-                      className="external-link text-white"
-                      style={{ textAlign: "left" }}
-                    >
-                      <a
+                  </li>
+                  <li className="text-base left normal infoTitle">
+                    法人のお客様・製品・サービスに関するお問い合わせ
+                    <div className="pt-16">
+                      <Button
+                        type="link"
                         href="https://form.os7.biz/f/52e037cb/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        送信フォームを開く
-                      </a>
+                        text="送信フォームを開く"
+                        newTab={true}
+                      />
                     </div>
                   </li>
                 </ul>
@@ -165,12 +159,6 @@ const PrivacyPolicy = () => {
         </CenteredLayoutContainer>
 
         <style jsx>{`
-          .topics {
-            text-align: center;
-            padding: 1rem 0;
-            background: rgba(0, 0, 0, 0.8);
-          }
-
           ul {
             list-style: none;
             padding: 0;
@@ -225,7 +213,8 @@ const getPersonalInfoItems = () => [
     title: "(2)個人情報（要配慮情報を含む）の管理者およびその連絡先",
     content: [
       "個人情報保護管理者 管理本部長 橋本直樹",
-      "TEL:03-4405-5460 FAX:03-4405-6048",
+      "TEL:03-4405-5460",
+      "FAX:03-4405-6048",
     ],
   },
   {
@@ -241,9 +230,11 @@ const getPersonalInfoItems = () => [
     title: "(4)個人情報に関するお問い合わせ窓口",
     content: [
       "個人情報の取扱いに関する苦情・相談の申し出先：",
-      "TEL:03-4405-5460 FAX:03-4405-6048",
+      "TEL:03-4405-5460",
+      "FAX:03-4405-6048",
       "保有個人データの開示等の請求等に応じる申し出先：",
-      "TEL:03-4405-5460 FAX:03-4405-6048",
+      "TEL:03-4405-5460",
+      "FAX:03-4405-6048",
     ],
   },
   {

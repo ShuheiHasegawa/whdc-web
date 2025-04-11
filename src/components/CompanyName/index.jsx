@@ -8,21 +8,12 @@ import CenteredLayoutContainer from "../CenteredLayoutContainer";
 const CompanyNamePage = () => {
   return (
     <section id="top">
-      {/* ファーストビュー */}
-      <section className="container-fluid p-0">
-        <div className="row no-gutters">
-          <div className="col-12">
-            <div className="position-relative">
-              <HeroImage
-                src="/img/whdc/company/firstview_02_2022.png"
-                alt="firstview_about"
-                objectFit="cover"
-                priority
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* <HeroImage
+        src="/img/whdc/company/firstview_02_2022.png"
+        alt="firstview_about"
+        objectFit="cover"
+        priority
+      /> */}
 
       <CenteredLayoutContainer>
         {/* 社名の由来 */}

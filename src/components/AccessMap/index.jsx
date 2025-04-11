@@ -1,26 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Image from "next/image";
-import TitleLeftLine from "../TitleLeftLine";
 import CenteredLayoutContainer from "../CenteredLayoutContainer";
+import SectionTitle from "../SectionTitle";
 
 const AccessMap = () => {
   return (
     <section id="access-map">
       <CenteredLayoutContainer>
-        {/* タイトル */}
-        <div className="mb-5">
-          <TitleLeftLine title="アクセスマップ" />
-        </div>
+
+        <SectionTitle title="アクセスマップ" />
 
         {/* 会社情報（row-col構造） */}
-        <div className="company-info mb-5">
+        <div className="mb-5">
           {/* 会社名 */}
           <div className="row info-row py-3">
             <div className="col-md-3">
               <div className="info-label">会社名</div>
             </div>
             <div className="col-md-9">
-              <div className="info-content">THE WHY HOW DO COMPANY株式会社</div>
+              <div>THE WHY HOW DO COMPANY株式会社</div>
             </div>
           </div>
 
@@ -30,9 +28,9 @@ const AccessMap = () => {
               <div className="info-label">所在地</div>
             </div>
             <div className="col-md-9">
-              <div className="info-content">
+              <div>
                 〒160-0005 東京都新宿区愛住町22 第3山田ビル
-                <br />
+                {/* <br />
                 <div
                   className="mt-2 external-link"
                   style={{ display: "flex", alignItems: "center" }}
@@ -56,7 +54,7 @@ const AccessMap = () => {
                     </svg>
                     Google Map
                   </a>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -67,7 +65,7 @@ const AccessMap = () => {
               <div className="info-label">電話番号</div>
             </div>
             <div className="col-md-9">
-              <div className="info-content">03-4405-5460</div>
+              <div>03-4405-5460</div>
             </div>
           </div>
 
@@ -77,7 +75,7 @@ const AccessMap = () => {
               <div className="info-label">FAX</div>
             </div>
             <div className="col-md-9">
-              <div className="info-content">03-4405-6048</div>
+              <div>03-4405-6048</div>
             </div>
           </div>
 
@@ -87,15 +85,24 @@ const AccessMap = () => {
               <div className="info-label">交通</div>
             </div>
             <div className="col-md-9">
-              <div className="info-content">
+              <div>
                 <div className="mb-4">
-                  <Image
+                  {/* <Image
                     src="/img/map.png"
                     alt="アクセスマップ"
                     width={480}
                     height={360}
                     className="img-fluid rounded"
-                  />
+                  /> */}
+                  <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3240.399282174874!2d139.7178082!3d35.6917908!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cee400cc92f%3A0x5f0e97819f438c1f!2sTHE%20WHY%20HOW%20DO%20COMPANY%E3%88%B1!5e0!3m2!1sja!2sjp!4v1744292595180!5m2!1sja!2sjp" 
+                    width="480" 
+                    height="320" 
+                    style={{ border: "0" }}
+                    allowFullScreen="" 
+                    loading="lazy" 
+                    referrerPolicy="no-referrer-when-downgrade"
+                  ></iframe>
                 </div>
 
                 <div className="d-flex align-items-start mb-3">
@@ -129,21 +136,17 @@ const AccessMap = () => {
       </CenteredLayoutContainer>
 
       <style>{`
-        .company-info {
-          /* color: #333; */
-        }
-
         .info-row {
           border-bottom: 1px dotted #ccc;
+        }
+
+        .info-row:last-child {
+          border-bottom: none;
         }
 
         .info-label {
           font-weight: 500;
           /* color: #555; */
-        }
-
-        .info-content {
-          /* color: #333; */
         }
 
         .map-link {

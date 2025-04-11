@@ -2,24 +2,21 @@ import React from "react";
 import HeroImage from "../HeroImage";
 import TitleLeftLine from "../TitleLeftLine";
 import CenteredLayoutContainer from "../CenteredLayoutContainer";
+import SectionTitle from "../SectionTitle";
 
 const Notice = () => {
   return (
     <section className="intro-section pb-0">
-      <HeroImage
+      {/* <HeroImage
         src="/img/firstview_top_2022_768.png"
         alt="firstview top"
         width={768}
         height={400}
         layout="responsive"
-      />
+      /> */}
 
       <CenteredLayoutContainer>
-        <p className="topics">
-          <span className="text-2xl text-white font-bold">
-            ご利用にあたって
-          </span>
-        </p>
+        <SectionTitle title="ご利用にあたって" />
 
         <div>
           <p className="text-base center normal">

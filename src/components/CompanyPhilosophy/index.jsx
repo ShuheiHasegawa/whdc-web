@@ -5,6 +5,7 @@ import React from "react";
 import HeroImage from "../HeroImage";
 import TitleLeftLine from "../TitleLeftLine";
 import CenteredLayoutContainer from "../CenteredLayoutContainer";
+import SectionTitle from "../SectionTitle";
 
 const CompanyPhilosophy = () => {
   // function validateEmail(value) {
@@ -19,14 +20,15 @@ const CompanyPhilosophy = () => {
   // const sendComment = (ms) => new Promise((r) => setTimeout(r, ms));
   return (
     <section className="pt-0">
-      <HeroImage
+      {/* <HeroImage
         src="/img/whdc/ir/ir_rinen_firstview.png"
         alt="image"
         width={768}
         height={400}
         layout="responsive"
-      />
+      /> */}
       <CenteredLayoutContainer>
+        <SectionTitle title="企業憲章" />
         <div className="cont">
           <div className="mb-5">
             <div className="pt-8 pb-8">

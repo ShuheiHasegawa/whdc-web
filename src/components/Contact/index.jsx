@@ -2,41 +2,44 @@ import React from "react";
 import HeroImage from "../HeroImage";
 import TitleLeftLine from "../TitleLeftLine";
 import CenteredLayoutContainer from "../CenteredLayoutContainer";
+import SectionTitle from "../SectionTitle";
+import Button from "../Button";
 
 const Contact = () => {
   return (
     <section className="intro-section">
-      <HeroImage
+      {/* <HeroImage
         src="/img/firstview_top_2022_768.png"
         alt="firstview top"
         width={768}
         height={400}
         layout="responsive"
-      />
+      /> */}
       <CenteredLayoutContainer>
-        <h2 className="text-2xl text-center">お問い合わせ</h2>
+        <SectionTitle title="お問い合わせ" />
+
         <div className="contact-content">
           <article className="contact-box">
             <TitleLeftLine title="お問い合わせ先" />
-            <div className="pt-16">
-              <p>IR情報に関するお問い合せ</p>
-              <p>
-                <a
+            <div>
+              <div className="pt-16">
+                <p>IR情報に関するお問い合せ</p>
+                <Button
+                  type="link"
                   href="https://form.os7.biz/f/1929b828/"
-                  className="btn btn-secondary"
-                >
-                  お問い合わせページ
-                </a>
-              </p>
-              <p>法人のお客様・製品・サービスに関するお問い合せ</p>
-              <p>
-                <a
+                  text="お問い合わせページ"
+                  newTab={true}
+                />
+              </div>
+              <div className="pt-32">
+                <p>法人のお客様・製品・サービスに関するお問い合せ</p>
+                <Button
+                  type="link"
                   href="https://form.os7.biz/f/52e037cb/"
-                  className="btn btn-secondary"
-                >
-                  送信フォームを開く
-                </a>
-              </p>
+                  text="送信フォームを開く"
+                  newTab={true}
+                />
+              </div>
             </div>
           </article>
           <article className="contact-box">
