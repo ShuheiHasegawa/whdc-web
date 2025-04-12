@@ -1,6 +1,9 @@
 .introText {
   text-align: center;
   color: #fff;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease;
 }
 
 .title {
@@ -28,7 +31,7 @@
   margin: 0.2em 0;
 }
 
-.show .word {
+.show {
   opacity: 1;
   transform: translateY(0);
 }
@@ -57,5 +60,42 @@
 @media screen and (max-width: 480px) {
   .title, .subtitle {
     font-size: 20px;
+  }
+}
+
+.svgContainer {
+  position: relative;
+  width: 100%;
+  max-width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* 各SVG間の間隔 */
+}
+
+.svgWrapper {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.svgImage {
+  width: 100%;
+  height: auto;
+  max-height: 100px; /* 各SVGの最大高さ */
+}
+
+@media (max-width: 768px) {
+  .svgContainer {
+    gap: 15px;
+  }
+  
+  .svgImage {
+    max-height: 70px;
   }
 } 

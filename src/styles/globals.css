@@ -8,6 +8,8 @@
  * 枠（灰色）：2B2B2B
  */
 :root {
+  --bg-header: #000000;
+	--bg-footer: #000000;
   --bg-black: #0c0c0c;
   --bg-black-card: #2b2b2b;
   --bg-blue: #00a0e8;
@@ -15,6 +17,12 @@
   --color-blue: #00a0e8;
 }
 
+.bg-header {
+  background-color: var(--bg-header);
+}
+.bg-footer {
+  background-color: var(--bg-footer);
+}
 .bg-black {
   background-color: var(--bg-black);
 }

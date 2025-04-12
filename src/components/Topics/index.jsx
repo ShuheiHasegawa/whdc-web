@@ -65,7 +65,7 @@ const Topics = () => {
                 data-wow-delay="0.3s"
               >
                 <Link
-                  href="/ir/ir/index.html"
+                  href="/news/ir/index.html"
                   passHref
                   legacyBehavior
                 >
