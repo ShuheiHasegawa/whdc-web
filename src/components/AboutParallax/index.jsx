@@ -1,7 +1,5 @@
 import React from "react";
 import SplitScrollSection from "../../components/ScrollTrigger";
-import DarkTheme from "../../layouts/Dark";
-import Footer from "../../components/Footer";
 import TitleLeftLine from "../../components/TitleLeftLine";
 
 const AboutParallax = () => {
@@ -97,13 +95,10 @@ const AboutParallax = () => {
   ];
 
   return (
-    <DarkTheme>
-      <SplitScrollSection
-        fixedContent={fixedContent}
-        scrollContent={scrollContent}
-      />
-      <Footer />
-    </DarkTheme>
+    <SplitScrollSection
+      fixedContent={fixedContent}
+      scrollContent={scrollContent}
+    />
   );
 };
 
