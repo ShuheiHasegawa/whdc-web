@@ -4,7 +4,7 @@
 	2025-3-1
 */
 
-import { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 
 const LetterGlitch = ({
   glitchColors = ['#479EAF', '#0080BD', '#2E3078'],
@@ -23,6 +23,13 @@ const LetterGlitch = ({
   const grid = useRef({ columns: 0, rows: 0 });
   const context = useRef(null);
   const lastGlitchTime = useRef(Date.now());
+  const styleRef = useRef(null);
+  
+  // クライアントサイドでのみスタイルを適用するための状態
+  const [isClient, setIsClient] = useState(false);
+
+  // 静的なクラス名（サーバーとクライアントで一致する）
+  const staticClassName = 'letter-glitch-container';
 
   const fontSize = 16;
   const charWidth = 10;
@@ -210,6 +217,11 @@ const LetterGlitch = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [glitchSpeed, smooth]);
 
+  // クライアントサイドでの初期化
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   // 高さの値と単位を分離する補助関数
   const parseHeightValue = (heightValue) => {
     if (typeof heightValue === 'number') {
@@ -231,9 +243,57 @@ const LetterGlitch = ({
   const mobileHeightValue = heightUnit === '%' ? heightValue : Math.floor(heightValue * 0.6);
   const mobileHeight = `${mobileHeightValue}${heightUnit}`;
 
-  // 一意のID生成
-  const uniqueId = useRef(`letterglitch-${Math.random().toString(36).substr(2, 9)}`);
+  // スタイルを動的に挿入（クライアントサイドのみ）
+  useEffect(() => {
+    if (isClient) {
+      // すでに存在するスタイルタグがあれば削除
+      if (styleRef.current) {
+        document.head.removeChild(styleRef.current);
+      }
+      
+      // 新しいスタイルタグを作成
+      const styleTag = document.createElement('style');
+      styleTag.innerHTML = `
+        .${staticClassName} {
+          position: relative;
+          width: 100%;
+          height: ${height};
+          background-color: #000000;
+          overflow: hidden;
+        }
+        
+        @media (max-width: 768px) {
+          .${staticClassName} {
+            height: ${mobileHeight} !important;
+          }
+        }
+        
+        .${staticClassName} .centered-text {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 10;
+          color: ${textColor};
+          text-align: center;
+          width: 80%;
+          pointer-events: none;
+        }
+      `;
+      
+      document.head.appendChild(styleTag);
+      styleRef.current = styleTag;
+      
+      // クリーンアップ時にスタイルタグを削除
+      return () => {
+        if (styleRef.current) {
+          document.head.removeChild(styleRef.current);
+        }
+      };
+    }
+  }, [height, mobileHeight, textColor, isClient]);
 
+  // ベーシックなインラインスタイル（サーバーサイドレンダリングで一貫性を保つため）
   const containerStyle = {
     position: 'relative',
     width: '100%',
@@ -281,40 +341,14 @@ const LetterGlitch = ({
   };
 
   return (
-    <div className={uniqueId.current} style={containerStyle}>
-      <style jsx global>{`
-        .${uniqueId.current} {
-          position: relative;
-          width: 100%;
-          height: ${height};
-          background-color: #000000;
-          overflow: hidden;
-        }
-        
-        @media (max-width: 768px) {
-          .${uniqueId.current} {
-            height: ${mobileHeight} !important;
-          }
-        }
-        
-        .${uniqueId.current} .centered-text {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          z-index: 10;
-          color: ${textColor};
-          text-align: center;
-          width: 80%;
-          pointer-events: none;
-        }
-      `}</style>
+    <div className={staticClassName} style={containerStyle}>
       <canvas ref={canvasRef} style={canvasStyle} />
       {outerVignette && <div style={outerVignetteStyle}></div>}
       {centerVignette && <div style={centerVignetteStyle}></div>}
       {text && (
         <div 
           className={`centered-text ${textClassName}`}
+          style={centerTextStyle}
         >
           {text}
         </div>
