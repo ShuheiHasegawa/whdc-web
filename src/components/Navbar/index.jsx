@@ -240,7 +240,7 @@ const Navbar = ({ lr, nr, theme }) => {
               </div>
             </li>
             <li className="nav-item">
-              <Link href="https://www.twhdc.co.jp/ir/">
+              <Link href="/news/ir/index.html">
                 <a
                   className="nav-link"
                   target="_blank"
