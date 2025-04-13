@@ -3,14 +3,14 @@ import Split from "../Split";
 import fadeWhenScroll from "../../common/fadeWhenScroll";
 import IntroText from "../IntroText";
 
-const IntroVideo = ({ sliderRef }) => {
+const IntroVideo = () => {
   const videoRef = useRef(null);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [load, setLoad] = useState(true);
 
   useEffect(() => {
     fadeWhenScroll();
-    
+
     setTimeout(() => {
       setLoad(false);
     }, 1000);
@@ -19,18 +19,22 @@ const IntroVideo = ({ sliderRef }) => {
       // videoのロードイベントハンドラ
       const handleVideoLoaded = () => {
         setIsVideoLoaded(true);
-        
+
         // ビデオのロード完了後に表示
-        videoRef.current.style.opacity = '0.8';
-        
+        videoRef.current.style.opacity = "0.8";
+
         // 初回読み込み時のみ、2秒後に再生開始
         setTimeout(() => {
-          videoRef.current.play().catch(e => {
+          videoRef.current.play().catch((e) => {
             console.log("自動再生できませんでした:", e);
             // モバイルの場合はユーザー操作後に再生
-            document.body.addEventListener('touchstart', () => {
-              videoRef.current.play().catch(() => {});
-            }, { once: true });
+            document.body.addEventListener(
+              "touchstart",
+              () => {
+                videoRef.current.play().catch(() => {});
+              },
+              { once: true }
+            );
           });
         }, 2000);
       };
@@ -38,30 +42,34 @@ const IntroVideo = ({ sliderRef }) => {
       // ループ前のフェードアウト、ループ後のフェードインを処理
       const handleTimeUpdate = () => {
         if (!videoRef.current || !videoRef.current.duration) return;
-        
-        const timeLeft = videoRef.current.duration - videoRef.current.currentTime;
-        
+
+        const timeLeft =
+          videoRef.current.duration - videoRef.current.currentTime;
+
         // ループ直前は透明度を下げる
         if (timeLeft < 0.5 && timeLeft > 0) {
-          videoRef.current.style.opacity = '0';
-        } 
+          videoRef.current.style.opacity = "0";
+        }
         // ループ直後は透明度を戻す
-        else if (videoRef.current.currentTime < 0.5 && videoRef.current.currentTime > 0) {
+        else if (
+          videoRef.current.currentTime < 0.5 &&
+          videoRef.current.currentTime > 0
+        ) {
           setTimeout(() => {
-            if (videoRef.current) videoRef.current.style.opacity = '0.8';
+            if (videoRef.current) videoRef.current.style.opacity = "0.8";
           }, 100);
         }
       };
 
       // イベントリスナーの登録
-      videoRef.current.addEventListener('loadeddata', handleVideoLoaded);
-      videoRef.current.addEventListener('timeupdate', handleTimeUpdate);
-      
+      videoRef.current.addEventListener("loadeddata", handleVideoLoaded);
+      videoRef.current.addEventListener("timeupdate", handleTimeUpdate);
+
       // クリーンアップ
       return () => {
         if (videoRef.current) {
-          videoRef.current.removeEventListener('loadeddata', handleVideoLoaded);
-          videoRef.current.removeEventListener('timeupdate', handleTimeUpdate);
+          videoRef.current.removeEventListener("loadeddata", handleVideoLoaded);
+          videoRef.current.removeEventListener("timeupdate", handleTimeUpdate);
         }
       };
     }
@@ -69,7 +77,6 @@ const IntroVideo = ({ sliderRef }) => {
 
   return (
     <header
-      ref={sliderRef}
       className="slider slider-prlx fixed-slider text-center"
       style={{
         height: "100vh",
@@ -99,7 +106,7 @@ const IntroVideo = ({ sliderRef }) => {
             objectFit: "cover",
             zIndex: 0,
             opacity: 0, // 最初は非表示
-            transition: 'opacity 0.5s ease-out',
+            transition: "opacity 0.5s ease-out",
           }}
         >
           <source src="/movies/top-four-720p.mp4" type="video/mp4" />

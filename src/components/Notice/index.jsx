@@ -1,23 +1,13 @@
 import React from "react";
-import HeroImage from "../HeroImage";
 import TitleLeftLine from "../TitleLeftLine";
 import CenteredLayoutContainer from "../CenteredLayoutContainer";
-import SectionTitle from "../SectionTitle";
+import SectionHeader from "../SectionHeader";
 
 const Notice = () => {
   return (
     <section className="intro-section pb-0">
-      {/* <HeroImage
-        src="/img/firstview_top_2022_768.png"
-        alt="firstview top"
-        width={768}
-        height={400}
-        layout="responsive"
-      /> */}
-
+      <SectionHeader text="ご利用にあたって" />
       <CenteredLayoutContainer>
-        <SectionTitle title="ご利用にあたって" />
-
         <div>
           <p className="text-base center normal">
             当ウェブサイトは、THE WHY HOW DO

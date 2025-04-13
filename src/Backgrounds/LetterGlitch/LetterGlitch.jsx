@@ -24,11 +24,11 @@ const LetterGlitch = ({
   const context = useRef(null);
   const lastGlitchTime = useRef(Date.now());
   const styleRef = useRef(null);
+  const textRef = useRef(null);
   
-  // クライアントサイドでのみスタイルを適用するための状態
   const [isClient, setIsClient] = useState(false);
+  const [currentFontSize, setCurrentFontSize] = useState('1em');
 
-  // 静的なクラス名（サーバーとクライアントで一致する）
   const staticClassName = 'letter-glitch-container';
 
   const fontSize = 16;
@@ -107,13 +107,13 @@ const LetterGlitch = ({
     canvas.style.height = `${rect.height}px`;
 
     if (context.current) {
-      context.current.setTransform(dpr, 0, 0, dpr, 0, 0); // Properly scale without stacking transforms
+      context.current.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
 
     const { columns, rows } = calculateGrid(rect.width, rect.height);
     initializeLetters(columns, rows);
 
-    drawLetters(); // Ensure letters are drawn after resizing
+    drawLetters();
   };
 
   const drawLetters = () => {
@@ -133,13 +133,13 @@ const LetterGlitch = ({
   };
 
   const updateLetters = () => {
-    if (!letters.current || letters.current.length === 0) return; // Prevent accessing empty array
+    if (!letters.current || letters.current.length === 0) return;
 
     const updateCount = Math.max(1, Math.floor(letters.current.length * 0.05));
 
     for (let i = 0; i < updateCount; i++) {
       const index = Math.floor(Math.random() * letters.current.length);
-      if (!letters.current[index]) continue; // Skip if index is invalid
+      if (!letters.current[index]) continue;
 
       letters.current[index].char = getRandomChar();
       letters.current[index].targetColor = getRandomColor();
@@ -202,9 +202,9 @@ const LetterGlitch = ({
     const handleResize = () => {
       clearTimeout(resizeTimeout);
       resizeTimeout = setTimeout(() => {
-        cancelAnimationFrame(animationRef.current); // Stop animation loop during resize
+        cancelAnimationFrame(animationRef.current);
         resizeCanvas();
-        animate(); // Restart after resizing
+        animate();
       }, 100);
     };
 
@@ -217,10 +217,71 @@ const LetterGlitch = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [glitchSpeed, smooth]);
 
+  // 画面サイズとテキスト長に基づいてフォントサイズを決定
+  const calculateFontSize = (screenWidth, textContent) => {
+    if (!textContent) return '1em';
+    
+    const textLength = textContent.length;
+    let size = '1em';
+    
+    // 大画面 (992px以上)
+    if (screenWidth >= 992) {
+      if (textLength > 25) size = '0.7em';
+      else if (textLength > 16) size = '0.8em';
+      else size = '0.9em';
+    }
+    // 中画面 (576px-991px)
+    else if (screenWidth >= 576) {
+      if (textLength > 25) size = '0.65em';
+      else if (textLength > 16) size = '0.75em';
+      else size = '0.75em';
+    }
+    // 小画面 (575px以下)
+    else {
+      if (textLength > 25) size = '0.6em';
+      else if (textLength > 16) size = '0.7em';
+      else size = '0.5em';
+      
+      // 特に小さい画面
+      if (screenWidth <= 375) {
+        if (textLength > 25) size = '0.55em';
+        else if (textLength > 16) size = '0.65em';
+        else size = '0.75em';
+      }
+    }
+    
+    // 特定のテキストに対する調整
+    if (textContent && textContent.toLowerCase().includes('management team')) {
+      return screenWidth <= 576 ? '0.6em' : '0.7em';
+    }
+    
+    return size;
+  };
+
   // クライアントサイドでの初期化
   useEffect(() => {
-    setIsClient(true);
-  }, []);
+    if (typeof window !== 'undefined') {
+      setIsClient(true);
+      const width = window.innerWidth;
+      
+      // 初期フォントサイズを設定
+      const initialSize = calculateFontSize(width, text);
+      setCurrentFontSize(initialSize);
+      
+      // リサイズハンドラー
+      const handleResize = () => {
+        const width = window.innerWidth;
+        const newSize = calculateFontSize(width, text);
+        setCurrentFontSize(newSize);
+      };
+      
+      window.addEventListener('resize', handleResize);
+      
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }
+  }, [text]);
 
   // 高さの値と単位を分離する補助関数
   const parseHeightValue = (heightValue) => {
@@ -246,12 +307,10 @@ const LetterGlitch = ({
   // スタイルを動的に挿入（クライアントサイドのみ）
   useEffect(() => {
     if (isClient) {
-      // すでに存在するスタイルタグがあれば削除
       if (styleRef.current) {
         document.head.removeChild(styleRef.current);
       }
       
-      // 新しいスタイルタグを作成
       const styleTag = document.createElement('style');
       styleTag.innerHTML = `
         .${staticClassName} {
@@ -284,7 +343,6 @@ const LetterGlitch = ({
       document.head.appendChild(styleTag);
       styleRef.current = styleTag;
       
-      // クリーンアップ時にスタイルタグを削除
       return () => {
         if (styleRef.current) {
           document.head.removeChild(styleRef.current);
@@ -293,7 +351,7 @@ const LetterGlitch = ({
     }
   }, [height, mobileHeight, textColor, isClient]);
 
-  // ベーシックなインラインスタイル（サーバーサイドレンダリングで一貫性を保つため）
+  // ベーシックなインラインスタイル
   const containerStyle = {
     position: 'relative',
     width: '100%',
@@ -328,6 +386,7 @@ const LetterGlitch = ({
     background: 'radial-gradient(circle, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 60%)',
   };
 
+  // 中央テキストのスタイル
   const centerTextStyle = {
     position: 'absolute',
     top: '50%',
@@ -336,7 +395,13 @@ const LetterGlitch = ({
     zIndex: 10,
     color: textColor,
     textAlign: 'center',
-    width: '80%',
+    width: '98%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '100%',
+    lineHeight: '1.2',
+    wordBreak: isClient && window.innerWidth <= 991 ? 'break-word' : 'normal',
     pointerEvents: 'none',
   };
 
@@ -347,10 +412,20 @@ const LetterGlitch = ({
       {centerVignette && <div style={centerVignetteStyle}></div>}
       {text && (
         <div 
+          ref={textRef}
           className={`centered-text ${textClassName}`}
           style={centerTextStyle}
         >
-          {text}
+          <span 
+            style={{ 
+              fontSize: currentFontSize,
+              lineHeight: '1.2',
+              display: 'block',
+              maxWidth: '100%'
+            }}
+          >
+            {text}
+          </span>
         </div>
       )}
     </div>

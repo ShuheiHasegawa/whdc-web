@@ -1,39 +1,17 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
-// import Link from "next/link";
-// import { Formik, Form, Field } from "formik";
-import HeroImage from "../HeroImage";
+import SectionHeader from "../SectionHeader";
 import TitleLeftLine from "../TitleLeftLine";
 import CenteredLayoutContainer from "../CenteredLayoutContainer";
-import SectionTitle from "../SectionTitle";
 
 const CompanyPhilosophy = () => {
-  // function validateEmail(value) {
-  //   let error;
-  //   if (!value) {
-  //     error = "Required";
-  //   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
-  //     error = "Invalid email address";
-  //   }
-  //   return error;
-  // }
-  // const sendComment = (ms) => new Promise((r) => setTimeout(r, ms));
   return (
     <section id="company-philosophy">
-      {/* <HeroImage
-        src="/img/whdc/ir/ir_rinen_firstview.png"
-        alt="image"
-        width={768}
-        height={400}
-        layout="responsive"
-      /> */}
+      <SectionHeader text="企業憲章" />
       <CenteredLayoutContainer>
-        <SectionTitle title="企業憲章" />
-        <div className="container text-base">
+        <div className="pt-32">
           <div>
-            <div className="pt-8">
-              <TitleLeftLine title="企業理念" blueText="（全社レベル）" />
-            </div>
+            <TitleLeftLine title="企業理念" blueText="（全社レベル）" />
             <div id="philosophy">
               <div className="pt-4">
                 THE WHY HOW DO

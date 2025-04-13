@@ -1,34 +1,22 @@
 import React from "react";
-import Link from "next/link";
-import HeroImage from "../HeroImage";
+import SectionHeader from "../SectionHeader";
 import TitleLeftLine from "../TitleLeftLine";
 import Split from "../Split";
 import CenteredLayoutContainer from "../CenteredLayoutContainer";
-import SectionTitle from "../SectionTitle";
 import Button from "../Button";
 
 const MessagePage = () => {
   return (
     <section id="message">
-      {/* <HeroImage
-        src="/img/whdc/company/firstview_02_2022.png"
-        alt="firstview_about"
-        objectFit="cover"
-        priority
-      /> */}
-
+      <SectionHeader text="社長メッセージ" />
       <CenteredLayoutContainer>
-        <SectionTitle title="社長メッセージ" />
-
-        {/* 社長メッセージ */}
-        <section id="message" className="container pt-32">
+        <section id="message" className="pt-32">
           <div
             className="d-flex justify-content-between align-items-end pb-2 mb-4"
             style={{
               width: "100%",
               borderBottomWidth: "1px",
               borderBottomStyle: "solid",
-              /* border-bottom-color: #0369b4; */
               borderBottomColor: "gray",
             }}
           >

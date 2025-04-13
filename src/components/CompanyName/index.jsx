@@ -1,26 +1,15 @@
 import React from "react";
-import Link from "next/link";
-import HeroImage from "../HeroImage";
+import SectionHeader from "../SectionHeader";
 import TitleLeftLine from "../TitleLeftLine";
 import Split from "../Split";
 import CenteredLayoutContainer from "../CenteredLayoutContainer";
-import SectionTitle from "../SectionTitle";
 
 const CompanyNamePage = () => {
   return (
     <section id="top">
-      {/* <HeroImage
-        src="/img/whdc/company/firstview_02_2022.png"
-        alt="firstview_about"
-        objectFit="cover"
-        priority
-      /> */}
-
+      <SectionHeader text="社名の由来" />
       <CenteredLayoutContainer>
-        <SectionTitle title="社名の由来" />
-
-        {/* 社名の由来 */}
-        <section id="message" className="container">
+        <section id="name" className="pt-32">
           <div className="row justify-content-center">
             <div className="col-12">
               <div
@@ -29,7 +18,6 @@ const CompanyNamePage = () => {
                   width: "100%",
                   borderBottomWidth: "1px",
                   borderBottomStyle: "solid",
-                  /* border-bottom-color: #0369b4; */
                   borderBottomColor: "gray",
                 }}
               >

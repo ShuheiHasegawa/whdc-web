@@ -1,14 +1,11 @@
 import React from "react";
-import Link from "next/link";
-import HeroImage from "../HeroImage";
 import TitleLeftLine from "../TitleLeftLine";
 import Split from "../Split";
 import CenteredLayoutContainer from "../CenteredLayoutContainer";
-import SectionTitle from "../SectionTitle";
 import Button from "../Button";
 import { historyData } from "./historyData";
 import Dashed2Column from "../Dashed2Column";
-import LetterGlitch from "../../Backgrounds/LetterGlitch/LetterGlitch";
+import SectionHeader from "../SectionHeader";
 
 const CompanyPage = () => {
   const companyInfoItems = [
@@ -107,26 +104,9 @@ const CompanyPage = () => {
 
   return (
     <section id="company">
-      <LetterGlitch
-        text="ABOUT"
-        textClassName="text-10xl font-bold"
-        height="300px"
-        glitchSpeed={100}
-        centerVignette={true}
-        outerVignette={false}
-        smooth={true}
-      />
-      {/* <HeroImage
-        src="/img/whdc/company/firstview_02_2022.png"
-        alt="firstview_about"
-        objectFit="cover"
-        priority
-      /> */}
+      <SectionHeader text="ABOUT" />
 
       <CenteredLayoutContainer>
-        {/* <SectionTitle title="ABOUT" /> */}
-
-        {/* 会社情報 */}
         <section id="info" className="container">
           <Split>
             <TitleLeftLine title="会社情報" />

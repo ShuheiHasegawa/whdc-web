@@ -1,24 +1,15 @@
 import React from "react";
-import HeroImage from "../HeroImage";
 import TitleLeftLine from "../TitleLeftLine";
 import CenteredLayoutContainer from "../CenteredLayoutContainer";
-import SectionTitle from "../SectionTitle";
+import SectionHeader from "../SectionHeader";
 import Button from "../Button";
 
 const Contact = () => {
   return (
     <section className="intro-section">
-      {/* <HeroImage
-        src="/img/firstview_top_2022_768.png"
-        alt="firstview top"
-        width={768}
-        height={400}
-        layout="responsive"
-      /> */}
+      <SectionHeader text="CONTACT" />
       <CenteredLayoutContainer>
-        <SectionTitle title="お問い合わせ" />
-
-        <div className="contact-content">
+        <div className="m-0">
           <article className="contact-box">
             <TitleLeftLine title="お問い合わせ先" />
             <div>
@@ -42,7 +33,7 @@ const Contact = () => {
               </div>
             </div>
           </article>
-          <article className="contact-box">
+          <article className="contact-box pt-64">
             <TitleLeftLine title="ゲームアプリ・ソーシャルゲーム内容に関するお問い合わせ" />
             <div className="pt-16">
               <p className="contact-text">
@@ -140,18 +131,17 @@ const Contact = () => {
       {/* スタイル追加 */}
       <style jsx>{`
         .contact-header {
-          padding-bottom: 15px;
+          /* padding-bottom: 16px; */
           border-bottom: 2px solid #0085c8;
         }
 
         .contact-box {
-          padding: 25px;
           border-radius: 4px;
           box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
 
         .contact-section-title {
-          padding-bottom: 10px;
+          /* padding-bottom: 10px; */
           margin-bottom: 20px;
           border-bottom: 2px solid #0085c8;
         }
@@ -159,26 +149,26 @@ const Contact = () => {
         .contact-btn {
           display: inline-block;
           background: #0085c8;
-          padding: 10px 20px;
+          /* padding: 10px 20px; */
           text-decoration: none;
           border-radius: 4px;
           margin: 10px 0 20px;
         }
 
         .game-contact-box {
-          padding: 20px;
+          /* padding: 20px; */
           margin: 20px 0;
           border-radius: 4px;
         }
 
         .game-contact-title {
           font-weight: bold;
-          margin-bottom: 15px;
+          margin-bottom: 16px;
         }
 
         .game-platform {
           margin: 30px 0;
-          padding-bottom: 20px;
+          /* padding-bottom: 20px; */
           text-align: center;
           border-bottom: 1px dashed #eee;
         }
@@ -193,19 +183,18 @@ const Contact = () => {
         }
 
         .contact-note {
-          padding: 15px;
-          border-radius: 4px;
+          /* padding: 16px; */
         }
 
         .contact-text {
           line-height: 1.6;
-          margin-bottom: 15px;
+          margin-bottom: 32px;
         }
 
         @media (max-width: 768px) {
           .contact-box,
           .game-contact-box {
-            padding: 15px;
+            /* padding: 16px; */
           }
         }
       `}</style>

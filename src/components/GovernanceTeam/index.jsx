@@ -2,11 +2,11 @@ import React from "react";
 import TitleLeftLine from "../TitleLeftLine";
 import Split from "../../components/Split";
 import SectionTitle from "../../components/SectionTitle";
+import SectionHeader from "../SectionHeader";
 import Accordion2Column from "../../components/Accordion2Column";
 import CenteredLayoutContainer from "../../components/CenteredLayoutContainer";
 
 const GovernanceTeam = () => {
-
   const officers = [
     {
       title: "代表取締役会長",
@@ -284,10 +284,10 @@ const GovernanceTeam = () => {
         </div>
       </div> */}
 
+      <SectionHeader text="Governance&nbsp;Team" />
       <CenteredLayoutContainer>
-        <div className="main-content pt-32 m-0">
+        <div className="pt-32 m-0">
           <div className="container">
-            <SectionTitle title="Governance&nbsp;Team" />
             {/* Governance Committee */}
             <div className="row justify-content-center pt-16">
               <div className="col-lg-11 col-md-11">
@@ -297,11 +297,7 @@ const GovernanceTeam = () => {
                   </Split>
                 </div>
 
-                <Accordion2Column
-                  items={officers}
-                  className="my-4"
-                />
-
+                <Accordion2Column items={officers} className="my-4" />
               </div>
             </div>
 
@@ -313,12 +309,8 @@ const GovernanceTeam = () => {
                     <TitleLeftLine title="Compliance Committee" />
                   </Split>
                 </div>
-                
-                <Accordion2Column
-                  items={complianceOfficers}
-                  className="my-4"
-                />
 
+                <Accordion2Column items={complianceOfficers} className="my-4" />
               </div>
             </div>
           </div>

@@ -1,9 +1,8 @@
 import React from "react";
 import TitleLeftLine from "../TitleLeftLine";
-import HeroImage from "../HeroImage";
+import SectionTitle from "../SectionTitle";
 import SpotlightCard from "../../components/reactbits/ui/SpotlightCard/SpotlightCard";
 import CenteredLayoutContainer from "../CenteredLayoutContainer";
-import SectionTitle from "../SectionTitle";
 
 const About = () => {
   const features = [
@@ -22,14 +21,6 @@ const About = () => {
   return (
     <section className="intro-section pt-16">
       <div>
-        {/* <HeroImage
-          src="/img/whdc/about.png"
-          alt="ワイハウの企業理念"
-          height={240}
-          objectFit="cover"
-          priority
-        /> */}
-
         <CenteredLayoutContainer>
           <SectionTitle title="30秒で分かるワイハウ" />
 

@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React from "react";
 import CompanyPage from "../../components/Company";
 import DarkTheme from "../../layouts/Dark";
 import Navbar from "../../components/Navbar";

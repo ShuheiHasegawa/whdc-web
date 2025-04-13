@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import ProfileCard from "../../components/ProfileCard";
-// import TitleLeftLine from "../../components/TitleLeftLine";
+import SectionHeader from "../SectionHeader";
 import SectionTitle from "../../components/SectionTitle";
 import { useTranslation } from "react-i18next";
 
@@ -76,13 +76,13 @@ const ManagementTeam = () => {
         </div>
       </div> */}
 
-      <div className="main-content pt-32 m-0">
-        <SectionTitle title="Management&nbsp;Team" />
+      <SectionHeader text="Management&nbsp;Team" />
+      <div className="pt-32 m-0">
         {/* <div className="container"> */}
-          {/* <div className="pt-8 pb-16"> */}
-            {/* <h2 className="border-primary text-2xl">Top Management Team</h2> */}
-            {/* <TitleLeftLine title="Top Management Team" /> */}
-          {/* </div> */}
+        {/* <div className="pt-8 pb-16"> */}
+        {/* <h2 className="border-primary text-2xl">Top Management Team</h2> */}
+        {/* <TitleLeftLine title="Top Management Team" /> */}
+        {/* </div> */}
         {/* </div> */}
 
         <ProfileCard

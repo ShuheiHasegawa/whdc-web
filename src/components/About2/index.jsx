@@ -1,6 +1,5 @@
 import React from "react";
 import TitleLeftLine from "../TitleLeftLine";
-import HeroImage from "../HeroImage";
 import InfiniteScroll from "../../components/reactbits/ui/InfiniteScroll/InfiniteScroll";
 
 const About2 = () => {
@@ -28,14 +27,6 @@ const About2 = () => {
   return (
     <section className="intro-section">
       <div className="about-container">
-        {/* <HeroImage
-          src="/img/whdc/about.png"
-          alt="ワイハウの企業理念"
-          height={240}
-          objectFit="cover"
-          priority
-        /> */}
-
         <div className="content-container pt-16 pb-16">
           <div className="pt-16 pl-16">
             <TitleLeftLine title="ワイハウの１０の特徴" />
