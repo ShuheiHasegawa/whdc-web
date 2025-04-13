@@ -102,7 +102,7 @@ const IntroVideo = ({ sliderRef }) => {
             transition: 'opacity 0.5s ease-out',
           }}
         >
-          <source src="/movies/top-three2-720p.mp4" type="video/mp4" />
+          <source src="/movies/top-four-720p.mp4" type="video/mp4" />
         </video>
         <div
           className="caption"
