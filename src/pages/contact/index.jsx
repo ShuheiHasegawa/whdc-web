@@ -5,10 +5,9 @@ import DarkTheme from "../../layouts/Dark";
 import Footer from "../../components/Footer";
 
 const ContactPage = () => {
-  const navbarRef = React.useRef(null);
   return (
     <DarkTheme>
-      <Navbar nr={navbarRef} />
+      <Navbar />
       <Contact />
       <Footer />
     </DarkTheme>

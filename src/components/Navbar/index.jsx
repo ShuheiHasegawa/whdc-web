@@ -12,6 +12,14 @@ const Navbar = ({ lr, nr, theme }) => {
   const [scrolled, setScrolled] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
 
+  // 内部で独自のrefを作成
+  const internalNavRef = useRef(null);
+  const internalLogoRef = useRef(null);
+  
+  // 実際に使用するrefを決定（外部から渡されたものを優先）
+  const navRef = nr || internalNavRef;
+  const logoRef = lr || internalLogoRef;
+
   const scrollToSection = (sectionId) => {
     // 少し遅延させてDOMが確実に描画されたあとに実行
     setTimeout(() => {
@@ -19,15 +27,14 @@ const Navbar = ({ lr, nr, theme }) => {
 
       if (section) {
         // オフセット位置を計算（より正確に）
-        const navHeight = nr.current ? nr.current.offsetHeight - 100 : 80;
-        // console.log(navHeight);
+        // 内部refを使用
+        const navHeight = navRef.current ? navRef.current.offsetHeight - 100 : 80;
 
         // 要素の絶対位置を取得
         const rect = section.getBoundingClientRect();
         const scrollTop =
           window.pageYOffset || document.documentElement.scrollTop;
         const offsetPosition = rect.top + scrollTop - navHeight - 20; // 余白を追加
-        // console.log(offsetPosition);
 
         // スムーズスクロール
         window.scrollTo({
@@ -113,7 +120,7 @@ const Navbar = ({ lr, nr, theme }) => {
 
   return (
     <nav
-      ref={nr}
+      ref={navRef}  // 内部refを使用
       className={`navbar navbar-expand-lg ${theme === "themeL" ? "light" : ""} ${
         scrolled ? "navbar-fixed" : ""
       }`}
@@ -191,12 +198,12 @@ const Navbar = ({ lr, nr, theme }) => {
             `}</style>
             {theme ? (
               theme === "themeL" ? (
-                <img ref={lr} src={`${appData.darkLogo}`} alt="logo" />
+                <img ref={logoRef} src={`${appData.darkLogo}`} alt="logo" />
               ) : (
-                <img ref={lr} src={`${appData.lightLogo}`} alt="logo" />
+                <img ref={logoRef} src={`${appData.lightLogo}`} alt="logo" />
               )
             ) : (
-              <img ref={lr} src={`${appData.lightLogo}`} alt="logo" />
+              <img ref={logoRef} src={`${appData.lightLogo}`} alt="logo" />
             )}
           </a>
         </Link>
