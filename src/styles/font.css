@@ -36,7 +36,14 @@
   --font-size-2xl: 1.5rem;   /* 24px */
   --font-size-3xl: 1.875rem; /* 30px */
   --font-size-4xl: 2.25rem;  /* 36px */
-  
+  --font-size-5xl: 2.5rem;  /* 40px */
+  --font-size-6xl: 3rem;    /* 48px */
+  --font-size-7xl: 3.5rem;  /* 56px */
+  --font-size-8xl: 4rem;    /* 64px */
+  --font-size-9xl: 4.5rem;  /* 72px */
+  --font-size-10xl: 5rem;   /* 80px */
+
+
   /* 行の高さ */
   --line-height-tight: 1.25;
   --line-height-normal: 1.5;
@@ -109,6 +116,12 @@ h6 {
 .text-2xl { font-size: var(--font-size-2xl); }
 .text-3xl { font-size: var(--font-size-3xl); }
 .text-4xl { font-size: var(--font-size-4xl); }
+.text-5xl { font-size: var(--font-size-5xl); }
+.text-6xl { font-size: var(--font-size-6xl); }
+.text-7xl { font-size: var(--font-size-7xl); }
+.text-8xl { font-size: var(--font-size-8xl); }
+.text-9xl { font-size: var(--font-size-9xl); }
+.text-10xl { font-size: var(--font-size-10xl); }
 
 /* ユーティリティクラス - フォントウェイト */
 .font-regular { font-weight: var(--font-weight-regular); }

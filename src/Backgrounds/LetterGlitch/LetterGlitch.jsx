@@ -7,11 +7,15 @@
 import { useRef, useEffect } from 'react';
 
 const LetterGlitch = ({
-  glitchColors = ['#2b4539', '#61dca3', '#61b3dc'],
+  glitchColors = ['#479EAF', '#0080BD', '#2E3078'],
   glitchSpeed = 50,
   centerVignette = false,
   outerVignette = true,
   smooth = true,
+  text = '',
+  textClassName = '',
+  textColor = '#ffffff',
+  height = '100%',
 }) => {
   const canvasRef = useRef(null);
   const animationRef = useRef(null);
@@ -206,10 +210,34 @@ const LetterGlitch = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [glitchSpeed, smooth]);
 
+  // 高さの値と単位を分離する補助関数
+  const parseHeightValue = (heightValue) => {
+    if (typeof heightValue === 'number') {
+      return { value: heightValue, unit: 'px' };
+    }
+    
+    const match = String(heightValue).match(/^([\d.]+)([a-z%]*)$/i);
+    if (match) {
+      return { value: parseFloat(match[1]), unit: match[2] || 'px' };
+    }
+    
+    return { value: 100, unit: '%' };
+  };
+
+  // 高さの値と単位を分離
+  const { value: heightValue, unit: heightUnit } = parseHeightValue(height);
+
+  // モバイル用の高さを計算
+  const mobileHeightValue = heightUnit === '%' ? heightValue : Math.floor(heightValue * 0.6);
+  const mobileHeight = `${mobileHeightValue}${heightUnit}`;
+
+  // 一意のID生成
+  const uniqueId = useRef(`letterglitch-${Math.random().toString(36).substr(2, 9)}`);
+
   const containerStyle = {
     position: 'relative',
     width: '100%',
-    height: '100%',
+    height: height,
     backgroundColor: '#000000',
     overflow: 'hidden',
   };
@@ -240,11 +268,57 @@ const LetterGlitch = ({
     background: 'radial-gradient(circle, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 60%)',
   };
 
+  const centerTextStyle = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    zIndex: 10,
+    color: textColor,
+    textAlign: 'center',
+    width: '80%',
+    pointerEvents: 'none',
+  };
+
   return (
-    <div style={containerStyle}>
+    <div className={uniqueId.current} style={containerStyle}>
+      <style jsx global>{`
+        .${uniqueId.current} {
+          position: relative;
+          width: 100%;
+          height: ${height};
+          background-color: #000000;
+          overflow: hidden;
+        }
+        
+        @media (max-width: 768px) {
+          .${uniqueId.current} {
+            height: ${mobileHeight} !important;
+          }
+        }
+        
+        .${uniqueId.current} .centered-text {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 10;
+          color: ${textColor};
+          text-align: center;
+          width: 80%;
+          pointer-events: none;
+        }
+      `}</style>
       <canvas ref={canvasRef} style={canvasStyle} />
       {outerVignette && <div style={outerVignetteStyle}></div>}
       {centerVignette && <div style={centerVignetteStyle}></div>}
+      {text && (
+        <div 
+          className={`centered-text ${textClassName}`}
+        >
+          {text}
+        </div>
+      )}
     </div>
   );
 };

@@ -8,6 +8,7 @@ import SectionTitle from "../SectionTitle";
 import Button from "../Button";
 import { historyData } from "./historyData";
 import Dashed2Column from "../Dashed2Column";
+import LetterGlitch from "../../Backgrounds/LetterGlitch/LetterGlitch";
 
 const CompanyPage = () => {
   const companyInfoItems = [
@@ -106,15 +107,24 @@ const CompanyPage = () => {
 
   return (
     <section id="company">
-      <HeroImage
+      <LetterGlitch
+        text="ABOUT"
+        textClassName="text-10xl font-bold"
+        height="300px"
+        glitchSpeed={100}
+        centerVignette={true}
+        outerVignette={false}
+        smooth={true}
+      />
+      {/* <HeroImage
         src="/img/whdc/company/firstview_02_2022.png"
         alt="firstview_about"
         objectFit="cover"
         priority
-      />
+      /> */}
 
       <CenteredLayoutContainer>
-        <SectionTitle title="ABOUT" />
+        {/* <SectionTitle title="ABOUT" /> */}
 
         {/* 会社情報 */}
         <section id="info" className="container">
