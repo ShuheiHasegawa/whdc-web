@@ -24,7 +24,7 @@
       <script>
         var date_obj = new Date();
         var tparm = Math.floor(date_obj.getTime() / 1000);
-        var url = "/parts/header.html?" + tparm;
+        var url = "/news/parts/header.html?" + tparm;
         $("#headerOutPut").load(url);
       </script>
     </div>
@@ -100,7 +100,7 @@
                   <li class="center">
                     <a
                       href="mailto:compliance@acrodea.co.jp?subject=[Acrodea Compliance]"
-                      class="blockButton irButton buttonW200 shadow fontSize20 gray-bg gray-text"
+                      class="blockButton irButton buttonW200 shadow fontSize20 bg-white"
                       >メールソフトを起動</a
                     >
                   </li>
@@ -115,7 +115,7 @@
           <script>
             var date_obj = new Date();
             var tparm = Math.floor(date_obj.getTime() / 1000);
-            var url = "/parts/footer.html?" + tparm;
+            var url = "/news/parts/footer.html?" + tparm;
             $("#footerOutPut").load(url);
           </script>
         </div>

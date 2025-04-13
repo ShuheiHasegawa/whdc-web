@@ -27,19 +27,20 @@
       <script>
         var date_obj = new Date();
         var tparm = Math.floor(date_obj.getTime() / 1000);
-        var url = "/parts/header.html?" + tparm;
+        var url = "/news/parts/header.html?" + tparm;
         $("#headerOutPut").load(url);
       </script>
     </div>
     <main id="top">
       <!-- ファーストビュー -->
       <div id="firstView">
-        <div id="slideBox">
-          <div id="slideFirst">
+        <div id="">
+          <div id="">
             <img
               id="image01"
               src="../image/firstview_ir_768.png"
               alt="firstview_ir_"
+              data-no-transform="true"
             />
           </div>
         </div>
@@ -92,7 +93,9 @@
             <br />
             <a href="../#work" class="irFloatAnchor dark-text">事業内容</a>
             <br />
-            <a href="about_us/governance/" class="irFloatAnchor dark-text"
+            <a
+              href="about_us/governance/index.html"
+              class="irFloatAnchor dark-text"
               >コーポレートガバナンス</a
             >
           </div>
@@ -100,7 +103,7 @@
 
         <article class="linkBox irLinks bgWhite">
           <div class="irLinkList">
-            <a href="management_philosophy/" class="underAnchor">
+            <a href="management_philosophy/index.html" class="underAnchor">
               <div class="under">
                 <h2 class="fontSize26 dark-text">企業憲章</h2>
               </div>
@@ -127,7 +130,7 @@
 
         <article class="linkBox irLinks bgWhite">
           <div class="irLinkList">
-            <a href="stock_information/" class="underAnchor">
+            <a href="stock_information/index.html" class="underAnchor">
               <div class="under">
                 <h2 class="fontSize26 dark-text">株式情報</h2>
               </div>
@@ -150,7 +153,9 @@
               >定款・株式取扱規程</a
             >
             <br />
-            <a href="stock_information/meeting/" class="irFloatAnchor dark-text"
+            <a
+              href="stock_information/meeting/index.html"
+              class="irFloatAnchor dark-text"
               >株主総会関係資料</a
             >
             <br />
@@ -164,32 +169,42 @@
 
         <article class="linkBox irLinks bgWhite">
           <div class="irLinkList">
-            <a href="library/" class="underAnchor">
+            <a href="library/index.html" class="underAnchor">
               <div class="under">
                 <h2 class="fontSize26 dark-text">IR資料</h2>
               </div>
             </a>
-            <a href="library/financial_info/" class="irFloatAnchor dark-text"
+            <a
+              href="library/financial_info/index.html"
+              class="irFloatAnchor dark-text"
               >決算短信</a
             >
             <br />
-            <a href="library/annual_report/" class="irFloatAnchor dark-text"
+            <a
+              href="library/annual_report/index.html"
+              class="irFloatAnchor dark-text"
               >有価証券報告書</a
             >
             <br />
-            <a href="library/factsheet/" class="irFloatAnchor dark-text"
+            <a
+              href="library/factsheet/index.html"
+              class="irFloatAnchor dark-text"
               >ファクトシート</a
             >
             <br />
-            <a href="library/presentation/" class="irFloatAnchor dark-text"
+            <a
+              href="library/presentation/index.html"
+              class="irFloatAnchor dark-text"
               >決算説明資料</a
             >
             <br />
-            <a href="library/mtmp/" class="irFloatAnchor dark-text"
+            <a href="library/mtmp/index.html" class="irFloatAnchor dark-text"
               >中期経営計画</a
             >
             <br />
-            <a href="library/schedule/" class="irFloatAnchor dark-text"
+            <a
+              href="library/schedule/index.html"
+              class="irFloatAnchor dark-text"
               >IRカレンダー</a
             >
           </div>
@@ -197,7 +212,7 @@
 
         <article class="linkBox irLinks bgWhite">
           <div class="irLinkList">
-            <a href="financial_highlights/" class="underAnchor">
+            <a href="financial_highlights/index.html" class="underAnchor">
               <div class="under">
                 <h2 class="fontSize26 dark-text">財務ハイライト</h2>
               </div>
@@ -227,19 +242,29 @@
         その他IR情報
       </p>
       <div id="Link" class="irExamInfo">
-        <a href="policy/" class="linkBox shadow bgWhite fontSize20 deepBlue"
+        <a
+          href="policy/index.html"
+          class="linkBox shadow bgWhite fontSize20 deepBlue"
           ><p>IRポリシー</p></a
         >
-        <a href="compliance/" class="linkBox shadow bgWhite fontSize20 deepBlue"
+        <a
+          href="compliance/index.html"
+          class="linkBox shadow bgWhite fontSize20 deepBlue"
           ><p>コンプライアンス方針</p></a
         >
-        <a href="inquiry/" class="linkBox shadow bgWhite fontSize20 deepBlue"
+        <a
+          href="inquiry/index.html"
+          class="linkBox shadow bgWhite fontSize20 deepBlue"
           ><p>IRお問い合わせ</p></a
         >
-        <a href="faq/" class="linkBox shadow bgWhite fontSize20 deepBlue"
+        <a
+          href="faq/index.html"
+          class="linkBox shadow bgWhite fontSize20 deepBlue"
           ><p>FAQ</p></a
         >
-        <a href="notes/" class="linkBox shadow bgWhite fontSize20 deepBlue"
+        <a
+          href="notes/index.html"
+          class="linkBox shadow bgWhite fontSize20 deepBlue"
           ><p>免責事項</p></a
         >
       </div>
@@ -249,7 +274,7 @@
           <script>
             var date_obj = new Date();
             var tparm = Math.floor(date_obj.getTime() / 1000);
-            var url = "/parts/footer.html?" + tparm;
+            var url = "/news/parts/footer.html?" + tparm;
             $("#footerOutPut").load(url);
           </script>
         </div>

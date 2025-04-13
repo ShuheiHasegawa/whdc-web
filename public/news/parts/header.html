@@ -23,7 +23,7 @@
   });
 </script>
 
-<script src="/js/common-links.js"></script>
+<script src="/news/js/common-links.js"></script>
 
 <header class="bg-header">
   <nav>
@@ -33,13 +33,13 @@
         <img
           class="view_timer"
           data-end-date="2021/12/31 23:59:59"
-          src="/image/theme_new.png"
+          src="/news/image/theme_new.png"
           alt="アクロディアロゴ"
         />
         <img
           class="view_timer"
           data-start-date="2022/1/1 00:00:00"
-          src="/image/logo/logo_transparent.png"
+          src="/news/image/logo/logo_transparent.png"
           alt="ワイハウロゴ"
         />
       </a>
@@ -61,7 +61,27 @@
         >
       </li>
       <li><a data-site-link="/company" class="black fontSize18">ABOUT</a></li>
-      <li><a data-site-link="/teams" class="black fontSize18">TEAMS</a></li>
+      <!-- <li><a data-site-link="/teams" class="black fontSize18">TEAMS</a></li> -->
+      <li class="dropdown">
+        <a href="#" class="black fontSize18 dropdown-toggle">TEAMS</a>
+        <ul class="dropdown-menu">
+          <li>
+            <a
+              data-site-link="/company/management_team/"
+              class="black fontSize16"
+              >Management Team</a
+            >
+          </li>
+          <li>
+            <a
+              data-site-link="/company/governance_team/"
+              class="black fontSize16"
+              >Governance Team</a
+            >
+          </li>
+        </ul>
+      </li>
+      <li><a data-site-link="/news/ir" class="black fontSize18">IR</a></li>
       <li><a data-site-link="/contact" class="black fontSize18">CONTACT</a></li>
     </ul>
   </nav>

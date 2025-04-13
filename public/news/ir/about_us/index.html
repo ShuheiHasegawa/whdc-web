@@ -24,7 +24,7 @@
       <script>
         var date_obj = new Date();
         var tparm = Math.floor(date_obj.getTime() / 1000);
-        var url = "/parts/header.html?" + tparm;
+        var url = "/news/parts/header.html?" + tparm;
         $("#headerOutPut").load(url);
       </script>
     </div>
@@ -51,8 +51,8 @@
               </li>
               <li class="center">
                 <a
-                  href="../../#work"
-                  class="gray-bg gray-text blockButton irButton buttonW440 shadow fontSize20"
+                  href="/about"
+                  class="blockButton irButton buttonW440 shadow fontSize20 bg-white"
                 >
                   事業内容
                 </a>
@@ -70,7 +70,7 @@
               <li class="center">
                 <a
                   href="governance/index.html"
-                  class="gray-bg gray-text blockButton irButton buttonW440 shadow fontSize20"
+                  class="blockButton irButton buttonW440 shadow fontSize20 bg-white"
                 >
                   コーポレートガバナンス報告書
                 </a>
@@ -84,7 +84,7 @@
           <script>
             var date_obj = new Date();
             var tparm = Math.floor(date_obj.getTime() / 1000);
-            var url = "/parts/footer.html?" + tparm;
+            var url = "/news/parts/footer.html?" + tparm;
             $("#footerOutPut").load(url);
           </script>
         </div>

@@ -12,6 +12,7 @@
  :root {
 	--bg-header: #000000;
 	--bg-footer: #000000;
+	--bg-white: #f5f5f5;
   --bg-black: #0c0c0c;
   --bg-black-card: #2b2b2b;
   --bg-blue: #00a0e8;
@@ -27,6 +28,9 @@
 }
 .bg-footer {
   background-color: var(--bg-footer);
+}
+.bg-white {
+  background-color: var(--bg-white);
 }
 .bg-black {
   background-color: var(--bg-black);
@@ -162,27 +166,27 @@ ul {
 
 /* 財務ハイライトのテーブルの背景色を変更 */
 div.qirTable > table > tbody > tr > th {
-	/* background-color: var(--bg-dark); */
-	color: var(--text-dark);
+	background-color: var(--bg-black);
+	color: var(--light-text);
 }
 div.qirTable > table > tbody > tr > td {
 	/* background-color: var(--bg-dark); */
-	background-color: var(--bg-light);
-	color: var(--text-dark);
+	background-color: var(--bg-black);
+	color: var(--light-text);
 }
 #qirNote > div > ul > li {
-	color: var(--text-light);
+	color: var(--light-text);
 }
 #qirForecast > div > h2, #qirForecast > div {
-	border-bottom: 4px solid var(--text-light);
-	color: var(--text-light);
+	border-bottom: 4px solid var(--light-text);
+	color: var(--light-text);
 }
 .table03 {
 	background-color: var(--bg-light);
-	color: var(--text-dark);
+	color: var(--dark-text);
 }
 .qirNote_section {
-	color: var(--text-light);
+	color: var(--light-text);
 }
 
 /* 株主総会関連資料の背景色を変更 */

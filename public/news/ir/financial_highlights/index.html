@@ -24,7 +24,7 @@
       <script>
         var date_obj = new Date();
         var tparm = Math.floor(date_obj.getTime() / 1000);
-        var url = "/parts/header.html?" + tparm;
+        var url = "/news/parts/header.html?" + tparm;
         $("#headerOutPut").load(url);
       </script>
     </div>
@@ -52,7 +52,7 @@
           <div id="contents">
             <!--<h3 class="irp_h3">連結財務諸表</h3>-->
             <!-- E-IR Parts -->
-            <div id="hqir" class="dark-bg dark-text"></div>
+            <div id="hqir" class="bg-black light-text"></div>
             <script
               type="text/javascript"
               src="../eir/eir.js"
@@ -82,7 +82,7 @@
           <script>
             var date_obj = new Date();
             var tparm = Math.floor(date_obj.getTime() / 1000);
-            var url = "/parts/footer.html?" + tparm;
+            var url = "/news/parts/footer.html?" + tparm;
             $("#footerOutPut").load(url);
           </script>
         </div>

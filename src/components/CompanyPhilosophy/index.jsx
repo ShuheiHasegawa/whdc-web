@@ -34,7 +34,7 @@ const CompanyPhilosophy = () => {
             <div className="pt-8">
               <TitleLeftLine title="企業理念" blueText="（全社レベル）" />
             </div>
-            <div>
+            <div id="philosophy">
               <div className="pt-4">
                 THE WHY HOW DO
                 COMPANY（以後、ワイハウ）の使命（ミッション＝パーパス）を「価値創造の力で、もう一度豊かになる」とします。
@@ -75,7 +75,7 @@ const CompanyPhilosophy = () => {
             <div className="pt-8">
               <TitleLeftLine title="経営方針" blueText="（事業レベル）" />
             </div>
-            <div className="pt-4">
+            <div id="policy" className="pt-4">
               <ul className="p-0">
                 <li>
                   ワイハウグループは、全社を挙げて、下記の経営方針を共有していきます。
@@ -95,7 +95,7 @@ const CompanyPhilosophy = () => {
             <div className="pt-8">
               <TitleLeftLine title="行動規範" blueText="（個人レベル）" />
             </div>
-            <div className="pt-4">
+            <div id="code" className="pt-4">
               <ul className="p-0">
                 <li>
                   私たちは、経営理念と経営方針をし、これを実践するために、経営層から従業員まで全員が従うべき行動規範を以下のとおり定めます。これらの行動規範は「実際に行動できて初めて知ったと言える」という知行合一の精神の下で、7か条の意味を各自で考えながら実践していきます。
