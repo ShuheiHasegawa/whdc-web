@@ -45,7 +45,7 @@ const LoadingScreen = () => {
             // 保存していたスクロール位置に戻る
             window.scrollTo(0, scrollPos);
             
-            console.log("スクロール有効化完了: " + new Date().toTimeString());
+            // console.log("スクロール有効化完了: " + new Date().toTimeString());
           }, 1500);
         });
       }
