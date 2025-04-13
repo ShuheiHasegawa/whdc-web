@@ -1,12 +1,10 @@
-import React, { useRef } from "react";
+import React from "react";
 import SplitScrollSection from "../../components/ScrollTrigger";
-import Navbar from "../../components/Navbar";
 import DarkTheme from "../../layouts/Dark";
 import Footer from "../../components/Footer";
 import TitleLeftLine from "../../components/TitleLeftLine";
 
-const ContactPage = () => {
-  const navbarRef = React.useRef(null);
+const AboutParallax = () => {
   const videoRef = React.useRef(null);
 
   const fixedContent = (
@@ -100,7 +98,6 @@ const ContactPage = () => {
 
   return (
     <DarkTheme>
-      <Navbar nr={navbarRef} />
       <SplitScrollSection
         fixedContent={fixedContent}
         scrollContent={scrollContent}
@@ -110,4 +107,4 @@ const ContactPage = () => {
   );
 };
 
-export default ContactPage;
+export default AboutParallax;
