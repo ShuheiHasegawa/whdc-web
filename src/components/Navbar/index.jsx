@@ -9,6 +9,8 @@ import { useRouter } from "next/router";
 const Navbar = ({ lr, nr, theme }) => {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(0);
 
   const scrollToSection = (sectionId) => {
     // 少し遅延させてDOMが確実に描画されたあとに実行
@@ -62,6 +64,28 @@ const Navbar = ({ lr, nr, theme }) => {
   };
 
   useEffect(() => {
+    // スクロールイベントのハンドラを追加
+    const handleScroll = () => {
+      const position = window.pageYOffset;
+      setScrollPosition(position);
+      
+      // スクロール位置が100px以上であればナビゲーションを表示
+      if (position > 480 && !scrolled) {
+        setScrolled(true);
+      } else if (position <= 100 && scrolled) {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    
+    // コンポーネントがアンマウントされたときにイベントリスナーを削除
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [scrolled]);
+
+  useEffect(() => {
     // コンポーネントがマウントされたときに実行
     const handleClickOutside = (event) => {
       const navbar = document.getElementById("navbarSupportedContent");
@@ -90,7 +114,9 @@ const Navbar = ({ lr, nr, theme }) => {
   return (
     <nav
       ref={nr}
-      className={`navbar navbar-expand-lg ${theme === "themeL" ? "light" : ""}`}
+      className={`navbar navbar-expand-lg ${theme === "themeL" ? "light" : ""} ${
+        scrolled ? "navbar-fixed" : ""
+      }`}
     >
       <div className="container p-0">
         <Link href="/">
@@ -98,17 +124,43 @@ const Navbar = ({ lr, nr, theme }) => {
             <style>{`
               .navbar {
                 background-color: #000;
+                transition: all 0.4s ease;
               }
+              
+              /* 固定ナビゲーションのスタイル */
+              .navbar-fixed {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 1030;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                animation: slideDown 0.5s forwards;
+                opacity: 0;
+                transform: translateY(-100%);
+              }
+              
+              @keyframes slideDown {
+                0% {
+                  opacity: 0;
+                  transform: translateY(-100%);
+                }
+                100% {
+                  opacity: 1;
+                  transform: translateY(0);
+                }
+              }
+              
               .logo {
                 display: block;
                 width: fit-content;
                 height: auto;
-                position: relative;  /* z-indexを効かせるために必要 */
-                z-index: 1030;      /* navbar-collapseより上に表示 */
+                position: relative;
+                z-index: 1030;
               }
 
               .logo:hover {
-                opacity: 0.8;  /* ホバー時の視覚的フィードバック */
+                opacity: 0.8;
               }
 
               .logo img {
@@ -117,9 +169,8 @@ const Navbar = ({ lr, nr, theme }) => {
                 display: block;
               }
 
-              /* navbar-collapseの重なりを防ぐ */
               .navbar .navbar-collapse {
-                z-index: 1020;  /* logoより下に表示 */
+                z-index: 1020;
               }
 
               @media screen and (max-width: 767px) {
@@ -131,6 +182,10 @@ const Navbar = ({ lr, nr, theme }) => {
               @media screen and (max-width: 480px) {
                 .logo img {
                   width: 120px;
+                }
+                
+                .navbar-fixed {
+                  animation-duration: 0.3s;
                 }
               }
             `}</style>
