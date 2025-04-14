@@ -50,6 +50,14 @@
   --line-height-relaxed: 1.75;
 }
 
+:root {
+  --bs-font-sans-serif: var(--font-primary);
+  --bs-body-font-family: var(--font-primary);
+  --bs-body-font-size: var(--font-size-base);
+  --bs-body-font-weight: var(--font-weight-regular);
+  --bs-body-line-height: var(--line-height-normal);
+}
+
 /* 基本フォント設定 */
 html, body {
   font-family: var(--font-primary);

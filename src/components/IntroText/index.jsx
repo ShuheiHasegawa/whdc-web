@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import styles from "./style.module.css";
 // SVGをReactコンポーネントとしてインポート
-import CatchCopy01 from "../../../public/img/top/catchcopy_01.svg";
-import CatchCopy02 from "../../../public/img/top/catchcopy_02.svg";
-import CatchCopy03 from "../../../public/img/top/catchcopy_03.svg";
-import CatchCopy04 from "../../../public/img/top/catchcopy_04.svg";
+import CatchCopy01 from "../../../public/img/whdc/top/catchcopy_01.svg";
+import CatchCopy02 from "../../../public/img/whdc/top/catchcopy_02.svg";
+import CatchCopy03 from "../../../public/img/whdc/top/catchcopy_03.svg";
+import CatchCopy04 from "../../../public/img/whdc/top/catchcopy_04.svg";
 
 const IntroText = () => {
   const [show, setShow] = useState(false);

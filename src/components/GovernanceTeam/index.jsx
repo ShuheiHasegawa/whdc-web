@@ -1,7 +1,6 @@
 import React from "react";
 import TitleLeftLine from "../TitleLeftLine";
 import Split from "../../components/Split";
-import SectionTitle from "../../components/SectionTitle";
 import SectionHeader from "../SectionHeader";
 import Accordion2Column from "../../components/Accordion2Column";
 import CenteredLayoutContainer from "../../components/CenteredLayoutContainer";

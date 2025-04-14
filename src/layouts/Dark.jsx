@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-css-tags */
 import React from "react";
 import Head from "next/head";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 const DarkTheme = ({ children, useSkin }) => {
   React.useEffect(() => {
