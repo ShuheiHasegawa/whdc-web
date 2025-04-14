@@ -1,16 +1,24 @@
 import React, { useEffect } from "react";
 import ProfileCard from "../../components/ProfileCard";
 import SectionHeader from "../SectionHeader";
-import SectionTitle from "../../components/SectionTitle";
-import { useTranslation } from "react-i18next";
+// import { useTranslation } from "react-i18next";
 
 const ManagementTeam = () => {
-  const { t, i18n } = useTranslation();
+  // const { t, i18n } = useTranslation();
   // #TODO: 言語を切り替えるメソッド
   // const changeLanguage = (lng) => {
   //   i18n.changeLanguage(lng);
   // };
   // changeLanguage("ja");
+  // 参照ファイル：
+  // public/locales/ja.json
+  // 使用方法：
+  // name={t("management_team.iwao.name")}
+  // position={t("management_team.iwao.position")}
+  // name={t("management_team.itou.name")}
+  // position={t("management_team.itou.position")}
+  // name={t("management_team.hashimoto.name")}
+  // position={t("management_team.hashimoto.position")}
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -87,8 +95,8 @@ const ManagementTeam = () => {
 
         <ProfileCard
           imageUrl="/img/whdc/team/iwao.jpg"
-          name={t("management_team.iwao.name")}
-          position={t("management_team.iwao.position")}
+          name="岩尾 俊兵"
+          position="CEO/COO"
           career={[
             {
               year: "2013年8月",
@@ -111,8 +119,8 @@ const ManagementTeam = () => {
 
         <ProfileCard
           imageUrl="/img/whdc/team/itou.jpg"
-          name={t("management_team.itou.name")}
-          position={t("management_team.itou.position")}
+          name="伊藤 剛志"
+          position="CTO/CSO"
           career={[
             { year: "1996年4月", description: "ソフトウエア興行株式会社入社" },
             {
@@ -138,8 +146,8 @@ const ManagementTeam = () => {
 
         <ProfileCard
           imageUrl="/img/whdc/team/hashimoto.jpg"
-          name={t("management_team.hashimoto.name")}
-          position={t("management_team.hashimoto.position")}
+          name="橋本 直樹"
+          position="CFO/CHRO"
           career={[
             { year: "1986年4月", description: "株式会社資生堂パーラー入社" },
             { year: "2003年4月", description: "同社経営企画部長" },

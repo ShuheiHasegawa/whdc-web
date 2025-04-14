@@ -66,17 +66,18 @@
 .svgContainer {
   position: relative;
   width: 100%;
-  max-width: 85%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 20px; /* 各SVG間の間隔 */
+  gap: 20px;
 }
 
 .svgWrapper {
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.8s ease;
+  display: flex;
+  justify-content: center;
 }
 
 .visible {
@@ -84,18 +85,8 @@
   transform: translateY(0);
 }
 
-.svgImage {
-  width: 100%;
-  height: auto;
-  max-height: 100px; /* 各SVGの最大高さ */
-}
-
 @media (max-width: 768px) {
   .svgContainer {
     gap: 15px;
-  }
-  
-  .svgImage {
-    max-height: 70px;
   }
 } 

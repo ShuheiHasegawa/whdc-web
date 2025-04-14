@@ -35,20 +35,35 @@ const IntroText = () => {
     }
   }, [show]);
 
+  // 共通のSVGスタイルを定義
+  const svgProps = {
+    className: styles.svgImage,
+    width: "100%", // 幅を100%に設定
+    preserveAspectRatio: "xMidYMid meet" // アスペクト比を維持しながら中央揃え
+  };
+
   return (
     <div className={`${styles.introText} ${show ? styles.show : ""}`}>
       <div className={styles.svgContainer}>
         <div className={`${styles.svgWrapper} ${visibleLines >= 1 ? styles.visible : ''}`}>
-          <CatchCopy01 className={styles.svgImage} />
+          <div style={{ width: "100%", maxWidth: "85vw", margin: "0 auto" }}>
+            <CatchCopy01 width="100%" height="auto" />
+          </div>
         </div>
         <div className={`${styles.svgWrapper} ${visibleLines >= 2 ? styles.visible : ''}`}>
-          <CatchCopy02 className={styles.svgImage} />
+          <div style={{ width: "100%", maxWidth: "85vw", margin: "0 auto" }}>
+            <CatchCopy02 width="100%" height="auto" />
+          </div>
         </div>
         <div className={`${styles.svgWrapper} ${visibleLines >= 3 ? styles.visible : ''} pt-32`}>
-          <CatchCopy03 className={styles.svgImage} />
+          <div style={{ width: "100%", maxWidth: "85vw", margin: "0 auto" }}>
+            <CatchCopy03 width="100%" height="auto" />
+          </div>
         </div>
         <div className={`${styles.svgWrapper} ${visibleLines >= 4 ? styles.visible : ''}`}>
-          <CatchCopy04 className={styles.svgImage} />
+          <div style={{ width: "100%", maxWidth: "85vw", margin: "0 auto" }}>
+            <CatchCopy04 width="100%" height="auto" />
+          </div>
         </div>
       </div>
     </div>
