@@ -40,6 +40,10 @@ const nextConfig = {
       // 必要に応じて他のリダイレクトも追加
     ];
   },
+  images: {
+    loader: "akamai",
+    path: "",
+  },
 };
 
 module.exports = nextConfig;

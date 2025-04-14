@@ -48,7 +48,7 @@ const IntroText = () => {
           <CatchCopy03 className={styles.svgImage} />
         </div>
         <div className={`${styles.svgWrapper} ${visibleLines >= 4 ? styles.visible : ''}`}>
-          <CatchCopy03 className={styles.svgImage} />
+          <CatchCopy04 className={styles.svgImage} />
         </div>
       </div>
     </div>
