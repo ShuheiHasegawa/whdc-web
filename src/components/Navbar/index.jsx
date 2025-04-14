@@ -20,42 +20,77 @@ const Navbar = ({ lr, nr, theme }) => {
   const navRef = nr || internalNavRef;
   const logoRef = lr || internalLogoRef;
 
+  // メニューを閉じる関数
+  const closeMenu = () => {
+    setIsOpen(false);
+    const navbarElement = document.querySelector(".navbar-collapse");
+    if (navbarElement) {
+      navbarElement.classList.remove("show-with-trans");
+      navbarElement.classList.remove("show");
+    }
+  };
+
   const scrollToSection = (sectionId) => {
-    // 少し遅延させてDOMが確実に描画されたあとに実行
-    setTimeout(() => {
-      const section = document.getElementById(sectionId);
-
-      if (section) {
-        // オフセット位置を計算（より正確に）
-        // 内部refを使用
-        const navHeight = navRef.current ? navRef.current.offsetHeight - 100 : 80;
-
-        // 要素の絶対位置を取得
-        const rect = section.getBoundingClientRect();
-        const scrollTop =
-          window.pageYOffset || document.documentElement.scrollTop;
-        const offsetPosition = rect.top + scrollTop - navHeight - 20; // 余白を追加
-
-        // スムーズスクロール
+    // メニューを閉じる
+    closeMenu();
+    
+    // 現在のパスがルートかどうかをチェック
+    const isRootPage = router.pathname === "/";
+    
+    // TOPの場合の処理
+    if (sectionId === "top-section") {
+      if (isRootPage) {
+        // ルートページにいる場合は単純に0位置にスクロール
         window.scrollTo({
-          top: offsetPosition,
-          behavior: "smooth",
+          top: 0,
+          behavior: "smooth"
         });
-
-        // スクロール完了後に位置調整（必要に応じて）
-        setTimeout(() => {
-          const newRect = section.getBoundingClientRect();
-          if (newRect.top < navHeight + 10) {
-            window.scrollBy({
-              top: newRect.top - navHeight - 20,
-              behavior: "smooth",
-            });
-          }
-        }, 1000);
       } else {
-        router.push("/#" + sectionId);
+        // ルートページ以外にいる場合はルートページに遷移
+        router.push("/");
       }
-    }, 100);
+      return;
+    }
+    
+    // 以下のセクションへのスクロールは、ルートページにいる場合のみ実行
+    if (isRootPage) {
+      // 少し遅延させてDOMが確実に描画されたあとに実行
+      setTimeout(() => {
+        const section = document.getElementById(sectionId);
+
+        if (section) {
+          // オフセット位置を計算（より正確に）
+          // 内部refを使用
+          const navHeight = navRef.current ? navRef.current.offsetHeight - 100 : 80;
+
+          // 要素の絶対位置を取得
+          const rect = section.getBoundingClientRect();
+          const scrollTop =
+            window.pageYOffset || document.documentElement.scrollTop;
+          const offsetPosition = rect.top + scrollTop - navHeight - 20; // 余白を追加
+
+          // スムーズスクロール
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+
+          // スクロール完了後に位置調整（必要に応じて）
+          setTimeout(() => {
+            const newRect = section.getBoundingClientRect();
+            if (newRect.top < navHeight + 10) {
+              window.scrollBy({
+                top: newRect.top - navHeight - 20,
+                behavior: "smooth",
+              });
+            }
+          }, 1000);
+        }
+      }, 100);
+    } else {
+      // ルートページにいない場合はセクションIDを含めてルートページに遷移
+      router.push("/#" + sectionId);
+    }
   };
 
   const handleMobileDropdown = () => {
@@ -255,11 +290,6 @@ const Navbar = ({ lr, nr, theme }) => {
               >
                 SERVICES
               </a>
-              {/* <Link href="/#services-section">
-                <a className="nav-link" style={{ cursor: "pointer" }}>
-                  SERVICES
-                </a>
-              </Link> */}
             </li>
             <li className="nav-item">
               <a
@@ -269,15 +299,10 @@ const Navbar = ({ lr, nr, theme }) => {
               >
                 GROUP
               </a>
-              {/* <Link href="/#group-companies-section">
-                <a className="nav-link" style={{ cursor: "pointer" }}>
-                  GROUP
-                </a>
-              </Link> */}
             </li>
             <li className="nav-item">
               <Link href="/company">
-                <a className="nav-link" style={{ cursor: "pointer" }}>
+                <a className="nav-link" onClick={closeMenu} style={{ cursor: "pointer" }}>
                   ABOUT
                 </a>
               </Link>
@@ -294,10 +319,10 @@ const Navbar = ({ lr, nr, theme }) => {
               </span>
               <div className="dropdown-menu">
                 <Link href="/company/management_team">
-                  <a className="dropdown-item">Management Team</a>
+                  <a className="dropdown-item" onClick={closeMenu}>Management Team</a>
                 </Link>
                 <Link href="/company/governance_team">
-                  <a className="dropdown-item">Governance Team</a>
+                  <a className="dropdown-item" onClick={closeMenu}>Governance Team</a>
                 </Link>
               </div>
             </li>
@@ -305,6 +330,7 @@ const Navbar = ({ lr, nr, theme }) => {
               <Link href="/news/ir/index.html">
                 <a
                   className="nav-link"
+                  onClick={closeMenu}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -314,124 +340,10 @@ const Navbar = ({ lr, nr, theme }) => {
             </li>
             <li className="nav-item">
               <Link href="/contact">
-                <a className="nav-link">CONTACT</a>
+                <a className="nav-link" onClick={closeMenu}>CONTACT</a>
               </Link>
             </li>
-            {/* <li className="nav-item dropdown" onClick={handleDropdown}>
-              <span
-                className="nav-link dropdown-toggle"
-                data-toggle="dropdown"
-                role="button"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Home
-              </span>
-              <div className="dropdown-menu">
-                <Link href="/home/home1-dark">
-                  <a className="dropdown-item">Main Home</a>
-                </Link>
-                <Link href="/home/home2-dark">
-                  <a className="dropdown-item">Creative Studio</a>
-                </Link>
-                <Link href="/home/home3-dark">
-                  <a className="dropdown-item">Business Startup</a>
-                </Link>
-                <Link href="/home/home4-dark">
-                  <a className="dropdown-item">One Page</a>
-                </Link>
-                <Link href="/home/home5-dark">
-                  <a className="dropdown-item">Freelancer</a>
-                </Link>
-              </div>
-            </li>
-
-            <li className="nav-item dropdown" onClick={handleDropdown}>
-              <span
-                className="nav-link dropdown-toggle"
-                data-toggle="dropdown"
-                role="button"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Showcases
-              </span>
-              <div className="dropdown-menu">
-                <Link href="/showcase/showcase-dark">
-                  <a className="dropdown-item">Full Screen</a>
-                </Link>
-                <Link href="/showcase2/showcase2-dark">
-                  <a className="dropdown-item">Creative Carousel</a>
-                </Link>
-                <Link href="/showcase3/showcase3-dark">
-                  <a className="dropdown-item">Radius Carousel</a>
-                </Link>
-                <Link href="/showcase4/showcase4-dark">
-                  <a className="dropdown-item">Columns Carousel</a>
-                </Link>
-                <Link href="/showcase5/showcase5-dark">
-                  <a className="dropdown-item">Boxed Carousel</a>
-                </Link>
-              </div>
-            </li>
-            <li className="nav-item">
-              <Link href="/about/about-dark">
-                <a className="nav-link">About</a>
-              </Link>
-            </li>
-            <li className="nav-item dropdown" onClick={handleDropdown}>
-              <span
-                className="nav-link dropdown-toggle"
-                data-toggle="dropdown"
-                role="button"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                portfolio
-              </span>
-              <div className="dropdown-menu">
-                <Link href="/works/works-dark">
-                  <a className="dropdown-item">Mouse Info</a>
-                </Link>
-                <Link href="/works2/works2-dark">
-                  <a className="dropdown-item">Masonry 3 Columns</a>
-                </Link>
-                <Link href="/works3/works3-dark">
-                  <a className="dropdown-item">Masonry 2 Columns</a>
-                </Link>
-                <Link href="/works4/works4-dark">
-                  <a className="dropdown-item">Pinterest List</a>
-                </Link>
-              </div>
-            </li>
-            <li className="nav-item">
-              <Link href="/contact/contact-dark">
-                <a className="nav-link">Contact</a>
-              </Link>
-            </li> */}
           </ul>
-          {/* <div className="search">
-            <span className="icon pe-7s-search cursor-pointer"></span>
-            <div className="search-form text-center custom-font">
-              <Formik
-                initialValues={{
-                  search: "",
-                }}
-                onSubmit={async (values) => {
-                  alert(JSON.stringify(values, null, 2));
-                  // Reset the values
-                  values.search = "";
-                }}
-              >
-                {({ errors, touched }) => (
-                  <Form>
-                    <Field type="text" name="search" placeholder="Search" />
-                  </Form>
-                )}
-              </Formik>
-              <span className="close pe-7s-close cursor-pointer"></span>
-            </div>
-          </div> */}
         </div>
       </div>
     </nav>
