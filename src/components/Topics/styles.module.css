@@ -11,7 +11,7 @@
 
 .secHead h6 {
   /* color: #75dab4; */
-  color: #00a0e8;
+  color: #009DE7;
   font-size: 14px;
   font-weight: 500;
   text-transform: uppercase;
@@ -29,7 +29,7 @@
 
 .colorFont {
   /* color: #75dab4; */
-  color: #00a0e8;
+  color: #009DE7;
   display: inline-block;
 }
 
@@ -46,7 +46,7 @@
 
 .newsHeading {
   /* color: #75dab4; */
-  color: #00a0e8;
+  color: #009DE7;
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 15px;
@@ -56,7 +56,7 @@
 
 .newsCategory {
   /* color: #75dab4; */
-  color: #00a0e8;
+  color: #009DE7;
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
@@ -85,7 +85,7 @@
 
 .newsTitle:hover {
   /* color: #75dab4; */
-  color: #00a0e8;
+  color: #009DE7;
   text-decoration: none;
 }
 
@@ -94,7 +94,7 @@
   width: fit-content;
   padding: 15px 40px;
   /* background: #75dab4; */
-  background: #00a0e8;
+  background: #009DE7;
   color: #0C0C0C;
   font-size: 16px;
   font-weight: 500;

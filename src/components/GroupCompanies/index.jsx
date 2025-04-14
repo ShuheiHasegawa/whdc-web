@@ -150,10 +150,8 @@ const GroupCompanies = () => {
       },
       edges: {
         color: {
-          // color: "rgba(0, 255, 128, 0.5)",
-          color: "rgb(0, 160, 232, 0.5)",
-          // highlight: "#00ff80",
-          highlight: "#00a0e8",
+          color: "rgb(0, 157, 231, 0.5)",
+          highlight: "#009DE7",
         },
         width: 2,
         smooth: {
