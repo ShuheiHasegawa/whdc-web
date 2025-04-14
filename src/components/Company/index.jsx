@@ -60,7 +60,6 @@ const CompanyPage = () => {
               ・コンサート、演劇、演芸、講演、スポーツ等各種イベントの企画、制作、興行
             </li>
             <li>・知的財産権の管理、販売及び使用許諾等</li>
-            <li>・産業廃棄物及び一般廃棄物の再資源化処理物の販売</li>
             <li>・その他</li>
           </ul>
         </>
@@ -74,7 +73,7 @@ const CompanyPage = () => {
     {
       title: "グループ会社",
       content:
-        "WHDCアクロディア株式会社、株式会社渋谷肉横丁、株式会社インタープラン、WHDCエンタテインメント株式会社、GUAM ENTERTAINMENT SYSTEMS, LLC 、株式会社SOUND PORT、Pavilions株式会社、株式会社宇部整環リサイクルセンター",
+        "WHDCアクロディア株式会社、株式会社渋谷肉横丁、株式会社インタープラン、WHDCエンタテインメント株式会社、LLC 、株式会社SOUND PORT、Pavilions株式会社",
     },
   ];
 
@@ -168,7 +167,6 @@ const CompanyPage = () => {
                         コンサート、演劇、演芸、講演、スポーツ等各種イベントの企画、制作、興行
                       </li>
                       <li>知的財産権の管理、販売及び使用許諾等</li>
-                      <li>産業廃棄物及び一般廃棄物の再資源化処理物の販売</li>
                       <li>その他</li>
                     </ul>
                   </td>
@@ -184,8 +182,8 @@ const CompanyPage = () => {
                   <th>グループ会社</th>
                   <td>
                     WHDCアクロディア株式会社、株式会社渋谷肉横丁、株式会社インタープラン、WHDCエンタテインメント株式会社、
-                    GUAM ENTERTAINMENT SYSTEMS, LLC 、株式会社SOUND
-                    PORT、Pavilions株式会社、株式会社宇部整環リサイクルセンター
+                    LLC 、株式会社SOUND
+                    PORT、Pavilions株式会社
                   </td>
                 </tr>
               </tbody>

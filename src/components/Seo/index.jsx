@@ -21,7 +21,7 @@ const SEO = ({
   const siteName = "THE WHY HOW DO COMPANY株式会社";
   const defaultTitle = title || "ワイハウ";
   const defaultDescription = description || "当社IR関連(「企業憲章」「株式情報」「財務ハイライト」「IR資料」「その他IR情報」)などの情報を掲載しています。";
-  const defaultCompanyProfile = companyProfile || "THE WHY HOW DO COMPANY株式会社(THE WHY HOW DO COMPANY, Inc.)、本社：東京都新宿区愛住町22 第3山田ビル、TEL：03-4405-5460、設立：2004年7月12日、代表者：代表取締役会長兼社長　田邊 勝己、証券取引所：東京証券取引所市場第二部、証券コード：3823、グループ事業：株式会社渋谷肉横丁、株式会社インタープラン、株式会社クリプト・フィナンシャル・システム、GUAM ENTERTAINMENT SYSTEMS,LLC、株式会社SOUND PORT、Pavilions株式会社、WHDCロジテック株式会社、株式会社宇部整環リサイクルセンター";
+  const defaultCompanyProfile = companyProfile || "THE WHY HOW DO COMPANY株式会社(THE WHY HOW DO COMPANY, Inc.)、本社：東京都新宿区愛住町22 第3山田ビル、TEL：03-4405-5460、設立：2004年7月12日、代表者：代表取締役会長兼社長　田邊 勝己、証券取引所：東京証券取引所市場第二部、証券コード：3823、グループ事業：株式会社渋谷肉横丁、株式会社インタープラン、株式会社クリプト・フィナンシャル・システム、LLC、株式会社SOUND PORT、Pavilions株式会社、WHDCロジテック株式会社";
   
   // ogUrlを処理：相対パスなら完全なURLに変換、すでに完全なURLなら使用、未指定なら現在のパスから生成
   let fullUrl;
