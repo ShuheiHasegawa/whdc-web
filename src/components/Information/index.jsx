@@ -33,7 +33,7 @@ const Information = () => {
 
           <div className="text-center pt-32">
             <Button
-              href="https://www.twhdc.co.jp/ir/news/index.html"
+              href="/news/ir/news/index.html"
               text="更新情報一覧"
               newTab={true}
             />

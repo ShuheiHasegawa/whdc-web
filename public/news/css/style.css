@@ -835,6 +835,10 @@ ul.productCap li {
 	width: 80%;
 }
 /*/////////////////footerのＴＯＰ用/////////////////////*/
+footer {
+	background-color: var(--bg-black);
+}
+
 footer #footerForTop {
 	display: flex;
 	flex-wrap: wrap;

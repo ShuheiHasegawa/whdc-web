@@ -82,8 +82,8 @@
       </div>
       <div id="news" class="irNewsPage">
         <div class="irPage">
-          <p class="irHeading">ニュース一覧</p>
           <!-- ================================= E-IRによる情報の自動出力に必要な部分 ========================== -->
+          <div class="irHeading">ニュース一覧</div>
           <div id="announcement">
             <div id="divDataArea"></div>
             <!-- ========セレクトタブのついた最新情報の出力に使うJS。js_ir/announcement_ir_tab.js========= -->
@@ -102,7 +102,7 @@
         </div>
       </div>
       <footer>
-        <div id="footerOutPut" class="bgDeepBlue white">
+        <div id="footerOutPut">
           <script>
             var date_obj = new Date();
             var tparm = Math.floor(date_obj.getTime() / 1000);
