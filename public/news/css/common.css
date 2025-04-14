@@ -45,6 +45,24 @@
   color: var(--color-blue);
 }
 
+.card-radius {
+  border-radius: 1.5rem !important;
+}
+
+.top-black-card {
+  background-color: var(--bg-black-card);
+  border-radius: 1.5rem;
+	min-width: 240px;
+	max-width: 240px;
+}
+
+.newsBox {
+  background-color: var(--bg-black-card);
+  border-radius: 1.5rem;
+	/* min-width: 240px;
+	max-width: 240px; */
+}
+
 *:before,*:after {
 	box-sizing: border-box;
 }

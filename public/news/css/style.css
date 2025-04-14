@@ -506,7 +506,7 @@ ul.productCap li {
 	/* background-color: #40455b; */
 	background-color: var(--bg-black-card);
 	color: #f5f5f5;
-	border-radius: 1px;
+	/* border-radius: 1px; */
 }
 
 .nikuyokoStores div ul {

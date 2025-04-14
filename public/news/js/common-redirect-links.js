@@ -2,7 +2,10 @@ document.addEventListener("DOMContentLoaded", function () {
   // var domain = window.location.protocol + "//" + window.location.host;
 
   // #TODO: 開発用
-  var domain = "http://localhost:3000";
+  // var domain = "http://localhost:3000";
+
+  // 本番環境
+  var domain = "https://www.twhdc.co.jp";
 
   // リンク要素を取得して処理
   var siteLinks = document.querySelectorAll("[data-site-link]");

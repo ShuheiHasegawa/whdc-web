@@ -50,7 +50,8 @@
                 size="1"
                 onchange="outputSelectedValueAndText(this);"
               >
-                <option value="" hidden>中期経営計画 2022年</option>
+                <option value="" hidden>中期経営計画 2025年</option>
+                <option value="0">中期経営計画 2025年</option>
                 <option value="1">中期経営計画 2022年</option>
                 <option value="2">中期経営計画 2018年</option>
                 <option value="3">中期経営計画 2017年</option>
@@ -71,11 +72,11 @@
               style="width: 100%"
             >
               <dl>
-                <h3 id="head3" class="title_h3_01">2022年版</h3>
+                <h3 id="head3" class="title_h3_01">2025年版</h3>
                 <dt></dt>
                 <dd>
-                  <a id="mtmp" href="mtmp_2022.pdf" target="blank"
-                    >中期経営計画(536KB)</a
+                  <a id="mtmp" href="mtmp_2025.pdf" target="blank"
+                    >中期経営計画(2.7MB)</a
                   >
                   <img src="../../../image/icon_pdf.png" align="absmiddle" />
                 </dd>
@@ -106,9 +107,13 @@
           var text = obj.options[idx].text; // 表示テキスト
 
           // 値とテキストをコンソールに出力
-          console.log("value = " + value + ", " + "text = " + text);
+          // console.log("value = " + value + ", " + "text = " + text);
 
-          if (value == 1) {
+          if (value == 0) {
+            mtmp.href = "mtmp_2025.pdf";
+            mtmp.innerText = "中期経営計画(2.7MB)";
+            head3.innerText = "2025年版";
+          } else if (value == 1) {
             mtmp.href = "mtmp_2022.pdf";
             mtmp.innerText = "中期経営計画(536KB)";
             head3.innerText = "2022年版";
