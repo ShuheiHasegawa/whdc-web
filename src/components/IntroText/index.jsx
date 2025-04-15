@@ -47,22 +47,22 @@ const IntroText = () => {
       <div className={styles.svgContainer}>
         <div className={`${styles.svgWrapper} ${visibleLines >= 1 ? styles.visible : ''}`}>
           <div style={{ width: "100%", maxWidth: "85vw", margin: "0 auto" }}>
-            <CatchCopy01 width="100%" height="auto" />
+            <CatchCopy01 width="100%" height="100%" />
           </div>
         </div>
         <div className={`${styles.svgWrapper} ${visibleLines >= 2 ? styles.visible : ''}`}>
           <div style={{ width: "100%", maxWidth: "85vw", margin: "0 auto" }}>
-            <CatchCopy02 width="100%" height="auto" />
+            <CatchCopy02 width="100%" height="100%" />
           </div>
         </div>
         <div className={`${styles.svgWrapper} ${visibleLines >= 3 ? styles.visible : ''} pt-32`}>
           <div style={{ width: "100%", maxWidth: "85vw", margin: "0 auto" }}>
-            <CatchCopy03 width="100%" height="auto" />
+            <CatchCopy03 width="100%" height="100%" />
           </div>
         </div>
         <div className={`${styles.svgWrapper} ${visibleLines >= 4 ? styles.visible : ''}`}>
           <div style={{ width: "100%", maxWidth: "85vw", margin: "0 auto" }}>
-            <CatchCopy04 width="100%" height="auto" />
+            <CatchCopy04 width="100%" height="100%" />
           </div>
         </div>
       </div>

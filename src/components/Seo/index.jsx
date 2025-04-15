@@ -9,7 +9,7 @@ const SEO = ({
   ogImage, 
   ogUrl,
   companyProfile,
-  favicon = "/image/favicon.ico",
+  favicon = "/img/favicon.ico",
   twitterCard = "summary_large_image",
   additionalMeta = [],
   additionalLinks = []
