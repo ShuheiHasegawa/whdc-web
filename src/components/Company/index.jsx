@@ -82,7 +82,7 @@ const CompanyPage = () => {
     return historyData.map((item) => ({
       title: (
         <span>
-          <span style={{ display: "inline-block", width: "3.6em" }}>
+          <span style={{ display: "inline-block", width: "4em" }}>
             {item.year}年
           </span>
           <span
