@@ -1,5 +1,9 @@
 @charset "utf-8";
 
+.pb-32 {
+  padding-bottom: 32px;
+}
+
 .borderIr {
   border: 4px solid #f5f5f5;
 }
@@ -50,8 +54,8 @@
 }
 /*/////////////////IR情報Top/////////////////////////*/
 #irLink {
-  margin: 4% auto 8% auto;
-  width: 98%;
+  margin: 4% auto 4% auto;
+  width: 92%;
   height: auto;
 }
 
@@ -122,6 +126,18 @@
   position: relative;
 }
 
+@media screen and (max-width: 768px) {
+  .irFloatAnchor {
+    display: block !important;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  .zaimu-list {
+    margin-top: 64px;
+  }
+}
+
 .irLinkList .irFloatAnchor {
   font-size: 1.4rem;
   display: block;
@@ -179,7 +195,8 @@
 }
 /*//////////IRTOP以下の仮想ページに使用する共通部品/////////*/
 .irPage {
-  margin: 6% auto 1.8%;
+  /* margin: 2% auto 2%; */
+  padding: 4%;
   width: 100%;
 }
 
@@ -189,14 +206,15 @@
 }
 
 .irContents {
-  margin: 1.4% 0;
-  padding: 1.8% 0 4% 0;
+  /* margin: 1.4% 0; */
+  /* padding: 1.8% 0 4% 0; */
+  padding-top: 4px;
   width: 100%;
 }
 
-.irPadding {
+/* .irPadding {
   padding: 2% 4%;
-}
+} */
 
 .irPara {
   margin: 1% auto;
@@ -208,7 +226,7 @@
 }
 
 .irContents ul li {
-  padding: 1.8% 0 0 1.6%;
+  padding: 1.8% 0 16px 0;
   margin: 0 auto;
   width: 90%;
 }
@@ -226,7 +244,8 @@
 }
 
 .irHeading,
-.irHeadingOther {
+.irHeadingOther,
+.qirLabel {
   font-size: 1.6rem;
   color: #f5f5f5;
   /* border-bottom: 2px solid #f5f5f5; */
@@ -236,16 +255,50 @@
   text-indent: 0;
 }
 
+.qirLabel {
+  padding-left: 0;
+}
+
+.ttl02 {
+  font-size: 1.6rem;
+  border-bottom: none !important;
+  margin: 0 !important;
+  margin-bottom: 4px;
+  position: relative;
+  /* padding-left: 1.4rem; */
+  text-indent: 0;
+}
+
 .irHeading::before,
-.irHeadingOther::before {
-  content: '';
+.irHeadingOther::before,
+.qirLabel::before,
+.ttl02::before {
+  content: "";
   position: absolute;
   left: 0;
   top: 50%;
   transform: translateY(-50%);
   width: 4px;
   height: 30px;
-  background-color: #009DE7;
+  background-color: var(--color-blue);
+  border-radius: 2px;
+}
+
+.qirLabel {
+  margin-top: 24px !important;
+  margin-bottom: -24px !important;
+}
+
+.titleLeftLine::before,
+.titleLeftLine::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 30px;
+  background-color: var(--color-blue);
   border-radius: 2px;
 }
 
@@ -424,7 +477,7 @@ p#slideFirst {
 
 #divDataArea dl {
   text-align: left;
-  padding: 2% 0 4% 0;
+  padding: 2% 0 2% 0;
   margin: 2% auto;
   width: 90%;
 }
@@ -483,10 +536,10 @@ p#slideFirst {
 }
 
 #libraryNav {
-  padding: 4% 0;
-  width: 100%;
+  padding: 4%;
+  /* width: 100%; */
 }
-
+/*
 #libraryNav ul {
   display: flex;
   flex-wrap: wrap;
@@ -501,7 +554,7 @@ p#slideFirst {
 #libraryNav li .productLinkButton {
   margin: 4px auto;
   padding: 6%;
-}
+} */
 
 .scheduleBox {
   margin: 20px auto;
@@ -517,10 +570,9 @@ p#slideFirst {
 }
 /*/////////////////ダウンロードなどについての注意事項/////////////*/
 #irNotes {
-  clear: both;
-  margin: 0 auto;
-  padding: 4% 0;
-  width: 94%;
+  /* clear: both; */
+  /* margin: 0 auto; */
+  padding: 4%;
 }
 
 #irNotesHead {
@@ -566,7 +618,7 @@ p#slideFirst {
 }
 /*///////////////////////財務ハイライト//////////////////////*/
 #hqir {
-  padding-top: 3.4%;
+  padding: 4%;
 }
 
 #qirNoteTop,
@@ -583,7 +635,7 @@ p#slideFirst {
   font-size: 2.6rem;
   text-indent: 1.4rem;
   color: #f5f5f5;
-  border-bottom: 4px solid #f5f5f5;
+  /* border-bottom: 4px solid #f5f5f5; */
 }
 
 .qirColumnWrapper .qirColumn .qirTable {
@@ -597,8 +649,8 @@ p#slideFirst {
 
 #qirNote {
   font-size: 2rem;
-  color: #3c3f3f;
-  padding-bottom: 6.8%;
+  color: var(--bg-black);
+  /* padding-bottom: 6.8%; */
 }
 
 #qirNote p {
@@ -640,7 +692,9 @@ p#slideFirst {
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
-  margin-top: 2%;
+  margin-top: 4%;
+  margin-left: 4%;
+  margin-right: 4%;
 }
 
 #irNewsSelect .selectBox {
@@ -700,10 +754,17 @@ p#slideFirst {
 .newsBoxIr {
   text-decoration: none;
   display: block;
-  margin: 1.6% auto;
-  /* padding: .2% 0 1.2% 0%; */
   padding: 8px;
+  /* margin: 1.6% auto; */
+  /* padding: .2% 0 1.2% 0%; */
+  /* padding: 8px; */
   border-radius: 1.5rem;
+  border: 1px solid var(--color-black-card);
+}
+
+.newsBoxIr:hover {
+  border: 1px solid var(--color-blue);
+  border-color: var(--color-blue);
 }
 
 .newsBox ul {
@@ -739,9 +800,9 @@ p#slideFirst {
     width: 300px;
   }
 
-  #irNewsLink {
+  /* #irNewsLink {
     margin-left: 70%;
-  }
+  } */
 
   #irLink {
     display: flex;
@@ -751,13 +812,13 @@ p#slideFirst {
     align-items: center;
     margin: 2% auto 2% auto;
     width: 92%;
-    height: 720px;
+    height: 680px;
   }
 
   #irLink .irLinks {
     text-decoration: none;
     margin: 0.8%;
-    width: 50%;
+    width: 48%;
   }
 
   .irLinks {
@@ -870,8 +931,8 @@ p#slideFirst {
   }
   /*////////////////////////IRニュース一覧ページ////////////////////////*/
   #irNewsSelect {
+    margin-top: 2%;
     flex-direction: row;
-    margin-top: 0%;
   }
 
   #irNewsSelect .selectBox {
@@ -930,19 +991,60 @@ p#slideFirst {
 
   #libraryNav {
     margin: 0 auto;
-    padding: 4% 0;
-    width: 80%;
+    /* padding: 4% 0 4% 0; */
+    padding: 4%;
+    /* width: 80%; */
   }
 
-  #libraryNav ul {
+  /* #libraryNav ul {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-  }
+  } */
 
-  #libraryNav li:last-of-type a {
+  /* #libraryNav li:last-of-type a {
     display: none;
-  }
+  } */
+    /* ボタングリッドレイアウト */
+    .ir-button-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* 2列グリッド */
+      gap: 20px;           /* 要素間の間隔 */
+      list-style: none;
+      padding: 0;
+      margin: 0 auto;
+      width: 80%;
+    }
+    
+    /* ボタン要素のスタイル */
+    .btn-box-top {
+      display: flex;
+      justify-content: center;
+    }
+    
+    .btn-box-top .btn-outline {
+      width: 100%;        /* ボタンを親要素いっぱいに広げる */
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 15px;
+      /* min-height: 44px; */
+    }
+    
+    /* レスポンシブ対応 */
+    @media (min-width: 992px) {
+      .ir-button-grid {
+        grid-template-columns: repeat(2, 1fr); /* 大画面では3列 */
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .ir-button-grid {
+        grid-template-columns: 1fr; /* モバイルでは1列 */
+        gap: 40px !important;
+      }
+    }
 
   #iframeBox iframe {
     left: 25%;
@@ -964,4 +1066,152 @@ p#slideFirst {
     padding-left: 1.1%;
     white-space: nowrap;
   }
+}
+
+#divDataAreaNews,
+#divDataAreaPress,
+.newsSpace {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  background-color: transparent;
+}
+
+.newsBox {
+  width: 100%;
+  margin: 0;
+}
+
+.btn-box-top {
+  width: 20vw;
+  margin: 0 auto;
+  min-width: 240px;
+  max-width: 320px;
+}
+
+.btn-max-width {
+  min-width: 22vw;
+  max-width: 22vw;
+}
+
+@media screen and (max-width: 768px) {
+  .btn-box-top {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+  .btn-max-width {
+    min-width: 80vw;
+  }
+}
+
+/* ニュース一覧ボタンのスタイル */
+.btn-outline {
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid #fff !important;
+  -webkit-transition: all 0.3s ease !important;
+  transition: all 0.3s ease !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px; /* パディングを上下に増やして高さを調整 */
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  height: 100%;
+  min-height: 64px;
+  width: 100%;
+  text-align: center; /* テキストを中央寄せに保持 */
+}
+
+.btn-outline:hover {
+  color: #fff !important;
+  border-color: var(--color-blue) !important;
+  /* text-decoration: none; */
+  /* text-align: center;   */
+}
+
+.btn-outline p {
+  margin: 0;
+  width: 100%;
+  /* text-align: center;   */
+}
+
+/* 横並び用のクラス */
+.horizontal-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.horizontal-container .btn-outline {
+  flex: 0 1 auto;
+  min-width: 180px;
+  max-width: 240px;
+  margin: 0;
+}
+
+.irOther {
+  margin: 2% auto 2% auto;
+  width: 92%;
+}
+
+/* レスポンシブ対応 */
+@media screen and (max-width: 768px) {
+  #prNews {
+    padding-top: 4% !important;
+  }
+
+  .horizontal-container {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .horizontal-container .btn-outline {
+    width: 80%;
+    max-width: none;
+  }
+
+  .irOther {
+    margin: 8% auto 4% auto;
+    width: 92%;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .horizontal-container {
+    justify-content: flex-start;
+    gap: 24px;
+  }
+
+  .horizontal-container .btn-outline {
+    width: calc((100% - 96px) / 5); /* 5つのボタンが1行に収まるように */
+    min-width: 160px;
+  }
+}
+
+/* カード用の青枠ホバースタイル */
+.card-blue-outline {
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.card-blue-outline:hover {
+  border-color: var(--color-blue);
+}
+
+/* ホバー時に内部のボタンも青枠スタイルに変更 */
+.card-blue-outline:hover .btn-outline {
+  border-color: var(--color-blue) !important;
+  color: var(--color-blue);
+}
+
+.card-blue-outline:hover .btn-outline:hover {
+  background: var(--color-blue);
+  color: #fff !important;
 }

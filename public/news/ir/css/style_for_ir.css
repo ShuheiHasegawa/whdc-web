@@ -19,7 +19,7 @@ aside#sideSpace ul li a {
 }
 
 .yourHere {
-	background-color: steelblue;
+	background-color: var(--color-blue);
 }
 
 article#irHeader {
@@ -61,7 +61,7 @@ ul#ir_bottom li a img {
 
 ul#ir_bottom li a:hover {
 	border-bottom: none;
-	background-color: steelblue;
+	background-color: var(--color-blue);
 }
 
 
@@ -81,7 +81,7 @@ div#divIRArea h2.irp_h2 {
 	font-size: .95rem;
 	letter-spacing: .2rem;
 	text-align: center;
-	color: steelblue;
+	color: var(--color-blue);
 	background: #eee;
 	margin: 0;
 	padding: 0;
@@ -112,7 +112,7 @@ article#irHeader a.irHeaderNav {
 	display: block;
 	text-decoration: none;
 	color: white;
-	background-color: steelblue;
+	background-color: var(--color-blue);
 	margin: 0;
 	padding: 0;
 	width: 50%;
@@ -139,7 +139,7 @@ select#yearSelect {
 	border: none;
 	/* color: white; */
 	color: #0F0F11;
-	background-color: steelblue;
+	background-color: var(--color-blue);
 	padding: 4%;
 }
 
@@ -164,7 +164,7 @@ ul#tab li a {
 	display: block;
 	text-decoration: none;
 	color: silver;
-	background-color: black;
+	background-color: var(--color-blue);
 	padding: 8%;
 	width: 100%;
 	transition: all .6s ease;
@@ -217,7 +217,7 @@ div#irBox {
 }
 
 div#irBox h3 {
-	border-bottom: 2px solid steelblue;
+	border-bottom: 2px solid var(--color-blue);
 	margin: 8% auto;
 }
 
@@ -240,21 +240,21 @@ div#irBox p.title {
 }
 
 div#irBox table {
-	border: 1px solid steelblue;
+	border: 1px solid var(--color-blue);
 	margin-top: 2%;
 	width: 100%;
 	height: auto;
 }
 
 div#irBox table tr {
-	border-bottom: 1px solid steelblue;
+	border-bottom: 1px solid var(--color-blue);
 }
 
 div#irBox table tr td:first-of-type {
 	text-align: center;
 	color: white;
 	width: 4%;
-	background-color: steelblue;
+	background-color: var(--color-blue);
 }
 
 div#irBox table tr td i {
@@ -266,7 +266,7 @@ div#irBox table tr td i {
 div#irBox table a {
 	display: block;
 	color: white;
-	background-color: steelblue;
+	background-color: var(--color-blue);
 	padding: 1%;
 	width: 100%;
 }
@@ -289,14 +289,14 @@ div#irBox table a img {
 /*株式情報*/
 
 div#irBox table#stock {
-	border: 1px solid steelblue;
+	border: 1px solid var(--color-blue);
 	margin-top: 2%;
 	width: 100%;
 	height: auto;
 }
 
 div#irBox table#stock tr {
-	border-bottom: 1px solid steelblue;
+	border-bottom: 1px solid var(--color-blue);
 	width: 100%;
 }
 
@@ -311,7 +311,7 @@ div#irBox table#stock tr th {
 	font-size: .9rem;
 	text-align: center;
 	color: white;
-	background-color: steelblue;
+	background-color: var(--color-blue);
 	border-bottom: 1px solid white; 
 	margin: 0 auto;
 	padding: 1%;
@@ -331,7 +331,7 @@ div#irBox table#stock a {
 	display: block;
 	text-decoration: none;
 	color: white;
-	background-color: steelblue;
+	background-color: var(--color-blue);
 	padding: 1%;
 	width: 100%;
 }
@@ -350,7 +350,7 @@ div#publicnotice p a {
 	text-align: center;
 	text-decoration: none;
 	color: white;
-	background-color: steelblue;
+	background-color: var(--color-blue);
 	margin: 0 auto;
 	padding: 4%;
 	width: 50%;
@@ -358,7 +358,7 @@ div#publicnotice p a {
 }
 
 div#publicnotice p a:hover {
-	color: steelblue;
+	color: var(--color-blue);
 	background-color: white;
 	transition: all .8s ease;
 }
@@ -406,7 +406,7 @@ a#ir_contact {
 	text-align: center;
 	text-decoration: none;
 	color: white;
-	background-color: steelblue;
+	background-color: var(--color-blue);
 	padding: 4%;
 	width: 40%;
 }
@@ -427,7 +427,7 @@ div#library article.news {
 
 div#library article.news h3 {
 	text-align: left;
-	background-color: steelblue;
+	background-color: var(--color-blue);
 	margin: 0;
 	padding: 0;
 }
@@ -494,7 +494,7 @@ aside#libraryNav {
 aside#libraryNav p {
 	font-size: 1.1rem;
 	color: gray;
-	border-left: 8px solid steelblue;
+	border-left: 8px solid var(--color-blue);
 	width: 20%;
 }
 
@@ -519,7 +519,7 @@ ul#irp-library-navi li a {
 	display: block;
 	font-size: 1.1rem;
 	text-decoration: none;
-	color: steelblue;
+	color: var(--color-blue);
 	padding: 4% 2%;
 	width: 100%;
 }
@@ -559,7 +559,7 @@ div#irBox div#yuhoTable table tr td {
 }
 
 div#irBox div#yuhoTable table tr td:nth-of-type(even) {
-	border-bottom: 1px solid steelblue;
+	border-bottom: 1px solid var(--color-blue);
 }
 
 div#irBox div#yuhoTable table tr td a {

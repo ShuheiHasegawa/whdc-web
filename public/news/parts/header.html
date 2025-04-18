@@ -20,16 +20,68 @@
         $(this).hide();
       }
     });
+
+    // ハンバーガーメニュー処理
+    $(".navbar-toggler").on("click", function (e) {
+      e.preventDefault();
+      $(this).toggleClass("open");
+      $(".navbar-collapse").toggleClass("show");
+    });
+
+    // 画面外クリックでメニュー閉じる
+    $(document).on("click", function (event) {
+      if (
+        !$(event.target).closest(".navbar-collapse").length &&
+        !$(event.target).closest(".navbar-toggler").length
+      ) {
+        $(".navbar-toggler").removeClass("open");
+        $(".navbar-collapse").removeClass("show");
+      }
+    });
+
+    // メニュー項目クリックでメニュー閉じる（TEAMSのドロップダウントグルを除く）
+    $(".nav-link:not(.dropdown-toggle)").on("click", function () {
+      $(".navbar-toggler").removeClass("open");
+      $(".navbar-collapse").removeClass("show");
+    });
+
+    // ドロップダウンメニュー処理の修正
+    $(".dropdown-toggle").on("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation(); // イベントの伝播を停止
+      $(this).parent().toggleClass("show");
+      $(this).next(".dropdown-menu").toggleClass("show");
+    });
+
+    // ドロップダウンメニュー内の項目クリック時
+    $(".dropdown-item").on("click", function (e) {
+      // ドロップダウンメニューの項目のクリックはメインメニューを閉じる
+      $(".navbar-toggler").removeClass("open");
+      $(".navbar-collapse").removeClass("show");
+      // 親のドロップダウンメニューのshowクラスも削除
+      $(this).closest(".dropdown").removeClass("show");
+      $(this).closest(".dropdown-menu").removeClass("show");
+    });
+
+    // スクロール処理でナビバー固定
+    $(window).on("scroll", function () {
+      if ($(this).scrollTop() > 480) {
+        $(".navbar").addClass("navbar-fixed");
+      } else {
+        $(".navbar").removeClass("navbar-fixed");
+      }
+    });
   });
 </script>
 
 <!-- リンクをリダイレクトする -->
 <script src="/news/js/common-redirect-links.js"></script>
 
-<header class="bg-header">
-  <nav>
-    <h1>
-      <a href="/">
+<header class="bg-header" style="width: 100%; height: 100%">
+  <nav class="navbar bg-header">
+    <div class="container" style="padding: 0 8px 0 8px">
+      <!-- ロゴ部分 -->
+      <a href="/" class="logo">
         <!--2022/1/1 00:00:00 update-->
         <img
           class="view_timer"
@@ -44,48 +96,374 @@
           alt="ワイハウロゴ"
         />
       </a>
-    </h1>
 
-    <!--<span><img id="menuButton" src="/image/menu.png"></span>-->
-    <ul>
-      <li>
-        <a data-site-link="/#top-section" class="black fontSize18">TOP</a>
-      </li>
-      <li>
-        <a data-site-link="/#services-section" class="black fontSize18"
-          >SERVICES</a
-        >
-      </li>
-      <li>
-        <a data-site-link="/#group-companies-section" class="black fontSize18"
-          >GROUP</a
-        >
-      </li>
-      <li><a data-site-link="/company" class="black fontSize18">ABOUT</a></li>
-      <!-- <li><a data-site-link="/teams" class="black fontSize18">TEAMS</a></li> -->
-      <li class="dropdown">
-        <a href="#" class="black fontSize18 dropdown-toggle">TEAMS</a>
-        <ul class="dropdown-menu">
-          <li>
-            <a
-              data-site-link="/company/management_team/"
-              class="black fontSize16"
-              >Management Team</a
-            >
+      <!-- ハンバーガーメニューボタン -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        aria-label="Toggle navigation"
+      >
+        <div class="hamburger-icon">
+          <span class="first-line"></span>
+          <span class="middle-line"></span>
+          <span class="last-line"></span>
+        </div>
+      </button>
+
+      <!-- メニュー部分 -->
+      <div class="navbar-collapse">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a href="/#top-section" class="nav-link">TOP</a>
           </li>
-          <li>
-            <a
-              data-site-link="/company/governance_team/"
-              class="black fontSize16"
-              >Governance Team</a
-            >
+          <li class="nav-item">
+            <a href="/#services-section" class="nav-link">SERVICES</a>
+          </li>
+          <li class="nav-item">
+            <a href="/#group-companies-section" class="nav-link">GROUP</a>
+          </li>
+          <li class="nav-item">
+            <a href="/company" class="nav-link">ABOUT</a>
+          </li>
+          <!-- <li><a data-site-link="/teams" class="black fontSize18">TEAMS</a></li> -->
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle"
+              >TEAMS&nbsp;<span class="dropdown-arrow"></span
+            ></a>
+            <ul class="dropdown-menu">
+              <li style="width: 100%; margin: 0 auto; border-bottom: none">
+                <a href="/company/management_team/" class="dropdown-item"
+                  >Management Team</a
+                >
+              </li>
+              <li style="width: 100%; margin: 0 auto; border-bottom: none">
+                <a href="/company/governance_team/" class="dropdown-item"
+                  >Governance Team</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="/news/ir/index.html" class="nav-link">IR</a>
+          </li>
+          <li class="nav-item">
+            <a href="/contact" class="nav-link">CONTACT</a>
           </li>
         </ul>
-      </li>
-      <li>
-        <a data-site-link="/news/ir/index.html" class="black fontSize18">IR</a>
-      </li>
-      <li><a data-site-link="/contact" class="black fontSize18">CONTACT</a></li>
-    </ul>
+      </div>
+    </div>
   </nav>
 </header>
+
+<style>
+  /* Navbar基本スタイル */
+  .navbar {
+    background-color: var(--bg-header);
+    position: relative;
+    display: flex;
+    align-items: center;
+    /* padding: 1rem; */
+    min-height: 60px;
+    width: 100%;
+    min-width: 100%;
+    z-index: 1000;
+    transition: all 0.4s ease;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    display: block;
+    width: fit-content;
+    height: auto;
+    position: relative;
+    z-index: 1030;
+  }
+
+  .logo:hover {
+    opacity: 0.8;
+  }
+
+  .logo img {
+    width: 200px;
+    transition: width 0.3s ease;
+    display: block;
+  }
+
+  /* Navbar固定スタイルの修正 */
+  .navbar-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1030;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    animation: slideDown 0.5s forwards;
+    background-color: var(--bg-header);
+  }
+
+  /* ここで.containerの最大幅を戻す */
+  /* .navbar-fixed .container {
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 15px;
+  } */
+
+  @keyframes slideDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ナビゲーションメニュー */
+  .navbar-nav {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  .nav-item {
+    padding: 24px 4px;
+    margin: 0 10px;
+    position: relative;
+  }
+
+  .nav-link {
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 12px;
+    display: block;
+    font-size: 16px;
+    transition: color 0.3s ease;
+    cursor: pointer;
+  }
+
+  .nav-link:hover {
+    color: var(--color-blue);
+  }
+
+  /* ドロップダウンメニュー */
+  .dropdown-menu {
+    position: absolute;
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    padding: 10px 0;
+    margin: 0;
+    list-style: none;
+    border-radius: 4px;
+    display: none;
+  }
+
+  .dropdown-menu.show {
+    display: block;
+  }
+
+  .dropdown-item {
+    color: #333;
+    padding: 8px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+  }
+
+  .dropdown-item:hover {
+    color: var(--color-blue);
+  }
+
+  /* ハンバーガーメニュー */
+  .navbar-toggler {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1050;
+  }
+
+  .hamburger-icon {
+    width: 25px;
+    height: 18px;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .hamburger-icon span {
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background: #fff;
+    border-radius: 2px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: 0.3s ease-in-out;
+  }
+
+  .hamburger-icon .first-line {
+    top: 0px;
+  }
+
+  .hamburger-icon .middle-line {
+    top: 8px;
+  }
+
+  .hamburger-icon .last-line {
+    top: 16px;
+  }
+
+  /* ハンバーガーメニュー（開いた状態） */
+  .navbar-toggler.open .first-line {
+    top: 8px;
+    transform: rotate(135deg);
+  }
+
+  .navbar-toggler.open .middle-line {
+    opacity: 0;
+    left: -30px;
+  }
+
+  .navbar-toggler.open .last-line {
+    top: 8px;
+    transform: rotate(-135deg);
+  }
+
+  /* レスポンシブ対応 - モバイルメニュー表示部分だけを変更 */
+  @media (max-width: 991px) {
+    /* ハンバーガーボタンはそのまま */
+    .navbar-toggler {
+      display: block;
+    }
+
+    /* モバイルメニューのスタイルを変更 */
+    .navbar-collapse {
+      position: fixed;
+      top: 60px;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: auto;
+      max-height: calc(100vh - 60px);
+      background-color: var(--bg-header);
+      z-index: 1040;
+      padding: 24px 0;
+      /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); */
+      background: rgba(0, 0, 0, 0.9) !important;
+      display: none;
+      overflow-y: auto;
+      text-align: center;
+    }
+
+    .navbar-collapse.show {
+      display: block;
+    }
+
+    /* メニュー項目のスタイル */
+    .navbar-nav {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .nav-item {
+      padding: 0;
+      width: 100%;
+      margin: 5px 0;
+      text-align: center;
+    }
+
+    .nav-link {
+      padding: 10px 0;
+      font-size: 12px;
+      text-align: center;
+      display: inline-block;
+    }
+
+    /* ドロップダウンメニュー */
+    .dropdown-menu {
+      position: static;
+      width: 100%;
+      background-color: var(--bg-header);
+      box-shadow: none;
+      display: none;
+      padding: 12px;
+      margin: 0 auto;
+      margin-top: 5px;
+      text-align: center;
+      border-radius: 0;
+    }
+
+    .dropdown-menu.show {
+      display: block;
+    }
+
+    .dropdown-item {
+      color: #ddd;
+      /* padding: 10px 15px; */
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .dropdown-item:hover {
+      background-color: #222;
+    }
+
+    /* ドロップダウン矢印アイコン */
+    .dropdown-arrow {
+      border-top: 3px solid #fff;
+      border-right: 3px solid transparent;
+      border-left: 3px solid transparent;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .logo img {
+      width: 140px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .logo img {
+      width: 120px;
+    }
+
+    .navbar-fixed {
+      animation-duration: 0.3s;
+    }
+  }
+
+  /* ドロップダウン矢印アイコン */
+  .dropdown-arrow {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 4px;
+    vertical-align: middle;
+    border-top: 4px solid #fff;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+  }
+
+  /* ドロップダウンが開いているときの矢印 */
+  .dropdown.show .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+</style>

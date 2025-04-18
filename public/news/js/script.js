@@ -1,73 +1,73 @@
 // ///////////////////ファーストビューの設定//////////////////////////
-function firstViewSizing() {
-  var W = $("#slideFirst").width();
-  H = $("#slideFirst").height();
-  h = 0.281 * W;
-  h2 = 1 * W;
-  info = $("#information");
-  Ww = $(window).width();
-  img = $("#slideBox").find("img");
-  // imgPass = "http://test-www.acrodea.co.jp/new/image/";
-  //imgPass = "https://acrodea.co.jp/image/";
-  imgPass = "/image/";
-  alt = img.attr("alt");
+// function firstViewSizing() {
+//   var W = $("#slideFirst").width();
+//   H = $("#slideFirst").height();
+//   h = 0.281 * W;
+//   h2 = 1 * W;
+//   info = $("#information");
+//   Ww = $(window).width();
+//   img = $("#slideBox").find("img");
+//   // imgPass = "http://test-www.acrodea.co.jp/new/image/";
+//   //imgPass = "https://acrodea.co.jp/image/";
+//   imgPass = "/image/";
+//   alt = img.attr("alt");
 
-  var startDate2 = new Date(2022, 1 - 1, 1, 00, 00, 00);
-  var nowDate = new Date();
-  //console.log("nowDate= "+nowDate)
-  //console.log("startDate2= "+startDate2)
+//   var startDate2 = new Date(2022, 1 - 1, 1, 00, 00, 00);
+//   var nowDate = new Date();
+//   //console.log("nowDate= "+nowDate)
+//   //console.log("startDate2= "+startDate2)
 
-  if ($("#topPage").length) {
-    if (Ww <= 479) {
-      $("#slideBox").css({ height: h2 + "px" });
-      $("#slideFirst").css({ height: h2 + "px" });
-      img.attr({ src: imgPass + alt + "2022_480.png" });
-      H = $("#slideFirst").height();
-    } else {
-      $("#slideBox").css({ height: h + "px" });
-      img.attr({ src: imgPass + alt + "2022_768.png" });
-      H = $("#slideFirst").height();
-    }
-  } else {
-    $("#slideBox").css({ height: h + "px" });
-  }
-  if ($("#modalButton").length) {
-    var modalButtonWidth = $("#modalButton").width();
-    modalContent = $("#modalContent");
-    modalContentWidth = modalContent.width();
+//   if ($("#topPage").length) {
+//     if (Ww <= 479) {
+//       $("#slideBox").css({ height: h2 + "px" });
+//       $("#slideFirst").css({ height: h2 + "px" });
+//       img.attr({ src: imgPass + alt + "2022_480.png" });
+//       H = $("#slideFirst").height();
+//     } else {
+//       $("#slideBox").css({ height: h + "px" });
+//       img.attr({ src: imgPass + alt + "2022_768.png" });
+//       H = $("#slideFirst").height();
+//     }
+//   } else {
+//     $("#slideBox").css({ height: h + "px" });
+//   }
+//   if ($("#modalButton").length) {
+//     var modalButtonWidth = $("#modalButton").width();
+//     modalContent = $("#modalContent");
+//     modalContentWidth = modalContent.width();
 
-    if (Ww <= 480) {
-      modalContent.css({ width: W + "px", height: H + "px" });
-      $("#modalButton").css({ left: W - modalButtonWidth - 24 });
-    } else {
-      modalContent.css({ width: W + "px", height: H + "px" });
-      $("#modalButton").css({ left: W - modalButtonWidth - 24 });
-    }
-  }
-}
-$(window).on("load resize", function () {
-  firstViewSizing();
-});
+//     if (Ww <= 480) {
+//       modalContent.css({ width: W + "px", height: H + "px" });
+//       $("#modalButton").css({ left: W - modalButtonWidth - 24 });
+//     } else {
+//       modalContent.css({ width: W + "px", height: H + "px" });
+//       $("#modalButton").css({ left: W - modalButtonWidth - 24 });
+//     }
+//   }
+// }
+// $(window).on("load resize", function () {
+//   firstViewSizing();
+// });
 // ///////////////////footerの読み込み/////////////
 
 //$("#footerOutPut").load("/parts/footer.html");
 
 // ///////////////社名の由来モーダル///////////////////////////////
-if ($("#modalButton").length) {
-  function modal() {
-    var modalButton = $("#modalButton");
-    closeButton = $("#modalClose");
-    modalContent = $("#modalContent");
+// if ($("#modalButton").length) {
+//   function modal() {
+//     var modalButton = $("#modalButton");
+//     closeButton = $("#modalClose");
+//     modalContent = $("#modalContent");
 
-    modalButton.click(function () {
-      modalContent.fadeIn(400);
-    });
-    closeButton.click(function () {
-      modalContent.fadeOut(400);
-    });
-  }
-  modal();
-}
+//     modalButton.click(function () {
+//       modalContent.fadeIn(400);
+//     });
+//     closeButton.click(function () {
+//       modalContent.fadeOut(400);
+//     });
+//   }
+//   modal();
+// }
 // //////////////////////役員名簿の開閉////////////////////
 function officerTable() {
   var officerButton = $(".tableBox").find("p");
@@ -85,59 +85,59 @@ function officerTable() {
   });
 }
 // ////////////////////////スマホメニュー/////////////////////
-function menu() {
-  var button = $("#menuButton");
-  content = $("#menuContent");
-  open = false;
-  close = true;
+// function menu() {
+//   var button = $("#menuButton");
+//   content = $("#menuContent");
+//   open = false;
+//   close = true;
 
-  button.click(function () {
-    if (open == false && close == true) {
-      content.slideDown(200);
-      open = true;
-      close = false;
-      return;
-    } else if (open == true && close == false) {
-      content.slideUp(200);
-      open = false;
-      close = true;
-      return;
-    }
-  });
-}
+//   button.click(function () {
+//     if (open == false && close == true) {
+//       content.slideDown(200);
+//       open = true;
+//       close = false;
+//       return;
+//     } else if (open == true && close == false) {
+//       content.slideUp(200);
+//       open = false;
+//       close = true;
+//       return;
+//     }
+//   });
+// }
 
 // ////////////////////////スマホメニュー(他の部分をタッチするとMENUしまう）/////////////////////
-$(document).click(function () {
-  //$('#menuContent').hide();
-  content.slideUp(200);
-  open = false;
-  close = true;
-});
+// $(document).click(function () {
+//$('#menuContent').hide();
+// content.slideUp(200);
+// open = false;
+// close = true;
+// });
 
 // ////////////////////////TEAMSドロップダウンメニュー/////////////////////
 // モバイルでのドロップダウン操作
-document.addEventListener("DOMContentLoaded", function () {
-  var dropdowns = document.querySelectorAll(".dropdown");
+// document.addEventListener("DOMContentLoaded", function () {
+//   var dropdowns = document.querySelectorAll(".dropdown");
 
-  dropdowns.forEach(function (dropdown) {
-    var toggle = dropdown.querySelector(".dropdown-toggle");
+//   dropdowns.forEach(function (dropdown) {
+//     var toggle = dropdown.querySelector(".dropdown-toggle");
 
-    toggle.addEventListener("click", function (e) {
-      if (window.innerWidth <= 768) {
-        e.preventDefault();
-        dropdown.classList.toggle("open");
-      }
-    });
-  });
+//     toggle.addEventListener("click", function (e) {
+//       if (window.innerWidth <= 768) {
+//         e.preventDefault();
+//         dropdown.classList.toggle("open");
+//       }
+//     });
+//   });
 
-  // 既存のdata-site-linkの処理も維持
-  var siteLinks = document.querySelectorAll("[data-site-link]");
-  siteLinks.forEach(function (link) {
-    var path = link.getAttribute("data-site-link");
-    // すでに設定済みのhref属性を上書きしないように確認
-    if (!link.hasAttribute("href") || link.getAttribute("href") === "#") {
-      var domain = window.location.protocol + "//" + window.location.host;
-      link.href = domain + path;
-    }
-  });
-});
+//   // 既存のdata-site-linkの処理も維持
+//   var siteLinks = document.querySelectorAll("[data-site-link]");
+//   siteLinks.forEach(function (link) {
+//     var path = link.getAttribute("data-site-link");
+//     // すでに設定済みのhref属性を上書きしないように確認
+//     if (!link.hasAttribute("href") || link.getAttribute("href") === "#") {
+//       var domain = window.location.protocol + "//" + window.location.host;
+//       link.href = domain + path;
+//     }
+//   });
+// });

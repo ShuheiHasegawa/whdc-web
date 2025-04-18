@@ -293,8 +293,9 @@ section.team.section-padding {
   font-weight: 500;
 }
 
-.custom-link:hover {
-  color: #f8f8f8 !important;
+.custom-link:hover, a.nav-link:hover, span.nav-link:hover {
+  text-decoration: none;
+  color: var(--color-blue) !important;
 }
 
 .custom-link-main {
