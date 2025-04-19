@@ -9,12 +9,12 @@
  */
 :root {
   --bg-header: #000000;
-	--bg-footer: #000000;
+  --bg-footer: #000000;
   --bg-black: #0c0c0c;
   --bg-black-card: #2b2b2b;
-  --bg-blue: #009DE7;
+  --bg-blue: #009de7;
   --color-black: #0c0c0c;
-  --color-blue: #009DE7;
+  --color-blue: #009de7;
 }
 
 .bg-header {
@@ -293,7 +293,9 @@ section.team.section-padding {
   font-weight: 500;
 }
 
-.custom-link:hover, a.nav-link:hover, span.nav-link:hover {
+.custom-link:hover,
+a.nav-link:hover,
+span.nav-link:hover {
   text-decoration: none;
   color: var(--color-blue) !important;
 }
@@ -514,3 +516,36 @@ section.team.section-padding {
   /* border-bottom: 1px solid rgba(255, 255, 255, 0.1); */
 }
 /* ====================== [ End Accordion ] ====================== */
+
+/* ====================== [ Start Scrollbar ] ====================== */
+/* スクロールバー全体のスタイル */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+/* スクロールバーのトラック（背景）部分 */
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+/* スクロールバーのつまみ部分 */
+::-webkit-scrollbar-thumb {
+  /* background: rgba(0, 157, 231, 0.6); */
+  background: rgba(245, 245, 245, 0.6);
+  border-radius: 10px;
+}
+
+/* マウスホバー時のスクロールバーのつまみ部分 */
+::-webkit-scrollbar-thumb:hover {
+  /* background: rgba(0, 157, 231, 0.8); */
+  background: rgba(245, 245, 245, 0.8);
+}
+
+* {
+  scrollbar-width: thin; /* Firefox向けの細いスクロールバー */
+  /* scrollbar-color: rgba(0, 157, 231, 0.6) rgba(0, 0, 0, 0.1); */
+  scrollbar-color: rgba(245, 245, 245, 0.6) rgba(0, 0, 0, 0.1);
+}
+/* ====================== [ End Scrollbar ] ====================== */
