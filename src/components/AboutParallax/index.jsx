@@ -26,7 +26,7 @@ const AboutParallax = () => {
           transition: "opacity 0.1s ease-out",
         }}
       >
-        <source src="/movies/top-four-720p.mp4" type="video/mp4" />
+        <source src="/movies/top-four-h264-720p.mp4" type="video/mp4" />
       </video>
     </div>
   );
