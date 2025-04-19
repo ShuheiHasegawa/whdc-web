@@ -56,6 +56,11 @@ const SiteMap = () => {
           </Link>
         </li>
         <li>
+          <Link href="/company/interview">
+            <a className="custom-link">コンプライアンスについて</a>
+          </Link>
+        </li>
+        <li>
           <Link href="/privacy_policy">
             <a className="custom-link">プライバシーポリシー</a>
           </Link>

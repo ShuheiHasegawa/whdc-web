@@ -112,6 +112,15 @@ const CompanyPage = () => {
           </Split>
           <Dashed2Column items={companyInfoItems} className="my-4" />
 
+        {/* コンプライアンスについて */}
+        <section id="interview" className="container pt-16 pb-32 text-center">
+          <Button
+            href="/company/interview"
+            text="コンプライアンスについて(顧問弁護士 田邊勝己弁護士)"
+            className="btn-curve btn-lit"
+          />
+        </section>
+
           {/* <div className="table-responsive pt-16">
             <table className="table table-dark table-bordered table-striped text-base">
               <tbody>
