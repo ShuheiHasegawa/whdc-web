@@ -4,14 +4,18 @@
 	2025-3-1
 */
 
-import { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 
 const LetterGlitch = ({
-  glitchColors = ['#2b4539', '#61dca3', '#61b3dc'],
+  glitchColors = ['#479EAF', '#0080BD', '#2E3078'],
   glitchSpeed = 50,
   centerVignette = false,
   outerVignette = true,
   smooth = true,
+  text = '',
+  textClassName = '',
+  textColor = '#ffffff',
+  height = '100%',
 }) => {
   const canvasRef = useRef(null);
   const animationRef = useRef(null);
@@ -19,6 +23,13 @@ const LetterGlitch = ({
   const grid = useRef({ columns: 0, rows: 0 });
   const context = useRef(null);
   const lastGlitchTime = useRef(Date.now());
+  const styleRef = useRef(null);
+  const textRef = useRef(null);
+  
+  const [isClient, setIsClient] = useState(false);
+  const [currentFontSize, setCurrentFontSize] = useState('1em');
+
+  const staticClassName = 'letter-glitch-container';
 
   const fontSize = 16;
   const charWidth = 10;
@@ -83,6 +94,7 @@ const LetterGlitch = ({
   const resizeCanvas = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
+    
     const parent = canvas.parentElement;
     if (!parent) return;
 
@@ -96,17 +108,18 @@ const LetterGlitch = ({
     canvas.style.height = `${rect.height}px`;
 
     if (context.current) {
-      context.current.setTransform(dpr, 0, 0, dpr, 0, 0); // Properly scale without stacking transforms
+      context.current.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
 
     const { columns, rows } = calculateGrid(rect.width, rect.height);
     initializeLetters(columns, rows);
 
-    drawLetters(); // Ensure letters are drawn after resizing
+    drawLetters();
   };
 
   const drawLetters = () => {
-    if (!context.current || letters.current.length === 0) return;
+    if (!context.current || !canvasRef.current || letters.current.length === 0) return;
+    
     const ctx = context.current;
     const { width, height } = canvasRef.current.getBoundingClientRect();
     ctx.clearRect(0, 0, width, height);
@@ -122,13 +135,13 @@ const LetterGlitch = ({
   };
 
   const updateLetters = () => {
-    if (!letters.current || letters.current.length === 0) return; // Prevent accessing empty array
+    if (!letters.current || letters.current.length === 0) return;
 
     const updateCount = Math.max(1, Math.floor(letters.current.length * 0.05));
 
     for (let i = 0; i < updateCount; i++) {
       const index = Math.floor(Math.random() * letters.current.length);
-      if (!letters.current[index]) continue; // Skip if index is invalid
+      if (!letters.current[index]) continue;
 
       letters.current[index].char = getRandomChar();
       letters.current[index].targetColor = getRandomColor();
@@ -164,6 +177,14 @@ const LetterGlitch = ({
   };
 
   const animate = () => {
+    if (!canvasRef.current || !context.current) {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+        animationRef.current = null;
+      }
+      return;
+    }
+
     const now = Date.now();
     if (now - lastGlitchTime.current >= glitchSpeed) {
       updateLetters();
@@ -191,9 +212,9 @@ const LetterGlitch = ({
     const handleResize = () => {
       clearTimeout(resizeTimeout);
       resizeTimeout = setTimeout(() => {
-        cancelAnimationFrame(animationRef.current); // Stop animation loop during resize
+        cancelAnimationFrame(animationRef.current);
         resizeCanvas();
-        animate(); // Restart after resizing
+        animate();
       }, 100);
     };
 
@@ -206,10 +227,145 @@ const LetterGlitch = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [glitchSpeed, smooth]);
 
+  // 画面サイズとテキスト長に基づいてフォントサイズを決定
+  const calculateFontSize = (screenWidth, textContent) => {
+    if (!textContent) return '1em';
+    
+    const textLength = textContent.length;
+    let size = '1em';
+    
+    // 大画面 (992px以上)
+    if (screenWidth >= 992) {
+      if (textLength > 25) size = '0.7em';
+      else if (textLength > 16) size = '0.8em';
+      else size = '0.9em';
+    }
+    // 中画面 (576px-991px)
+    else if (screenWidth >= 576) {
+      if (textLength > 25) size = '0.65em';
+      else if (textLength > 16) size = '0.75em';
+      else size = '0.75em';
+    }
+    // 小画面 (575px以下)
+    else {
+      if (textLength > 25) size = '0.6em';
+      else if (textLength > 16) size = '0.7em';
+      else size = '0.5em';
+      
+      // 特に小さい画面
+      if (screenWidth <= 375) {
+        if (textLength > 25) size = '0.55em';
+        else if (textLength > 16) size = '0.65em';
+        else size = '0.75em';
+      }
+    }
+    
+    // 特定のテキストに対する調整
+    if (textContent && textContent.toLowerCase().includes('management team')) {
+      return screenWidth <= 576 ? '0.6em' : '0.7em';
+    }
+    
+    return size;
+  };
+
+  // クライアントサイドでの初期化
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setIsClient(true);
+      const width = window.innerWidth;
+      
+      // 初期フォントサイズを設定
+      const initialSize = calculateFontSize(width, text);
+      setCurrentFontSize(initialSize);
+      
+      // リサイズハンドラー
+      const handleResize = () => {
+        const width = window.innerWidth;
+        const newSize = calculateFontSize(width, text);
+        setCurrentFontSize(newSize);
+      };
+      
+      window.addEventListener('resize', handleResize);
+      
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }
+  }, [text]);
+
+  // 高さの値と単位を分離する補助関数
+  const parseHeightValue = (heightValue) => {
+    if (typeof heightValue === 'number') {
+      return { value: heightValue, unit: 'px' };
+    }
+    
+    const match = String(heightValue).match(/^([\d.]+)([a-z%]*)$/i);
+    if (match) {
+      return { value: parseFloat(match[1]), unit: match[2] || 'px' };
+    }
+    
+    return { value: 100, unit: '%' };
+  };
+
+  // 高さの値と単位を分離
+  const { value: heightValue, unit: heightUnit } = parseHeightValue(height);
+
+  // モバイル用の高さを計算
+  const mobileHeightValue = heightUnit === '%' ? heightValue : Math.floor(heightValue * 0.6);
+  const mobileHeight = `${mobileHeightValue}${heightUnit}`;
+
+  // スタイルを動的に挿入（クライアントサイドのみ）
+  useEffect(() => {
+    if (isClient) {
+      if (styleRef.current) {
+        document.head.removeChild(styleRef.current);
+      }
+      
+      const styleTag = document.createElement('style');
+      styleTag.innerHTML = `
+        .${staticClassName} {
+          position: relative;
+          width: 100%;
+          height: ${height};
+          background-color: #000000;
+          overflow: hidden;
+        }
+        
+        @media (max-width: 768px) {
+          .${staticClassName} {
+            height: ${mobileHeight} !important;
+          }
+        }
+        
+        .${staticClassName} .centered-text {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 10;
+          color: ${textColor};
+          text-align: center;
+          width: 80%;
+          pointer-events: none;
+        }
+      `;
+      
+      document.head.appendChild(styleTag);
+      styleRef.current = styleTag;
+      
+      return () => {
+        if (styleRef.current) {
+          document.head.removeChild(styleRef.current);
+        }
+      };
+    }
+  }, [height, mobileHeight, textColor, isClient]);
+
+  // ベーシックなインラインスタイル
   const containerStyle = {
     position: 'relative',
     width: '100%',
-    height: '100%',
+    height: height,
     backgroundColor: '#000000',
     overflow: 'hidden',
   };
@@ -240,11 +396,48 @@ const LetterGlitch = ({
     background: 'radial-gradient(circle, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 60%)',
   };
 
+  // 中央テキストのスタイル
+  const centerTextStyle = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    zIndex: 10,
+    color: textColor,
+    textAlign: 'center',
+    width: '98%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '100%',
+    lineHeight: '1.2',
+    wordBreak: isClient && window.innerWidth <= 991 ? 'break-word' : 'normal',
+    pointerEvents: 'none',
+  };
+
   return (
-    <div style={containerStyle}>
+    <div className={staticClassName} style={containerStyle}>
       <canvas ref={canvasRef} style={canvasStyle} />
       {outerVignette && <div style={outerVignetteStyle}></div>}
       {centerVignette && <div style={centerVignetteStyle}></div>}
+      {text && (
+        <div 
+          ref={textRef}
+          className={`centered-text ${textClassName}`}
+          style={centerTextStyle}
+        >
+          <span 
+            style={{ 
+              fontSize: currentFontSize,
+              lineHeight: '1.2',
+              display: 'block',
+              maxWidth: '100%'
+            }}
+          >
+            {text}
+          </span>
+        </div>
+      )}
     </div>
   );
 };

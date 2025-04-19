@@ -6,15 +6,20 @@ import ScrollToTop from "../components/Scroll-to-top";
 import LoadingScreen from "../components/Loading-Screen";
 import { GoogleAnalytics } from "nextjs-google-analytics";
 
+// Bootstrap CSSをインポート
+import "bootstrap/dist/css/bootstrap.min.css";
+
 // i18nの初期化を読み込む
 import "../i18n";
 
 import "../styles/globals.css";
 import "../styles/font.css";
 import "../styles/spacing.css";
+
+// reactbitsのCSSをインポート
 // import "../components/reactbits/ui/InfiniteMenu/InfiniteMenu.css";
 // import "../components/reactbits/text-animations/TrueFocus/TrueFocus.css";
-import "../components/reactbits/ui/InfiniteScroll/InfiniteScroll.css";
+// import "../components/reactbits/ui/InfiniteScroll/InfiniteScroll.css";
 import "../components/reactbits/ui/SpotlightCard/SpotlightCard.css";
 // import "../components/reactbits/backgrounds/Hyperspeed/Hyperspeed.css";
 // import "../components/reactbits/backgrounds/Particles/Particles.css";

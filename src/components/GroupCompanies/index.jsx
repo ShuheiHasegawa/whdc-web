@@ -36,7 +36,7 @@ const GroupCompanies = () => {
       {
         id: 1,
         label: "WHDC",
-        image: "/img/logo/whdc_group_logo/whdc_logo.png",
+        image: "/img/whdc/groupLogo/whdc_logo.png",
         shape: "image",
         font: { size: 16 },
         widthConstraint: { minimum: 120, maximum: 120 },
@@ -45,7 +45,7 @@ const GroupCompanies = () => {
       {
         id: 2,
         label: "Acrodea",
-        image: "/img/logo/whdc_group_logo/acrodea.png",
+        image: "/img/whdc/groupLogo/acrodea.png",
         shape: "image",
         widthConstraint: { minimum: 120, maximum: 120 },
         heightConstraint: { minimum: 70, maximum: 70 },
@@ -54,7 +54,7 @@ const GroupCompanies = () => {
       {
         id: 3,
         label: "Interplan",
-        image: "/img/logo/whdc_group_logo/interplan.png",
+        image: "/img/whdc/groupLogo/interplan.png",
         shape: "image",
         widthConstraint: { minimum: 120, maximum: 120 },
         heightConstraint: { minimum: 70, maximum: 70 },
@@ -63,7 +63,7 @@ const GroupCompanies = () => {
       {
         id: 4,
         label: "Nikuyoko",
-        image: "/img/logo/whdc_group_logo/nikuyoko.png",
+        image: "/img/whdc/groupLogo/nikuyoko.png",
         shape: "image",
         widthConstraint: { minimum: 120, maximum: 120 },
         heightConstraint: { minimum: 70, maximum: 70 },
@@ -72,7 +72,7 @@ const GroupCompanies = () => {
       {
         id: 5,
         label: "Sunrise Japan",
-        image: "/img/logo/whdc_group_logo/sunrisejapan.png",
+        image: "/img/whdc/groupLogo/sunrisejapan.png",
         shape: "image",
         widthConstraint: { minimum: 120, maximum: 120 },
         heightConstraint: { minimum: 70, maximum: 70 },
@@ -81,7 +81,7 @@ const GroupCompanies = () => {
       {
         id: 6,
         label: "Dream Planet",
-        image: "/img/logo/whdc_group_logo/dreamplanet.png",
+        image: "/img/whdc/groupLogo/dreamplanet.png",
         shape: "image",
         widthConstraint: { minimum: 120, maximum: 120 },
         heightConstraint: { minimum: 70, maximum: 70 },
@@ -90,7 +90,7 @@ const GroupCompanies = () => {
       {
         id: 7,
         label: "Pavilions",
-        image: "/img/logo/whdc_group_logo/pavilions.png",
+        image: "/img/whdc/groupLogo/pavilions.png",
         shape: "image",
         widthConstraint: { minimum: 120, maximum: 120 },
         heightConstraint: { minimum: 70, maximum: 70 },
@@ -99,7 +99,7 @@ const GroupCompanies = () => {
       {
         id: 8,
         label: "SOUND PORT",
-        image: "/img/logo/whdc_group_logo/soundport.png",
+        image: "/img/whdc/groupLogo/soundport.png",
         shape: "image",
         widthConstraint: { minimum: 120, maximum: 120 },
         heightConstraint: { minimum: 70, maximum: 70 },
@@ -150,10 +150,8 @@ const GroupCompanies = () => {
       },
       edges: {
         color: {
-          // color: "rgba(0, 255, 128, 0.5)",
-          color: "rgb(0, 160, 232, 0.5)",
-          // highlight: "#00ff80",
-          highlight: "#00a0e8",
+          color: "rgb(0, 157, 231, 0.5)",
+          highlight: "#009DE7",
         },
         width: 2,
         smooth: {

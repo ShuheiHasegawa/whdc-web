@@ -16,11 +16,12 @@ const Footer = () => {
   // }
   // const sendEmail = (ms) => new Promise((r) => setTimeout(r, ms));
   return (
-    <footer className="footer p-0">
+    <footer className="footer bg-footer p-0">
       <style>
         {`
           .footer {
-            background-color: #000;
+            z-index: 100;
+            position: relative;
           }
         `}
       </style>

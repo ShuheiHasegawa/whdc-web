@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import styles from "./style.module.css";
 // SVGをReactコンポーネントとしてインポート
-import CatchCopy01 from "../../../public/img/top/catchcopy_01.svg";
-import CatchCopy02 from "../../../public/img/top/catchcopy_02.svg";
-import CatchCopy03 from "../../../public/img/top/catchcopy_03.svg";
-import CatchCopy04 from "../../../public/img/top/catchcopy_04.svg";
+import CatchCopy01 from "../../../public/img/whdc/top/catchcopy_01.svg";
+import CatchCopy02 from "../../../public/img/whdc/top/catchcopy_02.svg";
+import CatchCopy03 from "../../../public/img/whdc/top/catchcopy_03.svg";
+import CatchCopy04 from "../../../public/img/whdc/top/catchcopy_04.svg";
 
 const IntroText = () => {
   const [show, setShow] = useState(false);
@@ -35,20 +35,35 @@ const IntroText = () => {
     }
   }, [show]);
 
+  // 共通のSVGスタイルを定義
+  const svgProps = {
+    className: styles.svgImage,
+    width: "100%", // 幅を100%に設定
+    preserveAspectRatio: "xMidYMid meet" // アスペクト比を維持しながら中央揃え
+  };
+
   return (
     <div className={`${styles.introText} ${show ? styles.show : ""}`}>
       <div className={styles.svgContainer}>
         <div className={`${styles.svgWrapper} ${visibleLines >= 1 ? styles.visible : ''}`}>
-          <CatchCopy01 className={styles.svgImage} />
+          <div style={{ width: "100%", maxWidth: "85vw", margin: "0 auto" }}>
+            <CatchCopy01 width="100%" height="100%" />
+          </div>
         </div>
         <div className={`${styles.svgWrapper} ${visibleLines >= 2 ? styles.visible : ''}`}>
-          <CatchCopy02 className={styles.svgImage} />
+          <div style={{ width: "100%", maxWidth: "85vw", margin: "0 auto" }}>
+            <CatchCopy02 width="100%" height="100%" />
+          </div>
         </div>
         <div className={`${styles.svgWrapper} ${visibleLines >= 3 ? styles.visible : ''} pt-32`}>
-          <CatchCopy03 className={styles.svgImage} />
+          <div style={{ width: "100%", maxWidth: "85vw", margin: "0 auto" }}>
+            <CatchCopy03 width="100%" height="100%" />
+          </div>
         </div>
         <div className={`${styles.svgWrapper} ${visibleLines >= 4 ? styles.visible : ''}`}>
-          <CatchCopy03 className={styles.svgImage} />
+          <div style={{ width: "100%", maxWidth: "85vw", margin: "0 auto" }}>
+            <CatchCopy04 width="100%" height="100%" />
+          </div>
         </div>
       </div>
     </div>

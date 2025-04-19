@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TitleLeftLine = ({ title, blueText, subtitle }) => {
+const TitleLeftLine = ({ title, blueText, subtitle, size="text-2xl" }) => {
   return (
     <div style={{ display: 'flex', alignItems: 'center' }}>
       <div className="title-line bg-blue" style={{ 
@@ -10,7 +10,7 @@ const TitleLeftLine = ({ title, blueText, subtitle }) => {
         borderRadius: '2px'
       }}></div>
       <div>
-        <h2 className="text-2xl text-blue m-0">
+        <h2 className={`${size} text-blue m-0`}>
           {title}
           {blueText && <span className="color-blue text-base">{blueText}</span>}
         </h2>

@@ -1,13 +1,11 @@
 import React from "react";
-import Link from "next/link";
-import HeroImage from "../HeroImage";
 import TitleLeftLine from "../TitleLeftLine";
 import Split from "../Split";
 import CenteredLayoutContainer from "../CenteredLayoutContainer";
-import SectionTitle from "../SectionTitle";
 import Button from "../Button";
 import { historyData } from "./historyData";
 import Dashed2Column from "../Dashed2Column";
+import SectionHeader from "../SectionHeader";
 
 const CompanyPage = () => {
   const companyInfoItems = [
@@ -62,7 +60,6 @@ const CompanyPage = () => {
               ・コンサート、演劇、演芸、講演、スポーツ等各種イベントの企画、制作、興行
             </li>
             <li>・知的財産権の管理、販売及び使用許諾等</li>
-            <li>・産業廃棄物及び一般廃棄物の再資源化処理物の販売</li>
             <li>・その他</li>
           </ul>
         </>
@@ -76,7 +73,7 @@ const CompanyPage = () => {
     {
       title: "グループ会社",
       content:
-        "WHDCアクロディア株式会社、株式会社渋谷肉横丁、株式会社インタープラン、WHDCエンタテインメント株式会社、GUAM ENTERTAINMENT SYSTEMS, LLC 、株式会社SOUND PORT、Pavilions株式会社、株式会社宇部整環リサイクルセンター",
+        "WHDCアクロディア株式会社、株式会社渋谷肉横丁、株式会社インタープラン、WHDCエンタテインメント株式会社、LLC 、株式会社SOUND PORT、Pavilions株式会社",
     },
   ];
 
@@ -85,7 +82,7 @@ const CompanyPage = () => {
     return historyData.map((item) => ({
       title: (
         <span>
-          <span style={{ display: "inline-block", width: "3.6em" }}>
+          <span style={{ display: "inline-block", width: "4em" }}>
             {item.year}年
           </span>
           <span
@@ -106,17 +103,9 @@ const CompanyPage = () => {
 
   return (
     <section id="company">
-      <HeroImage
-        src="/img/whdc/company/firstview_02_2022.png"
-        alt="firstview_about"
-        objectFit="cover"
-        priority
-      />
+      <SectionHeader text="ABOUT" />
 
       <CenteredLayoutContainer>
-        <SectionTitle title="ABOUT" />
-
-        {/* 会社情報 */}
         <section id="info" className="container">
           <Split>
             <TitleLeftLine title="会社情報" />
@@ -178,7 +167,6 @@ const CompanyPage = () => {
                         コンサート、演劇、演芸、講演、スポーツ等各種イベントの企画、制作、興行
                       </li>
                       <li>知的財産権の管理、販売及び使用許諾等</li>
-                      <li>産業廃棄物及び一般廃棄物の再資源化処理物の販売</li>
                       <li>その他</li>
                     </ul>
                   </td>
@@ -194,8 +182,8 @@ const CompanyPage = () => {
                   <th>グループ会社</th>
                   <td>
                     WHDCアクロディア株式会社、株式会社渋谷肉横丁、株式会社インタープラン、WHDCエンタテインメント株式会社、
-                    GUAM ENTERTAINMENT SYSTEMS, LLC 、株式会社SOUND
-                    PORT、Pavilions株式会社、株式会社宇部整環リサイクルセンター
+                    LLC 、株式会社SOUND
+                    PORT、Pavilions株式会社
                   </td>
                 </tr>
               </tbody>

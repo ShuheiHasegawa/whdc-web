@@ -1,15 +1,13 @@
 import React from "react";
 import Image from "next/image";
 import CenteredLayoutContainer from "../CenteredLayoutContainer";
-import SectionTitle from "../SectionTitle";
+import SectionHeader from "../SectionHeader";
 
 const AccessMap = () => {
   return (
     <section id="access-map">
+      <SectionHeader text="アクセスマップ" />
       <CenteredLayoutContainer>
-
-        <SectionTitle title="アクセスマップ" />
-
         {/* 会社情報（row-col構造） */}
         <div className="mb-5">
           {/* 会社名 */}
@@ -86,7 +84,7 @@ const AccessMap = () => {
             </div>
             <div className="col-md-9">
               <div>
-                <div className="mb-4">
+                <div className="mb-4" style={{ maxWidth: "480px" }}>
                   {/* <Image
                     src="/img/map.png"
                     alt="アクセスマップ"
@@ -94,13 +92,13 @@ const AccessMap = () => {
                     height={360}
                     className="img-fluid rounded"
                   /> */}
-                  <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3240.399282174874!2d139.7178082!3d35.6917908!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cee400cc92f%3A0x5f0e97819f438c1f!2sTHE%20WHY%20HOW%20DO%20COMPANY%E3%88%B1!5e0!3m2!1sja!2sjp!4v1744292595180!5m2!1sja!2sjp" 
-                    width="480" 
-                    height="320" 
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3240.399282174874!2d139.7178082!3d35.6917908!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cee400cc92f%3A0x5f0e97819f438c1f!2sTHE%20WHY%20HOW%20DO%20COMPANY%E3%88%B1!5e0!3m2!1sja!2sjp!4v1744292595180!5m2!1sja!2sjp"
+                    width="100%"
+                    height="320"
                     style={{ border: "0" }}
-                    allowFullScreen="" 
-                    loading="lazy" 
+                    allowFullScreen={false}
+                    loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                   ></iframe>
                 </div>
@@ -132,7 +130,6 @@ const AccessMap = () => {
             </div>
           </div>
         </div>
-
       </CenteredLayoutContainer>
 
       <style>{`

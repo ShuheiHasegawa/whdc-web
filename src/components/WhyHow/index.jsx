@@ -16,7 +16,7 @@ const WhyHow = ({ img, theme, subBG }) => {
         <div className="row justify-content-center">
           <div className="col-lg-10">
             <div className="wow fadeInUp p-8" data-wow-delay="0.2s">
-              <p className="text-description text-white text-lg">
+              <p className="text-description text-lg">
                 ワイハウは「みんなで豊かになる」を理念に、企業と人材が共に成長する企業再成プラットフォームを提供しています。
               </p>
             </div>

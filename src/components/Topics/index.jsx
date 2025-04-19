@@ -38,7 +38,7 @@ const Topics = () => {
                 <Link href="/company">
                   <a>
                     <HeroImage
-                      src="/img/top/kigyougaiyou_01.png"
+                      src="/img/whdc/top/kigyougaiyou_01.png"
                       alt="会社概要"
                       mobileHeight="100px"
                       tabletHeight="120px"
@@ -71,7 +71,7 @@ const Topics = () => {
                 >
                   <a target="_blank" rel="noopener noreferrer">
                     <HeroImage
-                      src="/img/top/firstview_ir_768.png"
+                      src="/img/whdc/top/firstview_ir_768.png"
                       alt="株主・投資家情報"
                       mobileHeight="100px"
                       tabletHeight="120px"

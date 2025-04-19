@@ -41,6 +41,7 @@
               src="../image/firstview_ir_768.png"
               alt="firstview_ir_"
               data-no-transform="true"
+              style="width: 100%"
             />
           </div>
         </div>
@@ -61,13 +62,22 @@
             <!-- ================================= E-IRによる情報の自動出力に必要な部分 ========================== -->
           </div>
         </section>
-        <a
-          href="news/index.html"
-          class="bgWhite smallButton buttonW240 shadow deepBlue fontSize26"
-          id="irNewsLink"
+        <!-- ニュース一覧ボタンを囲むための中央寄せコンテナを追加 -->
+        <div
+          style="
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-top: 32px;
+            margin-bottom: 32px;
+          "
         >
-          <p>ニュース一覧</p>
-        </a>
+          <div class="btn-box-top">
+            <a href="news/index.html" class="btn-outline fontSize26">
+              <p>ニュース一覧</p>
+            </a>
+          </div>
+        </div>
         <!-- ================================= E-IRによる情報の自動出力に必要な部分 ========================== -->
         <script
           type="text/javascript"
@@ -82,203 +92,205 @@
         <!-- ================================= E-IRによる情報の自動出力に必要な部分 ========================== -->
       </div>
       <!-- 事業内容へのリンク -->
-      <div id="irLink">
-        <article class="linkBox irLinks bgWhite">
-          <div class="irLinkList">
+      <div id="irLink" style="margin: 0 auto">
+        <article class="linkBox irLinks card-radius card-blue-outline">
+          <div class="irLinkList card-radius bg-black-card light-text">
             <a href="/about" class="underAnchor">
-              <div class="under">
-                <h2 class="fontSize26 dark-text">ワイハウについて</h2>
+              <div class="under card-radius bg-black-card light-text">
+                <h2 class="fontSize26">ワイハウについて</h2>
               </div>
             </a>
             <br />
-            <a href="../#work" class="irFloatAnchor dark-text">事業内容</a>
+            <a href="/about" class="irFloatAnchor light-text">事業内容</a>
             <br />
             <a
               href="about_us/governance/index.html"
-              class="irFloatAnchor dark-text"
+              class="irFloatAnchor light-text"
               >コーポレートガバナンス</a
             >
           </div>
         </article>
 
-        <article class="linkBox irLinks bgWhite">
-          <div class="irLinkList">
-            <a href="management_philosophy/index.html" class="underAnchor">
-              <div class="under">
-                <h2 class="fontSize26 dark-text">企業憲章</h2>
+        <article class="linkBox irLinks card-radius card-blue-outline">
+          <div class="irLinkList card-radius bg-black-card light-text">
+            <a href="/company/philosophy" class="underAnchor">
+              <div class="under card-radius bg-black-card light-text">
+                <h2 class="fontSize26">企業憲章</h2>
               </div>
             </a>
             <a
               href="management_philosophy/#philosophy"
-              class="irFloatAnchor dark-text"
+              class="irFloatAnchor light-text"
               >経営理念</a
             >
             <br />
             <a
               href="management_philosophy/#policy"
-              class="irFloatAnchor dark-text"
+              class="irFloatAnchor light-text"
               >経営方針</a
             >
             <br />
             <a
               href="management_philosophy/#code"
-              class="irFloatAnchor dark-text"
+              class="irFloatAnchor light-text"
               >行動規範</a
             >
           </div>
         </article>
 
-        <article class="linkBox irLinks bgWhite">
-          <div class="irLinkList">
+        <article class="linkBox irLinks card-radius card-blue-outline">
+          <div class="irLinkList card-radius bg-black-card light-text">
             <a href="stock_information/index.html" class="underAnchor">
-              <div class="under">
-                <h2 class="fontSize26 dark-text">株式情報</h2>
+              <div class="under card-radius bg-black-card light-text">
+                <h2 class="fontSize26">株式情報</h2>
               </div>
             </a>
             <a
-              href="stock_information/#stock_info"
-              class="irFloatAnchor dark-text"
+              href="stock_information/index.html#stock_info"
+              class="irFloatAnchor light-text"
               >銘柄基本情報</a
             >
             <br />
             <a
-              href="stock_information/#cap_shares"
-              class="irFloatAnchor dark-text"
+              href="stock_information/index.html#cap_shares"
+              class="irFloatAnchor light-text"
               >資本金・発行済株式数の推移</a
             >
             <br />
             <a
-              href="stock_information/#articles"
-              class="irFloatAnchor dark-text"
+              href="stock_information/index.html#articles"
+              class="irFloatAnchor light-text"
               >定款・株式取扱規程</a
             >
             <br />
             <a
               href="stock_information/meeting/index.html"
-              class="irFloatAnchor dark-text"
+              class="irFloatAnchor light-text"
               >株主総会関係資料</a
             >
             <br />
             <a
-              href="stock_information/#public_notice"
-              class="irFloatAnchor dark-text"
+              href="stock_information/index.html#public_notice"
+              class="irFloatAnchor light-text"
               >電子公告</a
             >
           </div>
         </article>
 
-        <article class="linkBox irLinks bgWhite">
-          <div class="irLinkList">
+        <article class="linkBox irLinks card-radius card-blue-outline">
+          <div class="irLinkList card-radius bg-black-card light-text">
             <a href="library/index.html" class="underAnchor">
-              <div class="under">
-                <h2 class="fontSize26 dark-text">IR資料</h2>
+              <div class="under card-radius bg-black-card light-text">
+                <h2 class="fontSize26">IR資料</h2>
               </div>
             </a>
             <a
               href="library/financial_info/index.html"
-              class="irFloatAnchor dark-text"
+              class="irFloatAnchor light-text"
               >決算短信</a
             >
             <br />
             <a
               href="library/annual_report/index.html"
-              class="irFloatAnchor dark-text"
+              class="irFloatAnchor light-text"
               >有価証券報告書</a
             >
             <br />
             <a
               href="library/factsheet/index.html"
-              class="irFloatAnchor dark-text"
+              class="irFloatAnchor light-text"
               >ファクトシート</a
             >
             <br />
             <a
               href="library/presentation/index.html"
-              class="irFloatAnchor dark-text"
+              class="irFloatAnchor light-text"
               >決算説明資料</a
             >
             <br />
-            <a href="library/mtmp/index.html" class="irFloatAnchor dark-text"
+            <a href="library/mtmp/index.html" class="irFloatAnchor light-text"
               >中期経営計画</a
             >
             <br />
             <a
               href="library/schedule/index.html"
-              class="irFloatAnchor dark-text"
+              class="irFloatAnchor light-text"
               >IRカレンダー</a
             >
           </div>
         </article>
 
-        <article class="linkBox irLinks bgWhite">
-          <div class="irLinkList">
-            <a href="financial_highlights/index.html" class="underAnchor">
-              <div class="under">
-                <h2 class="fontSize26 dark-text">財務ハイライト</h2>
+        <article class="linkBox irLinks card-radius card-blue-outline">
+          <a href="financial_highlights/index.html">
+            <div class="irLinkList card-radius bg-black-card light-text">
+              <div
+                class="card-radius bg-black-card light-text"
+                style="
+                  position: absolute;
+                  left: 0;
+                  text-align: left;
+                  padding: 20px 20px 20px 20px;
+                "
+              >
+                <h2 class="fontSize26">財務ハイライト</h2>
               </div>
-            </a>
-            <span class="irFloatAnchor dark-text">売上高</span>
-            <br />
-            <span class="irFloatAnchor dark-text">営業利益</span>
-            <br />
-            <span class="irFloatAnchor dark-text"
-              >親会社株主に帰属する当期純利益</span
-            >
-            <br />
-            <span class="irFloatAnchor dark-text">1株当たり当期純利益</span>
-            <br />
-            <span class="irFloatAnchor dark-text">純資産</span>
-            <br />
-            <span class="irFloatAnchor dark-text">1株当たりの純資産</span>
-            <br />
-            <span class="irFloatAnchor dark-text">EBITDA</span>
-            <br />
-            <span class="irFloatAnchor dark-text">業績予想</span>
-          </div>
+              <div class="zaimu-list">
+                <span class="irFloatAnchor light-text">売上高</span>
+                <br />
+                <span class="irFloatAnchor light-text">営業利益</span>
+                <br />
+                <span class="irFloatAnchor light-text"
+                  >親会社株主に帰属する当期純利益</span
+                >
+                <br />
+                <span class="irFloatAnchor light-text"
+                  >1株当たり当期純利益</span
+                >
+                <br />
+                <span class="irFloatAnchor light-text">純資産</span>
+                <br />
+                <span class="irFloatAnchor light-text">1株当たりの純資産</span>
+                <br />
+                <span class="irFloatAnchor light-text">EBITDA</span>
+                <br />
+                <span class="irFloatAnchor light-text">業績予想</span>
+              </div>
+            </div>
+          </a>
         </article>
       </div>
       <!-- 画像リンク -->
-      <p id="separateLine" class="deepBlue borderDeepBlue fontSize26">
-        その他IR情報
-      </p>
-      <div id="Link" class="irExamInfo">
-        <a
-          href="policy/index.html"
-          class="linkBox shadow bgWhite fontSize20 deepBlue"
-          ><p>IRポリシー</p></a
-        >
-        <a
-          href="compliance/index.html"
-          class="linkBox shadow bgWhite fontSize20 deepBlue"
-          ><p>コンプライアンス方針</p></a
-        >
-        <a
-          href="inquiry/index.html"
-          class="linkBox shadow bgWhite fontSize20 deepBlue"
-          ><p>IRお問い合わせ</p></a
-        >
-        <a
-          href="faq/index.html"
-          class="linkBox shadow bgWhite fontSize20 deepBlue"
-          ><p>FAQ</p></a
-        >
-        <a
-          href="notes/index.html"
-          class="linkBox shadow bgWhite fontSize20 deepBlue"
-          ><p>免責事項</p></a
-        >
-      </div>
-      <!-- footer -->
-      <footer>
-        <div id="footerOutPut" class="bgDeepBlue white">
-          <script>
-            var date_obj = new Date();
-            var tparm = Math.floor(date_obj.getTime() / 1000);
-            var url = "/news/parts/footer.html?" + tparm;
-            $("#footerOutPut").load(url);
-          </script>
+      <div class="irOther">
+        <p id="separateLine" class="irHeading fontSize26">その他IR情報</p>
+        <div id="Link" class="horizontal-container">
+          <a href="policy/index.html" class="btn-outline fontSize20"
+            ><p>IRポリシー</p></a
+          >
+          <a href="compliance/index.html" class="btn-outline fontSize20"
+            ><p>コンプライアンス方針</p></a
+          >
+          <!-- <a
+            href="inquiry/index.html"
+            class="btn-outline fontSize20"
+            ><p>IRお問い合わせ</p></a
+          > -->
+          <a href="faq/index.html" class="btn-outline fontSize20"><p>FAQ</p></a>
+          <a href="notes/index.html" class="btn-outline fontSize20"
+            ><p>免責事項</p></a
+          >
         </div>
-      </footer>
+      </div>
     </main>
+    <!-- footer -->
+    <footer>
+      <div id="footerOutPut">
+        <script>
+          var date_obj = new Date();
+          var tparm = Math.floor(date_obj.getTime() / 1000);
+          var url = "/news/parts/footer.html?" + tparm;
+          $("#footerOutPut").load(url);
+        </script>
+      </div>
+    </footer>
   </body>
 </html>

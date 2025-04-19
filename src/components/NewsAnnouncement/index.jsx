@@ -10,15 +10,36 @@ const NewsAnnouncement = ({ limit = 3 }) => {
   const [selectedYear, setSelectedYear] = useState('0'); // 0は「最新1年分」
 
   useEffect(() => {
-    // データを取得する関数
-    const fetchNewsData = async () => {
+    // JSONP形式のスクリプトを読み込む関数
+    const loadEIRScript = () => {
+      // グローバルコールバック関数を定義
+      window.eolparts_announcement_7 = (data) => {
+        handleNewsData(data);
+      };
+
+      // スクリプトタグを作成
+      const script = document.createElement('script');
+      script.src = "//ssl4.eir-parts.net/V4Public/EIR/3823/ja/announcement/announcement_7.js";
+      script.charset = "UTF-8";
+      script.async = true;
+      script.onerror = () => {
+        setError('データの取得に失敗しました');
+        setLoading(false);
+      };
+      
+      // DOMに追加
+      document.body.appendChild(script);
+      
+      // クリーンアップ関数
+      return () => {
+        document.body.removeChild(script);
+        delete window.eolparts_announcement_7;
+      };
+    };
+    
+    // データを処理する関数
+    const handleNewsData = (data) => {
       try {
-        setLoading(true);
-        
-        // EIR-PartsのJSONPを直接使用するのではなく、プロキシAPIを経由
-        const response = await fetch('/api/news-data');
-        const data = await response.json();
-        
         if (!data || !data.item || !data.item_count) {
           throw new Error('データの形式が不正です');
         }
@@ -86,13 +107,18 @@ const NewsAnnouncement = ({ limit = 3 }) => {
         setNewsItems(formattedItems);
         setLoading(false);
       } catch (err) {
-        console.error('ニュースデータの取得に失敗しました:', err);
-        setError('データの取得に失敗しました');
+        console.error('ニュースデータの処理に失敗しました:', err);
+        setError('データの処理に失敗しました');
         setLoading(false);
       }
     };
     
-    fetchNewsData();
+    // クライアントサイドでのみ実行
+    if (typeof window !== 'undefined') {
+      const cleanupFn = loadEIRScript();
+      return cleanupFn;
+    }
+    
   }, [selectedYear, limit]);
   
   // 7日以内の新着アイテムかどうかを判定
@@ -139,7 +165,7 @@ const NewsAnnouncement = ({ limit = 3 }) => {
               <div className="col-md-9 col-sm-7 d-flex align-items-center">
                 <div className="info-content w-100">
                   <Split>
-                    <Link href={item.url} target="_blank">
+                    <Link href={item.url}>
                       <a
                         className="info-link text-sm text-white wow words chars splitting"
                         data-splitting

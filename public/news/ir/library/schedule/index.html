@@ -51,6 +51,10 @@
           <p class="left fontSize20 normal white width100 bgDeepBlue">2025年</p>
           <ul class="borderDeepBlueIr">
             <li class="left fontSize18 normal irPadding light-text">
+              <time datetime="2025-04-14" class="deepBlue">2025/04/14</time>
+              2025年8月期第2四半期決算発表
+            </li>
+            <li class="left fontSize18 normal irPadding light-text">
               <time datetime="2025-01-14" class="deepBlue">2025/01/14</time>
               2025年8月期第1四半期決算発表
             </li>
@@ -84,57 +88,46 @@
       </section>
       <aside id="libraryNav">
         <p class="irHeading">IR資料マップ</p>
-        <ul>
-          <li>
-            <a
-              href="../financial_info/index.html"
-              class="center productLinkButton fontSize20 bg-white"
-              >決算短信</a
-            >
-          </li>
-          <li>
-            <a
-              href="../annual_report/index.html"
-              class="center productLinkButton fontSize20 bg-white"
-              >有価証券報告書</a
-            >
-          </li>
-          <li>
-            <a
-              href="../factsheet/index.html"
-              class="center productLinkButton fontSize20 bg-white"
-              >ファクトシート</a
-            >
-          </li>
-          <li>
-            <a
-              href="../presentation/index.html"
-              class="center productLinkButton fontSize20 bg-white"
-              >決算説明資料</a
-            >
-          </li>
-          <li>
-            <a
-              href="../mtmp/index.html"
-              class="center productLinkButton fontSize20 bg-white"
-              >中期経営計画</a
-            >
-          </li>
-          <li>
-            <a
-              href="../schedule/index.html"
-              class="center productLinkButton fontSize20 bg-white"
-              >IRカレンダー</a
-            >
-          </li>
-          <li>
-            <a
-              href="../index.html"
-              class="center productLinkButton fontSize20 bg-white"
-              >IR資料トップ</a
-            >
-          </li>
-        </ul>
+        <div style="width: 100%; text-align: center">
+          <ul class="ir-button-grid">
+            <li class="btn-box-top">
+              <a
+                href="../financial_info/index.html"
+                class="fontSize20 btn-outline"
+                >決算短信</a
+              >
+            </li>
+            <li class="btn-box-top">
+              <a
+                href="../annual_report/index.html"
+                class="fontSize20 btn-outline"
+                >有価証券報告書</a
+              >
+            </li>
+            <li class="btn-box-top">
+              <a href="../factsheet/index.html" class="fontSize20 btn-outline"
+                >ファクトシート</a
+              >
+            </li>
+            <li class="btn-box-top">
+              <a
+                href="../presentation/index.html"
+                class="fontSize20 btn-outline"
+                >決算説明資料</a
+              >
+            </li>
+            <li class="btn-box-top">
+              <a href="../mtmp/index.html" class="fontSize20 btn-outline"
+                >中期経営計画</a
+              >
+            </li>
+            <li class="btn-box-top">
+              <a href="../schedule/index.html" class="fontSize20 btn-outline"
+                >IRカレンダー</a
+              >
+            </li>
+          </ul>
+        </div>
       </aside>
       <aside id="irNotes">
         <div id="irNotesHead" class="borderDeepBlue">
@@ -163,7 +156,7 @@
         </div>
       </aside>
       <footer>
-        <div id="footerOutPut" class="bgDeepBlue white">
+        <div id="footerOutPut">
           <script>
             var date_obj = new Date();
             var tparm = Math.floor(date_obj.getTime() / 1000);

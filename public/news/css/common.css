@@ -15,13 +15,26 @@
 	--bg-white: #f5f5f5;
   --bg-black: #0c0c0c;
   --bg-black-card: #2b2b2b;
-  --bg-blue: #00a0e8;
+  --bg-blue: #009DE7;
   --color-black: #0c0c0c;
-  --color-blue: #00a0e8;
+  --color-black-card: #2b2b2b;
+  --color-blue: #009DE7;
 	--light-text: #f5f5f5;
 	--dark-text: #0c0c0c;
 	--gray-text: #2b2b2b;
+  /* フォント関連の変数 */
+  --font-primary: 'Noto Sans JP', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', YuGothic, Meiryo, sans-serif;
+  --font-heading: 'Noto Sans JP', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', YuGothic, Meiryo, sans-serif;
+  /* フォントウェイト */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  /* 行の高さ */
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
 }
+
 
 .bg-header {
   background-color: var(--bg-header);
@@ -45,16 +58,41 @@
   color: var(--color-blue);
 }
 
+.card-radius {
+  border-radius: 1.5rem !important;
+}
+
+.top-black-card {
+  background-color: var(--bg-black-card);
+  border-radius: 1.5rem;
+	min-width: 240px;
+	max-width: 240px;
+}
+
+.newsBox {
+  background-color: var(--bg-black-card);
+  border-radius: 1.5rem;
+	/* min-width: 240px;
+	max-width: 240px; */
+}
+
 *:before,*:after {
 	box-sizing: border-box;
 }
 
 html, body, main, header, section, article, nav, table, tr, th, td, footer, div, p, a, span, ul, ol,
 li, h1, h2, h3, h4, h5, select,figure,figcaption {
-	font-weight: 700;
+	/* font-weight: 700; */
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+/* 基本フォント設定 */
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 html {
@@ -73,9 +111,9 @@ body {
 	-webkit-overflow-scrolling: touch;
 }
 
-#footerOutPut {
+/* #footerOutPut {
 	padding-bottom: 24px;
-}
+} */
 
 img {
 	border: none;
@@ -253,19 +291,19 @@ td.yuhopdf > a {
 	border-bottom: 4px solid #00b6be;
 }
 
-.borderDeepBlue {
+/* .borderDeepBlue { */
 	/* border-bottom: 4px solid #00074A; */
-	border-bottom: 4px solid #f5f5f5;
-}
+	/* border-bottom: 4px solid #f5f5f5; */
+/* } */
 
 .borderDeepBlueSmall {
 	/* border-bottom: 2px solid #00074A; */
-	border-bottom: 2px solid #f5f5f5;
+	border-bottom: 1px solid #f5f5f5;
 }
 
 .borderDeepBlueIr {
 	/* border-bottom: 2px solid #00074A; */
-	border-bottom: 2px solid #f5f5f5;
+	border-bottom: 1px solid #f5f5f5;
 }
 
 .borderDeepBlueIrDotted {
@@ -329,13 +367,15 @@ td.yuhopdf > a {
 /*/////////各お知らせページの見出し//////////////*/
 .newsTitle {
 	font-size: 1.2rem;
-	padding: .4% 0 .1% 1.1%;
+	/* padding: .4% 0 .1% 1.1%; */
+	padding: 4px;
 	width: 220px;
 }
 
 .newsTime {
+	/* display: inline-block; */
 	font-size: 1.12rem;
-	padding: .6% .7% .6% 0;
+	padding: 4px;
 }
 /*/////////そのほか細かいレイアウト系/////////////*/
 .width100 {
