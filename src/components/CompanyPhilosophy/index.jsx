@@ -1,10 +1,62 @@
 /* eslint-disable @next/next/no-img-element */
-import React from "react";
+import React, { useEffect } from "react";
 import SectionHeader from "../SectionHeader";
 import TitleLeftLine from "../TitleLeftLine";
 import CenteredLayoutContainer from "../CenteredLayoutContainer";
 
 const CompanyPhilosophy = () => {
+  // スムーズスクロールのためのeffectを追加
+  useEffect(() => {
+    // ハッシュがあればスクロールする
+    if (typeof window !== "undefined" && window.location.hash) {
+      const id = window.location.hash.substring(1); // #を除いたidを取得
+      const element = document.getElementById(id);
+      
+      if (element) {
+        // 少し遅延させてDOMが完全に描画されてから行う
+        setTimeout(() => {
+          element.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }, 300);
+      }
+    }
+    
+    // リンククリック時のハンドラーを追加
+    const handleAnchorClick = (e) => {
+      const targetId = e.target.getAttribute('href');
+      if (targetId && targetId.startsWith('#')) {
+        e.preventDefault();
+        const id = targetId.substring(1);
+        const element = document.getElementById(id);
+        
+        if (element) {
+          element.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+          
+          // URLをアップデート
+          history.pushState(null, null, targetId);
+        }
+      }
+    };
+    
+    // ページ内のすべてのアンカーリンクに適用
+    const links = document.querySelectorAll('a[href^="#"]');
+    links.forEach(link => {
+      link.addEventListener('click', handleAnchorClick);
+    });
+    
+    // クリーンアップ
+    return () => {
+      links.forEach(link => {
+        link.removeEventListener('click', handleAnchorClick);
+      });
+    };
+  }, []);
+
   return (
     <section id="company-philosophy">
       <SectionHeader text="企業憲章" />
@@ -12,7 +64,7 @@ const CompanyPhilosophy = () => {
         <div className="pt-32">
           <div>
             <TitleLeftLine title="企業理念" blueText="（全社レベル）" />
-            <div id="philosophy">
+            <section id="philosophy">
               <div className="pt-4">
                 THE WHY HOW DO
                 COMPANY（以後、ワイハウ）の使命（ミッション＝パーパス）を「価値創造の力で、もう一度豊かになる」とします。
@@ -46,14 +98,14 @@ const CompanyPhilosophy = () => {
                 &quot;ワイハウならきっと答えを出すに違いない&quot;
                 と思って下さるような、言い換えればビジネスモデルの総合商社／Ｍ＆Ａ業界における総合不動産ディベロッパーのような、唯一無二の存在になる」ことを掲げます。
               </p>
-            </div>
+            </section>
           </div>
 
           <div className="pt-4">
             <div className="pt-8">
               <TitleLeftLine title="経営方針" blueText="（事業レベル）" />
             </div>
-            <div id="policy" className="pt-4">
+            <section id="policy" className="pt-4">
               <ul className="p-0">
                 <li>
                   ワイハウグループは、全社を挙げて、下記の経営方針を共有していきます。
@@ -66,14 +118,14 @@ const CompanyPhilosophy = () => {
                 <li>すべての人は尊敬すべき人生の経営者</li>
                 <li>すべての人は尊敬すべき人生のプロフェッショナル</li>
               </ul>
-            </div>
+            </section>
           </div>
 
-          <div className="pt-4">
+          <div className="pt-4 pb-16">
             <div className="pt-8">
               <TitleLeftLine title="行動規範" blueText="（個人レベル）" />
             </div>
-            <div id="code" className="pt-4">
+            <section id="code" className="pt-4">
               <ul className="p-0">
                 <li>
                   私たちは、経営理念と経営方針をし、これを実践するために、経営層から従業員まで全員が従うべき行動規範を以下のとおり定めます。これらの行動規範は「実際に行動できて初めて知ったと言える」という知行合一の精神の下で、7か条の意味を各自で考えながら実践していきます。
@@ -88,10 +140,10 @@ const CompanyPhilosophy = () => {
                 <li>君子は和して同ぜず。小人は同じて和せず。</li>
                 <li>君子は言を以て人を挙げず、人を以て言を廃せず。</li>
               </ul>
-            </div>
+            </section>
           </div>
 
-          <div className="pt-4">
+          {/* <div className="pt-4">
             <div
               className="small"
               style={{ textAlign: "right", color: "#fff" }}
@@ -105,7 +157,7 @@ const CompanyPhilosophy = () => {
                 <li className="pt-1">改定：令和7年4月14日</li>
               </ul>
             </div>
-          </div>
+          </div> */}
         </div>
       </CenteredLayoutContainer>
     </section>

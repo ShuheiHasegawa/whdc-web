@@ -51,7 +51,7 @@
               href="javascript:void(0)"
               onClick="TabLink_onclick('newt',0);return false;"
               class="irNewsTab bgDeepBlue shadow center white fontSize26 selected"
-              >ニュース一覧</a
+              >ALL</a
             >
           </li>
           <li id="top_nav02">
@@ -119,5 +119,25 @@
     <!-- Google Tag Manager -->
     <!-- ここに入る -->
     <!-- Google Tag Manager -->
+
+    <!-- 選択状態のスタイリング -->
+    <style>
+      /* ニュース項目の選択状態のスタイル */
+      #divDataArea .announcement_date_line {
+        transition: background-color 0.3s ease;
+        cursor: pointer;
+      }
+
+      #divDataArea .announcement_date_line:hover {
+        background-color: rgba(0, 61, 125, 0.1);
+      }
+
+      /* 選択中のタブのスタイル強調 */
+      #irNewsButton .selected {
+        font-weight: bold;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+        background-color: var(--bg-blue) !important;
+      }
+    </style>
   </body>
 </html>

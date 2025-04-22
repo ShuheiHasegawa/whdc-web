@@ -30,6 +30,36 @@
         $("#headerOutPut").load(url);
       </script>
     </div>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh; /* ビューポートの高さを最低値として設定 */
+      }
+
+      main {
+        flex: 1 0 auto;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* フッターを絶対位置で固定する代替方法 */
+      footer {
+        margin-top: auto; /* mainの残りスペースを上部マージンとして使用 */
+      }
+
+      /* 内容が少ない場合でも最小高さを確保 */
+      .irPage {
+        flex-grow: 1;
+      }
+    </style>
     <main id="top">
       <!-- ファーストビュー -->
       <div id="firstView">
@@ -46,15 +76,14 @@
       <!-- コーポレートガバナンス -->
       <div class="irPage">
         <article class="irBox">
-          <h2
-            class="borderDeepBlue fontSize26 deepBlue left irHeading"
-            id="third"
-          >
+          <h2 class="borderDeepBlue fontSize26 left irHeading">
             コーポレートガバナンス
           </h2>
-          <div class="irContents bgWhite fontSize20 normal">
-            <ul class="deepBlue irPadding">
-              <li>基本的な考え方</li>
+          <div
+            class="irContents bg-black-card card-radius light-text fontSize20 normal"
+          >
+            <ul class="irPadding">
+              <li style="padding-bottom: 0">基本的な考え方</li>
               <li class="normal black">
                 当社は、株主重視の考え方に立脚し、企業価値の最大化と透明性が高く経営環境の変化に迅速に対応できる経営体制の両立を経営上の最も重要な課題の一つと考えており、取締役会の適時開催、社外取締役による経営モニター機能の充実化、また監査役監査及び内部監査による経営チェック機能の強化、顧問弁護士等の外部の助言も積極的に取り入れ、必要な経営組織や社内体制の整備拡充を随時図っていく方針であります。<br />
                 また当社では、企業の社会的責任を果たしていくため、適時開示の重要性を認識し、情報開示の迅速性・公平性を図るための管理体制の強化も進めてまいります。<br /><br />

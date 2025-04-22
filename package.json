@@ -6,8 +6,7 @@
     "build": "next build",
     "export": "next build && next export",
     "start": "next start",
-    "lint": "next lint",
-    "fix-links": "node fix-news-links.js"
+    "lint": "next lint"
   },
   "dependencies": {
     "axios": "^0.27.2",

@@ -28,6 +28,36 @@
         $("#headerOutPut").load(url);
       </script>
     </div>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh; /* ビューポートの高さを最低値として設定 */
+      }
+
+      main {
+        flex: 1 0 auto;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* フッターを絶対位置で固定する代替方法 */
+      footer {
+        margin-top: auto; /* mainの残りスペースを上部マージンとして使用 */
+      }
+
+      /* 内容が少ない場合でも最小高さを確保 */
+      .irPage {
+        flex-grow: 1;
+      }
+    </style>
     <main id="top">
       <!-- ファーストビュー -->
 
@@ -46,7 +76,10 @@
             <h2 class="irHeading">株主総会関連資料</h2>
 
             <div id="divSelect"></div>
-            <div id="divDataArea" class="bg-black-card light-text"></div>
+            <div
+              id="divDataArea"
+              class="bg-black-card card-radius light-text"
+            ></div>
             <script
               type="text/javascript"
               src="//ssl4.eir-parts.net/Custom/public/parts/3823/ja/parts/ir_material_for_fiscal_ym4.js"

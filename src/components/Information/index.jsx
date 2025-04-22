@@ -31,10 +31,10 @@ const Information = () => {
         <SpotlightCard className="wow fadeInUp">
           <NewsAnnouncement limit={3} />
 
-          <div className="text-center pt-32">
+          <div className="text-center pt-24">
             <Button
               href="/news/ir/news/index.html"
-              text="更新情報一覧"
+              text="ニュース一覧"
               newTab={true}
             />
           </div>
