@@ -1,3 +1,16 @@
+/**
+ * ナビバーを固定するためのスクロール処理
+ */
+$(window).on("scroll", function () {
+  if ($(this).scrollTop() > 320) {
+    $(".navbar").addClass("navbar-fixed");
+    $(".navbar-collapse").addClass("navbar-fixed");
+  } else {
+    $(".navbar").removeClass("navbar-fixed");
+    $(".navbar-collapse").removeClass("navbar-fixed");
+  }
+});
+
 // ///////////////////ファーストビューの設定//////////////////////////
 // function firstViewSizing() {
 //   var W = $("#slideFirst").width();
@@ -69,21 +82,21 @@
 //   modal();
 // }
 // //////////////////////役員名簿の開閉////////////////////
-function officerTable() {
-  var officerButton = $(".tableBox").find("p");
-  officerTable = officerButton.parent().next();
-  officerName = $(".officerName");
-  active = false;
-  close = true;
-  officerTable.hide();
+// function officerTable() {
+//   var officerButton = $(".tableBox").find("p");
+//   officerTable = officerButton.parent().next();
+//   officerName = $(".officerName");
+//   active = false;
+//   close = true;
+//   officerTable.hide();
 
-  officerButton.each(function () {
-    $(this).click(function () {
-      $(this).parent().next().fadeToggle(200);
-      $(this).find("span").toggleClass("turn");
-    });
-  });
-}
+//   officerButton.each(function () {
+//     $(this).click(function () {
+//       $(this).parent().next().fadeToggle(200);
+//       $(this).find("span").toggleClass("turn");
+//     });
+//   });
+// }
 // ////////////////////////スマホメニュー/////////////////////
 // function menu() {
 //   var button = $("#menuButton");

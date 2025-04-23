@@ -3,6 +3,7 @@ import Link from "next/link";
 import Split from "../Split";
 
 // announcement_top.js を移植したもの
+// yarn export でビルドするために、index_nextjs_api.jsx を修正したもの
 const NewsAnnouncement = ({ limit = 3 }) => {
   const [newsItems, setNewsItems] = useState([]);
   const [loading, setLoading] = useState(true);

@@ -1,26 +1,5 @@
 <script>
   $(document).ready(function () {
-    $(".view_timer").each(function (index, target) {
-      var startDate = $(this).attr("data-start-date");
-      var endDate = $(this).attr("data-end-date");
-      var nowDate = new Date();
-
-      if (startDate) {
-        startDate = new Date(startDate);
-      } else {
-        startDate = nowDate;
-      }
-      if (endDate) {
-        endDate = new Date(endDate);
-      }
-
-      if (startDate <= nowDate && (!endDate || nowDate <= endDate)) {
-        $(this).show();
-      } else {
-        $(this).hide();
-      }
-    });
-
     // ハンバーガーメニュー処理
     $(".navbar-toggler").on("click", function (e) {
       e.preventDefault();
@@ -64,13 +43,14 @@
     });
 
     // スクロール処理でナビバー固定
-    $(window).on("scroll", function () {
-      if ($(this).scrollTop() > 480) {
-        $(".navbar").addClass("navbar-fixed");
-      } else {
-        $(".navbar").removeClass("navbar-fixed");
-      }
-    });
+    // $(window).on("scroll", function () {
+    //   console.log($(this).scrollTop());
+    //   if ($(this).scrollTop() > 320) {
+    //     $(".navbar").addClass("navbar-fixed");
+    //   } else {
+    //     $(".navbar").removeClass("navbar-fixed");
+    //   }
+    // });
   });
 </script>
 
@@ -79,22 +59,10 @@
 
 <header class="bg-header" style="width: 100%; height: 100%">
   <nav class="navbar bg-header">
-    <div class="container" style="padding: 0 8px 0 8px">
+    <div class="container" style="padding: 4px 8px 0 8px">
       <!-- ロゴ部分 -->
       <a href="/" class="logo">
-        <!--2022/1/1 00:00:00 update-->
-        <img
-          class="view_timer"
-          data-end-date="2021/12/31 23:59:59"
-          src="/news/image/theme_new.png"
-          alt="アクロディアロゴ"
-        />
-        <img
-          class="view_timer"
-          data-start-date="2022/1/1 00:00:00"
-          src="/news/image/logo/logo_transparent.png"
-          alt="ワイハウロゴ"
-        />
+        <img src="/news/image/logo/logo_transparent.png" alt="ワイハウロゴ" />
       </a>
 
       <!-- ハンバーガーメニューボタン -->
@@ -166,7 +134,7 @@
     position: relative;
     display: flex;
     /* padding: 1rem; */
-    height: 100%;
+    /* height: 100%; */
     width: 100%;
     min-width: 100%;
     z-index: 1000;
@@ -348,6 +316,11 @@
 
   /* レスポンシブ対応 - モバイルメニュー表示部分だけを変更 */
   @media (max-width: 991px) {
+    .navbar,
+    #headerOutPut {
+      min-height: 64px;
+      max-height: 64px;
+    }
     /* ハンバーガーボタンはそのまま */
     .navbar-toggler {
       display: block;
@@ -355,7 +328,8 @@
 
     /* モバイルメニューのスタイルを変更 */
     .navbar-collapse {
-      position: fixed;
+      /* position: fixed; */
+      position: absolute;
       top: 60px;
       left: 0;
       right: 0;
@@ -437,18 +411,35 @@
   }
 
   @media (max-width: 767px) {
+    .navbar,
+    #headerOutPut {
+      padding-top: 4px;
+      min-height: 64px;
+      max-height: 64px;
+    }
     .logo img {
       width: 140px;
     }
   }
 
   @media (max-width: 480px) {
+    .navbar {
+      padding: 0 2%;
+    }
+    .navbar,
+    #headerOutPut {
+      padding-top: 2px;
+      min-height: 48px;
+      max-height: 48px;
+    }
     .logo img {
       width: 120px;
     }
-
+    .navbar-collapse {
+      top: 48px;
+    }
     .navbar-fixed {
-      animation-duration: 0.3s;
+      animation-duration: 0s;
     }
   }
 
