@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useRef, useEffect, useState } from "react";
-import { Formik, Form, Field } from "formik";
 import Link from "next/link";
 import appData from "../../data/app.json";
 import { handleDropdown, handleMobileDropdown } from "../../common/navbar";
@@ -152,6 +151,52 @@ const Navbar = ({ lr, nr, theme }) => {
       }
     };
   }, [isOpen]);
+
+  useEffect(() => {
+    // ページロード時にハッシュがあればスクロール
+    const handleHashScroll = () => {
+      if (router.asPath.includes('#')) {
+        const hash = router.asPath.split('#')[1];
+        if (hash) {
+          setTimeout(() => {
+            const section = document.getElementById(hash);
+            if (section) {
+              const navHeight = navRef.current ? navRef.current.offsetHeight - 100 : 80;
+              const rect = section.getBoundingClientRect();
+              const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+              const offsetPosition = rect.top + scrollTop - navHeight - 20;
+
+              window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth",
+              });
+            }
+          }, 500);
+        }
+      }
+    };
+
+    // ロード完了イベントのリスナーを追加
+    const loadingCompleteHandler = () => {
+      handleHashScroll();
+    };
+    
+    window.addEventListener('loadingComplete', loadingCompleteHandler);
+
+    // ページロード時に実行
+    if (appData.showLoading !== true) {
+      // ローディング画面が無効の場合のみ直ちに実行
+      handleHashScroll();
+    }
+
+    // ルートが変更されたときに実行
+    router.events.on('routeChangeComplete', handleHashScroll);
+    
+    return () => {
+      router.events.off('routeChangeComplete', handleHashScroll);
+      window.removeEventListener('loadingComplete', loadingCompleteHandler);
+    };
+  }, [router, navRef]);
 
   return (
     <nav

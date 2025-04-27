@@ -2,8 +2,11 @@ import React from "react";
 import Script from "next/script";
 import loadingPace from "../../common/loadingPace.js";
 import appData from "../../data/app.json";
+import { useRouter } from "next/router";
 
 const LoadingScreen = () => {
+  const router = useRouter();
+
   React.useEffect(() => {
     let bodyEl = document.querySelector("body");
     if (appData.showLoading) {
@@ -45,7 +48,12 @@ const LoadingScreen = () => {
             // 保存していたスクロール位置に戻る
             window.scrollTo(0, scrollPos);
             
-            // console.log("スクロール有効化完了: " + new Date().toTimeString());
+            // ローディング完了後にハッシュがある場合はスクロール処理を実行
+            if (router.asPath.includes('#')) {
+              // カスタムイベントを発行してNavbarに通知
+              const event = new CustomEvent('loadingComplete');
+              window.dispatchEvent(event);
+            }
           }, 1500);
         });
       }
@@ -69,7 +77,7 @@ const LoadingScreen = () => {
       bodyEl.style.top = "";
       document.documentElement.style.overflow = "auto";
     };
-  }, []);
+  }, [router.asPath]);
 
   return (
     <>

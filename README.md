@@ -56,6 +56,64 @@ whdc-web/
 └── package.json          # プロジェクト設定と依存関係
 ```
 
+## ローディング処理の仕組み
+
+サイトのローディング処理は以下のコンポーネントで実装されています：
+
+- `src/components/Loading-Screen/index.jsx` - メインのローディング画面コンポーネント
+- `src/common/loadingPace.js` - Pace.js を利用したローディングハンドラ
+
+### 基本的な仕組み
+
+1. `appData.json`の`showLoading`フラグでローディング画面の表示/非表示を制御
+2. ローディング中はスクロールを無効化し、body に固定スタイルを適用
+3. ローディング完了後は`loadingComplete`カスタムイベントを発行し、スクロールを再有効化
+
+### ハッシュリンク対応
+
+URL にハッシュが含まれる場合（例: `/#section-id`）、以下の処理が行われます：
+
+1. ローディング完了後に`loadingComplete`イベントが発行される
+2. `Navbar`と`CompanyPhilosophy`などのコンポーネントがこのイベントをリッスン
+3. イベント発火時に対象セクションへスムーズにスクロール
+
+### 使用方法
+
+ローディングイベントを待機して処理を行う場合：
+
+```javascript
+// ローディング完了イベントをリッスン
+const loadingCompleteHandler = () => {
+  // ローディング完了後の処理
+  console.log("ローディングが完了しました");
+};
+
+window.addEventListener("loadingComplete", loadingCompleteHandler, {
+  once: true,
+});
+
+// フォールバック（4秒後にイベントが来なかった場合の処理）
+setTimeout(() => {
+  const body = document.querySelector("body");
+  if (
+    body &&
+    !body.classList.contains("pace-running") &&
+    body.style.overflow !== "hidden" &&
+    body.style.position !== "fixed"
+  ) {
+    // ページがロード完了状態の場合の処理
+    window.removeEventListener("loadingComplete", loadingCompleteHandler);
+  }
+}, 4000);
+```
+
+### 注意事項
+
+- ローディング中は`body`要素のスクロールが無効化されるため、動的コンテンツの初期化はローディング完了後に行う
+- `appData.showLoading = false`に設定するとローディング画面が表示されない
+- URL ハッシュによるスクロールはローディング完了後に自動実行される
+- `loadingComplete`イベントが発火しない場合に備え、フォールバックタイマーを設定する
+
 ## 静的エクスポート（IR ページ用）
 
 IR ページは旧サイトからそのままのため、このプロジェクト全体を静的エクスポートしてデプロイします。

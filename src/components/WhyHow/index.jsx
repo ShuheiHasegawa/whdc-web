@@ -1,6 +1,4 @@
 import React from "react";
-import Split from "../Split";
-import Link from "next/link";
 import SectionTitle from "../SectionTitle";
 import Button from "../Button";
 

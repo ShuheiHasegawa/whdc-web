@@ -79,7 +79,7 @@ const IntroVideo = () => {
     <header
       className="slider slider-prlx fixed-slider text-center"
       style={{
-        height: "100vh",
+        height: "calc(100vh - var(--header-height))",
         position: "relative",
         zIndex: 1,
       }}
@@ -87,7 +87,7 @@ const IntroVideo = () => {
       <div
         className="video-container parallax-slider"
         style={{
-          height: "100vh",
+          height: "100%",
           position: "relative",
         }}
       >
@@ -100,7 +100,7 @@ const IntroVideo = () => {
           style={{
             position: "absolute",
             width: "100%",
-            height: "100vh",
+            height: "100%",
             top: 0,
             left: 0,
             objectFit: "cover",
@@ -115,7 +115,7 @@ const IntroVideo = () => {
           className="caption"
           style={{
             position: "absolute",
-            top: "30vh",
+            top: "26vh",
             left: "0",
             right: "0",
             margin: "0 auto",

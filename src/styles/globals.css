@@ -8,6 +8,8 @@
  * 枠（灰色）：2B2B2B
  */
 :root {
+  --header-height: 80px;
+
   --bg-header: #000000;
   --bg-footer: #000000;
   --bg-black: #0c0c0c;
@@ -15,6 +17,12 @@
   --bg-blue: #009de7;
   --color-black: #0c0c0c;
   --color-blue: #009de7;
+}
+
+@media screen and (max-width: 991px) {
+  :root {
+    --header-height: 60px;
+  }
 }
 
 .bg-header {
@@ -355,12 +363,15 @@ span.nav-link:hover {
   width: 100%;
   background: #fff;
   border-radius: 2px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
   transition: 0.3s ease-in-out;
 }
 
 /* 3本線の位置を設定 */
 .hamburger-icon .first-line {
-  top: 0;
+  top: 0px;
 }
 
 .hamburger-icon .middle-line {
@@ -368,22 +379,23 @@ span.nav-link:hover {
 }
 
 .hamburger-icon .last-line {
-  bottom: 0;
+  top: 16px;
 }
 
 /* 開いた状態のアニメーション */
 .hamburger-icon .first-line.open {
   top: 8px;
-  transform: rotate(45deg);
+  transform: rotate(135deg);
 }
 
 .hamburger-icon .middle-line.open {
   opacity: 0;
+  left: -30px;
 }
 
 .hamburger-icon .last-line.open {
-  bottom: 8px;
-  transform: rotate(-45deg);
+  top: 8px;
+  transform: rotate(-135deg);
 }
 
 /* ライトテーマの場合 */
@@ -484,12 +496,6 @@ span.nav-link:hover {
 
 .accordion-header:hover {
   background-color: rgba(255, 255, 255, 0.05);
-}
-
-.accordion-header.active {
-  /* padding-bottom: 0; */
-  /* background-color: rgba(255, 255, 255, 0.1); */
-  /* border-bottom: 1px solid rgba(255, 255, 255, 0.1); */
 }
 
 .accordion-icon {

@@ -3,47 +3,90 @@ import React, { useEffect } from "react";
 import SectionHeader from "../SectionHeader";
 import TitleLeftLine from "../TitleLeftLine";
 import CenteredLayoutContainer from "../CenteredLayoutContainer";
+import appData from "../../data/app.json";
 
 const CompanyPhilosophy = () => {
   // スムーズスクロールのためのeffectを追加
   useEffect(() => {
-    // ハッシュがあればスクロールする
-    if (typeof window !== "undefined" && window.location.hash) {
-      const id = window.location.hash.substring(1); // #を除いたidを取得
-      const element = document.getElementById(id);
+    // ヘッダーの高さを取得
+    const getHeaderHeight = () => {
+      const navbar = document.querySelector('.navbar');
+      const fixedHeader = document.querySelector('.navbar-fixed');
       
-      if (element) {
-        // 少し遅延させてDOMが完全に描画されてから行う
-        setTimeout(() => {
-          element.scrollIntoView({ 
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }, 300);
-      }
-    }
-    
-    // リンククリック時のハンドラーを追加
-    const handleAnchorClick = (e) => {
-      const targetId = e.target.getAttribute('href');
-      if (targetId && targetId.startsWith('#')) {
-        e.preventDefault();
-        const id = targetId.substring(1);
-        const element = document.getElementById(id);
+      if (fixedHeader) return fixedHeader.offsetHeight;
+      if (navbar) return navbar.offsetHeight;
+      return 86; // デフォルト値
+    };
+
+    // 特定要素へのスクロール関数
+    const scrollToElement = (elementId) => {
+      const element = document.getElementById(elementId);
+      if (!element) return;
+      
+      const headerHeight = getHeaderHeight();
+      const buffer = 40; // スクロール余白
+      const rect = element.getBoundingClientRect();
+      const scrollY = window.scrollY || window.pageYOffset;
+      const targetY = rect.top + scrollY - headerHeight - buffer;
+      
+      window.scrollTo({
+        top: targetY,
+        behavior: 'smooth'
+      });
+    };
+
+    // URL ハッシュに基づくスクロール処理
+    const handleHashScroll = () => {
+      if (typeof window === "undefined" || !window.location.hash) return;
+      
+      const id = window.location.hash.substring(1);
+      
+      // ローディング状態に応じた処理
+      if (appData.showLoading) {
+        // ローディング完了イベントを待機
+        const loadingCompleteHandler = () => {
+          setTimeout(() => scrollToElement(id), 300);
+        };
         
-        if (element) {
-          element.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-          
-          // URLをアップデート
-          history.pushState(null, null, targetId);
+        window.addEventListener('loadingComplete', loadingCompleteHandler, { once: true });
+        
+        // フォールバック処理
+        setTimeout(() => {
+          const body = document.querySelector('body');
+          if (body && !body.classList.contains('pace-running') && 
+              body.style.overflow !== 'hidden' && body.style.position !== 'fixed') {
+            scrollToElement(id);
+          }
+        }, 4000);
+      } else {
+        // ローディングがない場合は直接実行
+        if (document.readyState === 'complete') {
+          setTimeout(() => scrollToElement(id), 300);
+        } else {
+          window.addEventListener('load', () => {
+            setTimeout(() => scrollToElement(id), 300);
+          }, { once: true });
         }
       }
     };
     
-    // ページ内のすべてのアンカーリンクに適用
+    // ハッシュスクロール実行
+    handleHashScroll();
+    
+    // アンカーリンクのクリックハンドラー
+    const handleAnchorClick = (e) => {
+      const anchor = e.currentTarget;
+      if (!anchor.getAttribute('href') || !anchor.getAttribute('href').startsWith('#')) return;
+      
+      e.preventDefault();
+      const href = anchor.getAttribute('href');
+      const id = href.substring(1);
+      
+      window.history.pushState(null, null, href);
+      scrollToElement(id);
+    };
+    
+    // ページ内のハッシュリンクにイベントを追加
     const links = document.querySelectorAll('a[href^="#"]');
     links.forEach(link => {
       link.addEventListener('click', handleAnchorClick);

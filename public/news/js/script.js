@@ -4,10 +4,10 @@
 $(window).on("scroll", function () {
   if ($(this).scrollTop() > 320) {
     $(".navbar").addClass("navbar-fixed");
-    $(".navbar-collapse").addClass("navbar-fixed");
+    // $(".navbar-collapse").addClass("navbar-fixed");
   } else {
     $(".navbar").removeClass("navbar-fixed");
-    $(".navbar-collapse").removeClass("navbar-fixed");
+    // $(".navbar-collapse").removeClass("navbar-fixed");
   }
 });
 
